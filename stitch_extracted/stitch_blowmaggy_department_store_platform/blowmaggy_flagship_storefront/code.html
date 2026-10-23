@@ -1,0 +1,765 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-container":"#ba012d","on-primary-container":"#636466","on-surface-variant":"#c5c7c9","primary-container":"#e2e2e4","surface":"#121316","on-primary-fixed":"#1a1c1d","secondary":"#ffb3b3","on-secondary":"#680014","tertiary-fixed":"#7df4ff","surface-variant":"#343538","on-tertiary-fixed-variant":"#004f54","inverse-primary":"#5d5e60","inverse-surface":"#e3e2e6","on-tertiary-fixed":"#002022","tertiary-fixed-dim":"#00dbe9","surface-container-high":"#292a2d","on-secondary-fixed":"#400009","on-surface":"#e3e2e6","tertiary-container":"#7df4ff","on-error":"#690005","on-error-container":"#ffdad6","surface-bright":"#38393c","on-secondary-container":"#ffc7c6","outline-variant":"#44474a","surface-container-lowest":"#0d0e11","on-tertiary-container":"#006f77","error-container":"#93000a","primary-fixed-dim":"#c6c6c8","inverse-on-surface":"#303034","on-primary":"#2f3132","secondary-fixed":"#ffdad9","primary-fixed":"#e2e2e4","surface-container-low":"#1b1b1f","on-secondary-fixed-variant":"#920021","on-background":"#e3e2e6","on-primary-fixed-variant":"#454749","surface-tint":"#c6c6c8","surface-container":"#1f1f23","error":"#ffb4ab","on-tertiary":"#00363a","surface-container-highest":"#343538","secondary-fixed-dim":"#ffb3b3","tertiary":"#ffffff","background":"#121316","primary":"#ffffff","outline":"#8f9194","surface-dim":"#121316"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-mobile":"1rem","space-xl":"2.5rem","space-md":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","margin-tablet":"1.5rem","margin":"3rem","gutter":"1.5rem","gutter-mobile":"0.75rem","space-lg":"1.5rem"},fontFamily:{"price-card":["Space Grotesk"],"display-hero-mobile":["Bodoni Moda"],"label-lg":["Space Grotesk"],"headline-lg-mobile":["Bodoni Moda"],"headline-lg":["Bodoni Moda"],"headline-md":["Bodoni Moda"],"display-hero":["Bodoni Moda"],"label-badge":["Space Grotesk"],"body-sm":["Hanken Grotesk"],"body-md":["Hanken Grotesk"],"title-editorial":["Bodoni Moda"],"label-md":["Space Grotesk"],"headline-sm":["Bodoni Moda"],"price-hero":["Space Grotesk"],"body-lg":["Hanken Grotesk"]},fontSize:{"price-card":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"700"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-md":["28px",{"lineHeight":"36px","fontWeight":"600"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-badge":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"title-editorial":["18px",{"lineHeight":"24px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"600"}],"headline-sm":["22px",{"lineHeight":"30px","fontWeight":"500"}],"price-hero":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}]}}}}</script></head><body class="bg-background text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]" style="background: linear-gradient(135deg, rgba(30, 20, 52, 0.95), rgba(16, 25, 50, 0.95)); border-bottom: 1px solid rgba(147, 197, 253, 0.15); box-shadow: rgba(99, 102, 241, 0.12) 0px 4px 20px -2px;"><div class="w-full bg-surface-container-lowest text-on-surface-variant font-label-badge text-label-badge tracking-widest uppercase py-space-xs px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between" style="background: rgba(15, 12, 28, 0.85); border-bottom: 1px solid rgba(168, 85, 247, 0.15);"><div class="flex items-center gap-space-sm mx-auto"><span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span><span class="">PREVIEW SALE: Enjoy free delivery on multi-department orders over $75 with code ONECART • 24/7 Concierge Support</span><span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span></div></div><div class="h-20 w-full px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><img alt="Blowmaggy Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UADMaEayZO_xcBmngPCX5LyZIt1G7x-oeCDUy_llM1iaH6jRZm3BMMwm3VnKS1TkhaYmsBSQeZ_NUoOybgtE03a2lg4tfy5JRmbY4c4OhZrV0knNSP2thrgqySDOhhvzdAPufi4tRWt0iwK2Vv2M2kcHXPCcDbc2dP2jSYt6ZcbrXSOBv67_NLwf9JHS75rjCx7Y7Kl35I9M-QM_30yBAJw1EBw-UfBi1BmJZehBlJD85k5iDJ5WH7u6Ly"><div class="hidden xl:flex flex-col"><span class="font-label-badge text-label-badge uppercase tracking-wider text-outline">Unified Department Store</span></div></div><div class="flex-1 max-w-3xl hidden md:flex items-center"><div class="w-full flex items-center bg-surface-container-low rounded-lg p-space-xs"><div class="relative shrink-0"><select class="bg-surface-container-high text-on-surface font-label-md text-label-md px-space-sm py-space-xs rounded-DEFAULT appearance-none cursor-pointer focus:outline-none pr-space-md"><option>All Departments</option><option>Fashion</option><option>Beauty</option><option>Electronics</option><option>Home &amp; Living</option><option>Grocery</option><option>Kids &amp; Toys</option></select><span class="material-symbols-outlined text-[16px] text-outline absolute right-1 top-1.5 pointer-events-none">expand_more</span></div><div class="w-px h-5 bg-surface-variant mx-space-xs"></div><div class="flex-1 flex items-center px-space-xs"><span class="material-symbols-outlined text-outline text-[18px] mr-space-xs">search</span><input class="w-full bg-transparent text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none" placeholder="Search apparel, gadgets, pantry items, home curation..." type="text"></div><span class="font-label-badge text-label-badge text-outline uppercase px-space-xs hidden lg:inline">⌘K</span></div></div><div class="flex items-center gap-space-sm lg:gap-space-md shrink-0"><div class="relative group hidden sm:block"><button class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span><span class="font-label-badge text-label-badge uppercase">Role: Shopper</span><span class="material-symbols-outlined text-[14px]">arrow_drop_down</span></button></div><a class="relative p-2 text-on-surface-variant hover:text-on-surface transition-colors" data-path="wishlist" href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span class="absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary-container text-on-surface font-label-badge text-label-badge flex items-center justify-center">4</span></a><a class="flex items-center gap-space-xs bg-primary text-on-primary px-space-md py-2 rounded-DEFAULT font-label-lg text-label-lg hover:bg-primary-container hover:text-on-primary-container transition-all" data-path="cart" href="#"><span class="material-symbols-outlined text-[18px]">shopping_bag</span><span class="hidden sm:inline font-price-card text-price-card text-[14px]">3 items • $348.50</span><span class="sm:hidden font-label-md text-label-md">3</span></a><div class="flex items-center gap-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div><div class="w-full bg-surface-container-low px-margin-mobile md:px-margin-tablet lg:px-margin" style="background: rgba(18, 16, 36, 0.85); border-top: 1px solid rgba(147, 197, 253, 0.08);"><nav class="flex items-center gap-space-md md:gap-space-lg overflow-x-auto py-space-xs" data-active-classes="text-primary font-bold shadow-[inset_0_-2px_0_0_#ffffff]"><a aria-current="page" class="shrink-0 py-space-xs tracking-wider uppercase transition-colors text-primary font-bold shadow-[inset_0_-2px_0_0_#ffffff]" data-path="home" href="#">All Departments</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="fashion-department" href="#">Fashion</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="beauty-department" href="#">Beauty</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="electronics-department" href="#">Electronics</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="home-living-department" href="#">Home &amp; Living</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="grocery-department" href="#">Grocery</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="kids-toys-department" href="#">Kids &amp; Toys</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="todays-deals" href="#">Today's Deals</a></nav></div></header><main class="w-full pt-36 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Dynamic Notification Bar / Bundle Toast Overlay -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-500 ease-out flex items-center gap-space-sm bg-surface-container-highest text-on-surface p-space-md rounded-xl shadow-2xl max-w-md pointer-events-none" id="cart-toast">
+<div class="w-10 h-10 rounded-lg bg-secondary-container text-on-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">shopping_cart_checkout</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md uppercase tracking-wider text-secondary">Added to Universal Cart</p>
+<p class="font-body-sm text-body-sm text-on-surface truncate" id="toast-message">Multi-department item synced</p>
+</div>
+<span class="font-price-card text-price-card text-primary text-[14px]" id="toast-price">+$0.00</span>
+</div>
+<!-- Hero Editorial Section -->
+<section class="relative w-full px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl lg:py-24 overflow-hidden">
+<!-- Subtle Ambient Radial Glow -->
+<div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-secondary-container/20 blur-[120px] pointer-events-none"></div>
+<div class="absolute top-1/2 -right-32 w-[32rem] h-[32rem] rounded-full bg-tertiary-fixed-dim/10 blur-[140px] pointer-events-none"></div>
+<div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+<!-- Left Narrative Column (7 cols) -->
+<div class="lg:col-span-7 flex flex-col items-start space-y-space-md z-10">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-on-surface-variant">The Unified Flagship Model</span>
+</div>
+<h1 class="font-display-hero text-display-hero md:text-[68px] md:leading-[1.08] text-on-surface font-normal" style="background: linear-gradient(135deg, rgb(233, 213, 255) 0%, rgb(196, 181, 253) 40%, rgb(147, 197, 253) 80%, rgb(96, 165, 250) 100%) text; -webkit-text-fill-color: transparent;">
+          The Universal <span class="italic font-light">Department</span> Store.
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+          Curated fashion, biocompatible beauty, precision tech, and single-estate pantry essentials — pooled into one physical box, one consolidated receipt, and one checkout.
+        </p>
+<!-- CTA Buttons Row -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-sm">
+<a class="px-space-lg py-space-md bg-primary text-on-primary font-label-lg text-label-lg rounded-DEFAULT hover:bg-secondary-container hover:text-on-surface transition-all duration-300 shadow-xl flex items-center gap-space-xs group" href="#featured-products">
+<span class="">Shop Multi-Department Edit</span>
+<span class="material-symbols-outlined text-[18px] transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<a class="px-space-lg py-space-md bg-surface-container-high text-on-surface font-label-lg text-label-lg rounded-DEFAULT hover:bg-surface-bright transition-all duration-300 flex items-center gap-space-xs" href="#departments-grid">
+<span class="material-symbols-outlined text-[18px] text-outline">tune</span>
+<span class="">Department Directory</span>
+</a>
+</div>
+<!-- Metric Ticker Strip -->
+<div class="pt-space-lg mt-space-md w-full grid grid-cols-3 gap-space-sm">
+<div class="bg-surface-container-low p-space-sm rounded-DEFAULT flex flex-col">
+<span class="font-price-card text-price-card text-on-surface text-[20px]">6 Flagships</span>
+<span class="font-label-badge text-label-badge uppercase text-outline">Unified In One Cart</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-DEFAULT flex flex-col">
+<span class="font-price-card text-price-card text-on-surface text-[20px]">Single Box</span>
+<span class="font-label-badge text-label-badge uppercase text-outline">Zero Split Deliveries</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-DEFAULT flex flex-col">
+<span class="font-price-card text-price-card text-on-surface text-[20px]">14,000+</span>
+<span class="font-label-badge text-label-badge uppercase text-outline">Verified Active SKUs</span>
+</div>
+</div>
+</div>
+<!-- Right Editorial Collage Column (5 cols) -->
+<div class="lg:col-span-5 relative flex items-center justify-center">
+<div class="w-full relative max-w-lg lg:max-w-none">
+<!-- Main Hero Editorial Visual -->
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-2xl bg-surface-container-low">
+<div class="w-full h-full bg-cover bg-center transform hover:scale-105 transition-transform duration-700" data-alt="High-contrast luxury editorial collage featuring an elegant model in autumn wool tailoring, flanked by minimalist studio headphones, luxury amber skincare bottles, and architectural stoneware ceramics under moody studio lighting in deep obsidian and alabaster tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDclMvyUukCXvHUf_D5w-9DlHvLxU4zYUYI6w9VYAuByBzMjCKtQQ7TO-tW3orbl_G0RdjiAKUiIPZLlgw2bo8Ufys4evBQblPz5TU1_-fyuig8WZOJ-GiUTdFG3EqKBTAbpmmWzETuoVbDkXefuZoDiinM4rs1R2fFfUugbZzsDBcTAWrAchm5ZDI6Dwf_YKNXULbLhdSE-lIvUjr31VvyBCXExmgM34zVBE4j_lwl7oINj3Gaj9En4w')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-80"></div>
+<!-- Live Curated Tag Inside Visual -->
+<div class="absolute bottom-6 left-6 right-6 p-space-md bg-surface/90 backdrop-blur-md rounded-lg shadow-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-3 h-3 rounded-full bg-secondary-container"></span>
+<div>
+<p class="font-label-badge text-label-badge uppercase tracking-wider text-outline">Autumn Atelier Edit</p>
+<p class="font-title-editorial text-title-editorial text-on-surface">Curated by Blowmaggy Tokyo</p>
+</div>
+</div>
+<span class="font-price-card text-price-card text-secondary">$395</span>
+</div>
+</div>
+<!-- Asymmetric Overlapping Mini Card -->
+<div class="absolute -top-6 -left-6 hidden sm:flex items-center gap-space-sm bg-surface-container-highest/95 backdrop-blur-md p-space-sm rounded-lg shadow-xl z-20">
+<div class="w-12 h-12 rounded-DEFAULT bg-surface-container-high overflow-hidden shrink-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close up photograph of sleek matte black precision studio headphones resting on an architecturally fluted stone pedestal, warm rim light." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8SsIOiCrHjfTc6sR13MyVJeZCpS-ynuIgMgpHdHDvZ8eoKKC1aZ-o2lSuK3NLQfvl7Bl3jKWyUqfK6IFimUIBntNoHMc-cULvLiYLL4VSa7Wjj9UJepr2Clmb92XDiAiKAUXOeDnne00hlqfWjTxGKouNJJCxECCgF8Nri-E7L1PBj8mb8ZA5leEov-E7VVEtOshX6tqbn-sh-Ugx_UBZHSliaw9EMVR0tI0-OVfkW9rX9T0RmzmMkQ')"></div>
+</div>
+<div class="pr-space-xs">
+<span class="font-label-badge text-label-badge uppercase text-tertiary-fixed-dim">Cross-Category Sync</span>
+<p class="font-label-md text-label-md text-on-surface">Studio Reference ANC</p>
+<span class="font-price-card text-price-card text-[12px] text-outline">$249.00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Micro-Banner: The Departmental Architecture Protocol -->
+<div class="w-full bg-surface-container-lowest py-space-sm px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between overflow-x-auto gap-space-lg text-outline font-label-badge text-label-badge uppercase tracking-widest">
+<span class="flex items-center gap-2 shrink-0"><span class="w-1.5 h-1.5 bg-secondary-container rounded-full"></span> 01 / Unified Logistics Node</span>
+<span class="flex items-center gap-2 shrink-0"><span class="w-1.5 h-1.5 bg-tertiary-fixed-dim rounded-full"></span> 02 / Realtime Cold-Chain &amp; Fragile Sync</span>
+<span class="flex items-center gap-2 shrink-0"><span class="w-1.5 h-1.5 bg-secondary-fixed-dim rounded-full"></span> 03 / Multi-Brand One-Tap Warranty</span>
+<span class="flex items-center gap-2 shrink-0"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span> 04 / Carbon Neutral Unified Box</span>
+</div>
+<!-- Six Core Department Discovery Grid -->
+<section class="w-full px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl" id="departments-grid">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Structured Directory</span>
+<span class="text-outline">•</span>
+<span class="font-label-badge text-label-badge text-outline">Fall/Winter Protocol</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-normal" style="background: linear-gradient(135deg, rgb(221, 214, 254) 0%, rgb(167, 139, 250) 50%, rgb(147, 197, 253) 100%) text; -webkit-text-fill-color: transparent;">Six Flagship Departments</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
+        Zero fragmentation. Add cashmere knitwear, botanical toners, studio drivers, and cold-pressed olive oils in the same transaction.
+      </p>
+</div>
+<!-- 6 Column / Responsive Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<!-- Card 1: Fashion -->
+<div class="group relative bg-surface-container-low rounded-lg overflow-hidden flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Monochrome editorial shot of luxury cashmere overcoat and structured tailored charcoal trousers worn by a fashion model walking through an architecturally sharp concrete atrium with soft side shadows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBO-5YrkyPJ1FBo3MbE8VyZOWOhoVLItSQ8qAC_2KwTFneJ5y_AZXoEVhVe5qCwvJtcq6yZKMpEe-dbHZtc4kqYEqT0sYbrADKh5y3mfBLoCeyjmn_G5c6_HpwfDzMLfi6831xocbNfdc6sbWWBV06lAmItQ1hS9pIfLDgA02676iawdYfR5TtgurFcr0BXxy536DlZNDkaz9umTEcg-9g9m6Nnr7lS0k-GXMEMuB1ajg_0XRTGExj-5Q')"></div>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-space-xs py-1 rounded-DEFAULT flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="font-label-badge text-label-badge uppercase text-on-surface">Fashion Department</span>
+</div>
+<div class="absolute bottom-3 right-3 font-label-badge text-label-badge uppercase px-2 py-1 bg-surface-container-lowest/80 text-outline-variant rounded-DEFAULT">
+            3,410 SKUs
+          </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">Autumn Tailoring &amp; Cashmere</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Italian spun merino, structural trench coats, and bespoke leather goods.</p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Atelier Grade</span>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-on-surface hover:text-primary group-hover:translate-x-1 transition-transform" href="#">
+<span class="">Enter Atelier</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 2: Beauty -->
+<div class="group relative bg-surface-container-low rounded-lg overflow-hidden flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Still life of frosted glass cosmetic vials, glass pipette with golden botanical squalane serum, wet dark slate textures with glistening water drops and delicate jasmine botanical accents." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCHkvSrC5RmrZJdjonXFjLZcFGu39JKaeg6_oLz6Llj2dt3twy6eJifeCmAZ1lEHypZOtdRGhU1Dwbnp2dHyk42-iazmMbEVV_WW6wY5nVa3RrTQWXSvAUEMGgfiklgvngnqdzRP83As7odb7NLL4zFTkNgGT2y4OJwDVSo33GA189fWD-O2MXTZlKhR4uUTxReGDxj8EcoIYaTAwBttPEasrzMxZqbBZFVY0K3NjGWQBOdJzIecMyJCQ')"></div>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-space-xs py-1 rounded-DEFAULT flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="font-label-badge text-label-badge uppercase text-on-surface">Beauty &amp; Apothecary</span>
+</div>
+<div class="absolute bottom-3 right-3 font-label-badge text-label-badge uppercase px-2 py-1 bg-surface-container-lowest/80 text-outline-variant rounded-DEFAULT">
+            1,840 SKUs
+          </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-tertiary-fixed-dim transition-colors">Biocompatible Skincare &amp; Scents</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Micro-batch formulations, cold-extracted squalane, and niche perfumery.</p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-md text-label-md text-tertiary-fixed-dim uppercase tracking-wider">Clinical Clean</span>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-on-surface hover:text-primary group-hover:translate-x-1 transition-transform" href="#">
+<span class="">View Apothecary</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 3: Electronics -->
+<div class="group relative bg-surface-container-low rounded-lg overflow-hidden flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Minimalist desktop audio setup featuring matte gunmetal studio monitor headphones, anodized aluminum rotary volume knob, and braided black cables on a textured ebony desk." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_wuSRaqlkS4r9kAt0tklcYHIbaP65M1VhwEb3eesujIDofVC1eKLns5zToeS0nM56Q1K7NdhdbZEAfhL7JcHFEoAE97tKp5RSrkfkcV8XJN2e4zc63_WxZpZZ8hVMqDxTj63bB1VWq_1-CCvDvx5Zs5Gu1ZpSiU8keCMfy0DjseBp8zEnYuGAcHOP3_0ejnu3vwKhjHc2hjy009b9WlGAz9I07C9ujGT3Ygd_gypFCPFLl26-1M5JyA')"></div>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-space-xs py-1 rounded-DEFAULT flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-badge text-label-badge uppercase text-on-surface">Electronics Lab</span>
+</div>
+<div class="absolute bottom-3 right-3 font-label-badge text-label-badge uppercase px-2 py-1 bg-surface-container-lowest/80 text-outline-variant rounded-DEFAULT">
+            890 SKUs
+          </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Hi-Fi Audio &amp; Workstations</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Lossless wireless sound, ergonomic hardware, and machined accessories.</p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Precision Tech</span>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-on-surface hover:text-primary group-hover:translate-x-1 transition-transform" href="#">
+<span class="">Inspect Lab</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 4: Home & Living -->
+<div class="group relative bg-surface-container-low rounded-lg overflow-hidden flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Architectural interior detail featuring sculptural raw ceramic vases, coarse Belgian linen throws, and a dark enameled cast iron pot sitting on a raw honed limestone plinth under soft afternoon shadows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_UOu4ps3es2aFyp5IS-1zaDHK-WbUr7sV-7r5JrtbLi6ro9OpzX2WVNKRY0k_PaGqxPdF83S0wx72hOewdITudV7dvTGvoSetr7KBKNG51pGsUyrjaRw7jKXKuz7fFIa9M8NlmcdZA-M2qwx-ShBFLyUxoRqJ3RmURK0li9Rrfyk4WsLSvWdrxnDpAbjnHsW6U1J-D6KNwxFALd2WWqpMqlBjWJ7IRkFmwxkJYTkrUR8F7_Kx55Qv8g')"></div>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-space-xs py-1 rounded-DEFAULT flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span class="font-label-badge text-label-badge uppercase text-on-surface">Home &amp; Living</span>
+</div>
+<div class="absolute bottom-3 right-3 font-label-badge text-label-badge uppercase px-2 py-1 bg-surface-container-lowest/80 text-outline-variant rounded-DEFAULT">
+            2,150 SKUs
+          </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary-fixed transition-colors">Architectural Ceramics &amp; Linen</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Stoneware vessels, heavy gauge kitchen cookware, and tactile textiles.</p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Living Objects</span>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-on-surface hover:text-primary group-hover:translate-x-1 transition-transform" href="#">
+<span class="">Curation Catalog</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 5: Grocery -->
+<div class="group relative bg-surface-container-low rounded-lg overflow-hidden flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Gourmet pantry display with dark green glass bottle of cold-pressed Sicilian olive oil, a jar of golden truffle honey with honeycomb chunks, and organic dried lavender blossoms on a dark charcoal wooden table." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCjCO2BlbOIIByBI4pr0ZLi0RDSyU9RnReQuyofMV8CY6DvO2zTHlVVA6WDaC6dPG8t1e8yHkYrUaw9-E7Ey0Ckub0Iuram0MH0pWkGmzhzIgZBjbAiAy8D98IuY8U0kywmRu52KY4O5mPKwRRgEPNHaSYoMpn7Les67WCpTFYaIUZSGwDUH94QKynET-8Qr66U-JxREnqVDqvb6YVcv_sZDWiDzJfh94PVHQDQgppWUfZRxyqKKIDZow')"></div>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-space-xs py-1 rounded-DEFAULT flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-label-badge text-label-badge uppercase text-on-surface">Pantry &amp; Gourmet</span>
+</div>
+<div class="absolute bottom-3 right-3 font-label-badge text-label-badge uppercase px-2 py-1 bg-surface-container-lowest/80 text-outline-variant rounded-DEFAULT">
+            4,520 SKUs
+          </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary-container transition-colors">Cold-Pressed Oils &amp; Single-Origin</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Umbrian truffle reductions, volcanic salt flakes, and estate harvests.</p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Pantry Direct</span>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-on-surface hover:text-primary group-hover:translate-x-1 transition-transform" href="#">
+<span class="">Explore Pantry</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 6: Kids & Toys -->
+<div class="group relative bg-surface-container-low rounded-lg overflow-hidden flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
+<div class="relative w-full aspect-[16/10] overflow-hidden bg-surface-container-lowest">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Montessori heirloom wooden geometric puzzles, precision-carved walnut planetary orbit model, and minimalist brass learning apparatus on a warm dark ashwood desk." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCzbsosNyoOZD57dZ32r5oifEaW4m0-6tpBptabUMRLjBiQd0PpIsNJDoTtyQtAAKIHvshmTu1YTCsNMGRiyoht4ULF9QM95VVzc5nr12BRLG1oy5yal2gZ4iUHAkyrLtGSMP9nEnBORLPfuIwRUMRs61_ToFatr6eblo5Q4_vvQmJ7vkWJkbSmsekaJs5sARKvhRwGflRt5x_JRCsJ7dUn94EtS6wck4yV4j-RI4Rr_dAot5cRPBHEpQ')"></div>
+<div class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-space-xs py-1 rounded-DEFAULT flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-badge text-label-badge uppercase text-on-surface">Kids &amp; Learning</span>
+</div>
+<div class="absolute bottom-3 right-3 font-label-badge text-label-badge uppercase px-2 py-1 bg-surface-container-lowest/80 text-outline-variant rounded-DEFAULT">
+            1,200 SKUs
+          </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">Montessori Woodcraft &amp; STEM</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Non-toxic heirloom wooden joinery, physical computing, and optics kits.</p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Heirloom Grade</span>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-on-surface hover:text-primary group-hover:translate-x-1 transition-transform" href="#">
+<span class="">View Collection</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Highlight: Cross-Department Cart Builder -->
+<section class="w-full px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl bg-surface-container-lowest">
+<div class="w-full p-space-lg md:p-space-xl bg-surface-container-low rounded-xl relative overflow-hidden">
+<!-- Glow effect -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-secondary-container/15 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="lg:max-w-md">
+<div class="inline-flex items-center gap-1.5 px-space-xs py-1 rounded-full bg-surface-container-highest mb-space-xs">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">sync_alt</span>
+<span class="font-label-badge text-label-badge uppercase text-on-surface-variant">Architecture Demonstration</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-normal" style="background: linear-gradient(135deg, rgb(221, 214, 254) 0%, rgb(167, 139, 250) 50%, rgb(147, 197, 253) 100%) text; -webkit-text-fill-color: transparent;">Cross-Department Unified Bundle</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            Experience our consolidated checkout logic. Combine high-spec electronics with clinical skincare and artisanal gastronomy with zero split shipping fees.
+          </p>
+<div class="mt-space-md flex items-center gap-space-md">
+<div>
+<span class="font-label-badge text-label-badge uppercase text-outline">Bundle Total (3 Items)</span>
+<div class="font-price-hero text-price-hero text-primary flex items-baseline gap-2">
+<span class="">$281.00</span>
+<span class="font-body-sm text-body-sm line-through text-outline">$315.00</span>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-variant"></div>
+<div>
+<span class="font-label-badge text-label-badge uppercase text-tertiary-fixed-dim">Logistics Package</span>
+<p class="font-label-md text-label-md text-on-surface">1 Box • Priority Air</p>
+</div>
+</div>
+<div class="mt-space-lg">
+<button class="w-full sm:w-auto px-space-lg py-space-md bg-primary text-on-primary font-label-lg text-label-lg rounded-DEFAULT hover:bg-secondary-container hover:text-on-surface transition-all duration-300 flex items-center justify-center gap-space-sm group" id="add-bundle-btn">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+<span class="">Add Curated Bundle to One Cart</span>
+<span class="font-label-badge text-label-badge bg-on-primary text-primary px-1.5 py-0.5 rounded ml-1 group-hover:bg-on-surface group-hover:text-secondary-container transition-colors">SAVE $34</span>
+</button>
+</div>
+</div>
+<!-- Bundle Items Visual Row -->
+<div class="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<!-- Item 1: Tech -->
+<div class="bg-surface-container rounded-lg p-space-sm flex flex-col justify-between relative group hover:bg-surface-bright transition-colors">
+<div class="w-full aspect-square rounded-DEFAULT bg-surface-container-high overflow-hidden mb-space-xs relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="High fidelity minimalist wireless matte black over-ear studio monitor headphones angled on stone pedestal with stark dramatic studio lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACtLPeJWc9P8PdvpWsqbLdLmikCvRiuTjPfpcPIfOkQCuqSNZI_Mns3qJhyvDNTrEhiCzJwJVOlotTiLirZWH0p7bC9IOB7WaIPlNgX8-cVhmmMxpRm6ok60pa_RscenA9mc1kXd6S-W6fUoieaneuB4aPqB0oPqfhR6OKAp6DDtVzShBAivkWkmode37ReLz5BOthY31Bf5S1YHILuknDA6NkHAXdLvpScCDaH-r8AN_Lg_-sWqOFFw')"></div>
+<span class="absolute top-2 left-2 bg-surface/90 px-1.5 py-0.5 rounded font-label-badge text-label-badge uppercase text-tertiary-fixed-dim">Dept 03: Tech</span>
+</div>
+<div>
+<h4 class="font-title-editorial text-title-editorial text-on-surface">Studio Reference ANC</h4>
+<p class="font-body-sm text-body-sm text-outline">Electronics Lab</p>
+</div>
+<div class="mt-space-sm flex items-center justify-between pt-space-xs">
+<span class="font-price-card text-price-card text-on-surface">$189.00</span>
+<span class="font-label-badge text-label-badge text-tertiary-fixed-dim uppercase">In Stock</span>
+</div>
+</div>
+<!-- Item 2: Beauty -->
+<div class="bg-surface-container rounded-lg p-space-sm flex flex-col justify-between relative group hover:bg-surface-bright transition-colors">
+<div class="w-full aspect-square rounded-DEFAULT bg-surface-container-high overflow-hidden mb-space-xs relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="Dark violet glass bottle with apothecary dropper containing golden botanical face serum on dark charcoal marble surface." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBs2HF3rXHYsCirzuiWDzlNiZqAYeQXPL2mKgG_EdENFpQ79aZIgHvKCJ-ioFLTXcvedwCFpdWifw16X-74a0n1IJ_9EshxLH_umG8vcw22wFehx6XLXyyE-TohCvHBrJ7zEss_PQRG6TxcdJzfKPLAWkgZh7f0YRwbfwtG311pzR6C4bCsqW6osn4oyhf8uQlkvmdGCfeA3KhQ69u1n9NUcaa1RmqAb8kt9enDuarPEpWxI5bdzigssQ')"></div>
+<span class="absolute top-2 left-2 bg-surface/90 px-1.5 py-0.5 rounded font-label-badge text-label-badge uppercase text-secondary">Dept 02: Beauty</span>
+</div>
+<div>
+<h4 class="font-title-editorial text-title-editorial text-on-surface">Botanical Barrier Serum</h4>
+<p class="font-body-sm text-body-sm text-outline">Cosmetics &amp; Beauty</p>
+</div>
+<div class="mt-space-sm flex items-center justify-between pt-space-xs">
+<span class="font-price-card text-price-card text-on-surface">$64.00</span>
+<span class="font-label-badge text-label-badge text-secondary uppercase">30ml Cold Poured</span>
+</div>
+</div>
+<!-- Item 3: Grocery -->
+<div class="bg-surface-container rounded-lg p-space-sm flex flex-col justify-between relative group hover:bg-surface-bright transition-colors">
+<div class="w-full aspect-square rounded-DEFAULT bg-surface-container-high overflow-hidden mb-space-xs relative">
+<div class="w-full h-full bg-cover bg-center" data-alt="Artisanal hexagon glass jar filled with wild black truffle infused raw acacia honey with a luxury embossed label on rough black granite." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHEq5w40BoPJtBAwYZmHTWaQtevz0rV89UJwQZjB0-e7y3O66vuFoBFOQoRTTffqXOb-H8LJg-CAcN12iKpTms25pekhl3ejuuf_hzdl5u424UBbJ_zRmCz8EfkE7lYdaJGBmX9yv3DwBBcGDK5S12Dvnd1Y8pGDiA1buYlMGb63AqBPrT7Ek6TBUx1nbvbki-ylN6NDtYYQcq_2xwfvRtGT2V8qJSTe1C5AamDY_rRPJyCQLGQ9sdVg')"></div>
+<span class="absolute top-2 left-2 bg-surface/90 px-1.5 py-0.5 rounded font-label-badge text-label-badge uppercase text-primary-container">Dept 05: Pantry</span>
+</div>
+<div>
+<h4 class="font-title-editorial text-title-editorial text-on-surface">Black Truffle Acacia Honey</h4>
+<p class="font-body-sm text-body-sm text-outline">Pantry &amp; Grocery</p>
+</div>
+<div class="mt-space-sm flex items-center justify-between pt-space-xs">
+<span class="font-price-card text-price-card text-on-surface">$28.00</span>
+<span class="font-label-badge text-label-badge text-primary-container uppercase">Piedmont, Italy</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Multi-Department Products Grid -->
+<section class="w-full px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl" id="featured-products">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-outline">Flagship Multi-Catalog</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-normal" style="background: linear-gradient(135deg, rgb(221, 214, 254) 0%, rgb(167, 139, 250) 50%, rgb(147, 197, 253) 100%) text; -webkit-text-fill-color: transparent;">Curated Essentials For One Cart</h2>
+</div>
+<!-- Quick Filter Buttons -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-2 md:pb-0">
+<button class="filter-btn active px-space-sm py-1.5 bg-surface-container-high text-on-surface font-label-md text-label-md rounded-DEFAULT hover:bg-surface-bright transition-colors">All (6)</button>
+<button class="filter-btn px-space-sm py-1.5 bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-DEFAULT hover:text-on-surface transition-colors">Fashion</button>
+<button class="filter-btn px-space-sm py-1.5 bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-DEFAULT hover:text-on-surface transition-colors">Audio/Tech</button>
+<button class="filter-btn px-space-sm py-1.5 bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-DEFAULT hover:text-on-surface transition-colors">Apothecary</button>
+<button class="filter-btn px-space-sm py-1.5 bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-DEFAULT hover:text-on-surface transition-colors">Pantry</button>
+</div>
+</div>
+<!-- Product Grid (6 Multi-department items) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<!-- Product 1: Electronics -->
+<div class="product-card group bg-surface-container-low rounded-lg p-space-sm flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
+<div>
+<!-- Visual & Badges -->
+<div class="relative w-full aspect-[4/5] rounded-DEFAULT bg-surface-container-high overflow-hidden mb-space-sm">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Luxury over-ear active noise cancelling headphones in matte slate finish, shot in an editorial studio with dramatic soft shadows." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBfA9xjs1_cjCOe12bUaC9bTZKrc4zzjE9o3toq9ig0QPLFB5D5CNe_5FE_VsuB_TYw_jPGfbJS4YThKnjKBdsxPGn1zkvm7rrmWYDj0ICssOZEjQtE77dsIvjv0YjAefgv4w72YgAzW01K5Qc-PVGtvQYAHOzW6PEms2ALW1Pn5okctEqYQAqaMvaiZMZLpsA7ge1pML0XlFFo1b1xTDHsyguKal2aOGRIdCQEayqzU0ZolcX6B-16cQ')"></div>
+<span class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-space-xs py-0.5 rounded font-label-badge text-label-badge uppercase text-tertiary-fixed-dim">
+              Electronics
+            </span>
+<button class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<!-- Quick Add Slide Up -->
+<div class="absolute inset-x-3 bottom-3 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+<button class="quick-add-btn w-full py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-DEFAULT flex items-center justify-center gap-1 hover:bg-secondary-container hover:text-on-surface shadow-xl" data-price="$249.00" data-title="Over-Ear ANC Headphones">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span class="">Quick Add to Cart</span>
+</button>
+</div>
+</div>
+<!-- Metadata -->
+<div class="flex items-center justify-between text-outline font-label-badge text-label-badge uppercase mb-1">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="">4.9 (184 reviews)</span>
+</span>
+<span class="text-tertiary-fixed-dim">14 left in stock</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-tertiary-fixed-dim transition-colors">Over-Ear ANC Headphones</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Lossless spatial drivers with 40-hour lithium endurance.</p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-price-card text-price-card text-primary">$249.00</span>
+<span class="font-label-badge text-label-badge text-outline uppercase">Unified Delivery: 2-Day</span>
+</div>
+</div>
+<!-- Product 2: Fashion -->
+<div class="product-card group bg-surface-container-low rounded-lg p-space-sm flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
+<div>
+<div class="relative w-full aspect-[4/5] rounded-DEFAULT bg-surface-container-high overflow-hidden mb-space-sm">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Full length portrait of model wearing a structured Italian wool tailored charcoal overcoat with horn buttons in a brutalist minimal gallery." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCIsnynaVnIh20kNLwsDjqdDluC5f7X_xEktxHPBOCQefQIJiW0bvsctMDxOEd9XJ6Qn5M-3uq1EHmaV-R8I8HI3o-YdGR48sqYwmQ8v1AELgrcToR76GVtVAd-wfqhUdZZ4NpJblhUrtxXyuKxDnlbvkLOZ9vKjyeUAEwbfhTbLm4i2_w4Y-fo45m2uVrJG7VEPgQtFj0QAt5E2op2XKnOy-dY9KXR4YAA82wc9Xl73Sb5G9K5-2_4tg')"></div>
+<span class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-space-xs py-0.5 rounded font-label-badge text-label-badge uppercase text-secondary">
+              Fashion Atelier
+            </span>
+<button class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<!-- Size Selection & Add -->
+<div class="absolute inset-x-3 bottom-3 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 flex flex-col gap-1">
+<div class="bg-surface/90 backdrop-blur-md p-1 rounded-DEFAULT flex items-center justify-around font-label-badge text-label-badge text-on-surface">
+<span class="hover:text-secondary cursor-pointer">38</span>
+<span class="hover:text-secondary cursor-pointer font-bold">40</span>
+<span class="hover:text-secondary cursor-pointer">42</span>
+<span class="hover:text-secondary cursor-pointer">44</span>
+</div>
+<button class="quick-add-btn w-full py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-DEFAULT flex items-center justify-center gap-1 hover:bg-secondary-container hover:text-on-surface shadow-xl" data-price="$395.00" data-title="Italian Wool Overcoat">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span class="">Add Selected Size</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-badge text-label-badge uppercase mb-1">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="">5.0 (62 reviews)</span>
+</span>
+<span class="">Made in Biella</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">Italian Wool Overcoat</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Virgin fleece wool tailored with unconstructed drape and satin lining.</p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-price-card text-price-card text-primary">$395.00</span>
+<span class="font-label-badge text-label-badge text-outline uppercase">Sizes: 38, 40, 42</span>
+</div>
+</div>
+<!-- Product 3: Beauty -->
+<div class="product-card group bg-surface-container-low rounded-lg p-space-sm flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
+<div>
+<div class="relative w-full aspect-[4/5] rounded-DEFAULT bg-surface-container-high overflow-hidden mb-space-sm">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Apothecary amber bottle of night recovery botanical elixir with fine dropper cap resting on raw wet volcanic basalt stone with glistening drops of pure extract." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCzzGdAWB_2LjwPDrPXt_nPM7V11X9PO1_h7DNKK2imDectabGAzMZZEsiRTy1PbfCgesFkHHViBuwtTxEKnU9TzDzZJpZfLoR26ExK6KDXCs1XulcVwYSMgP-cQRhZnIWnmrB8vd87iYnb9B5ahh4WHTCfyAnmOTUuOqI3JRD9r1WdYIWbgMCrrat6BJnpuhDUrULSUrkgceP4poTqfqX_yToGEmEs9nvDZ9-uBo33SMtRkbYrsszHbA')"></div>
+<span class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-space-xs py-0.5 rounded font-label-badge text-label-badge uppercase text-tertiary-fixed-dim">
+              Clean Beauty
+            </span>
+<button class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute inset-x-3 bottom-3 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+<button class="quick-add-btn w-full py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-DEFAULT flex items-center justify-center gap-1 hover:bg-secondary-container hover:text-on-surface shadow-xl" data-price="$88.00" data-title="Night Recovery Botanical Elixir">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span class="">Quick Add to Cart</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-badge text-label-badge uppercase mb-1">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="">4.8 (219 reviews)</span>
+</span>
+<span class="text-tertiary-fixed-dim">Squalane 12%</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-tertiary-fixed-dim transition-colors">Night Recovery Botanical Elixir</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Fermented plant actives and squalane to rebuild lipid barrier overnight.</p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-price-card text-price-card text-primary">$88.00</span>
+<span class="font-label-badge text-label-badge text-outline uppercase">50ml Dropper</span>
+</div>
+</div>
+<!-- Product 4: Home & Living -->
+<div class="product-card group bg-surface-container-low rounded-lg p-space-sm flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
+<div>
+<div class="relative w-full aspect-[4/5] rounded-DEFAULT bg-surface-container-high overflow-hidden mb-space-sm">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Heavy cast iron Dutch oven in matte slate grey enamel with stainless steel lid knob on an architectural honed limestone kitchen counter with steam." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDwpGTYwc6R9Ov3R03jGQMTVk33y79M51vjfQf2qjLVZb0BqYtmAaqxPXXUdvgjk-n8A-YhqdItbhMMBzjcMNUSOt9lI0H9zvkBQi4aM0gEzvet3y7rTKdJ2s00MJo6FrwKS5cYF4DwGQOam9JY1iEqdvo9lXT992LD3SSyI-fP-cTGOrtdhQvLQrSaq9iwTFJn_sITRh7-DgEeoPs_f7_Kc3NYrjqru6wCM86t2_2gG1eZgHrJwnN0dQ')"></div>
+<span class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-space-xs py-0.5 rounded font-label-badge text-label-badge uppercase text-secondary-fixed">
+              Home &amp; Culinary
+            </span>
+<button class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute inset-x-3 bottom-3 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+<button class="quick-add-btn w-full py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-DEFAULT flex items-center justify-center gap-1 hover:bg-secondary-container hover:text-on-surface shadow-xl" data-price="$165.00" data-title="Cast Iron Dutch Oven 5.5qt">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span class="">Quick Add to Cart</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-badge text-label-badge uppercase mb-1">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="">4.9 (94 reviews)</span>
+</span>
+<span class="">Slate Grey</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary-fixed transition-colors">Cast Iron Dutch Oven 5.5qt</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Dual-enameled heavy gauge iron for heat retention and stovetop-to-oven versatility.</p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-price-card text-price-card text-primary">$165.00</span>
+<span class="font-label-badge text-label-badge text-outline uppercase">Induction Safe</span>
+</div>
+</div>
+<!-- Product 5: Grocery -->
+<div class="product-card group bg-surface-container-low rounded-lg p-space-sm flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
+<div>
+<div class="relative w-full aspect-[4/5] rounded-DEFAULT bg-surface-container-high overflow-hidden mb-space-sm">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Single-estate dark green glass olive oil bottle with minimalist numbered wax seal label, resting against raw raw linen cloth with wild rosemary sprigs." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCN0eZpS2JovguDuig9AuyHCWcPZyBKtTC9pfZiGYOFg_F4JvxQkDOXDigDgpKdKwR9_jHBLDL38KqxiPQYVqBmABvZravWRy5rW3swCzRRU_unc0yuP7VxzoLncjDhIZ9wZWw7IO-XNBvuFLLu6HbA5OC_Y-X5LZlSN-d9aOFEQTE5PN6m1hUyVqjq5PuwyMS2aeS8HcdBNKW6RzBkfYkly6jyuJH-SQlkpg1zHFXov1uKsbG1wOr30w')"></div>
+<span class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-space-xs py-0.5 rounded font-label-badge text-label-badge uppercase text-primary-container">
+              Artisan Pantry
+            </span>
+<button class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute inset-x-3 bottom-3 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+<button class="quick-add-btn w-full py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-DEFAULT flex items-center justify-center gap-1 hover:bg-secondary-container hover:text-on-surface shadow-xl" data-price="$34.00" data-title="Single-Estate Extra Virgin Olive Oil">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span class="">Quick Add to Cart</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-badge text-label-badge uppercase mb-1">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="">5.0 (310 reviews)</span>
+</span>
+<span class="text-primary-container">Harvest Nov 2024</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary-container transition-colors">Single-Estate Extra Virgin Olive Oil</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Cold extracted within 4 hours of picking in Peloponnese, Greece. Polyphenol dense.</p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-price-card text-price-card text-primary">$34.00</span>
+<span class="font-label-badge text-label-badge text-outline uppercase">750ml UV Glass</span>
+</div>
+</div>
+<!-- Product 6: Kids & Toys -->
+<div class="product-card group bg-surface-container-low rounded-lg p-space-sm flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
+<div>
+<div class="relative w-full aspect-[4/5] rounded-DEFAULT bg-surface-container-high overflow-hidden mb-space-sm">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700" data-alt="Architecturally crafted wooden solar planetary orbit kit with smooth turned beech and walnut spheres on concentric brass rings on an ebony wood studio backdrop." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCuO4-Q-NwgXQbdGnfmmIIJBfEdR_kc1wQq6uSVvE0WU_PY7JFcB-AFir_aK0bZmYjBnubzIbfi98JBiOZWFjeaHxBevJXuQvpwhQYXCZ4rc6wlxHFAeO1-JAWUWqrw19ToVvsfNR3mtKEYATRx9AjPGxTF_4hohqlpnJ8t92c5_2Ggfid7Zs4klXvz0W8OPDRa7fKouMmUnJ_M5aa_yRECUzM4NtgqyHUQvK2F6ol4KODdm_p-44Gq1g')"></div>
+<span class="absolute top-3 left-3 bg-surface/90 backdrop-blur-md px-space-xs py-0.5 rounded font-label-badge text-label-badge uppercase text-secondary">
+              STEM &amp; Discovery
+            </span>
+<button class="wishlist-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</button>
+<div class="absolute inset-x-3 bottom-3 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+<button class="quick-add-btn w-full py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-DEFAULT flex items-center justify-center gap-1 hover:bg-secondary-container hover:text-on-surface shadow-xl" data-price="$52.00" data-title="Wooden Solar Planetary Orbit Kit">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span class="">Quick Add to Cart</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-outline font-label-badge text-label-badge uppercase mb-1">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="">4.9 (78 reviews)</span>
+</span>
+<span class="">Ages 8+</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">Wooden Solar Planetary Orbit Kit</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Artisan turned beechwood planetary gear assembly exploring orbital mechanics.</p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-price-card text-price-card text-primary">$52.00</span>
+<span class="font-label-badge text-label-badge text-outline uppercase">Non-Toxic Finish</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Section: The Multi-Department Advantage Infographic -->
+<section class="w-full px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl">
+<div class="w-full bg-surface-container rounded-xl p-space-lg md:p-space-xl relative overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+<div class="lg:col-span-6 space-y-space-md">
+<div class="inline-flex items-center gap-2">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Operational Integrity</span>
+<span class="text-outline">•</span>
+<span class="font-label-badge text-label-badge uppercase text-outline">Blowmaggy Fulfillment Net</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-normal" style="background: linear-gradient(135deg, rgb(221, 214, 254) 0%, rgb(167, 139, 250) 50%, rgb(147, 197, 253) 100%) text; -webkit-text-fill-color: transparent;">
+            Unified Shipping.<br><span class="italic font-light">Zero Disparate Packages.</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">
+            Traditional marketplaces trigger separate deliveries, multi-carrier tracking numbers, and split customs declarations when you cross categories. Blowmaggy pools products at unified regional hubs for consolidated dispatch.
+          </p>
+<!-- Feature List -->
+<div class="space-y-space-sm pt-space-xs">
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">check</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">One Single Sustainable Freight Box</h4>
+<p class="font-body-sm text-body-sm text-outline">High-density recycled honeycomb carton engineered to safely cushion fragile ceramics, cold oils, and precision optics simultaneously.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">check</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Integrated Cold &amp; Fragile Compartments</h4>
+<p class="font-body-sm text-body-sm text-outline">Thermal-stabilized micro-compartments keep apothecary elixirs cool without affecting dry goods or cashmere knitwear.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container-high flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">check</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Single Universal Return Label</h4>
+<p class="font-body-sm text-body-sm text-outline">Any item from any department can be returned in the original box with one consolidated prepaid carrier barcode.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Side Diagrammatic SVG / Data Graphic -->
+<div class="lg:col-span-6 bg-surface-container-low rounded-lg p-space-md flex flex-col items-center justify-center relative">
+<div class="w-full max-w-md py-4">
+<!-- Inline Logistics Architecture Flow SVG -->
+<svg class="w-full h-auto text-on-surface" fill="none" viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg">
+<!-- Grid lines -->
+<line stroke="currentColor" stroke-dasharray="4 4" stroke-opacity="0.1" x1="20" x2="440" y1="50" y2="50"></line>
+<line stroke="currentColor" stroke-dasharray="4 4" stroke-opacity="0.1" x1="20" x2="440" y1="140" y2="140"></line>
+<line stroke="currentColor" stroke-dasharray="4 4" stroke-opacity="0.1" x1="20" x2="440" y1="230" y2="230"></line>
+<!-- Source Department Nodes -->
+<g id="dept-nodes">
+<rect fill="#1b1b1f" height="36" rx="4" stroke="#343538" width="100" x="30" y="30"></rect>
+<text fill="#c5c7c9" font-family="Space Grotesk" font-size="10" font-weight="600" text-anchor="middle" x="80" y="52">01 FASHION</text>
+<rect fill="#1b1b1f" height="36" rx="4" stroke="#343538" width="100" x="30" y="80"></rect>
+<text fill="#7df4ff" font-family="Space Grotesk" font-size="10" font-weight="600" text-anchor="middle" x="80" y="102">02 BEAUTY</text>
+<rect fill="#1b1b1f" height="36" rx="4" stroke="#343538" width="100" x="30" y="130"></rect>
+<text fill="#ffffff" font-family="Space Grotesk" font-size="10" font-weight="600" text-anchor="middle" x="80" y="152">03 AUDIO LAB</text>
+<rect fill="#1b1b1f" height="36" rx="4" stroke="#343538" width="100" x="30" y="180"></rect>
+<text fill="#ffb3b3" font-family="Space Grotesk" font-size="10" font-weight="600" text-anchor="middle" x="80" y="202">04 HOME LIVING</text>
+<rect fill="#1b1b1f" height="36" rx="4" stroke="#343538" width="100" x="30" y="230"></rect>
+<text fill="#e2e2e4" font-family="Space Grotesk" font-size="10" font-weight="600" text-anchor="middle" x="80" y="252">05 PANTRY</text>
+</g>
+<!-- Convergence Flow Lines to Hub -->
+<path d="M130 48 C 190 48, 190 140, 230 140" fill="none" stroke="#ba012d" stroke-linecap="round" stroke-width="2"></path>
+<path d="M130 98 C 180 98, 180 140, 230 140" fill="none" stroke="#00dbe9" stroke-linecap="round" stroke-width="2"></path>
+<path d="M130 148 L 230 148" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="2"></path>
+<path d="M130 198 C 180 198, 180 148, 230 148" fill="none" stroke="#ffb3b3" stroke-linecap="round" stroke-width="2"></path>
+<path d="M130 248 C 190 248, 190 156, 230 156" fill="none" stroke="#c5c7c9" stroke-linecap="round" stroke-width="2"></path>
+<!-- Central Blowmaggy Unified Node -->
+<circle cx="250" cy="148" fill="#121316" r="28" stroke="#ffffff" stroke-width="2"></circle>
+<text fill="#ffffff" font-family="Bodoni Moda" font-size="16" font-weight="bold" text-anchor="middle" x="250" y="145">M</text>
+<text fill="#ba012d" font-family="Space Grotesk" font-size="8" font-weight="700" text-anchor="middle" x="250" y="160">ONE CART</text>
+<!-- Outbound Dispatch Arrow to Customer -->
+<line stroke="#ffffff" stroke-dasharray="6 3" stroke-linecap="round" stroke-width="3" x1="280" x2="350" y1="148" y2="148"></line>
+<!-- Recipient Single Box Module -->
+<rect fill="#1b1b1f" height="60" rx="6" stroke="#ba012d" stroke-width="2" width="90" x="350" y="118"></rect>
+<text fill="#ffffff" font-family="Space Grotesk" font-size="11" font-weight="700" text-anchor="middle" x="395" y="142">1 BOX</text>
+<text fill="#c5c7c9" font-family="Space Grotesk" font-size="9" text-anchor="middle" x="395" y="158">1 CHECKOUT</text>
+</svg>
+</div>
+<!-- Caption underneath diagram -->
+<div class="w-full flex items-center justify-between text-outline font-label-badge text-label-badge uppercase pt-2">
+<span class="">5 Origins Aggregated</span>
+<span class="text-secondary">Latency: &lt; 24h Consolidate</span>
+<span class="">Delivery: 1 Carrier</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive JavaScript for Cart Toast and Department Bundle -->
+<script>
+    (function initBlowmaggyHomepage() {
+      const toast = document.getElementById('cart-toast');
+      const toastMsg = document.getElementById('toast-message');
+      const toastPrice = document.getElementById('toast-price');
+      let toastTimeout = null;
+
+      function showToast(message, price) {
+        if (!toast) return;
+        toastMsg.textContent = message;
+        toastPrice.textContent = price;
+        toast.classList.remove('translate-y-32', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.classList.remove('translate-y-0', 'opacity-100');
+          toast.classList.add('translate-y-32', 'opacity-0');
+        }, 3200);
+      }
+
+      // Quick Add handler
+      document.querySelectorAll('.quick-add-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const title = btn.getAttribute('data-title') || 'Department Item';
+          const price = btn.getAttribute('data-price') || '+$0.00';
+          showToast(title, price);
+        });
+      });
+
+      // Bundle Add handler
+      const bundleBtn = document.getElementById('add-bundle-btn');
+      if (bundleBtn) {
+        bundleBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          showToast('Curated Cross-Department Bundle (3 items)', '+$281.00');
+        });
+      }
+
+      // Wishlist toggle
+      document.querySelectorAll('.wishlist-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const icon = btn.querySelector('.material-symbols-outlined');
+          if (icon) {
+            const isFilled = icon.getAttribute('style')?.includes('FILL');
+            if (isFilled) {
+              icon.removeAttribute('style');
+              btn.classList.remove('text-secondary-container');
+            } else {
+              icon.setAttribute('style', "font-variation-settings: 'FILL' 1;");
+              btn.classList.add('text-secondary-container');
+            }
+          }
+        });
+      });
+
+      // Filter pills active styling toggle
+      document.querySelectorAll('.filter-btn').forEach(pill => {
+        pill.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(p => {
+            p.classList.remove('bg-surface-container-high', 'text-on-surface');
+            p.classList.add('bg-surface-container', 'text-on-surface-variant');
+          });
+          pill.classList.remove('bg-surface-container', 'text-on-surface-variant');
+          pill.classList.add('bg-surface-container-high', 'text-on-surface');
+        });
+      });
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest text-on-surface-variant mt-space-xl pt-space-xl pb-space-lg" style="background: linear-gradient(rgb(19, 16, 36) 0%, rgb(9, 14, 28) 100%); border-top: 1px solid rgba(167, 139, 250, 0.2); box-shadow: rgba(255, 255, 255, 0.04) 0px 1px 0px inset;"><div class="w-full px-margin-mobile md:px-margin-tablet lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-lg pb-space-xl"><div class="lg:col-span-2 space-y-space-md"><img alt="Blowmaggy Wordmark Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UADMaEayZO_xcBmngPCX5LyZIt1G7x-oeCDUy_llM1iaH6jRZm3BMMwm3VnKS1TkhaYmsBSQeZ_NUoOybgtE03a2lg4tfy5JRmbY4c4OhZrV0knNSP2thrgqySDOhhvzdAPufi4tRWt0iwK2Vv2M2kcHXPCcDbc2dP2jSYt6ZcbrXSOBv67_NLwf9JHS75rjCx7Y7Kl35I9M-QM_30yBAJw1EBw-UfBi1BmJZehBlJD85k5iDJ5WH7u6Ly"><p class="font-body-md text-body-md text-on-surface-variant max-w-md">Every department. One cart. One checkout. The luxury multi-category digital department store built for frictionless unified curation.</p><div class="space-y-space-xs"><p class="font-label-md text-label-md uppercase tracking-wider text-on-surface">Newsletter Subscription</p><div class="flex max-w-sm"><input class="bg-surface-container px-space-sm py-space-xs text-on-surface font-body-sm text-body-sm rounded-l-DEFAULT focus:outline-none flex-1" placeholder="Enter your executive email" type="email"><button class="bg-primary text-on-primary font-label-md text-label-md px-space-md py-space-xs rounded-r-DEFAULT hover:bg-primary-container hover:text-on-primary-container transition-colors">Join</button></div></div></div><div><h4 class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface mb-space-sm">Customer Service</h4><ul class="space-y-space-xs font-body-sm text-body-sm"><li class=""><a class="hover:text-on-surface transition-colors" data-path="support" href="#">24/7 Concierge Support</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="order-tracking" href="#">Unified Order Tracking</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="returns" href="#">Returns &amp; Exchanges</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="shipping-logistics" href="#">Multi-Cart Logistics</a></li></ul></div><div><h4 class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface mb-space-sm">Departments</h4><ul class="space-y-space-xs font-body-sm text-body-sm"><li class=""><a class="hover:text-on-surface transition-colors" data-path="fashion-department" href="#">Atelier Fashion</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="beauty-department" href="#">Cosmetics &amp; Beauty</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="electronics-department" href="#">Electronics Lab</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="home-living-department" href="#">Home &amp; Living</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="grocery-department" href="#">Pantry &amp; Grocery</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="kids-toys-department" href="#">Kids &amp; Toys</a></li></ul></div><div><h4 class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface mb-space-sm">About &amp; Compliance</h4><ul class="space-y-space-xs font-body-sm text-body-sm"><li class=""><a class="hover:text-on-surface transition-colors" data-path="about" href="#">The Blowmaggy Story</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="sustainability" href="#">Sustainable Freight</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="terms-of-service" href="#">Terms of Service</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="security-governance" href="#">PCI DSS Level 1 Security</a></li></ul></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm font-label-badge text-label-badge text-outline uppercase"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">verified_user</span> 256-Bit SSL Encrypted</span><span class="">•</span><span class="">SOC2 Certified</span><span class="">•</span><span class="">Multi-Origin Fulfillment</span></div><div class="flex items-center gap-space-md"><span class="font-label-badge text-label-badge uppercase text-outline">Payment Networks:</span><div class="flex items-center gap-space-xs font-label-badge text-label-badge text-on-surface"><span class="px-2 py-1 bg-surface-container rounded-DEFAULT">VISA</span><span class="px-2 py-1 bg-surface-container rounded-DEFAULT">MASTERCARD</span><span class="px-2 py-1 bg-surface-container rounded-DEFAULT">UPI</span><span class="px-2 py-1 bg-surface-container rounded-DEFAULT">APPLE PAY</span></div></div></div><div class="text-center font-label-badge text-label-badge uppercase tracking-wider text-outline pt-space-lg">© 2025 Blowmaggy Inc. All rights reserved. Every department. One cart. One checkout.</div></div></footer>
+
+</body></html>

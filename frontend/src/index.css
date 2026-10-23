@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════
+   BLOWMAGGY — Design System (from Stitch Export)
+   Obsidian-and-Alabaster Editorial Commerce
+═══════════════════════════════════════════════════════ */
+
+@theme {
+  /* ── Fonts ── */
+  --font-bodoni: 'Bodoni Moda', Georgia, serif;
+  --font-hanken: 'Hanken Grotesk', system-ui, sans-serif;
+  --font-space: 'Space Grotesk', system-ui, sans-serif;
+
+  /* ── Surface palette ── */
+  --color-canvas:          #0C0D10;
+  --color-surface:         #121316;
+  --color-surface-dim:     #121316;
+  --color-surface-low:     #1b1b1f;
+  --color-surface-mid:     #1f1f23;
+  --color-surface-high:    #292a2d;
+  --color-surface-bright:  #38393c;
+  --color-surface-highest: #343538;
+  --color-surface-lowest:  #0d0e11;
+
+  /* ── Content / ink ── */
+  --color-on-surface:         #e3e2e6;
+  --color-on-surface-variant: #c5c7c9;
+  --color-outline:            #8f9194;
+  --color-outline-variant:    #44474a;
+  --color-hairline:           #232631;
+  --color-muted:              #8E929E;
+
+  /* ── Primary / CTA ── */
+  --color-primary:        #ffffff;
+  --color-on-primary:     #0C0D10;
+  --color-primary-dim:    #c6c6c8;
+  --color-primary-fixed:  #e2e2e4;
+
+  /* ── Secondary / action ── */
+  --color-secondary:           #ffb3b3;
+  --color-on-secondary:        #680014;
+  --color-secondary-container: #ba012d;
+  --color-secondary-fixed:     #ffdad9;
+  --color-secondary-fixed-dim: #ffb3b3;
+
+  /* ── Tertiary / accent ── */
+  --color-tertiary:           #ffffff;
+  --color-tertiary-container: #7df4ff;
+  --color-tertiary-fixed-dim: #00dbe9;
+
+  /* ── Error ── */
+  --color-error:           #ffb4ab;
+  --color-error-container: #93000a;
+
+  /* ── Department chroma accents ── */
+  --color-dept-fashion:     #E02B43;
+  --color-dept-beauty:      #FF3E83;
+  --color-dept-electronics: #00F0FF;
+  --color-dept-home:        #F59E0B;
+  --color-dept-grocery:     #10B981;
+  --color-dept-kids:        #8B5CF6;
+
+  /* ── Radii ── */
+  --radius-sm:      0.125rem;
+  --radius-DEFAULT: 0.25rem;
+  --radius-md:      0.375rem;
+  --radius-lg:      0.5rem;
+  --radius-xl:      0.75rem;
+  --radius-full:    9999px;
+
+  /* ── Spacing tokens ── */
+  --spacing-xs:             0.25rem;
+  --spacing-sm:             0.5rem;
+  --spacing-md:             1rem;
+  --spacing-lg:             1.5rem;
+  --spacing-xl:             2.5rem;
+  --spacing-gutter:         1.5rem;
+  --spacing-gutter-mobile:  0.75rem;
+  --spacing-margin:         3rem;
+  --spacing-margin-tablet:  1.5rem;
+  --spacing-margin-mobile:  1rem;
+}
+
+/* ── Base reset & body ── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body {
+    margin: 0; padding: 0;
+    background-color: var(--color-canvas);
+    color: var(--color-on-surface);
+    font-family: var(--font-hanken);
+    font-size: 15px;
+    line-height: 24px;
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: var(--color-surface); }
+  ::-webkit-scrollbar-thumb { background: var(--color-outline-variant); border-radius: 2px; }
+
+  ::selection { background: var(--color-primary); color: var(--color-on-primary); }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-bodoni);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ── Utility classes ── */
+@layer utilities {
+  /* Typography scale */
+  .font-display   { font-family: var(--font-bodoni); font-size: 56px; font-weight: 700; line-height: 64px; letter-spacing: -0.02em; }
+  .font-display-mobile { font-family: var(--font-bodoni); font-size: 36px; font-weight: 700; line-height: 44px; letter-spacing: -0.01em; }
+  .font-headline-lg { font-family: var(--font-bodoni); font-size: 40px; font-weight: 600; line-height: 48px; letter-spacing: -0.015em; }
+  .font-headline-md { font-family: var(--font-bodoni); font-size: 28px; font-weight: 600; line-height: 36px; }
+  .font-headline-sm { font-family: var(--font-bodoni); font-size: 22px; font-weight: 500; line-height: 30px; }
+  .font-title       { font-family: var(--font-bodoni); font-size: 18px; font-weight: 600; line-height: 24px; }
+  .font-body-lg     { font-family: var(--font-hanken); font-size: 18px; font-weight: 400; line-height: 28px; }
+  .font-body        { font-family: var(--font-hanken); font-size: 15px; font-weight: 400; line-height: 24px; }
+  .font-body-sm     { font-family: var(--font-hanken); font-size: 13px; font-weight: 400; line-height: 20px; }
+  .font-label       { font-family: var(--font-space); font-size: 14px; font-weight: 600; line-height: 20px; letter-spacing: 0.04em; }
+  .font-label-sm    { font-family: var(--font-space); font-size: 12px; font-weight: 600; line-height: 16px; letter-spacing: 0.06em; }
+  .font-badge       { font-family: var(--font-space); font-size: 10px; font-weight: 700; line-height: 14px; letter-spacing: 0.08em; }
+  .font-price-hero  { font-family: var(--font-space); font-size: 28px; font-weight: 700; line-height: 32px; letter-spacing: -0.02em; }
+  .font-price       { font-family: var(--font-space); font-size: 18px; font-weight: 700; line-height: 24px; letter-spacing: -0.01em; }
+
+  /* Card / surface */
+  .card {
+    background: #15171D;
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-lg);
+  }
+  .card-hover:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px -8px rgba(0,0,0,0.6);
+    transition: all 0.2s ease;
+  }
+
+  /* Frosted glass */
+  .glass {
+    background: rgba(18, 19, 22, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Elevation layers */
+  .elevation-1 { background: #15171D; border: 1px solid var(--color-hairline); }
+  .elevation-2 { background: #1A1D24; box-shadow: 0 16px 36px -8px rgba(0,0,0,0.75); }
+  .elevation-3 { background: rgba(18,19,22,0.88); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.1); }
+
+  /* Department accent glow */
+  .dept-fashion     { color: #E02B43; }
+  .dept-beauty      { color: #FF3E83; }
+  .dept-electronics { color: #00F0FF; }
+  .dept-home        { color: #F59E0B; }
+  .dept-grocery     { color: #10B981; }
+  .dept-kids        { color: #8B5CF6; }
+
+  .dept-bg-fashion     { background: rgba(224, 43, 67, 0.12); border-color: rgba(224, 43, 67, 0.3); }
+  .dept-bg-beauty      { background: rgba(255, 62, 131, 0.12); border-color: rgba(255, 62, 131, 0.3); }
+  .dept-bg-electronics { background: rgba(0, 240, 255, 0.08); border-color: rgba(0, 240, 255, 0.25); }
+  .dept-bg-home        { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.25); }
+  .dept-bg-grocery     { background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25); }
+  .dept-bg-kids        { background: rgba(139, 92, 246, 0.12); border-color: rgba(139, 92, 246, 0.3); }
+
+  /* Gradient text effect */
+  .gradient-text {
+    background: linear-gradient(135deg, #e9d5ff 0%, #c4b5fd 40%, #93c5fd 80%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated underline */
+  .nav-active {
+    color: var(--color-primary);
+    font-weight: 700;
+    box-shadow: inset 0 -2px 0 0 white;
+  }
+
+  /* Subtle pulse animation */
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+  /* Slide up animation */
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .slide-up { animation: slide-up 0.3s ease-out; }
+
+  /* Fade in */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .fade-in { animation: fade-in 0.4s ease-out; }
+}

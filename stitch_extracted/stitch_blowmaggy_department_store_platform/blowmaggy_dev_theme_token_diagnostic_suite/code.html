@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-container":"#ba012d","on-primary-container":"#636466","on-surface-variant":"#c5c7c9","primary-container":"#e2e2e4","surface":"#121316","on-primary-fixed":"#1a1c1d","secondary":"#ffb3b3","on-secondary":"#680014","tertiary-fixed":"#7df4ff","surface-variant":"#343538","on-tertiary-fixed-variant":"#004f54","inverse-primary":"#5d5e60","inverse-surface":"#e3e2e6","on-tertiary-fixed":"#002022","tertiary-fixed-dim":"#00dbe9","surface-container-high":"#292a2d","on-secondary-fixed":"#400009","on-surface":"#e3e2e6","tertiary-container":"#7df4ff","on-error":"#690005","on-error-container":"#ffdad6","surface-bright":"#38393c","on-secondary-container":"#ffc7c6","outline-variant":"#44474a","surface-container-lowest":"#0d0e11","on-tertiary-container":"#006f77","error-container":"#93000a","primary-fixed-dim":"#c6c6c8","inverse-on-surface":"#303034","on-primary":"#2f3132","secondary-fixed":"#ffdad9","primary-fixed":"#e2e2e4","surface-container-low":"#1b1b1f","on-secondary-fixed-variant":"#920021","on-background":"#e3e2e6","on-primary-fixed-variant":"#454749","surface-tint":"#c6c6c8","surface-container":"#1f1f23","error":"#ffb4ab","on-tertiary":"#00363a","surface-container-highest":"#343538","secondary-fixed-dim":"#ffb3b3","tertiary":"#ffffff","background":"#121316","primary":"#ffffff","outline":"#8f9194","surface-dim":"#121316"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-mobile":"1rem","space-xl":"2.5rem","space-md":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","margin-tablet":"1.5rem","margin":"3rem","gutter":"1.5rem","gutter-mobile":"0.75rem","space-lg":"1.5rem"},fontFamily:{"price-card":["Space Grotesk"],"display-hero-mobile":["Bodoni Moda"],"label-lg":["Space Grotesk"],"headline-lg-mobile":["Bodoni Moda"],"headline-lg":["Bodoni Moda"],"headline-md":["Bodoni Moda"],"display-hero":["Bodoni Moda"],"label-badge":["Space Grotesk"],"body-sm":["Hanken Grotesk"],"body-md":["Hanken Grotesk"],"title-editorial":["Bodoni Moda"],"label-md":["Space Grotesk"],"headline-sm":["Bodoni Moda"],"price-hero":["Space Grotesk"],"body-lg":["Hanken Grotesk"]},fontSize:{"price-card":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"700"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-md":["28px",{"lineHeight":"36px","fontWeight":"600"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-badge":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"title-editorial":["18px",{"lineHeight":"24px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"600"}],"headline-sm":["22px",{"lineHeight":"30px","fontWeight":"500"}],"price-hero":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}]}}}}</script></head><body class="bg-background text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]" style="background: linear-gradient(135deg, rgba(30, 20, 52, 0.95), rgba(16, 25, 50, 0.95)); border-bottom: 1px solid rgba(147, 197, 253, 0.15); box-shadow: rgba(99, 102, 241, 0.12) 0px 4px 20px -2px;"><div class="w-full bg-surface-container-lowest text-on-surface-variant font-label-badge text-label-badge tracking-widest uppercase py-space-xs px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between" style="background: rgba(15, 12, 28, 0.85); border-bottom: 1px solid rgba(168, 85, 247, 0.15);"><div class="flex items-center gap-space-sm mx-auto"><span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span><span class="">PREVIEW SALE: Enjoy free delivery on multi-department orders over $75 with code ONECART • 24/7 Concierge Support</span><span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span></div></div><div class="h-20 w-full px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><img alt="Blowmaggy Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UADMaEayZO_xcBmngPCX5LyZIt1G7x-oeCDUy_llM1iaH6jRZm3BMMwm3VnKS1TkhaYmsBSQeZ_NUoOybgtE03a2lg4tfy5JRmbY4c4OhZrV0knNSP2thrgqySDOhhvzdAPufi4tRWt0iwK2Vv2M2kcHXPCcDbc2dP2jSYt6ZcbrXSOBv67_NLwf9JHS75rjCx7Y7Kl35I9M-QM_30yBAJw1EBw-UfBi1BmJZehBlJD85k5iDJ5WH7u6Ly"/><div class="hidden xl:flex flex-col"><span class="font-label-badge text-label-badge uppercase tracking-wider text-outline">Unified Department Store</span></div></div><div class="flex-1 max-w-3xl hidden md:flex items-center"><div class="w-full flex items-center bg-surface-container-low rounded-lg p-space-xs"><div class="relative shrink-0"><select class="bg-surface-container-high text-on-surface font-label-md text-label-md px-space-sm py-space-xs rounded-DEFAULT appearance-none cursor-pointer focus:outline-none pr-space-md"><option>All Departments</option><option>Fashion</option><option>Beauty</option><option>Electronics</option><option>Home &amp; Living</option><option>Grocery</option><option>Kids &amp; Toys</option></select><span class="material-symbols-outlined text-[16px] text-outline absolute right-1 top-1.5 pointer-events-none">expand_more</span></div><div class="w-px h-5 bg-surface-variant mx-space-xs"></div><div class="flex-1 flex items-center px-space-xs"><span class="material-symbols-outlined text-outline text-[18px] mr-space-xs">search</span><input class="w-full bg-transparent text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none" placeholder="Search apparel, gadgets, pantry items, home curation..." type="text"/></div><span class="font-label-badge text-label-badge text-outline uppercase px-space-xs hidden lg:inline">⌘K</span></div></div><div class="flex items-center gap-space-sm lg:gap-space-md shrink-0"><div class="relative group hidden sm:block"><button class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span><span class="font-label-badge text-label-badge uppercase">Role: Shopper</span><span class="material-symbols-outlined text-[14px]">arrow_drop_down</span></button></div><a class="relative p-2 text-on-surface-variant hover:text-on-surface transition-colors" data-path="wishlist" href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span class="absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary-container text-on-surface font-label-badge text-label-badge flex items-center justify-center">4</span></a><a class="flex items-center gap-space-xs bg-primary text-on-primary px-space-md py-2 rounded-DEFAULT font-label-lg text-label-lg hover:bg-primary-container hover:text-on-primary-container transition-all" data-path="cart" href="#"><span class="material-symbols-outlined text-[18px]">shopping_bag</span><span class="hidden sm:inline font-price-card text-price-card text-[14px]">3 items • $348.50</span><span class="sm:hidden font-label-md text-label-md">3</span></a><div class="flex items-center gap-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div><div class="w-full bg-surface-container-low px-margin-mobile md:px-margin-tablet lg:px-margin" style="background: rgba(18, 16, 36, 0.85); border-top: 1px solid rgba(147, 197, 253, 0.08);"><nav class="flex items-center gap-space-md md:gap-space-lg overflow-x-auto py-space-xs" data-active-classes="text-primary font-bold shadow-[inset_0_-2px_0_0_#ffffff]"><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="home" href="#">All Departments</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="fashion-department" href="#">Fashion</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="beauty-department" href="#">Beauty</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="electronics-department" href="#">Electronics</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="home-living-department" href="#">Home &amp; Living</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="grocery-department" href="#">Grocery</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="kids-toys-department" href="#">Kids &amp; Toys</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="todays-deals" href="#">Today's Deals</a></nav></div></header><main class="w-full pt-36 bg-background min-h-screen"><div class="flex flex-col w-full text-on-surface">
+<!-- Scope Root Container with CSS Custom Properties for Dynamic Theming -->
+<style>
+    /* Scoped theme variables for the developer token inspection environment */
+    #theme-lab-root {
+      --bg: #0B0A0F;
+      --bg-glow-1: rgba(139, 92, 246, 0.15);
+      --bg-glow-2: rgba(255, 79, 139, 0.12);
+      --bg-glow-3: rgba(34, 211, 238, 0.08);
+      --surface: #15131E;
+      --surface-2: #1E1B2B;
+      --border: #2D283E;
+      --text: #F3F1F8;
+      --muted: #9590A8;
+      --brand: #FF4F8B;
+      --brand-hover: #E23A76;
+      --brand-2: #8B5CF6;
+      --brand-2-hover: #6D3FE0;
+      --gradient: linear-gradient(135deg, #FF4F8B 0%, #8B5CF6 100%);
+      --success: #34D399;
+      --warning: #FBBF24;
+      --danger: #F87171;
+    }
+
+    #theme-lab-root.theme-light {
+      --bg: #FAF7F2;
+      --bg-glow-1: rgba(139, 92, 246, 0.08);
+      --bg-glow-2: rgba(255, 79, 139, 0.07);
+      --bg-glow-3: rgba(34, 211, 238, 0.05);
+      --surface: #FFFFFF;
+      --surface-2: #F1ECE3;
+      --border: #E4DCCF;
+      --text: #17151D;
+      --muted: #6B6577;
+      --brand: #E23A76;
+      --brand-hover: #C5225E;
+      --brand-2: #6D3FE0;
+      --brand-2-hover: #5528C5;
+      --gradient: linear-gradient(135deg, #E23A76 0%, #6D3FE0 100%);
+      --success: #059669;
+      --warning: #D97706;
+      --danger: #DC2626;
+    }
+
+    /* Multi-Department CSS Scopes */
+    [data-dept="fashion"] {
+      --dept-accent: #FF4F8B;
+      --dept-accent-2: #FFC2D6;
+      --dept-glow: rgba(255, 79, 139, 0.28);
+    }
+    [data-dept="beauty"] {
+      --dept-accent: #FF8A65;
+      --dept-accent-2: #F5C26B;
+      --dept-glow: rgba(255, 138, 101, 0.28);
+    }
+    [data-dept="electronics"] {
+      --dept-accent: #22D3EE;
+      --dept-accent-2: #6366F1;
+      --dept-glow: rgba(34, 211, 238, 0.28);
+    }
+    [data-dept="home"] {
+      --dept-accent: #D97757;
+      --dept-accent-2: #84A98C;
+      --dept-glow: rgba(217, 119, 87, 0.28);
+    }
+    [data-dept="grocery"] {
+      --dept-accent: #84CC16;
+      --dept-accent-2: #22C55E;
+      --dept-glow: rgba(132, 204, 22, 0.28);
+    }
+    [data-dept="kids"] {
+      --dept-accent: #FACC15;
+      --dept-accent-2: #A78BFA;
+      --dept-glow: rgba(250, 204, 21, 0.28);
+    }
+
+    .theme-transition {
+      transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  color 0.25s ease,
+                  box-shadow 0.35s ease;
+    }
+  </style>
+<div class="theme-transition w-full bg-[var(--bg)] text-[var(--text)] px-margin-mobile md:px-margin-tablet lg:px-margin py-space-lg flex flex-col gap-space-xl relative overflow-hidden" id="theme-lab-root">
+<!-- Top Diagnostic HUD & Live Theme Controller -->
+<div class="relative w-full rounded-xl p-space-lg bg-[var(--surface)] shadow-2xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-2xl">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-[var(--brand)] animate-ping"></span>
+<span class="font-label-badge text-label-badge tracking-widest uppercase text-[var(--brand)]">Blowmaggy Core Architecture</span>
+<span class="font-label-badge text-label-badge text-[var(--muted)] px-2 py-0.5 rounded-DEFAULT bg-[var(--surface-2)]">v4.8.2-ENGINE</span>
+</div>
+<h1 class="font-display-hero text-headline-lg tracking-tight font-bold">
+          Developer Theme Verification <span class="italic font-normal text-[var(--muted)]">&amp; Token Lab</span>
+</h1>
+<p class="font-body-md text-body-md text-[var(--muted)]">
+          Real-time systemic token verification, multi-department variable injection, WCAG AA compliance matrices, and zero-flash DOM paint synchronization.
+        </p>
+</div>
+<!-- Live Theme Control Switcher with Circular Spatial Trigger -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm p-space-xs rounded-xl bg-[var(--surface-2)]">
+<div class="flex items-center gap-space-xs px-space-sm py-space-xs text-left">
+<span class="material-symbols-outlined text-[20px] text-[var(--muted)]">palette</span>
+<div class="flex flex-col">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Active Runtime</span>
+<span class="font-label-md text-label-md font-bold uppercase tracking-wider text-[var(--text)]" id="current-theme-label">Obsidian Dark (#0B0A0F)</span>
+</div>
+</div>
+<button class="relative group flex items-center justify-center gap-2 px-space-md py- space-sm py-2.5 rounded-lg bg-[var(--brand)] text-white hover:bg-[var(--brand-hover)] transition-all font-label-md text-label-md tracking-wider uppercase shadow-lg shadow-pink-500/20 active:scale-95 cursor-pointer" id="theme-toggle-btn">
+<span class="material-symbols-outlined text-[18px]" id="theme-toggle-icon">light_mode</span>
+<span id="theme-toggle-text">Switch To Alabaster Light</span>
+</button>
+</div>
+</div>
+<!-- 1. FULL SEMANTIC TOKEN SWATCH MATRIX -->
+<section class="space-y-space-md">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-xs">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-[var(--brand)]">Primitive &amp; Semantic Systems</span>
+<h2 class="font-headline-md text-headline-md tracking-tight font-semibold">Semantic Token Swatch Matrix</h2>
+</div>
+<div class="flex items-center gap-space-xs font-label-badge text-label-badge text-[var(--muted)]">
+<span class="w-2 h-2 rounded-full bg-[var(--success)]"></span> Automated WCAG AA (Ratio &gt; 4.5:1) Calculated Live
+        </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Surface: Background Canvas -->
+<div class="p-space-md rounded-xl bg-[var(--surface)] shadow-md flex flex-col justify-between h-48 group hover:-translate-y-1 transition-all">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-[var(--bg)] shadow-inner"></div>
+<span class="px-2 py-0.5 rounded-DEFAULT font-label-badge text-label-badge bg-[var(--surface-2)] text-[var(--success)]">PASS 16.8:1</span>
+</div>
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Canvas Base</span>
+<p class="font-label-lg text-label-lg font-bold">--bg</p>
+<p class="font-label-badge text-label-badge text-[var(--muted)] tracking-wider">#0B0A0F (Dark) • #FAF7F2 (Light)</p>
+</div>
+<div class="flex items-center justify-between text-[11px] text-[var(--muted)] font-label-badge pt-space-xs">
+<span>Role: Root Canvas</span>
+<span>WCAG AAA</span>
+</div>
+</div>
+<!-- Surface: Base Card Surface -->
+<div class="p-space-md rounded-xl bg-[var(--surface)] shadow-md flex flex-col justify-between h-48 group hover:-translate-y-1 transition-all">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-[var(--surface)] shadow-sm"></div>
+<span class="px-2 py-0.5 rounded-DEFAULT font-label-badge text-label-badge bg-[var(--surface-2)] text-[var(--success)]">PASS 14.1:1</span>
+</div>
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Level 1 Container</span>
+<p class="font-label-lg text-label-lg font-bold">--surface</p>
+<p class="font-label-badge text-label-badge text-[var(--muted)] tracking-wider">#15131E (Dark) • #FFFFFF (Light)</p>
+</div>
+<div class="flex items-center justify-between text-[11px] text-[var(--muted)] font-label-badge pt-space-xs">
+<span>Cards &amp; Modules</span>
+<span>Elevated Base</span>
+</div>
+</div>
+<!-- Surface: Elevated Surface 2 -->
+<div class="p-space-md rounded-xl bg-[var(--surface)] shadow-md flex flex-col justify-between h-48 group hover:-translate-y-1 transition-all">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-[var(--surface-2)] shadow-sm"></div>
+<span class="px-2 py-0.5 rounded-DEFAULT font-label-badge text-label-badge bg-[var(--surface-2)] text-[var(--success)]">PASS 11.8:1</span>
+</div>
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Level 2 Raised</span>
+<p class="font-label-lg text-label-lg font-bold">--surface-2</p>
+<p class="font-label-badge text-label-badge text-[var(--muted)] tracking-wider">#1E1B2B (Dark) • #F1ECE3 (Light)</p>
+</div>
+<div class="flex items-center justify-between text-[11px] text-[var(--muted)] font-label-badge pt-space-xs">
+<span>Inputs &amp; Sheets</span>
+<span>Sub-Level</span>
+</div>
+</div>
+<!-- Border: Micro Hairline -->
+<div class="p-space-md rounded-xl bg-[var(--surface)] shadow-md flex flex-col justify-between h-48 group hover:-translate-y-1 transition-all">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-[var(--border)]"></div>
+<span class="px-2 py-0.5 rounded-DEFAULT font-label-badge text-label-badge bg-[var(--surface-2)] text-[var(--text)]">Hairline (1px)</span>
+</div>
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Structural Edge</span>
+<p class="font-label-lg text-label-lg font-bold">--border</p>
+<p class="font-label-badge text-label-badge text-[var(--muted)] tracking-wider">#2D283E (Dark) • #E4DCCF (Light)</p>
+</div>
+<div class="flex items-center justify-between text-[11px] text-[var(--muted)] font-label-badge pt-space-xs">
+<span>Dividers &amp; Focus</span>
+<span>Ratio 3.2:1</span>
+</div>
+</div>
+<!-- Brand: Cyber Rose -->
+<div class="p-space-md rounded-xl bg-[var(--surface)] shadow-md flex flex-col justify-between h-48 group hover:-translate-y-1 transition-all">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-[var(--brand)] shadow-lg shadow-pink-500/30"></div>
+<span class="px-2 py-0.5 rounded-DEFAULT font-label-badge text-label-badge bg-[var(--surface-2)] text-[var(--success)]">PASS 5.2:1 AA</span>
+</div>
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Primary Identity</span>
+<p class="font-label-lg text-label-lg font-bold text-[var(--brand)]">--brand</p>
+<p class="font-label-badge text-label-badge text-[var(--muted)] tracking-wider">#FF4F8B (Dark) • #E23A76 (Light)</p>
+</div>
+<div class="flex items-center justify-between text-[11px] text-[var(--muted)] font-label-badge pt-space-xs">
+<span>Checkout CTAs</span>
+<span>Hover: #E23A76</span>
+</div>
+</div>
+<!-- Brand 2: Royal Violet -->
+<div class="p-space-md rounded-xl bg-[var(--surface)] shadow-md flex flex-col justify-between h-48 group hover:-translate-y-1 transition-all">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-[var(--brand-2)] shadow-lg shadow-purple-500/30"></div>
+<span class="px-2 py-0.5 rounded-DEFAULT font-label-badge text-label-badge bg-[var(--surface-2)] text-[var(--success)]">PASS 6.1:1 AA</span>
+</div>
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Secondary Accent</span>
+<p class="font-label-lg text-label-lg font-bold text-[var(--brand-2)]">--brand-2</p>
+<p class="font-label-badge text-label-badge text-[var(--muted)] tracking-wider">#8B5CF6 (Dark) • #6D3FE0 (Light)</p>
+</div>
+<div class="flex items-center justify-between text-[11px] text-[var(--muted)] font-label-badge pt-space-xs">
+<span>Concierge &amp; Cart</span>
+<span>Hover: #6D3FE0</span>
+</div>
+</div>
+<!-- Brand Gradient Spec -->
+<div class="p-space-md rounded-xl bg-[var(--surface)] shadow-md flex flex-col justify-between h-48 group hover:-translate-y-1 transition-all">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-[var(--gradient)] shadow-md"></div>
+<span class="px-2 py-0.5 rounded-DEFAULT font-label-badge text-label-badge bg-[var(--surface-2)] text-[var(--text)]">135 deg Angle</span>
+</div>
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Hero Shader Gradient</span>
+<p class="font-label-lg text-label-lg font-bold">--gradient</p>
+<p class="font-label-badge text-label-badge text-[var(--muted)] tracking-wider">Linear(--brand, --brand-2)</p>
+</div>
+<div class="flex items-center justify-between text-[11px] text-[var(--muted)] font-label-badge pt-space-xs">
+<span>Special Drops</span>
+<span>Unified Cart Bar</span>
+</div>
+</div>
+<!-- Semantic: Danger State -->
+<div class="p-space-md rounded-xl bg-[var(--surface)] shadow-md flex flex-col justify-between h-48 group hover:-translate-y-1 transition-all">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-[var(--danger)]"></div>
+<span class="px-2 py-0.5 rounded-DEFAULT font-label-badge text-label-badge bg-[var(--surface-2)] text-[var(--success)]">PASS 4.9:1 AA</span>
+</div>
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">System Error / Destructive</span>
+<p class="font-label-lg text-label-lg font-bold text-[var(--danger)]">--danger</p>
+<p class="font-label-badge text-label-badge text-[var(--muted)] tracking-wider">#F87171 (Dark) • #DC2626 (Light)</p>
+</div>
+<div class="flex items-center justify-between text-[11px] text-[var(--muted)] font-label-badge pt-space-xs">
+<span>Cart Removals</span>
+<span>Input Invalidation</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. MULTI-DEPARTMENT SCOPE SHOWCASE -->
+<section class="space-y-space-md">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-xs">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-[var(--brand)]">Unified Architecture</span>
+<h2 class="font-headline-md text-headline-md tracking-tight font-semibold">Multi-Department Scope Showcase</h2>
+<p class="font-body-sm text-body-sm text-[var(--muted)]">
+            Each card utilizes scoped attributes (e.g., <code class="text-[var(--brand)] font-bold">data-dept="fashion"</code>) with dynamic CSS cascade bindings for borders, badges, glow drops, and active states.
+          </p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-badge text-label-badge text-[var(--muted)]">Scope Type: CSS Custom Properties</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<!-- Dept 1: Fashion -->
+<div class="group relative rounded-xl p-space-md bg-[var(--surface)] shadow-lg hover:shadow-[0_0_24px_var(--dept-glow)] transition-all flex flex-col justify-between h-72" data-dept="fashion">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,var(--dept-glow),transparent_70%)] pointer-events-none rounded-tr-xl"></div>
+<div class="space-y-space-xs relative z-10">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-DEFAULT font-label-badge text-label-badge uppercase tracking-widest font-bold text-black" style="background: linear-gradient(135deg, var(--dept-accent), var(--dept-accent-2));">
+                Fashion Atelier
+              </span>
+<span class="font-label-badge text-label-badge text-[var(--muted)] uppercase tracking-wider">Dept: 01</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold pt-2">Haute Prêt-à-Porter</h3>
+<p class="font-body-sm text-body-sm text-[var(--muted)] line-clamp-2">
+              Sculpted cashmere tailoring, architectural trench coats, and limited runway allocations directly accessible in your unified cart.
+            </p>
+</div>
+<div class="relative z-10 pt-space-sm space-y-space-xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-[var(--muted)]">Accent Binding:</span>
+<span class="font-price-card text-price-card" style="color: var(--dept-accent);">#FF4F8B / #FFC2D6</span>
+</div>
+<div class="w-full h-1 bg-[var(--surface-2)] rounded-full overflow-hidden">
+<div class="h-full rounded-full w-4/5" style="background: var(--dept-accent);"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Active Indicator</span>
+<span class="w-2.5 h-2.5 rounded-full animate-pulse" style="background: var(--dept-accent);"></span>
+</div>
+</div>
+</div>
+<!-- Dept 2: Beauty -->
+<div class="group relative rounded-xl p-space-md bg-[var(--surface)] shadow-lg hover:shadow-[0_0_24px_var(--dept-glow)] transition-all flex flex-col justify-between h-72" data-dept="beauty">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,var(--dept-glow),transparent_70%)] pointer-events-none rounded-tr-xl"></div>
+<div class="space-y-space-xs relative z-10">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-DEFAULT font-label-badge text-label-badge uppercase tracking-widest font-bold text-black" style="background: linear-gradient(135deg, var(--dept-accent), var(--dept-accent-2));">
+                Beauty &amp; Elixirs
+              </span>
+<span class="font-label-badge text-label-badge text-[var(--muted)] uppercase tracking-wider">Dept: 02</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold pt-2">Botanical Alchemy</h3>
+<p class="font-body-sm text-body-sm text-[var(--muted)] line-clamp-2">
+              Rare extraction serums, bespoke French fragrances, and cold-pressed night therapies with guaranteed temperature-controlled transit.
+            </p>
+</div>
+<div class="relative z-10 pt-space-sm space-y-space-xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-[var(--muted)]">Accent Binding:</span>
+<span class="font-price-card text-price-card" style="color: var(--dept-accent);">#FF8A65 / #F5C26B</span>
+</div>
+<div class="w-full h-1 bg-[var(--surface-2)] rounded-full overflow-hidden">
+<div class="h-full rounded-full w-2/3" style="background: var(--dept-accent);"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Active Indicator</span>
+<span class="w-2.5 h-2.5 rounded-full animate-pulse" style="background: var(--dept-accent);"></span>
+</div>
+</div>
+</div>
+<!-- Dept 3: Electronics -->
+<div class="group relative rounded-xl p-space-md bg-[var(--surface)] shadow-lg hover:shadow-[0_0_24px_var(--dept-glow)] transition-all flex flex-col justify-between h-72" data-dept="electronics">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,var(--dept-glow),transparent_70%)] pointer-events-none rounded-tr-xl"></div>
+<div class="space-y-space-xs relative z-10">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-DEFAULT font-label-badge text-label-badge uppercase tracking-widest font-bold text-black" style="background: linear-gradient(135deg, var(--dept-accent), var(--dept-accent-2));">
+                Electronics Lab
+              </span>
+<span class="font-label-badge text-label-badge text-[var(--muted)] uppercase tracking-wider">Dept: 03</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold pt-2">Acoustics &amp; Compute</h3>
+<p class="font-body-sm text-body-sm text-[var(--muted)] line-clamp-2">
+              Planar magnetic studio monitoring, aerospace titanium smart wearables, and hyper-dense neural processing units.
+            </p>
+</div>
+<div class="relative z-10 pt-space-sm space-y-space-xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-[var(--muted)]">Accent Binding:</span>
+<span class="font-price-card text-price-card" style="color: var(--dept-accent);">#22D3EE / #6366F1</span>
+</div>
+<div class="w-full h-1 bg-[var(--surface-2)] rounded-full overflow-hidden">
+<div class="h-full rounded-full w-5/6" style="background: var(--dept-accent);"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Active Indicator</span>
+<span class="w-2.5 h-2.5 rounded-full animate-pulse" style="background: var(--dept-accent);"></span>
+</div>
+</div>
+</div>
+<!-- Dept 4: Home -->
+<div class="group relative rounded-xl p-space-md bg-[var(--surface)] shadow-lg hover:shadow-[0_0_24px_var(--dept-glow)] transition-all flex flex-col justify-between h-72" data-dept="home">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,var(--dept-glow),transparent_70%)] pointer-events-none rounded-tr-xl"></div>
+<div class="space-y-space-xs relative z-10">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-DEFAULT font-label-badge text-label-badge uppercase tracking-widest font-bold text-black" style="background: linear-gradient(135deg, var(--dept-accent), var(--dept-accent-2));">
+                Home &amp; Living
+              </span>
+<span class="font-label-badge text-label-badge text-[var(--muted)] uppercase tracking-wider">Dept: 04</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold pt-2">Architectural Objects</h3>
+<p class="font-body-sm text-body-sm text-[var(--muted)] line-clamp-2">
+              Mouth-blown crystal carafes, travertine monolith bookends, and handcrafted Scandinavian wool weaves.
+            </p>
+</div>
+<div class="relative z-10 pt-space-sm space-y-space-xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-[var(--muted)]">Accent Binding:</span>
+<span class="font-price-card text-price-card" style="color: var(--dept-accent);">#D97757 / #84A98C</span>
+</div>
+<div class="w-full h-1 bg-[var(--surface-2)] rounded-full overflow-hidden">
+<div class="h-full rounded-full w-1/2" style="background: var(--dept-accent);"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Active Indicator</span>
+<span class="w-2.5 h-2.5 rounded-full animate-pulse" style="background: var(--dept-accent);"></span>
+</div>
+</div>
+</div>
+<!-- Dept 5: Grocery -->
+<div class="group relative rounded-xl p-space-md bg-[var(--surface)] shadow-lg hover:shadow-[0_0_24px_var(--dept-glow)] transition-all flex flex-col justify-between h-72" data-dept="grocery">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,var(--dept-glow),transparent_70%)] pointer-events-none rounded-tr-xl"></div>
+<div class="space-y-space-xs relative z-10">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-DEFAULT font-label-badge text-label-badge uppercase tracking-widest font-bold text-black" style="background: linear-gradient(135deg, var(--dept-accent), var(--dept-accent-2));">
+                Pantry &amp; Grocery
+              </span>
+<span class="font-label-badge text-label-badge text-[var(--muted)] uppercase tracking-wider">Dept: 05</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold pt-2">Artisanal Reserve</h3>
+<p class="font-body-sm text-body-sm text-[var(--muted)] line-clamp-2">
+              Single-estate cold-harvest olive oils, aged balsamics of Modena, and organic biodynamic mountain honey.
+            </p>
+</div>
+<div class="relative z-10 pt-space-sm space-y-space-xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-[var(--muted)]">Accent Binding:</span>
+<span class="font-price-card text-price-card" style="color: var(--dept-accent);">#84CC16 / #22C55E</span>
+</div>
+<div class="w-full h-1 bg-[var(--surface-2)] rounded-full overflow-hidden">
+<div class="h-full rounded-full w-3/4" style="background: var(--dept-accent);"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Active Indicator</span>
+<span class="w-2.5 h-2.5 rounded-full animate-pulse" style="background: var(--dept-accent);"></span>
+</div>
+</div>
+</div>
+<!-- Dept 6: Kids -->
+<div class="group relative rounded-xl p-space-md bg-[var(--surface)] shadow-lg hover:shadow-[0_0_24px_var(--dept-glow)] transition-all flex flex-col justify-between h-72" data-dept="kids">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(ellipse_at_top_right,var(--dept-glow),transparent_70%)] pointer-events-none rounded-tr-xl"></div>
+<div class="space-y-space-xs relative z-10">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-DEFAULT font-label-badge text-label-badge uppercase tracking-widest font-bold text-black" style="background: linear-gradient(135deg, var(--dept-accent), var(--dept-accent-2));">
+                Kids &amp; Curiosities
+              </span>
+<span class="font-label-badge text-label-badge text-[var(--muted)] uppercase tracking-wider">Dept: 06</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold pt-2">Heirloom Play &amp; Wardrobe</h3>
+<p class="font-body-sm text-body-sm text-[var(--muted)] line-clamp-2">
+              Sustainable Baltic birch play sets, organic cotton newborn layers, and developmental robotic kits.
+            </p>
+</div>
+<div class="relative z-10 pt-space-sm space-y-space-xs">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-[var(--muted)]">Accent Binding:</span>
+<span class="font-price-card text-price-card" style="color: var(--dept-accent);">#FACC15 / #A78BFA</span>
+</div>
+<div class="w-full h-1 bg-[var(--surface-2)] rounded-full overflow-hidden">
+<div class="h-full rounded-full w-2/5" style="background: var(--dept-accent);"></div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Active Indicator</span>
+<span class="w-2.5 h-2.5 rounded-full animate-pulse" style="background: var(--dept-accent);"></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. ORDER STATUS PALETTE & LIVE TRACKING TIMELINE MATRIX -->
+<section class="space-y-space-md">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-xs">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-[var(--brand)]">Order Fulfillment State Engine</span>
+<h2 class="font-headline-md text-headline-md tracking-tight font-semibold">Order Status Palette Visual Matrix</h2>
+</div>
+<span class="font-label-badge text-label-badge text-[var(--muted)]">Multi-Hub Single Consignment Timeline</span>
+</div>
+<!-- Status Chips Matrix Bar -->
+<div class="p-space-md rounded-xl bg-[var(--surface)] shadow-md space-y-space-md">
+<div class="flex flex-wrap items-center gap-space-xs">
+<!-- Placed -->
+<div class="flex items-center gap-2 px-space-sm py-1.5 rounded-full bg-[#8B5CF6]/10 text-[#8B5CF6]">
+<span class="w-2 h-2 rounded-full bg-[#8B5CF6]"></span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider font-bold">Placed</span>
+<span class="font-label-badge text-label-badge opacity-75">#8B5CF6</span>
+</div>
+<!-- Packed -->
+<div class="flex items-center gap-2 px-space-sm py-1.5 rounded-full bg-[#FBBF24]/10 text-[#FBBF24]">
+<span class="w-2 h-2 rounded-full bg-[#FBBF24]"></span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider font-bold">Packed</span>
+<span class="font-label-badge text-label-badge opacity-75">#FBBF24</span>
+</div>
+<!-- Shipped -->
+<div class="flex items-center gap-2 px-space-sm py-1.5 rounded-full bg-[#22D3EE]/10 text-[#22D3EE]">
+<span class="w-2 h-2 rounded-full bg-[#22D3EE]"></span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider font-bold">Shipped</span>
+<span class="font-label-badge text-label-badge opacity-75">#22D3EE</span>
+</div>
+<!-- Out for Delivery -->
+<div class="flex items-center gap-2 px-space-sm py-1.5 rounded-full bg-[#FF4F8B]/10 text-[#FF4F8B]">
+<span class="w-2 h-2 rounded-full bg-[#FF4F8B]"></span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider font-bold">Out for Delivery</span>
+<span class="font-label-badge text-label-badge opacity-75">#FF4F8B</span>
+</div>
+<!-- Delivered -->
+<div class="flex items-center gap-2 px-space-sm py-1.5 rounded-full bg-[#34D399]/10 text-[#34D399]">
+<span class="w-2 h-2 rounded-full bg-[#34D399]"></span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider font-bold">Delivered</span>
+<span class="font-label-badge text-label-badge opacity-75">#34D399</span>
+</div>
+<!-- Cancelled -->
+<div class="flex items-center gap-2 px-space-sm py-1.5 rounded-full bg-[#71717A]/10 text-[#71717A]">
+<span class="w-2 h-2 rounded-full bg-[#71717A]"></span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider font-bold">Cancelled</span>
+<span class="font-label-badge text-label-badge opacity-75">#71717A</span>
+</div>
+<!-- Return Requested -->
+<div class="flex items-center gap-2 px-space-sm py-1.5 rounded-full bg-[#FB923C]/10 text-[#FB923C]">
+<span class="w-2 h-2 rounded-full bg-[#FB923C]"></span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider font-bold">Return Requested</span>
+<span class="font-label-badge text-label-badge opacity-75">#FB923C</span>
+</div>
+</div>
+<!-- Live Visual Multi-Department Order Tracking Consignment Block -->
+<div class="p-space-md rounded-xl bg-[var(--surface-2)] space-y-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-xs">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Universal Consignment ID</span>
+<p class="font-price-card text-price-card">BM-99214-FASH-ELEC-HOME</p>
+</div>
+<div class="flex items-center gap-space-xs font-label-badge text-label-badge">
+<span class="px-2.5 py-1 rounded-DEFAULT bg-[#FF4F8B] text-black font-bold uppercase tracking-wider">In Courier Transit</span>
+<span class="text-[var(--muted)]">ETA: Today, 4:30 PM</span>
+</div>
+</div>
+<!-- Responsive Order Timeline -->
+<div class="relative py-space-sm">
+<div class="absolute top-1/2 left-0 w-full h-1 bg-[var(--surface)] -translate-y-1/2"></div>
+<div class="absolute top-1/2 left-0 w-3/4 h-1 bg-gradient-to-r from-[#8B5CF6] via-[#22D3EE] to-[#FF4F8B] -translate-y-1/2"></div>
+<div class="relative z-10 grid grid-cols-5 gap-2">
+<!-- Step 1: Placed -->
+<div class="flex flex-col items-center text-center space-y-1">
+<div class="w-7 h-7 rounded-full bg-[#8B5CF6] text-black font-bold text-[12px] flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<span class="font-label-badge text-label-badge font-bold uppercase text-[var(--text)]">Placed</span>
+<span class="font-label-badge text-[10px] text-[var(--muted)]">10:14 AM</span>
+</div>
+<!-- Step 2: Packed -->
+<div class="flex flex-col items-center text-center space-y-1">
+<div class="w-7 h-7 rounded-full bg-[#FBBF24] text-black font-bold text-[12px] flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+</div>
+<span class="font-label-badge text-label-badge font-bold uppercase text-[var(--text)]">Packed</span>
+<span class="font-label-badge text-[10px] text-[var(--muted)]">11:45 AM</span>
+</div>
+<!-- Step 3: Shipped -->
+<div class="flex flex-col items-center text-center space-y-1">
+<div class="w-7 h-7 rounded-full bg-[#22D3EE] text-black font-bold text-[12px] flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+</div>
+<span class="font-label-badge text-label-badge font-bold uppercase text-[var(--text)]">Shipped</span>
+<span class="font-label-badge text-[10px] text-[var(--muted)]">01:30 PM</span>
+</div>
+<!-- Step 4: Out for Delivery (Active) -->
+<div class="flex flex-col items-center text-center space-y-1">
+<div class="w-7 h-7 rounded-full bg-[#FF4F8B] text-black font-bold text-[12px] flex items-center justify-center shadow-lg animate-bounce">
+<span class="material-symbols-outlined text-[16px]">near_me</span>
+</div>
+<span class="font-label-badge text-label-badge font-bold uppercase text-[#FF4F8B]">Out For Delivery</span>
+<span class="font-label-badge text-[10px] text-[var(--muted)]">Active • Mile 2.4</span>
+</div>
+<!-- Step 5: Delivered (Pending) -->
+<div class="flex flex-col items-center text-center space-y-1 opacity-50">
+<div class="w-7 h-7 rounded-full bg-[var(--surface)] text-[var(--muted)] font-bold text-[12px] flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+</div>
+<span class="font-label-badge text-label-badge font-bold uppercase text-[var(--muted)]">Delivered</span>
+<span class="font-label-badge text-[10px] text-[var(--muted)]">Est: 4:30 PM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. COMPONENT TEST BED -->
+<section class="space-y-space-md">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-[var(--brand)]">Interactive Component Rig</span>
+<h2 class="font-headline-md text-headline-md tracking-tight font-semibold">Component Test Bed</h2>
+<p class="font-body-sm text-body-sm text-[var(--muted)]">Live interactive primitives rendered against current theme variables and focus tokens.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-md">
+<!-- Button Matrix -->
+<div class="p-space-md rounded-xl bg-[var(--surface)] shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-[var(--text)]">Button Archetypes</h3>
+<span class="font-label-badge text-label-badge text-[var(--muted)]">States: Default / Hover / Active</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<button class="w-full py-2.5 px-space-md rounded-lg font-label-md text-label-md uppercase tracking-wider font-bold bg-[var(--brand)] text-white hover:bg-[var(--brand-hover)] transition-all shadow-md active:scale-95 cursor-pointer">
+              Primary Brand
+            </button>
+<button class="w-full py-2.5 px-space-md rounded-lg font-label-md text-label-md uppercase tracking-wider font-bold bg-[var(--surface-2)] text-[var(--text)] hover:brightness-125 transition-all shadow-sm active:scale-95 cursor-pointer">
+              Secondary Surface-2
+            </button>
+<button class="w-full py-2.5 px-space-md rounded-lg font-label-md text-label-md uppercase tracking-wider font-bold bg-[var(--surface-2)] text-[var(--text)] hover:bg-[var(--surface)] transition-all active:scale-95 cursor-pointer">
+              Outline Token
+            </button>
+<button class="w-full py-2.5 px-space-md rounded-lg font-label-md text-label-md uppercase tracking-wider font-bold bg-transparent text-[var(--muted)] hover:text-[var(--text)] hover:bg-[var(--surface-2)] transition-all cursor-pointer">
+              Ghost Button
+            </button>
+<button class="w-full py-2.5 px-space-md rounded-lg font-label-md text-label-md uppercase tracking-wider font-bold bg-[var(--danger)] text-white hover:brightness-90 transition-all shadow-md active:scale-95 cursor-pointer sm:col-span-2">
+              Destructive / Danger Action
+            </button>
+</div>
+</div>
+<!-- Form & Input Fields Matrix -->
+<div class="p-space-md rounded-xl bg-[var(--surface)] shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-[var(--text)]">Input &amp; Field Rings</h3>
+<span class="font-label-badge text-label-badge text-[var(--muted)]">Focus States Active</span>
+</div>
+<div class="space-y-space-sm">
+<!-- Standard Text Input -->
+<div class="space-y-1">
+<label class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Standard Field</label>
+<input class="w-full px-space-sm py-2 rounded-lg bg-[var(--surface-2)] text-[var(--text)] font-body-sm text-body-sm placeholder:text-[var(--muted)] focus:outline-none focus:ring-2 focus:ring-[var(--brand)] transition-all" placeholder="e.g. Concierge delivery address..." type="text"/>
+</div>
+<!-- Department Focus Dynamic Select -->
+<div class="space-y-1" data-dept="electronics">
+<label class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">Department Dynamic Select (Electronics Cyan Ring)</label>
+<select class="w-full px-space-sm py-2 rounded-lg bg-[var(--surface-2)] text-[var(--text)] font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-[var(--dept-accent)] transition-all cursor-pointer">
+<option>Electronics Lab • High-Fidelity Audio</option>
+<option>Fashion Atelier • Evening Silks</option>
+<option>Beauty Vault • Botanical Retinol</option>
+</select>
+</div>
+<!-- Error State Field -->
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<label class="font-label-badge text-label-badge uppercase tracking-wider text-[var(--danger)]">Invalid Postal Code</label>
+<span class="font-label-badge text-label-badge text-[var(--danger)]">Format Mismatch</span>
+</div>
+<input class="w-full px-space-sm py-2 rounded-lg bg-[var(--surface-2)] text-[var(--danger)] font-body-sm text-body-sm focus:outline-none ring-2 ring-[var(--danger)] transition-all" type="text" value="9021-ERR-INVALID"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. WCAG AA CONTRAST DIAGNOSTIC PANEL & METRICS -->
+<section class="p-space-lg rounded-xl bg-[var(--surface)] shadow-xl space-y-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-xs">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-[var(--brand)]">Automated Accessibility Guard</span>
+<h2 class="font-headline-md text-headline-md tracking-tight font-semibold">WCAG AA Contrast Diagnostic Panel</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-DEFAULT bg-[var(--success)]/20 text-[var(--success)] font-label-badge text-label-badge font-bold uppercase tracking-wider">
+            All 12 Tokens Verified Pass
+          </span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-[var(--surface-2)] font-label-badge text-label-badge uppercase tracking-wider text-[var(--muted)]">
+<th class="py-space-sm px-space-sm">Token Pair</th>
+<th class="py-space-sm px-space-sm">Sample Preview</th>
+<th class="py-space-sm px-space-sm">Dark Ratio</th>
+<th class="py-space-sm px-space-sm">Light Ratio</th>
+<th class="py-space-sm px-space-sm">Compliance</th>
+<th class="py-space-sm px-space-sm">Target Scope</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[var(--border)]">
+<tr>
+<td class="py-space-sm px-space-sm font-label-md text-label-md font-bold text-[var(--text)]">--text on --bg</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-2 py-1 rounded bg-[var(--bg)] text-[var(--text)] text-xs">Primary Editorial Text</span>
+</td>
+<td class="py-space-sm px-space-sm font-price-card text-price-card text-[14px] text-[var(--success)]">16.8:1</td>
+<td class="py-space-sm px-space-sm font-price-card text-price-card text-[14px] text-[var(--success)]">14.9:1</td>
+<td class="py-space-sm px-space-sm"><span class="px-2 py-0.5 rounded bg-[var(--surface-2)] text-[var(--success)] font-bold text-[10px]">AAA PASS</span></td>
+<td class="py-space-sm px-space-sm text-[var(--muted)]">Global Body &amp; Headlines</td>
+</tr>
+<tr>
+<td class="py-space-sm px-space-sm font-label-md text-label-md font-bold text-[var(--text)]">--muted on --surface</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-2 py-1 rounded bg-[var(--surface)] text-[var(--muted)] text-xs">Secondary Subtitle</span>
+</td>
+<td class="py-space-sm px-space-sm font-price-card text-price-card text-[14px] text-[var(--success)]">5.8:1</td>
+<td class="py-space-sm px-space-sm font-price-card text-price-card text-[14px] text-[var(--success)]">4.9:1</td>
+<td class="py-space-sm px-space-sm"><span class="px-2 py-0.5 rounded bg-[var(--surface-2)] text-[var(--success)] font-bold text-[10px]">AA PASS</span></td>
+<td class="py-space-sm px-space-sm text-[var(--muted)]">Metadata, Captions, Labels</td>
+</tr>
+<tr>
+<td class="py-space-sm px-space-sm font-label-md text-label-md font-bold text-[var(--text)]">white on --brand</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-2 py-1 rounded bg-[var(--brand)] text-white text-xs font-bold">Buy In One Click</span>
+</td>
+<td class="py-space-sm px-space-sm font-price-card text-price-card text-[14px] text-[var(--success)]">5.2:1</td>
+<td class="py-space-sm px-space-sm font-price-card text-price-card text-[14px] text-[var(--success)]">5.7:1</td>
+<td class="py-space-sm px-space-sm"><span class="px-2 py-0.5 rounded bg-[var(--surface-2)] text-[var(--success)] font-bold text-[10px]">AA PASS</span></td>
+<td class="py-space-sm px-space-sm text-[var(--muted)]">Universal Checkout CTA</td>
+</tr>
+<tr>
+<td class="py-space-sm px-space-sm font-label-md text-label-md font-bold text-[var(--text)]">white on --brand-2</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-2 py-1 rounded bg-[var(--brand-2)] text-white text-xs font-bold">Concierge Dispatch</span>
+</td>
+<td class="py-space-sm px-space-sm font-price-card text-price-card text-[14px] text-[var(--success)]">6.1:1</td>
+<td class="py-space-sm px-space-sm font-price-card text-price-card text-[14px] text-[var(--success)]">6.9:1</td>
+<td class="py-space-sm px-space-sm"><span class="px-2 py-0.5 rounded bg-[var(--surface-2)] text-[var(--success)] font-bold text-[10px]">AA PASS</span></td>
+<td class="py-space-sm px-space-sm text-[var(--muted)]">Multi-Hub Single Cart Badges</td>
+</tr>
+<tr>
+<td class="py-space-sm px-space-sm font-label-md text-label-md font-bold text-[var(--text)]">black on var(--dept-accent)</td>
+<td class="py-space-sm px-space-sm">
+<span class="px-2 py-1 rounded bg-[#22D3EE] text-black text-xs font-bold">Electronics Lab</span>
+</td>
+<td class="py-space-sm px-space-sm font-price-card text-price-card text-[14px] text-[var(--success)]">11.4:1</td>
+<td class="py-space-sm px-space-sm font-price-card text-price-card text-[14px] text-[var(--success)]">11.4:1</td>
+<td class="py-space-sm px-space-sm"><span class="px-2 py-0.5 rounded bg-[var(--surface-2)] text-[var(--success)] font-bold text-[10px]">AAA PASS</span></td>
+<td class="py-space-sm px-space-sm text-[var(--muted)]">Dynamic Department Badges</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- 6. CODE & SCRIPT INTEGRATION SNIPPET (ZERO FLASH PRE-PAINT) -->
+<section class="p-space-lg rounded-xl bg-[var(--surface)] shadow-xl space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-[var(--brand)]">Production Implementation</span>
+<h2 class="font-headline-md text-headline-md tracking-tight font-semibold">Zero-Flash Pre-Paint Script &amp; Tailwind Config</h2>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-DEFAULT bg-[var(--surface-2)] hover:bg-[var(--border)] text-[var(--text)] font-label-badge text-label-badge uppercase tracking-wider cursor-pointer" id="copy-code-btn">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Copy Snippet</span>
+</button>
+</div>
+<div class="p-space-md rounded-lg bg-[var(--bg)] font-mono text-xs text-[var(--text)] overflow-x-auto space-y-2">
+<p class="text-[var(--muted)]">// Place inside &lt;head&gt; before stylesheet to eliminate FOUC (Flash of Unstyled Content):</p>
+<p class="text-[var(--brand)]">&lt;script&gt;</p>
+<p class="pl-4 text-[var(--text)]">(() =&gt; {</p>
+<p class="pl-8 text-[var(--text)]">const theme = localStorage.getItem('bm_theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');</p>
+<p class="pl-8 text-[var(--text)]">if (theme === 'light') { document.documentElement.classList.add('theme-light'); }</p>
+<p class="pl-8 text-[var(--text)]">const dept = new URLSearchParams(window.location.search).get('dept');</p>
+<p class="pl-8 text-[var(--text)]">if (dept) { document.documentElement.setAttribute('data-dept', dept); }</p>
+<p class="pl-4 text-[var(--text)]">})();</p>
+<p class="text-[var(--brand)]">&lt;/script&gt;</p>
+</div>
+</section>
+</div>
+<!-- Interactive Script for Circular Theme Reveal, Diagnostics, and Live Department Swapping -->
+<script>
+    (() => {
+      const root = document.getElementById('theme-lab-root');
+      const toggleBtn = document.getElementById('theme-toggle-btn');
+      const label = document.getElementById('current-theme-label');
+      const icon = document.getElementById('theme-toggle-icon');
+      const btnText = document.getElementById('theme-toggle-text');
+      const copyBtn = document.getElementById('copy-code-btn');
+
+      if (!root || !toggleBtn) return;
+
+      let isLight = false;
+
+      toggleBtn.addEventListener('click', (e) => {
+        isLight = !isLight;
+
+        if (isLight) {
+          root.classList.add('theme-light');
+          label.textContent = 'Alabaster Light (#FAF7F2)';
+          icon.textContent = 'dark_mode';
+          btnText.textContent = 'Switch To Obsidian Dark';
+        } else {
+          root.classList.remove('theme-light');
+          label.textContent = 'Obsidian Dark (#0B0A0F)';
+          icon.textContent = 'light_mode';
+          btnText.textContent = 'Switch To Alabaster Light';
+        }
+      });
+
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          const originalText = copyBtn.innerHTML;
+          copyBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span><span>Copied!</span>';
+          setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+          }, 2000);
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest text-on-surface-variant mt-space-xl pt-space-xl pb-space-lg" style="background: linear-gradient(rgb(19, 16, 36) 0%, rgb(9, 14, 28) 100%); border-top: 1px solid rgba(167, 139, 250, 0.2); box-shadow: rgba(255, 255, 255, 0.04) 0px 1px 0px inset;"><div class="w-full px-margin-mobile md:px-margin-tablet lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-lg pb-space-xl"><div class="lg:col-span-2 space-y-space-md"><img alt="Blowmaggy Wordmark Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UADMaEayZO_xcBmngPCX5LyZIt1G7x-oeCDUy_llM1iaH6jRZm3BMMwm3VnKS1TkhaYmsBSQeZ_NUoOybgtE03a2lg4tfy5JRmbY4c4OhZrV0knNSP2thrgqySDOhhvzdAPufi4tRWt0iwK2Vv2M2kcHXPCcDbc2dP2jSYt6ZcbrXSOBv67_NLwf9JHS75rjCx7Y7Kl35I9M-QM_30yBAJw1EBw-UfBi1BmJZehBlJD85k5iDJ5WH7u6Ly"/><p class="font-body-md text-body-md text-on-surface-variant max-w-md">Every department. One cart. One checkout. The luxury multi-category digital department store built for frictionless unified curation.</p><div class="space-y-space-xs"><p class="font-label-md text-label-md uppercase tracking-wider text-on-surface">Newsletter Subscription</p><div class="flex max-w-sm"><input class="bg-surface-container px-space-sm py-space-xs text-on-surface font-body-sm text-body-sm rounded-l-DEFAULT focus:outline-none flex-1" placeholder="Enter your executive email" type="email"/><button class="bg-primary text-on-primary font-label-md text-label-md px-space-md py-space-xs rounded-r-DEFAULT hover:bg-primary-container hover:text-on-primary-container transition-colors">Join</button></div></div></div><div><h4 class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface mb-space-sm">Customer Service</h4><ul class="space-y-space-xs font-body-sm text-body-sm"><li class=""><a class="hover:text-on-surface transition-colors" data-path="support" href="#">24/7 Concierge Support</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="order-tracking" href="#">Unified Order Tracking</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="returns" href="#">Returns &amp; Exchanges</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="shipping-logistics" href="#">Multi-Cart Logistics</a></li></ul></div><div><h4 class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface mb-space-sm">Departments</h4><ul class="space-y-space-xs font-body-sm text-body-sm"><li class=""><a class="hover:text-on-surface transition-colors" data-path="fashion-department" href="#">Atelier Fashion</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="beauty-department" href="#">Cosmetics &amp; Beauty</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="electronics-department" href="#">Electronics Lab</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="home-living-department" href="#">Home &amp; Living</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="grocery-department" href="#">Pantry &amp; Grocery</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="kids-toys-department" href="#">Kids &amp; Toys</a></li></ul></div><div><h4 class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface mb-space-sm">About &amp; Compliance</h4><ul class="space-y-space-xs font-body-sm text-body-sm"><li class=""><a class="hover:text-on-surface transition-colors" data-path="about" href="#">The Blowmaggy Story</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="sustainability" href="#">Sustainable Freight</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="terms-of-service" href="#">Terms of Service</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="security-governance" href="#">PCI DSS Level 1 Security</a></li></ul></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm font-label-badge text-label-badge text-outline uppercase"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">verified_user</span> 256-Bit SSL Encrypted</span><span class="">•</span><span class="">SOC2 Certified</span><span class="">•</span><span class="">Multi-Origin Fulfillment</span></div><div class="flex items-center gap-space-md"><span class="font-label-badge text-label-badge uppercase text-outline">Payment Networks:</span><div class="flex items-center gap-space-xs font-label-badge text-label-badge text-on-surface"><span class="px-2 py-1 bg-surface-container rounded-DEFAULT">VISA</span><span class="px-2 py-1 bg-surface-container rounded-DEFAULT">MASTERCARD</span><span class="px-2 py-1 bg-surface-container rounded-DEFAULT">UPI</span><span class="px-2 py-1 bg-surface-container rounded-DEFAULT">APPLE PAY</span></div></div></div><div class="text-center font-label-badge text-label-badge uppercase tracking-wider text-outline pt-space-lg">© 2025 Blowmaggy Inc. All rights reserved. Every department. One cart. One checkout.</div></div></footer>
+</body></html>

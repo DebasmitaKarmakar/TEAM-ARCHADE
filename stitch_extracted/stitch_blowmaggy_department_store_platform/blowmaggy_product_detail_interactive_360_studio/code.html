@@ -1,0 +1,1151 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+.turntable-chamber {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+.turntable-stage {
+  transform-style: preserve-3d;
+  transition: transform 0.08s ease-out;
+}
+.hotspot-pulse {
+  animation: radar-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes radar-pulse {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.4); }
+}
+.wireframe-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 2px;
+  background: #7df4ff;
+  cursor: ew-resize;
+  box-shadow: 0 0 8px #00e5ff;
+}
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-container":"#ba012d","on-primary-container":"#636466","on-surface-variant":"#c5c7c9","primary-container":"#e2e2e4","surface":"#121316","on-primary-fixed":"#1a1c1d","secondary":"#ffb3b3","on-secondary":"#680014","tertiary-fixed":"#7df4ff","surface-variant":"#343538","on-tertiary-fixed-variant":"#004f54","inverse-primary":"#5d5e60","inverse-surface":"#e3e2e6","on-tertiary-fixed":"#002022","tertiary-fixed-dim":"#00dbe9","surface-container-high":"#292a2d","on-secondary-fixed":"#400009","on-surface":"#e3e2e6","tertiary-container":"#7df4ff","on-error":"#690005","on-error-container":"#ffdad6","surface-bright":"#38393c","on-secondary-container":"#ffc7c6","outline-variant":"#44474a","surface-container-lowest":"#0d0e11","on-tertiary-container":"#006f77","error-container":"#93000a","primary-fixed-dim":"#c6c6c8","inverse-on-surface":"#303034","on-primary":"#2f3132","secondary-fixed":"#ffdad9","primary-fixed":"#e2e2e4","surface-container-low":"#1b1b1f","on-secondary-fixed-variant":"#920021","on-background":"#e3e2e6","on-primary-fixed-variant":"#454749","surface-tint":"#c6c6c8","surface-container":"#1f1f23","error":"#ffb4ab","on-tertiary":"#00363a","surface-container-highest":"#343538","secondary-fixed-dim":"#ffb3b3","tertiary":"#ffffff","background":"#121316","primary":"#ffffff","outline":"#8f9194","surface-dim":"#121316"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-mobile":"1rem","space-xl":"2.5rem","space-md":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","margin-tablet":"1.5rem","margin":"3rem","gutter":"1.5rem","gutter-mobile":"0.75rem","space-lg":"1.5rem"},fontFamily:{"price-card":["Space Grotesk"],"display-hero-mobile":["Bodoni Moda"],"label-lg":["Space Grotesk"],"headline-lg-mobile":["Bodoni Moda"],"headline-lg":["Bodoni Moda"],"headline-md":["Bodoni Moda"],"display-hero":["Bodoni Moda"],"label-badge":["Space Grotesk"],"body-sm":["Hanken Grotesk"],"body-md":["Hanken Grotesk"],"title-editorial":["Bodoni Moda"],"label-md":["Space Grotesk"],"headline-sm":["Bodoni Moda"],"price-hero":["Space Grotesk"],"body-lg":["Hanken Grotesk"]},fontSize:{"price-card":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"700"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-md":["28px",{"lineHeight":"36px","fontWeight":"600"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-badge":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"title-editorial":["18px",{"lineHeight":"24px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"600"}],"headline-sm":["22px",{"lineHeight":"30px","fontWeight":"500"}],"price-hero":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}]}}}}</script></head><body class="bg-background text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]" style="background: linear-gradient(135deg, rgba(30, 20, 50, 0.95), rgba(16, 24, 48, 0.95)); border-bottom: 1px solid rgba(147, 197, 253, 0.2);"><div class="w-full bg-surface-container-lowest text-on-surface-variant font-label-badge text-label-badge tracking-widest uppercase py-space-xs px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm mx-auto"><span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span><span class="">PREVIEW SALE: Enjoy free delivery on multi-department orders over $75 with code ONECART • 24/7 Concierge Support</span><span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span></div></div><div class="h-20 w-full px-margin-mobile md:px-margin-tablet lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md shrink-0"><img alt="Blowmaggy Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UADMaEayZO_xcBmngPCX5LyZIt1G7x-oeCDUy_llM1iaH6jRZm3BMMwm3VnKS1TkhaYmsBSQeZ_NUoOybgtE03a2lg4tfy5JRmbY4c4OhZrV0knNSP2thrgqySDOhhvzdAPufi4tRWt0iwK2Vv2M2kcHXPCcDbc2dP2jSYt6ZcbrXSOBv67_NLwf9JHS75rjCx7Y7Kl35I9M-QM_30yBAJw1EBw-UfBi1BmJZehBlJD85k5iDJ5WH7u6Ly"><div class="hidden xl:flex flex-col"><span class="font-label-badge text-label-badge uppercase tracking-wider text-outline">Unified Department Store</span></div></div><div class="flex-1 max-w-3xl hidden md:flex items-center"><div class="w-full flex items-center bg-surface-container-low rounded-lg p-space-xs"><div class="relative shrink-0"><select class="bg-surface-container-high text-on-surface font-label-md text-label-md px-space-sm py-space-xs rounded-DEFAULT appearance-none cursor-pointer focus:outline-none pr-space-md"><option>All Departments</option><option>Fashion</option><option>Beauty</option><option>Electronics</option><option>Home &amp; Living</option><option>Grocery</option><option>Kids &amp; Toys</option></select><span class="material-symbols-outlined text-[16px] text-outline absolute right-1 top-1.5 pointer-events-none">expand_more</span></div><div class="w-px h-5 bg-surface-variant mx-space-xs"></div><div class="flex-1 flex items-center px-space-xs"><span class="material-symbols-outlined text-outline text-[18px] mr-space-xs">search</span><input class="w-full bg-transparent text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none" placeholder="Search apparel, gadgets, pantry items, home curation..." type="text"></div><span class="font-label-badge text-label-badge text-outline uppercase px-space-xs hidden lg:inline">⌘K</span></div></div><div class="flex items-center gap-space-sm lg:gap-space-md shrink-0"><div class="relative group hidden sm:block"><button class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span><span class="font-label-badge text-label-badge uppercase">Role: Shopper</span><span class="material-symbols-outlined text-[14px]">arrow_drop_down</span></button></div><a class="relative p-2 text-on-surface-variant hover:text-on-surface transition-colors" data-path="wishlist" href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span class="absolute top-1 right-1 w-4 h-4 rounded-full bg-secondary-container text-on-surface font-label-badge text-label-badge flex items-center justify-center">4</span></a><a class="flex items-center gap-space-xs bg-primary text-on-primary px-space-md py-2 rounded-DEFAULT font-label-lg text-label-lg hover:bg-primary-container hover:text-on-primary-container transition-all" data-path="cart" href="#"><span class="material-symbols-outlined text-[18px]">shopping_bag</span><span class="hidden sm:inline font-price-card text-price-card text-[14px]">3 items • $348.50</span><span class="sm:hidden font-label-md text-label-md">3</span></a><div class="flex items-center gap-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div><div class="w-full bg-surface-container-low px-margin-mobile md:px-margin-tablet lg:px-margin"><nav class="flex items-center gap-space-md md:gap-space-lg overflow-x-auto py-space-xs" data-active-classes="text-primary font-bold shadow-[inset_0_-2px_0_0_#ffffff]"><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="home" href="#">All Departments</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="fashion-department" href="#">Fashion</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="beauty-department" href="#">Beauty</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="electronics-department" href="#">Electronics</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="home-living-department" href="#">Home &amp; Living</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="grocery-department" href="#">Grocery</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="kids-toys-department" href="#">Kids &amp; Toys</a><a class="shrink-0 py-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md tracking-wider uppercase transition-colors" data-path="todays-deals" href="#">Today's Deals</a></nav></div></header><main class="w-full pt-36 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Orbs -->
+<div class="relative w-full overflow-hidden">
+<div class="pointer-events-none absolute -top-40 -left-40 w-96 h-96 bg-tertiary-fixed-dim/5 rounded-full blur-[140px]"></div>
+<div class="pointer-events-none absolute top-96 -right-32 w-80 h-80 bg-secondary-container/10 rounded-full blur-[120px]"></div>
+<!-- Page Breadcrumb & Operational Metadata Strip -->
+<div class="w-full px-margin-mobile md:px-margin-tablet lg:px-margin pt-space-md pb-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm bg-surface-container-low px-space-md py-2.5 rounded-DEFAULT shadow-sm">
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 font-label-md text-label-md text-outline">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="text-surface-variant font-mono text-[11px]">/</span>
+<a class="hover:text-primary transition-colors" href="#">Electronics Lab</a>
+<span class="text-surface-variant font-mono text-[11px]">/</span>
+<a class="hover:text-primary transition-colors" href="#">Hi-Fi Audio</a>
+<span class="text-surface-variant font-mono text-[11px]">/</span>
+<span class="text-on-surface truncate max-w-[220px] sm:max-w-none">Aura Studio ANC Wireless</span>
+</nav>
+<div class="flex items-center gap-space-md shrink-0">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-outline">SKU #EL-809-ANC</span>
+<div class="flex items-center gap-1.5 bg-surface-container-high px-2 py-0.5 rounded-DEFAULT text-tertiary-fixed-dim font-label-badge text-label-badge uppercase tracking-wider">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="">Acoustic Lab Calibrated</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Editorial PDP Showcase Stage: 12-Column Grid -->
+<div class="w-full px-margin-mobile md:px-margin-tablet lg:px-margin py-space-md lg:py-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-space-xl items-start">
+<!-- Left Media Gallery (7 Columns Desktop) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- UPGRADED: Interactive 360° Studio Chamber Viewer Stage -->
+<div class="relative bg-surface-container-lowest rounded-DEFAULT overflow-hidden group shadow-xl border border-surface-container flex flex-col select-none">
+<!-- Chamber Top Bar HUD -->
+<div class="relative z-30 flex items-center justify-between px-space-md py-2.5 bg-surface-container-low/90 backdrop-blur-md border-b border-surface-container">
+<div class="flex items-center gap-2.5">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+<span class="font-label-badge text-label-badge tracking-widest uppercase text-tertiary-fixed-dim">360° ACOUSTIC CHAMBER VIEW</span>
+<span class="hidden sm:inline-block text-outline font-mono text-[10px]">| CALIBRATION: ACTIVE</span>
+</div>
+<!-- HUD State Telemetry -->
+<div class="flex items-center gap-3 font-mono text-[11px]">
+<div class="flex items-center gap-1.5 bg-surface-container px-2 py-0.5 rounded-DEFAULT border border-outline-variant/40">
+<span class="text-outline">ROTATION:</span>
+<span class="text-tertiary-fixed-dim font-bold tracking-wider" id="hudAngleReadout">000°</span>
+</div>
+<div class="hidden md:flex items-center gap-1.5 bg-surface-container px-2 py-0.5 rounded-DEFAULT text-on-surface-variant border border-outline-variant/40">
+<span class="text-outline">FOV:</span>
+<span class="text-primary" id="hudFovReadout">1.0X</span>
+</div>
+</div>
+</div>
+<!-- Interactive 3D Turntable Arena -->
+<div class="relative w-full aspect-[5/4] sm:aspect-[4/3] bg-[#0c0d10] overflow-hidden turntable-chamber cursor-grab active:cursor-grabbing flex items-center justify-center" id="turntableChamber">
+<!-- Ambient Precision Grid & Radial Horizon -->
+<div class="absolute inset-0 wireframe-grid opacity-30 pointer-events-none"></div>
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,229,255,0.06)_0%,rgba(18,19,22,0.92)_70%)] pointer-events-none"></div>
+<!-- Cutaway Wireframe / Acoustic Wave Mesh Overlay (Toggled via button) -->
+<div class="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-300 z-10 flex items-center justify-center" id="cutawayOverlay">
+<div class="w-full h-full bg-[radial-gradient(ellipse_at_center,rgba(0,229,255,0.18)_0%,transparent_60%)] flex items-center justify-center">
+<svg class="w-4/5 h-4/5 stroke-tertiary-fixed-dim/40 fill-none" viewBox="0 0 400 400">
+<ellipse cx="200" cy="200" rx="160" ry="80" stroke-dasharray="4,4" stroke-width="1"></ellipse>
+<ellipse cx="200" cy="200" rx="120" ry="60" stroke-width="1"></ellipse>
+<ellipse cx="200" cy="200" rx="80" ry="40" stroke-dasharray="2,2" stroke-width="1"></ellipse>
+<line stroke-dasharray="2,4" stroke-width="1" x1="200" x2="200" y1="40" y2="360"></line>
+<line stroke-dasharray="2,4" stroke-width="1" x1="40" x2="360" y1="200" y2="200"></line>
+<circle class="fill-tertiary-fixed-dim/20 stroke-tertiary-fixed-dim" cx="200" cy="200" r="14"></circle>
+</svg>
+</div>
+</div>
+<!-- 3D Pedestal Compass Plate -->
+<div class="absolute bottom-8 w-72 sm:w-96 h-28 pointer-events-none transition-transform duration-100 ease-out flex items-center justify-center" id="turntableCompassRing" style="transform: rotateX(68deg) rotateZ(0deg);">
+<div class="w-full h-full rounded-full border border-tertiary-fixed-dim/30 shadow-[0_0_30px_rgba(0,229,255,0.15)] flex items-center justify-center relative">
+<div class="w-[90%] h-[90%] rounded-full border border-outline-variant/30 border-dashed"></div>
+<div class="w-[70%] h-[70%] rounded-full bg-surface-container-high/40 backdrop-blur-sm border border-tertiary-fixed-dim/20"></div>
+<!-- Compass Ticks -->
+<span class="absolute top-1 text-[9px] font-mono font-bold text-tertiary-fixed-dim">0° FRONT</span>
+<span class="absolute right-2 text-[9px] font-mono text-outline">90° R</span>
+<span class="absolute bottom-1 text-[9px] font-mono text-outline">180° REAR</span>
+<span class="absolute left-2 text-[9px] font-mono text-outline">270° L</span>
+</div>
+</div>
+<!-- Rotating Product Model Stage -->
+<div class="turntable-stage relative z-10 w-4/5 h-4/5 flex items-center justify-center pointer-events-none" id="productModelStage" style="transform: scale(1) rotateY(0deg);">
+<!-- 4 Perspective Multi-Asset Frames (Dynamically opacity-blended & 3D skewed based on rotation angle) -->
+<img alt="Aura Studio 0° Front Angle" class="perspective-frame absolute max-w-full max-h-full object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] transition-opacity duration-200" id="frame0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQSLw0cybXORDwcKoD1znJdx23n-psDCrNefMOEH4GnEy71xaPDSikMa6kzO76CkSM3W94h6XQI-lxo2xSicq0nvWcDA64vdUr0xbYtZZ6sFEbwXuh0D9_FTm7ccHLwkcx50heHGa8oWYLdoYwf3IKqawxhIX23BdNpny6SDGiYK99dhN2Y-nF8kDyLlEcOkbNGASMc0YrqiOc8JG_reR7iYvjr4d9m3JGrTitlACD7VUhUnrpwDrmMg" style="opacity: 1;">
+<img alt="Aura Studio 90° Oblique Angle" class="perspective-frame absolute max-w-full max-h-full object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] transition-opacity duration-200" id="frame90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3tcO-eQZyF3PL7Mm7OaS-5vpBOd0B1rcZANm40UqPuPd9MMV1QaHaWLgV8P3luYU3mXkKosOynkcPsLmu3l7uPZtDI23nStuLn6LPoWUfeIx30S6AXjB2bz_QASxbPvhmZ7au4OfQBlQ3_tuM7h_geLlfrBS32hmF31Ks4t4QlSCkW0Gr8zSXpVC-HChLFzCvSJ14LQoesXFvlHt6-XqTbywV7a707h8v-z4UHTAGMpBRRWs3UtR9BQ" style="opacity: 0;">
+<img alt="Aura Studio 180° Acoustic Chamber" class="perspective-frame absolute max-w-full max-h-full object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] transition-opacity duration-200" id="frame180" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzjX5i0RiuFSC8W1JfOJN23dcGvUCJP8Kd5TVYQx5l1FwY8g0JqQhw5YplU-92YeFym97qVP9ROOh3qxFxMmXdd9PtgagI5djxKXpvn--er8XpQwvuIyKhbnr65luC_-1Yn4cgHWXSGangvHKPr63rKp4xEdetm97ia7ZTPf8Dcu_w1frUkQYqIpPj3rAoN9FhBfQ0zgYaUl3yD0xDJ7nqgF9aK0C7mgpLFn_U2J3QVwo7NGq0HFDqRg" style="opacity: 0;">
+<img alt="Aura Studio 270° Port Profile" class="perspective-frame absolute max-w-full max-h-full object-contain filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] transition-opacity duration-200" id="frame270" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQXdJiOSX9S24EptMYOHJmrg5jGlhi8H7GgnnfuVdO7LZyx5y3xs1jaow5l3WGzXKCYVKWPe8FwRoKO3Q5v8POKtKGprgOp1SUwmL7pJ37qGYPEFrDhTyn99Vel7Nu8gEfzuMNPhf1HEmhTWYcJ5DJNTFLzKy3LUw2hKUCF5S2LPiUqNFAQTslssvt4RP3017wp_XpQ9fi_0VO--Akj_zgh-1xfsGC62asNqTQSqvxKoWgRkem-1gTXg" style="opacity: 0;">
+<!-- 360° Dynamic Architectural Hotspots Pin Markers -->
+<!-- Hotspot 1: 45° Planar Magnetic Diaphragm -->
+<div class="hotspot-node pointer-events-auto absolute top-[38%] left-[28%] z-30 transition-all duration-300" id="hotspot45" style="transform: translate(-50%, -50%); opacity: 0.18; pointer-events: none;">
+<button class="relative group/pin flex items-center justify-center w-7 h-7" data-target-angle="45" title="Inspect 45° Planar Diaphragm">
+<span class="absolute w-full h-full rounded-full bg-tertiary-fixed-dim/30 hotspot-pulse"></span>
+<span class="w-3 h-3 rounded-full bg-tertiary-fixed-dim ring-2 ring-primary"></span>
+<div class="pointer-events-none opacity-0 group-hover/pin:opacity-100 transition-opacity absolute left-8 top-1/2 -translate-y-1/2 w-48 bg-surface-container-high/95 backdrop-blur-md p-2 rounded-DEFAULT border border-tertiary-fixed-dim/40 shadow-xl text-left z-40">
+<span class="font-label-badge text-label-badge uppercase text-tertiary-fixed-dim block font-mono">45° HOTSPOT</span>
+<span class="font-label-md text-label-md text-primary block leading-tight font-bold">40mm Planar Transducer</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant block mt-0.5">Dual symmetrical N52 magnetic push-pull array.</span>
+</div>
+</button>
+</div>
+<!-- Hotspot 2: 180° CNC Aluminum Gimbal -->
+<div class="hotspot-node pointer-events-auto absolute top-[24%] right-[32%] z-30 transition-all duration-300" id="hotspot180" style="transform: translate(-50%, -50%); opacity: 0; pointer-events: none;">
+<button class="relative group/pin flex items-center justify-center w-7 h-7" data-target-angle="180" title="Inspect 180° CNC Gimbal">
+<span class="absolute w-full h-full rounded-full bg-tertiary-fixed-dim/30 hotspot-pulse"></span>
+<span class="w-3 h-3 rounded-full bg-tertiary-fixed-dim ring-2 ring-primary"></span>
+<div class="pointer-events-none opacity-0 group-hover/pin:opacity-100 transition-opacity absolute right-8 top-1/2 -translate-y-1/2 w-48 bg-surface-container-high/95 backdrop-blur-md p-2 rounded-DEFAULT border border-tertiary-fixed-dim/40 shadow-xl text-left z-40">
+<span class="font-label-badge text-label-badge uppercase text-tertiary-fixed-dim block font-mono">180° REAR VIEW</span>
+<span class="font-label-md text-label-md text-primary block leading-tight font-bold">Aviation Aluminum Gimbal</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant block mt-0.5">Cold-machined 6061 yolk with friction damper.</span>
+</div>
+</button>
+</div>
+<!-- Hotspot 3: 270° Lossless DAC Port & Mics -->
+<div class="hotspot-node pointer-events-auto absolute bottom-[30%] right-[26%] z-30 transition-all duration-300" id="hotspot270" style="transform: translate(-50%, -50%); opacity: 0; pointer-events: none;">
+<button class="relative group/pin flex items-center justify-center w-7 h-7" data-target-angle="270" title="Inspect 270° DAC Port">
+<span class="absolute w-full h-full rounded-full bg-tertiary-fixed-dim/30 hotspot-pulse"></span>
+<span class="w-3 h-3 rounded-full bg-tertiary-fixed-dim ring-2 ring-primary"></span>
+<div class="pointer-events-none opacity-0 group-hover/pin:opacity-100 transition-opacity absolute right-8 top-1/2 -translate-y-1/2 w-52 bg-surface-container-high/95 backdrop-blur-md p-2 rounded-DEFAULT border border-tertiary-fixed-dim/40 shadow-xl text-left z-40">
+<span class="font-label-badge text-label-badge uppercase text-tertiary-fixed-dim block font-mono">270° FLANK VIEW</span>
+<span class="font-label-md text-label-md text-primary block leading-tight font-bold">24-bit Lossless USB-C Port</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant block mt-0.5">Supports direct studio stream up to 192kHz/24bit.</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Active Drag Cue Indicator -->
+<div class="pointer-events-none absolute bottom-4 left-4 z-20 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded-DEFAULT border border-outline-variant/40 text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-tertiary-fixed-dim">drag_pan</span>
+<span class="font-label-badge text-[10px] uppercase tracking-wider font-mono">DRAG OR SCRUB TO ROTATE</span>
+</div>
+<!-- Floating Interactive Action Tools (Top Right) -->
+<div class="absolute top-4 right-4 z-30 flex items-center gap-2">
+<!-- Cutaway Wireframe Toggle -->
+<button class="flex items-center gap-1.5 bg-surface-container/90 hover:bg-surface-bright backdrop-blur-md px-2.5 py-1 rounded-DEFAULT text-on-surface font-label-badge text-label-badge uppercase tracking-wider transition-all border border-outline-variant/50" id="wireframeBtn" title="Toggle Acoustic Wireframe Overlay">
+<span class="material-symbols-outlined text-[15px] text-tertiary-fixed-dim">grid_4x4</span>
+<span class="hidden sm:inline">Wireframe</span>
+</button>
+<!-- Zoom Loupe Toggle -->
+<button class="flex items-center gap-1.5 bg-surface-container/90 hover:bg-surface-bright backdrop-blur-md px-2.5 py-1 rounded-DEFAULT text-on-surface font-label-badge text-label-badge uppercase tracking-wider transition-all border border-outline-variant/50" id="zoomToggleBtn" title="Zoom in / out">
+<span class="material-symbols-outlined text-[15px]" id="zoomIcon">zoom_in</span>
+<span class="hidden sm:inline" id="zoomText">1.5x Zoom</span>
+</button>
+<!-- Auto Rotate Toggle -->
+<button class="flex items-center gap-1.5 bg-surface-container/90 hover:bg-surface-bright backdrop-blur-md px-2.5 py-1 rounded-DEFAULT text-on-surface font-label-badge text-label-badge uppercase tracking-wider transition-all border border-outline-variant/50" id="autoRotateBtn" title="Auto Revolution Play/Pause">
+<span class="material-symbols-outlined text-[15px] text-tertiary-fixed-dim" id="autoRotateIcon">play_arrow</span>
+<span id="autoRotateLabel" class="">Auto-360°</span>
+</button>
+</div>
+</div>
+<!-- Interactive Turntable Scrub Track & Controller Bar -->
+<div class="px-space-md py-3 bg-surface-container-low border-t border-surface-container flex flex-col gap-2.5">
+<div class="flex items-center justify-between text-outline font-label-badge text-[11px] font-mono">
+<span class="flex items-center gap-1 text-on-surface"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>SCRUB TRACK</span>
+<div class="flex items-center gap-4">
+<span class="">0° FRONT</span>
+<span class="">90° PROFILE</span>
+<span class="">180° REAR</span>
+<span class="">270° FLANK</span>
+<span class="">360°</span>
+</div>
+</div>
+<!-- Precision Slider Scrub Control -->
+<div class="relative flex items-center">
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-ew-resize accent-tertiary-fixed-dim focus:outline-none" id="rotationSlider" max="360" min="0" step="1" type="range" value="0">
+</div>
+<!-- Quick Switch Perspective Presets & Hotspot Jumps -->
+<div class="flex items-center justify-between gap-1 overflow-x-auto pt-1 font-label-badge text-[10px] uppercase font-mono">
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="text-outline mr-1">PRESETS:</span>
+<button class="preset-angle-btn px-2 py-1 rounded-DEFAULT bg-surface-container hover:bg-surface-bright text-tertiary-fixed-dim border border-outline-variant/40 transition-colors" data-angle="0">0° Front</button>
+<button class="preset-angle-btn px-2 py-1 rounded-DEFAULT bg-surface-container hover:bg-surface-bright text-on-surface-variant border border-outline-variant/40 transition-colors" data-angle="45">45° Oblique</button>
+<button class="preset-angle-btn px-2 py-1 rounded-DEFAULT bg-surface-container hover:bg-surface-bright text-on-surface-variant border border-outline-variant/40 transition-colors" data-angle="90">90° Profile</button>
+<button class="preset-angle-btn px-2 py-1 rounded-DEFAULT bg-surface-container hover:bg-surface-bright text-on-surface-variant border border-outline-variant/40 transition-colors" data-angle="180">180° Cutaway</button>
+<button class="preset-angle-btn px-2 py-1 rounded-DEFAULT bg-surface-container hover:bg-surface-bright text-on-surface-variant border border-outline-variant/40 transition-colors" data-angle="270">270° Ports</button>
+</div>
+<button class="shrink-0 text-outline hover:text-primary transition-colors flex items-center gap-1" id="resetRotationBtn">
+<span class="material-symbols-outlined text-[13px]">refresh</span>
+<span class="">Reset</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Thumbnails Strip & Camera Perspectives (Linked to 360 viewer) -->
+<div class="grid grid-cols-4 gap-gutter-mobile sm:gap-gutter">
+<button class="gallery-thumb group relative aspect-square bg-surface-container-low rounded-DEFAULT overflow-hidden p-1 transition-all shadow-sm ring-1 ring-primary" data-img-index="0" data-view-angle="0">
+<img alt="Perspective View" class="w-full h-full object-cover rounded-DEFAULT" data-alt="Perspective view of matte black Aura Studio headphones sitting on a minimal granite display pedestal under controlled gallery lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQSLw0cybXORDwcKoD1znJdx23n-psDCrNefMOEH4GnEy71xaPDSikMa6kzO76CkSM3W94h6XQI-lxo2xSicq0nvWcDA64vdUr0xbYtZZ6sFEbwXuh0D9_FTm7ccHLwkcx50heHGa8oWYLdoYwf3IKqawxhIX23BdNpny6SDGiYK99dhN2Y-nF8kDyLlEcOkbNGASMc0YrqiOc8JG_reR7iYvjr4d9m3JGrTitlACD7VUhUnrpwDrmMg">
+<span class="absolute bottom-1 left-1 font-label-badge text-label-badge text-[9px] uppercase px-1 bg-surface-container-lowest/80 text-on-surface">0° Front</span>
+</button>
+<button class="gallery-thumb group relative aspect-square bg-surface-container-low rounded-DEFAULT overflow-hidden p-1 transition-all shadow-sm opacity-70 hover:opacity-100" data-img-index="1" data-view-angle="90">
+<img alt="Acoustic Chamber View" class="w-full h-full object-cover rounded-DEFAULT" data-alt="Extreme macro close-up of internal acoustic chamber showing laser-etched 40mm planar magnetic diaphragm and tuned acoustic dampers with gold pin contacts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3tcO-eQZyF3PL7Mm7OaS-5vpBOd0B1rcZANm40UqPuPd9MMV1QaHaWLgV8P3luYU3mXkKosOynkcPsLmu3l7uPZtDI23nStuLn6LPoWUfeIx30S6AXjB2bz_QASxbPvhmZ7au4OfQBlQ3_tuM7h_geLlfrBS32hmF31Ks4t4QlSCkW0Gr8zSXpVC-HChLFzCvSJ14LQoesXFvlHt6-XqTbywV7a707h8v-z4UHTAGMpBRRWs3UtR9BQ">
+<span class="absolute bottom-1 left-1 font-label-badge text-label-badge text-[9px] uppercase px-1 bg-surface-container-lowest/80 text-on-surface">90° Chamber</span>
+</button>
+<button class="gallery-thumb group relative aspect-square bg-surface-container-low rounded-DEFAULT overflow-hidden p-1 transition-all shadow-sm opacity-70 hover:opacity-100" data-img-index="2" data-view-angle="180">
+<img alt="Folded Travel Case" class="w-full h-full object-cover rounded-DEFAULT" data-alt="Compact folded travel case in ballistic charcoal twill with Aura Studio headphones nestled inside alongside braided gold-plated audio cables." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzjX5i0RiuFSC8W1JfOJN23dcGvUCJP8Kd5TVYQx5l1FwY8g0JqQhw5YplU-92YeFym97qVP9ROOh3qxFxMmXdd9PtgagI5djxKXpvn--er8XpQwvuIyKhbnr65luC_-1Yn4cgHWXSGangvHKPr63rKp4xEdetm97ia7ZTPf8Dcu_w1frUkQYqIpPj3rAoN9FhBfQ0zgYaUl3yD0xDJ7nqgF9aK0C7mgpLFn_U2J3QVwo7NGq0HFDqRg">
+<span class="absolute bottom-1 left-1 font-label-badge text-label-badge text-[9px] uppercase px-1 bg-surface-container-lowest/80 text-on-surface">180° Cutaway</span>
+</button>
+<button class="gallery-thumb group relative aspect-square bg-surface-container-low rounded-DEFAULT overflow-hidden p-1 transition-all shadow-sm opacity-70 hover:opacity-100" data-img-index="3" data-view-angle="270">
+<img alt="On-Model Editorial" class="w-full h-full object-cover rounded-DEFAULT" data-alt="Sophisticated editorial fashion model wearing the matte obsidian Aura Studio headphones in an architecturally modern concrete interior." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQXdJiOSX9S24EptMYOHJmrg5jGlhi8H7GgnnfuVdO7LZyx5y3xs1jaow5l3WGzXKCYVKWPe8FwRoKO3Q5v8POKtKGprgOp1SUwmL7pJ37qGYPEFrDhTyn99Vel7Nu8gEfzuMNPhf1HEmhTWYcJ5DJNTFLzKy3LUw2hKUCF5S2LPiUqNFAQTslssvt4RP3017wp_XpQ9fi_0VO--Akj_zgh-1xfsGC62asNqTQSqvxKoWgRkem-1gTXg">
+<span class="absolute bottom-1 left-1 font-label-badge text-label-badge text-[9px] uppercase px-1 bg-surface-container-lowest/80 text-on-surface">270° Case</span>
+</button>
+</div>
+<!-- Material Provenance & Audio Benchmarks Strip -->
+<div class="bg-surface-container-low p-space-md rounded-DEFAULT mt-space-sm space-y-space-md shadow-sm">
+<div class="flex items-center justify-between pb-2">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-4 bg-tertiary-fixed-dim rounded-full"></span>
+<span class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider">Acoustic Provenance &amp; Verification</span>
+</div>
+<span class="font-label-badge text-label-badge uppercase text-outline">Lab Certificate ISO-9001 / Hi-Res</span>
+</div>
+<!-- Mini Sparkline / Response Curve SVG Visualizer -->
+<div class="bg-surface-container-lowest p-space-sm rounded-DEFAULT flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-badge text-label-badge text-outline">
+<span class="">SUB-BASS (10Hz)</span>
+<span class="">HARMONIC FLAT BAND (1kHz)</span>
+<span class="">AIR TREBLE (45kHz)</span>
+</div>
+<div class="h-16 w-full flex items-end">
+<svg class="w-full h-full text-tertiary-fixed-dim stroke-current fill-none" preserveAspectRatio="none" viewBox="0 0 500 70">
+<!-- Baseline Reference Grid Line -->
+<line class="stroke-surface-variant" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="500" y1="35" y2="35"></line>
+<!-- Frequency Response Target Curve -->
+<path class="stroke-primary" d="M 0,34 Q 40,32 80,33 T 160,35 T 260,35.5 T 360,34.8 T 440,33 T 500,37" stroke-width="2"></path>
+<!-- Actual Calibrated Aura Curve -->
+<path class="stroke-tertiary-fixed-dim" d="M 0,33 Q 45,30 90,32 T 180,35 T 280,35.2 T 380,34 T 460,32 T 500,35" stroke-width="2"></path>
+</svg>
+</div>
+<div class="flex items-center justify-between text-body-sm text-outline font-body-sm">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span>Target Curve (Harman-Blowmaggy Lab)</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim inline-block"></span>Aura Studio Measured (+0.4 dB bass warmth)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Editorial Purchasing & Dynamic Variant Selectors (5 Columns Desktop) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Department Tag & Title Lockup -->
+<div class="space-y-space-xs">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 bg-surface-container-high text-tertiary-fixed-dim rounded-DEFAULT font-label-badge text-label-badge uppercase tracking-wider">
+                Electronics Lab • #DEP-03
+              </span>
+<span class="text-outline font-label-badge text-label-badge uppercase">• Hi-Fi Series</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight" style="background: linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(147, 197, 253) 50%, rgb(96, 165, 250) 100%) text; -webkit-text-fill-color: transparent;">
+              Aura Studio ANC Wireless
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant pt-1 leading-relaxed">
+              Lossless planar magnetic acoustic drivers with hybrid active noise cancellation, adaptive beamforming array, and bio-cellulose anatomical cushions.
+            </p>
+</div>
+<!-- Price & Social Proof Rating -->
+<div class="bg-surface-container-low p-space-md rounded-DEFAULT space-y-space-xs shadow-sm">
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-2">
+<span class="font-price-hero text-price-hero text-primary" id="displayPrice">$249.00</span>
+<span class="font-label-badge text-label-badge uppercase text-outline">USD</span>
+<span class="px-2 py-0.5 bg-secondary-container/20 text-secondary font-label-badge text-label-badge rounded-DEFAULT">Lab First Edition</span>
+</div>
+<!-- Review Star Summary -->
+<div class="flex items-center gap-1.5">
+<div class="flex text-tertiary-fixed-dim text-[16px]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-bold">4.9</span>
+<span class="font-body-sm text-body-sm text-outline">(184)</span>
+</div>
+</div>
+<!-- Installment Notice -->
+<div class="flex items-center gap-2 pt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">credit_score</span>
+<span class="">Or 4 interest-free payments of <strong class="text-on-surface" id="installmentPrice">$62.25</strong> with Klarna</span>
+</div>
+</div>
+<!-- Interactive Multi-Attribute Variant Selectors -->
+<div class="bg-surface-container-low p-space-md rounded-DEFAULT space-y-space-lg shadow-sm">
+<!-- Attribute 1: Colorways -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface">1. Colorway Palette</label>
+<span class="font-label-md text-label-md text-tertiary-fixed-dim" id="selectedColorLabel">Matte Obsidian (14 in stock)</span>
+</div>
+<div class="grid grid-cols-2 gap-2" id="colorPickerGroup">
+<!-- Color 1 (Selected) -->
+<button class="color-btn active flex items-center justify-between p-2.5 rounded-DEFAULT bg-surface-container-high text-left transition-all ring-1 ring-primary" data-color="Matte Obsidian" data-sku="OBS" data-stock="14 in stock" type="button">
+<div class="flex items-center gap-2.5">
+<span class="w-4 h-4 rounded-full bg-[#121316] ring-1 ring-outline"></span>
+<span class="font-label-md text-label-md text-on-surface">Matte Obsidian</span>
+</div>
+<span class="font-label-badge text-label-badge text-tertiary-fixed-dim uppercase">Active</span>
+</button>
+<!-- Color 2 -->
+<button class="color-btn flex items-center justify-between p-2.5 rounded-DEFAULT bg-surface-container text-left transition-all hover:bg-surface-container-high" data-color="Brushed Titanium" data-sku="TTN" data-stock="22 in stock" type="button">
+<div class="flex items-center gap-2.5">
+<span class="w-4 h-4 rounded-full bg-[#75777a] ring-1 ring-outline"></span>
+<span class="font-label-md text-label-md text-on-surface">Brushed Titanium</span>
+</div>
+<span class="font-label-badge text-label-badge text-outline uppercase">In Stock</span>
+</button>
+<!-- Color 3 -->
+<button class="color-btn flex items-center justify-between p-2.5 rounded-DEFAULT bg-surface-container text-left transition-all hover:bg-surface-container-high" data-color="Raw Copper Edition" data-sku="CPR" data-stock="Low Stock: 3 left" type="button">
+<div class="flex items-center gap-2.5">
+<span class="w-4 h-4 rounded-full bg-[#b86d4d] ring-1 ring-outline"></span>
+<span class="font-label-md text-label-md text-on-surface">Raw Copper Ed.</span>
+</div>
+<span class="font-label-badge text-label-badge text-secondary uppercase">3 Left</span>
+</button>
+<!-- Color 4 (Waitlist) -->
+<button class="color-btn flex items-center justify-between p-2.5 rounded-DEFAULT bg-surface-container/60 text-left transition-all hover:bg-surface-container-high" data-color="Ivory Ceramic" data-sku="IVR" data-stock="Waitlist (Ships in 2 wks)" type="button">
+<div class="flex items-center gap-2.5">
+<span class="w-4 h-4 rounded-full bg-[#e8e7e3] ring-1 ring-outline"></span>
+<span class="font-label-md text-label-md text-on-surface-variant">Ivory Ceramic</span>
+</div>
+<span class="font-label-badge text-label-badge text-outline uppercase">Waitlist</span>
+</button>
+</div>
+</div>
+<!-- Attribute 2: Cushion Material -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface">2. Acoustic Cushion Matrix</label>
+<span class="font-label-md text-label-md text-tertiary-fixed-dim" id="selectedCushionLabel">Memory Foam Vegan Leather</span>
+</div>
+<div class="flex flex-col gap-2" id="cushionPickerGroup">
+<!-- Cushion 1 (Default) -->
+<label class="cushion-option active cursor-pointer flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container-high transition-all ring-1 ring-primary">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 accent-primary" data-add="0" data-name="Memory Foam Vegan Leather" name="cushion" type="radio" value="VPL">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Memory Foam Vegan Protein Leather</p>
+<p class="font-body-sm text-body-sm text-outline">Optimized for low-end bass resonance &amp; passive isolation.</p>
+</div>
+</div>
+<span class="font-label-md text-label-md text-on-surface shrink-0 font-mono">Included</span>
+</label>
+<!-- Cushion 2 -->
+<label class="cushion-option cursor-pointer flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container transition-all hover:bg-surface-container-high">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 accent-primary" data-add="25" data-name="Breathable Merino Wool Blend" name="cushion" type="radio" value="MWB">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Breathable Merino Wool Blend</p>
+<p class="font-body-sm text-body-sm text-outline">Maximum thermal dissipation for 8+ hour mastering sessions.</p>
+</div>
+</div>
+<span class="font-label-md text-label-md text-primary shrink-0 font-mono">+$25.00</span>
+</label>
+<!-- Cushion 3 -->
+<label class="cushion-option cursor-pointer flex items-center justify-between p-3 rounded-DEFAULT bg-surface-container transition-all hover:bg-surface-container-high">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 accent-primary" data-add="40" data-name="Perforated Lambskin" name="cushion" type="radio" value="PLK">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Perforated Italian Lambskin</p>
+<p class="font-body-sm text-body-sm text-outline">Ultra-supple micro-perforated acoustic dispersion membrane.</p>
+</div>
+</div>
+<span class="font-label-md text-label-md text-primary shrink-0 font-mono">+$40.00</span>
+</label>
+</div>
+</div>
+<!-- Attribute 3: Headband Arch Fit -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface">3. Headband Caliper Tension</label>
+<span class="font-label-md text-label-md text-tertiary-fixed-dim" id="selectedArchLabel">Standard Fit (52–60cm)</span>
+</div>
+<div class="grid grid-cols-2 gap-2" id="archPickerGroup">
+<button class="arch-btn active p-2.5 rounded-DEFAULT bg-surface-container-high text-left transition-all ring-1 ring-primary" data-arch="STD" data-desc="Standard Fit (52–60cm)" type="button">
+<span class="font-label-md text-label-md text-on-surface block">Standard Fit</span>
+<span class="font-body-sm text-body-sm text-outline block">52–60 cm cranial diameter</span>
+</button>
+<button class="arch-btn p-2.5 rounded-DEFAULT bg-surface-container text-left transition-all hover:bg-surface-container-high" data-arch="EXT" data-desc="Extended Arch Fit (59–67cm)" type="button">
+<span class="font-label-md text-label-md text-on-surface block">Extended Arch Fit</span>
+<span class="font-body-sm text-body-sm text-outline block">59–67 cm with +15% caliper clearance</span>
+</button>
+</div>
+</div>
+<!-- Dynamic SKU, Fulfillment Bay & Delivery Telemetry Indicator -->
+<div class="p-3 bg-surface-container-lowest rounded-DEFAULT flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-on-surface font-label-badge text-label-badge uppercase">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">warehouse</span>
+<span class="">Config SKU: <span class="text-primary font-mono font-bold" id="dynamicSKU">EL-809-OBS-VPL-STD</span></span>
+</div>
+<div class="flex items-center gap-2 text-outline">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="">West Coast Hub • Bay 12 (Direct Dispatch)</span>
+</div>
+</div>
+</div>
+<!-- Quantity, Primary Buy Button & Unified Cart Promise -->
+<div class="bg-surface-container-low p-space-md rounded-DEFAULT space-y-space-md shadow-md">
+<div class="flex items-center gap-3">
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-surface-container-high rounded-DEFAULT p-1 shrink-0">
+<button class="w-9 h-9 flex items-center justify-center text-on-surface hover:text-primary hover:bg-surface-bright rounded-DEFAULT transition-colors" id="qtyMinus">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-10 text-center font-label-lg text-label-lg font-mono text-primary" id="qtyVal">1</span>
+<button class="w-9 h-9 flex items-center justify-center text-on-surface hover:text-primary hover:bg-surface-bright rounded-DEFAULT transition-colors" id="qtyPlus">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<!-- Main Add to Unified Cart Button -->
+<button class="flex-1 flex items-center justify-center gap-2 bg-primary text-on-primary py-3.5 px-space-md rounded-DEFAULT font-label-lg text-label-lg uppercase tracking-wider hover:bg-tertiary-fixed-dim hover:text-on-tertiary transition-all shadow-md active:scale-[0.99]" id="addToCartBtn">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+<span id="btnCTA" class="">Add to Unified Cart — $249.00</span>
+</button>
+<!-- Secondary Wishlist Button -->
+<button class="w-12 h-12 flex items-center justify-center bg-surface-container-high hover:bg-surface-bright text-on-surface rounded-DEFAULT transition-colors shrink-0" id="wishlistToggle">
+<span class="material-symbols-outlined text-[20px]" id="wishlistIcon">favorite_border</span>
+</button>
+</div>
+<!-- Single Consolidated Box Assurance Card -->
+<div class="bg-surface-container-lowest p-space-sm rounded-DEFAULT flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+</div>
+<div class="space-y-0.5">
+<p class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">
+                  The Blowmaggy Single-Parcel Guarantee
+                </p>
+<p class="font-body-sm text-body-sm text-outline leading-snug">
+                  Bundles smoothly with items from Beauty, Fashion &amp; Pantry into <strong class="text-on-surface">1 consolidated luxury freight parcel</strong>. Zero split deliveries. Zero fragmented courier fees.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Specification Accordion Section -->
+<div class="w-full px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl">
+<div class="bg-surface-container-low rounded-DEFAULT p-space-md md:p-space-lg shadow-sm space-y-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-tertiary-fixed-dim">Engineering Blueprints</span>
+<h2 class="font-headline-md text-headline-md text-primary mt-1" style="background: linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(147, 197, 253) 50%, rgb(96, 165, 250) 100%) text; -webkit-text-fill-color: transparent;">Acoustic &amp; Material Specifications</h2>
+</div>
+<p class="font-body-sm text-body-sm text-outline max-w-md">Every acoustic curve tuned and bench-certified in the Zurich Blowmaggy Acoustics facility before unified parcel packaging.</p>
+</div>
+<!-- 4-Card Spec Metric Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bg-surface-container p-space-md rounded-DEFAULT space-y-space-xs shadow-sm">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[24px]">sensors</span>
+<p class="font-label-badge text-label-badge uppercase tracking-wider text-outline">Transducer Module</p>
+<p class="font-label-lg text-label-lg text-on-surface">40mm Planar Magnetic</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">4Hz – 45,000Hz ultra-wide frequency floor. Neodymium N52 symmetrically balanced drive magnetics.</p>
+</div>
+<div class="bg-surface-container p-space-md rounded-DEFAULT space-y-space-xs shadow-sm">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[24px]">hub</span>
+<p class="font-label-badge text-label-badge uppercase tracking-wider text-outline">Dual Lossless Interface</p>
+<p class="font-label-lg text-label-lg text-on-surface">Bluetooth 5.3 LE + USB DAC</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Integrated 24-bit / 192kHz DAC through USB-C for bit-perfect audio streaming from audiophile workstations.</p>
+</div>
+<div class="bg-surface-container p-space-md rounded-DEFAULT space-y-space-xs shadow-sm">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[24px]">battery_charging_full</span>
+<p class="font-label-badge text-label-badge uppercase tracking-wider text-outline">Continuous Runtime</p>
+<p class="font-label-lg text-label-lg text-on-surface">48 Hours (ANC On)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Fast 15-minute USB-C PD charge yields 8 hours of playback. Automatic proximity wear-detection pause.</p>
+</div>
+<div class="bg-surface-container p-space-md rounded-DEFAULT space-y-space-xs shadow-sm">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[24px]">scale</span>
+<p class="font-label-badge text-label-badge uppercase tracking-wider text-outline">Mass &amp; Balance</p>
+<p class="font-label-lg text-label-lg text-on-surface">268 Grams Dry Mass</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Aviation-grade 6061 anodized aluminum yolk with cold-molded carbon composite internal skeletal band.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Cross-Department Pairing Showcase: "Complete Your Unified Parcel" -->
+<div class="w-full px-margin-mobile md:px-margin-tablet lg:px-margin py-space-lg">
+<div class="space-y-space-md">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-outline">Multi-Department Cross-Docking</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mt-1" style="background: linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(147, 197, 253) 50%, rgb(96, 165, 250) 100%) text; -webkit-text-fill-color: transparent;">Complete Your Unified Parcel</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-lg">
+            Add artisan items from Beauty, Grocery, and Atelier Fashion. They will be staged concurrently at our centralized cross-dock and delivered in a single master presentation box.
+          </p>
+</div>
+<!-- 3-Column Cross-Department Curated Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Recommendation 1: Beauty -->
+<div class="bg-surface-container-low rounded-DEFAULT overflow-hidden group shadow-sm flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="relative aspect-[4/3] bg-surface-container-lowest overflow-hidden">
+<span class="absolute top-3 left-3 z-10 px-2 py-0.5 bg-surface-container-lowest/80 text-secondary font-label-badge text-label-badge uppercase tracking-wider rounded-DEFAULT backdrop-blur-sm">
+                  Beauty Lab • #DEP-02
+                </span>
+<img alt="Luminescent Night Recovery Serum" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist dark glass dropper bottle with gold metallic accents containing an amber luxury face serum resting on wet black river slate stones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA_zi_d0jmfQ357iwCbtHzTapWpdwk5pU-H6eWM3UWQpko9avScaPvIdGAyK3cBmG1gtYsePGWhInDJJxKZ8qbMGRS8O2ckqyhDuQNf4Z5tct0UHhi8CXR71L1vDsJH1LwjpYjd9tOYfaFp22eZCZpKVjiIwMFjyyy75flPPbfXQAdnhsl0NulMgMxROvDfUoQlru0Vj1QCJidazZCQMUOyClHLeSd3K22RFBUMGfDiVjfLzaPzUPsSw">
+</div>
+<div class="p-space-md space-y-space-xs">
+<div class="flex items-baseline justify-between">
+<h3 class="font-title-editorial text-title-editorial text-primary">Luminescent Night Recovery Serum</h3>
+<span class="font-price-card text-price-card text-on-surface">$88.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">
+                  Nighttime cellular renewal formulation. Ideal for deep acoustic unwinding and sensory recovery.
+                </p>
+</div>
+</div>
+<div class="p-space-md pt-0">
+<button class="cross-add-btn w-full flex items-center justify-center gap-2 bg-surface-container-high hover:bg-primary hover:text-on-primary py-2.5 px-space-sm rounded-DEFAULT text-on-surface font-label-md text-label-md uppercase tracking-wider transition-all">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span class="">+ Bundle into Box ($88)</span>
+</button>
+</div>
+</div>
+<!-- Recommendation 2: Grocery / Pantry -->
+<div class="bg-surface-container-low rounded-DEFAULT overflow-hidden group shadow-sm flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="relative aspect-[4/3] bg-surface-container-lowest overflow-hidden">
+<span class="absolute top-3 left-3 z-10 px-2 py-0.5 bg-surface-container-lowest/80 text-tertiary-fixed font-label-badge text-label-badge uppercase tracking-wider rounded-DEFAULT backdrop-blur-sm">
+                  Pantry • #DEP-05
+                </span>
+<img alt="Tuscan Cold-Pressed Olive Oil" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Tall sculptural dark olive glass bottle of premium single-estate Italian extra virgin olive oil with wax seal and embossed linen label against a textured dark limestone surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0W-eH73oAVD49T8bRNxWFJSuCybfGCKJte6mi1GNDitZcvdxqbwFdHzqYyut1OaK0wyDf_S0zbdBPjmoz5JRKMXXU3I5TGljLJ_u6GF023EDcmEQSVRWlxtkA1iHmN858hiBB_v8kC5kVVQcrKYfKivEfAk50Uy500CtIpHIWrKYMsZQXYHRdZIvWQI2biWYj6AdTMC005a32yGndwbYGpX5taZrJt4L41bZw8PM_B_98VZ0mPjz2zg">
+</div>
+<div class="p-space-md space-y-space-xs">
+<div class="flex items-baseline justify-between">
+<h3 class="font-title-editorial text-title-editorial text-primary">Single-Estate Tuscan Olive Oil</h3>
+<span class="font-price-card text-price-card text-on-surface">$68.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">
+                  Harvested November 2024 from high-altitude Lucca groves. Peppery polyphenols in UV-shielded glass.
+                </p>
+</div>
+</div>
+<div class="p-space-md pt-0">
+<button class="cross-add-btn w-full flex items-center justify-center gap-2 bg-surface-container-high hover:bg-primary hover:text-on-primary py-2.5 px-space-sm rounded-DEFAULT text-on-surface font-label-md text-label-md uppercase tracking-wider transition-all">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span class="">+ Bundle into Box ($68)</span>
+</button>
+</div>
+</div>
+<!-- Recommendation 3: Fashion -->
+<div class="bg-surface-container-low rounded-DEFAULT overflow-hidden group shadow-sm flex flex-col justify-between">
+<div class="space-y-space-sm">
+<div class="relative aspect-[4/3] bg-surface-container-lowest overflow-hidden">
+<span class="absolute top-3 left-3 z-10 px-2 py-0.5 bg-surface-container-lowest/80 text-secondary-container font-label-badge text-label-badge uppercase tracking-wider rounded-DEFAULT backdrop-blur-sm">
+                  Atelier Fashion • #DEP-01
+                </span>
+<img alt="Italian Virgin Wool Overcoat" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Luxurious charcoal double-breasted virgin wool overcoat with horn buttons and tailored lapels displayed against an architectural minimal museum wall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx4DOpwPRN3_VmcsuasMLE-tzJhfN_EgTQhmIygc_Sf8VuoeL4umky3t3FM4zfnShknSfal_rJZR9-EvI7y5hVuLOCcEDaAfWB1Q2_cWxlGG-TYJn7HVd-ErTRc_ihn195s9Xr7qnW2ja4QzOBW89ElBh3DlsFX_cu7QlJgskcisHjCc1nHV3JRzHvEwYWYAoOqeS26Ul6wIM2EtYNvIzX2aNpA5eyMkmgTdA7lZ3gquiDL1mCKEM8Ow">
+</div>
+<div class="p-space-md space-y-space-xs">
+<div class="flex items-baseline justify-between">
+<h3 class="font-title-editorial text-title-editorial text-primary">Italian Virgin Wool Overcoat</h3>
+<span class="font-price-card text-price-card text-on-surface">$395.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">
+                  Structural winter silhouette tailored in Biella, Italy. Pairs with wireless headphone travel collar.
+                </p>
+</div>
+</div>
+<div class="p-space-md pt-0">
+<button class="cross-add-btn w-full flex items-center justify-center gap-2 bg-surface-container-high hover:bg-primary hover:text-on-primary py-2.5 px-space-sm rounded-DEFAULT text-on-surface font-label-md text-label-md uppercase tracking-wider transition-all">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span>
+<span class="">+ Bundle into Box ($395)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Audiophile Verification & Benchmark Reviews Section -->
+<div class="w-full px-margin-mobile md:px-margin-tablet lg:px-margin py-space-xl">
+<div class="bg-surface-container-low p-space-md md:p-space-lg rounded-DEFAULT space-y-space-lg shadow-sm">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left Rating Stats (4 Columns) -->
+<div class="lg:col-span-4 space-y-space-md">
+<div>
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-outline">Verified Audiophile Community</span>
+<h3 class="font-headline-md text-headline-md text-primary mt-1" style="background: linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(147, 197, 253) 50%, rgb(96, 165, 250) 100%) text; -webkit-text-fill-color: transparent;">Acoustic Ratings</h3>
+</div>
+<div class="flex items-baseline gap-3">
+<span class="font-display-hero text-display-hero text-primary font-bold">4.9</span>
+<div>
+<div class="flex text-tertiary-fixed-dim text-[18px]">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Across 184 verified purchases</p>
+</div>
+</div>
+<!-- Star Distribution Bars -->
+<div class="space-y-2 font-label-badge text-label-badge uppercase">
+<div class="flex items-center gap-2">
+<span class="w-10 text-outline">5 Star</span>
+<div class="flex-1 h-1.5 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 92%;"></div>
+</div>
+<span class="w-8 text-right text-on-surface">92%</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-10 text-outline">4 Star</span>
+<div class="flex-1 h-1.5 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-primary/70" style="width: 6%;"></div>
+</div>
+<span class="w-8 text-right text-on-surface">6%</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-10 text-outline">3 Star</span>
+<div class="flex-1 h-1.5 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-primary/40" style="width: 2%;"></div>
+</div>
+<span class="w-8 text-right text-on-surface">2%</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-10 text-outline">2 Star</span>
+<div class="flex-1 h-1.5 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-surface-variant" style="width: 0%;"></div>
+</div>
+<span class="w-8 text-right text-outline">0%</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-10 text-outline">1 Star</span>
+<div class="flex-1 h-1.5 bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-surface-variant" style="width: 0%;"></div>
+</div>
+<span class="w-8 text-right text-outline">0%</span>
+</div>
+</div>
+<div class="p-3 bg-surface-container-lowest rounded-DEFAULT space-y-1">
+<p class="font-label-md text-label-md text-on-surface">Soundstage Score</p>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline">
+<span class="">Near-field Studio Accuracy</span>
+<span class="text-tertiary-fixed-dim font-bold">9.8 / 10</span>
+</div>
+</div>
+</div>
+<!-- Right Review Testimonials (8 Columns) -->
+<div class="lg:col-span-8 space-y-space-md">
+<!-- Review 1 -->
+<div class="bg-surface-container p-space-md rounded-DEFAULT space-y-space-xs shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-primary">Dr. Soren K.</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-tertiary-fixed-dim font-label-badge text-label-badge uppercase rounded-DEFAULT">Acoustics Lead, Copenhagen</span>
+</div>
+<span class="font-label-badge text-label-badge text-outline uppercase">3 Days Ago</span>
+</div>
+<div class="flex text-tertiary-fixed-dim text-[14px]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-title-editorial text-title-editorial text-on-surface">"Uncanny planar speed with zero low-end bloat."</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                The transients on acoustic percussions are the fastest I have measured in a wireless architecture. Having the integrated USB DAC capability allows me to switch from the morning commute directly to lossless master stems at my mixing console without changing headphones.
+              </p>
+<div class="pt-2 flex items-center gap-3 font-label-badge text-label-badge uppercase text-outline">
+<span class="">Verified Cross-Order: Received with Italian Overcoat in 1 carton</span>
+<span class="">•</span>
+<span class="">Obsidian / Lambskin / Standard</span>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container p-space-md rounded-DEFAULT space-y-space-xs shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-primary">Elena V.</span>
+<span class="px-2 py-0.5 bg-surface-container-high text-secondary font-label-badge text-label-badge uppercase rounded-DEFAULT">Verified VIP Shopper</span>
+</div>
+<span class="font-label-badge text-label-badge text-outline uppercase">1 Week Ago</span>
+</div>
+<div class="flex text-tertiary-fixed-dim text-[14px]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-title-editorial text-title-editorial text-on-surface">"Blowmaggy's unified box delivered everything pristine."</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                I was skeptical about ordering high-end headphones at the exact same checkout as my pantry olive oil and night serums. Opening a single unified luxury black box where every item was meticulously compartmentalized and protected was a true department store revelation.
+              </p>
+<div class="pt-2 flex items-center gap-3 font-label-badge text-label-badge uppercase text-outline">
+<span class="">Verified Cross-Order: Electronics + Beauty + Pantry</span>
+<span class="">•</span>
+<span class="">Titanium / Merino Wool</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Dynamic Interaction Controller Script -->
+<script>
+    (function initBlowmaggyPDP() {
+      // Pricing baseline
+      let basePrice = 249.00;
+      let cushionAddon = 0.00;
+      let quantity = 1;
+
+      // Attributes state
+      let selectedColorCode = 'OBS';
+      let selectedCushionCode = 'VPL';
+      let selectedArchCode = 'STD';
+
+      const priceDisplay = document.getElementById('displayPrice');
+      const installmentDisplay = document.getElementById('installmentPrice');
+      const btnCTA = document.getElementById('btnCTA');
+      const dynamicSKU = document.getElementById('dynamicSKU');
+      const qtyVal = document.getElementById('qtyVal');
+      const wishlistToggle = document.getElementById('wishlistToggle');
+      const wishlistIcon = document.getElementById('wishlistIcon');
+      const colorLabel = document.getElementById('selectedColorLabel');
+      const cushionLabel = document.getElementById('selectedCushionLabel');
+      const archLabel = document.getElementById('selectedArchLabel');
+
+      function updatePricingAndSKU() {
+        const unitPrice = basePrice + cushionAddon;
+        const total = unitPrice * quantity;
+        const installment = (total / 4).toFixed(2);
+
+        priceDisplay.textContent = `$${unitPrice.toFixed(2)}`;
+        installmentDisplay.textContent = `$${installment}`;
+        btnCTA.textContent = `Add to Unified Cart — $${total.toFixed(2)}`;
+        
+        dynamicSKU.textContent = `EL-809-${selectedColorCode}-${selectedCushionCode}-${selectedArchCode}`;
+      }
+
+      // Color selection
+      const colorBtns = document.querySelectorAll('.color-btn');
+      colorBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          colorBtns.forEach(b => {
+            b.classList.remove('active', 'ring-1', 'ring-primary');
+            b.classList.add('bg-surface-container');
+          });
+          btn.classList.add('active', 'ring-1', 'ring-primary');
+          btn.classList.remove('bg-surface-container');
+          selectedColorCode = btn.dataset.sku;
+          colorLabel.textContent = `${btn.dataset.color} (${btn.dataset.stock})`;
+          updatePricingAndSKU();
+        });
+      });
+
+      // Cushion selection
+      const cushionInputs = document.querySelectorAll('input[name="cushion"]');
+      const cushionCards = document.querySelectorAll('.cushion-option');
+      cushionInputs.forEach(input => {
+        input.addEventListener('change', (e) => {
+          cushionCards.forEach(c => {
+            c.classList.remove('active', 'ring-1', 'ring-primary');
+            c.classList.add('bg-surface-container');
+          });
+          const parentLabel = input.closest('.cushion-option');
+          parentLabel.classList.add('active', 'ring-1', 'ring-primary');
+          parentLabel.classList.remove('bg-surface-container');
+          
+          cushionAddon = parseFloat(input.dataset.add);
+          selectedCushionCode = input.value;
+          cushionLabel.textContent = input.dataset.name;
+          updatePricingAndSKU();
+        });
+      });
+
+      // Arch Fit selection
+      const archBtns = document.querySelectorAll('.arch-btn');
+      archBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          archBtns.forEach(b => {
+            b.classList.remove('active', 'ring-1', 'ring-primary');
+            b.classList.add('bg-surface-container');
+          });
+          btn.classList.add('active', 'ring-1', 'ring-primary');
+          btn.classList.remove('bg-surface-container');
+          selectedArchCode = btn.dataset.arch;
+          archLabel.textContent = btn.dataset.desc;
+          updatePricingAndSKU();
+        });
+      });
+
+      // Quantity controls
+      document.getElementById('qtyPlus').addEventListener('click', () => {
+        if (quantity < 10) {
+          quantity++;
+          qtyVal.textContent = quantity;
+          updatePricingAndSKU();
+        }
+      });
+
+      document.getElementById('qtyMinus').addEventListener('click', () => {
+        if (quantity > 1) {
+          quantity--;
+          qtyVal.textContent = quantity;
+          updatePricingAndSKU();
+        }
+      });
+
+      // Wishlist toggle
+      let isWishlisted = false;
+      wishlistToggle.addEventListener('click', () => {
+        isWishlisted = !isWishlisted;
+        if (isWishlisted) {
+          wishlistIcon.textContent = 'favorite';
+          wishlistIcon.style.color = '#ffb3b3';
+        } else {
+          wishlistIcon.textContent = 'favorite_border';
+          wishlistIcon.style.color = '';
+        }
+      });
+
+      // Add To Cart Notification
+      document.getElementById('addToCartBtn').addEventListener('click', () => {
+        const originalText = btnCTA.textContent;
+        btnCTA.textContent = 'Allocated to Single Box!';
+        setTimeout(() => {
+          btnCTA.textContent = originalText;
+        }, 2200);
+      });
+
+      // Cross-Dock Bundle Action Buttons
+      const crossBtns = document.querySelectorAll('.cross-add-btn');
+      crossBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const original = btn.innerHTML;
+          btn.innerHTML = `<span class="material-symbols-outlined text-[16px]">check_circle</span> Box Staged`;
+          btn.classList.add('bg-tertiary-fixed-dim', 'text-on-tertiary');
+          setTimeout(() => {
+            btn.innerHTML = original;
+            btn.classList.remove('bg-tertiary-fixed-dim', 'text-on-tertiary');
+          }, 2400);
+        });
+      });
+
+      // ==========================================
+      // 360° Studio Chamber Turntable Engine
+      // ==========================================
+      const turntableChamber = document.getElementById('turntableChamber');
+      const productStage = document.getElementById('productModelStage');
+      const compassRing = document.getElementById('turntableCompassRing');
+      const rotationSlider = document.getElementById('rotationSlider');
+      const hudAngleReadout = document.getElementById('hudAngleReadout');
+      const hudFovReadout = document.getElementById('hudFovReadout');
+      const autoRotateBtn = document.getElementById('autoRotateBtn');
+      const autoRotateIcon = document.getElementById('autoRotateIcon');
+      const zoomToggleBtn = document.getElementById('zoomToggleBtn');
+      const zoomIcon = document.getElementById('zoomIcon');
+      const zoomText = document.getElementById('zoomText');
+      const wireframeBtn = document.getElementById('wireframeBtn');
+      const cutawayOverlay = document.getElementById('cutawayOverlay');
+      const resetRotationBtn = document.getElementById('resetRotationBtn');
+
+      const frame0 = document.getElementById('frame0');
+      const frame90 = document.getElementById('frame90');
+      const frame180 = document.getElementById('frame180');
+      const frame270 = document.getElementById('frame270');
+
+      const hotspot45 = document.getElementById('hotspot45');
+      const hotspot180 = document.getElementById('hotspot180');
+      const hotspot270 = document.getElementById('hotspot270');
+
+      let currentAngle = 0;
+      let isDragging = false;
+      let startX = 0;
+      let startAngle = 0;
+      let isAutoRotating = false;
+      let autoRotateFrameId = null;
+      let isZoomed = false;
+      let isWireframeActive = false;
+
+      function renderAngle(angle) {
+        currentAngle = (angle % 360 + 360) % 360;
+        const formatted = Math.round(currentAngle).toString().padStart(3, '0') + '°';
+        hudAngleReadout.textContent = formatted;
+        rotationSlider.value = Math.round(currentAngle);
+
+        // 3D turntable skew & tilt simulation
+        const normalizedYaw = Math.sin((currentAngle * Math.PI) / 180) * 16;
+        const zoomScale = isZoomed ? 1.45 : 1.0;
+        productStage.style.transform = `scale(${zoomScale}) rotateY(${normalizedYaw}deg)`;
+        compassRing.style.transform = `rotateX(68deg) rotateZ(${-currentAngle}deg)`;
+
+        // Blend 4 angle perspectives across 360°
+        const w0 = Math.max(0, Math.cos((currentAngle * Math.PI) / 180));
+        const w90 = Math.max(0, Math.sin((currentAngle * Math.PI) / 180));
+        const w180 = Math.max(0, -Math.cos((currentAngle * Math.PI) / 180));
+        const w270 = Math.max(0, -Math.sin((currentAngle * Math.PI) / 180));
+
+        frame0.style.opacity = w0.toFixed(3);
+        frame90.style.opacity = w90.toFixed(3);
+        frame180.style.opacity = w180.toFixed(3);
+        frame270.style.opacity = w270.toFixed(3);
+
+        // Dynamic Hotspot Visibility based on facing angle
+        // Hotspot 45 visible between 0° and 110°
+        const dist45 = Math.abs(currentAngle - 45);
+        const op45 = Math.max(0, 1 - dist45 / 55);
+        hotspot45.style.opacity = op45 > 0.15 ? op45.toFixed(2) : 0;
+        hotspot45.style.pointerEvents = op45 > 0.4 ? 'auto' : 'none';
+
+        // Hotspot 180 visible between 120° and 240°
+        const dist180 = Math.abs(currentAngle - 180);
+        const op180 = Math.max(0, 1 - dist180 / 55);
+        hotspot180.style.opacity = op180 > 0.15 ? op180.toFixed(2) : 0;
+        hotspot180.style.pointerEvents = op180 > 0.4 ? 'auto' : 'none';
+
+        // Hotspot 270 visible between 210° and 330°
+        const dist270 = Math.abs(currentAngle - 270);
+        const op270 = Math.max(0, 1 - dist270 / 55);
+        hotspot270.style.opacity = op270 > 0.15 ? op270.toFixed(2) : 0;
+        hotspot270.style.pointerEvents = op270 > 0.4 ? 'auto' : 'none';
+      }
+
+      // Drag / Scrub Events on Turntable Chamber
+      turntableChamber.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startAngle = currentAngle;
+        stopAutoRotation();
+        turntableChamber.classList.remove('cursor-grab');
+        turntableChamber.classList.add('cursor-grabbing');
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) {
+          // Subtle Gyroscopic Mouse Parallax
+          const rect = turntableChamber.getBoundingClientRect();
+          if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
+            const relX = (e.clientX - rect.left) / rect.width - 0.5;
+            const relY = (e.clientY - rect.top) / rect.height - 0.5;
+            const zoomScale = isZoomed ? 1.45 : 1.0;
+            productStage.style.transform = `scale(${zoomScale}) rotateY(${relX * 18}deg) rotateX(${-relY * 12}deg)`;
+          }
+          return;
+        }
+        const deltaX = e.clientX - startX;
+        const newAngle = startAngle + deltaX * 0.75;
+        renderAngle(newAngle);
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (isDragging) {
+          isDragging = false;
+          turntableChamber.classList.remove('cursor-grabbing');
+          turntableChamber.classList.add('cursor-grab');
+        }
+      });
+
+      // Touch events for mobile
+      turntableChamber.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+          isDragging = true;
+          startX = e.touches[0].clientX;
+          startAngle = currentAngle;
+          stopAutoRotation();
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchmove', (e) => {
+        if (isDragging && e.touches.length === 1) {
+          const deltaX = e.touches[0].clientX - startX;
+          renderAngle(startAngle + deltaX * 0.75);
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchend', () => {
+        isDragging = false;
+      });
+
+      // Slider Scrub Control
+      rotationSlider.addEventListener('input', (e) => {
+        stopAutoRotation();
+        renderAngle(parseFloat(e.target.value));
+      });
+
+      // Preset Angle Buttons
+      const presetBtns = document.querySelectorAll('.preset-angle-btn');
+      presetBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          stopAutoRotation();
+          const target = parseFloat(btn.dataset.angle);
+          smoothTransitionToAngle(target);
+          presetBtns.forEach(b => {
+            b.classList.remove('text-tertiary-fixed-dim');
+            b.classList.add('text-on-surface-variant');
+          });
+          btn.classList.add('text-tertiary-fixed-dim');
+          btn.classList.remove('text-on-surface-variant');
+        });
+      });
+
+      // Gallery Thumbnails sync to 360 viewer
+      const thumbs = document.querySelectorAll('.gallery-thumb');
+      thumbs.forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+          thumbs.forEach(t => {
+            t.classList.replace('opacity-100', 'opacity-70');
+            t.classList.remove('ring-1', 'ring-primary');
+          });
+          thumb.classList.replace('opacity-70', 'opacity-100');
+          thumb.classList.add('ring-1', 'ring-primary');
+          const target = parseFloat(thumb.dataset.viewAngle || 0);
+          smoothTransitionToAngle(target);
+        });
+      });
+
+      // Hotspot click jump
+      document.querySelectorAll('.hotspot-node button').forEach(pin => {
+        pin.addEventListener('click', (e) => {
+          e.stopPropagation();
+          stopAutoRotation();
+          const target = parseFloat(pin.dataset.targetAngle);
+          smoothTransitionToAngle(target);
+        });
+      });
+
+      function smoothTransitionToAngle(target) {
+        let start = currentAngle;
+        let diff = (target - start) % 360;
+        if (diff < -180) diff += 360;
+        if (diff > 180) diff -= 360;
+        let duration = 450;
+        let startTime = performance.now();
+
+        function animateStep(timestamp) {
+          let progress = Math.min((timestamp - startTime) / duration, 1);
+          let ease = 0.5 - Math.cos(progress * Math.PI) / 2;
+          renderAngle(start + diff * ease);
+          if (progress < 1) {
+            requestAnimationFrame(animateStep);
+          }
+        }
+        requestAnimationFrame(animateStep);
+      }
+
+      // Auto-Rotate Play/Pause loop
+      function autoRotateLoop() {
+        if (!isAutoRotating) return;
+        renderAngle(currentAngle + 0.65);
+        autoRotateFrameId = requestAnimationFrame(autoRotateLoop);
+      }
+
+      function startAutoRotation() {
+        isAutoRotating = true;
+        autoRotateIcon.textContent = 'pause';
+        autoRotateBtn.classList.add('bg-tertiary-fixed-dim/20', 'border-tertiary-fixed-dim');
+        autoRotateFrameId = requestAnimationFrame(autoRotateLoop);
+      }
+
+      function stopAutoRotation() {
+        if (isAutoRotating) {
+          isAutoRotating = false;
+          autoRotateIcon.textContent = 'play_arrow';
+          autoRotateBtn.classList.remove('bg-tertiary-fixed-dim/20', 'border-tertiary-fixed-dim');
+          if (autoRotateFrameId) cancelAnimationFrame(autoRotateFrameId);
+        }
+      }
+
+      autoRotateBtn.addEventListener('click', () => {
+        if (isAutoRotating) {
+          stopAutoRotation();
+        } else {
+          startAutoRotation();
+        }
+      });
+
+      // Zoom Toggle
+      zoomToggleBtn.addEventListener('click', () => {
+        isZoomed = !isZoomed;
+        if (isZoomed) {
+          zoomIcon.textContent = 'zoom_out';
+          zoomText.textContent = 'Reset FOV';
+          hudFovReadout.textContent = '1.5X';
+          zoomToggleBtn.classList.add('bg-tertiary-fixed-dim/20', 'border-tertiary-fixed-dim');
+        } else {
+          zoomIcon.textContent = 'zoom_in';
+          zoomText.textContent = '1.5x Zoom';
+          hudFovReadout.textContent = '1.0X';
+          zoomToggleBtn.classList.remove('bg-tertiary-fixed-dim/20', 'border-tertiary-fixed-dim');
+        }
+        renderAngle(currentAngle);
+      });
+
+      // Wireframe Acoustic Cutaway Toggle
+      wireframeBtn.addEventListener('click', () => {
+        isWireframeActive = !isWireframeActive;
+        if (isWireframeActive) {
+          cutawayOverlay.classList.remove('opacity-0');
+          cutawayOverlay.classList.add('opacity-100');
+          wireframeBtn.classList.add('bg-tertiary-fixed-dim/20', 'border-tertiary-fixed-dim');
+        } else {
+          cutawayOverlay.classList.remove('opacity-100');
+          cutawayOverlay.classList.add('opacity-0');
+          wireframeBtn.classList.remove('bg-tertiary-fixed-dim/20', 'border-tertiary-fixed-dim');
+        }
+      });
+
+      // Reset
+      resetRotationBtn.addEventListener('click', () => {
+        stopAutoRotation();
+        smoothTransitionToAngle(0);
+      });
+
+      // Initial state render
+      renderAngle(0);
+      updatePricingAndSKU();
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest text-on-surface-variant mt-space-xl pt-space-xl pb-space-lg" style="background: linear-gradient(rgb(19, 16, 36) 0%, rgb(10, 14, 28) 100%); border-top: 1px solid rgba(196, 181, 253, 0.15);"><div class="w-full px-margin-mobile md:px-margin-tablet lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-lg pb-space-xl"><div class="lg:col-span-2 space-y-space-md"><img alt="Blowmaggy Wordmark Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UADMaEayZO_xcBmngPCX5LyZIt1G7x-oeCDUy_llM1iaH6jRZm3BMMwm3VnKS1TkhaYmsBSQeZ_NUoOybgtE03a2lg4tfy5JRmbY4c4OhZrV0knNSP2thrgqySDOhhvzdAPufi4tRWt0iwK2Vv2M2kcHXPCcDbc2dP2jSYt6ZcbrXSOBv67_NLwf9JHS75rjCx7Y7Kl35I9M-QM_30yBAJw1EBw-UfBi1BmJZehBlJD85k5iDJ5WH7u6Ly"><p class="font-body-md text-body-md text-on-surface-variant max-w-md">Every department. One cart. One checkout. The luxury multi-category digital department store built for frictionless unified curation.</p><div class="space-y-space-xs"><p class="font-label-md text-label-md uppercase tracking-wider text-on-surface">Newsletter Subscription</p><div class="flex max-w-sm"><input class="bg-surface-container px-space-sm py-space-xs text-on-surface font-body-sm text-body-sm rounded-l-DEFAULT focus:outline-none flex-1" placeholder="Enter your executive email" type="email"><button class="bg-primary text-on-primary font-label-md text-label-md px-space-md py-space-xs rounded-r-DEFAULT hover:bg-primary-container hover:text-on-primary-container transition-colors">Join</button></div></div></div><div><h4 class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface mb-space-sm">Customer Service</h4><ul class="space-y-space-xs font-body-sm text-body-sm"><li class=""><a class="hover:text-on-surface transition-colors" data-path="support" href="#">24/7 Concierge Support</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="order-tracking" href="#">Unified Order Tracking</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="returns" href="#">Returns &amp; Exchanges</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="shipping-logistics" href="#">Multi-Cart Logistics</a></li></ul></div><div><h4 class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface mb-space-sm">Departments</h4><ul class="space-y-space-xs font-body-sm text-body-sm"><li class=""><a class="hover:text-on-surface transition-colors" data-path="fashion-department" href="#">Atelier Fashion</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="beauty-department" href="#">Cosmetics &amp; Beauty</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="electronics-department" href="#">Electronics Lab</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="home-living-department" href="#">Home &amp; Living</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="grocery-department" href="#">Pantry &amp; Grocery</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="kids-toys-department" href="#">Kids &amp; Toys</a></li></ul></div><div><h4 class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface mb-space-sm">About &amp; Compliance</h4><ul class="space-y-space-xs font-body-sm text-body-sm"><li class=""><a class="hover:text-on-surface transition-colors" data-path="about" href="#">The Blowmaggy Story</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="sustainability" href="#">Sustainable Freight</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="terms-of-service" href="#">Terms of Service</a></li><li class=""><a class="hover:text-on-surface transition-colors" data-path="security-governance" href="#">PCI DSS Level 1 Security</a></li></ul></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm font-label-badge text-label-badge text-outline uppercase"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">verified_user</span> 256-Bit SSL Encrypted</span><span class="">•</span><span class="">SOC2 Certified</span><span class="">•</span><span class="">Multi-Origin Fulfillment</span></div><div class="flex items-center gap-space-md"><span class="font-label-badge text-label-badge uppercase text-outline">Payment Networks:</span><div class="flex items-center gap-space-xs font-label-badge text-label-badge text-on-surface"><span class="px-2 py-1 bg-surface-container rounded-DEFAULT">VISA</span><span class="px-2 py-1 bg-surface-container rounded-DEFAULT">MASTERCARD</span><span class="px-2 py-1 bg-surface-container rounded-DEFAULT">UPI</span><span class="px-2 py-1 bg-surface-container rounded-DEFAULT">APPLE PAY</span></div></div></div><div class="text-center font-label-badge text-label-badge uppercase tracking-wider text-outline pt-space-lg">© 2025 Blowmaggy Inc. All rights reserved. Every department. One cart. One checkout.</div></div></footer>
+
+</body></html>

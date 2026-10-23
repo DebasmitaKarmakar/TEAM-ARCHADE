@@ -1,0 +1,463 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-container":"#ba012d","on-primary-container":"#636466","on-surface-variant":"#c5c7c9","primary-container":"#e2e2e4","surface":"#121316","on-primary-fixed":"#1a1c1d","secondary":"#ffb3b3","on-secondary":"#680014","tertiary-fixed":"#7df4ff","surface-variant":"#343538","on-tertiary-fixed-variant":"#004f54","inverse-primary":"#5d5e60","inverse-surface":"#e3e2e6","on-tertiary-fixed":"#002022","tertiary-fixed-dim":"#00dbe9","surface-container-high":"#292a2d","on-secondary-fixed":"#400009","on-surface":"#e3e2e6","tertiary-container":"#7df4ff","on-error":"#690005","on-error-container":"#ffdad6","surface-bright":"#38393c","on-secondary-container":"#ffc7c6","outline-variant":"#44474a","surface-container-lowest":"#0d0e11","on-tertiary-container":"#006f77","error-container":"#93000a","primary-fixed-dim":"#c6c6c8","inverse-on-surface":"#303034","on-primary":"#2f3132","secondary-fixed":"#ffdad9","primary-fixed":"#e2e2e4","surface-container-low":"#1b1b1f","on-secondary-fixed-variant":"#920021","on-background":"#e3e2e6","on-primary-fixed-variant":"#454749","surface-tint":"#c6c6c8","surface-container":"#1f1f23","error":"#ffb4ab","on-tertiary":"#00363a","surface-container-highest":"#343538","secondary-fixed-dim":"#ffb3b3","tertiary":"#ffffff","background":"#121316","primary":"#ffffff","outline":"#8f9194","surface-dim":"#121316"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-mobile":"1rem","space-xl":"2.5rem","space-md":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","margin-tablet":"1.5rem","margin":"3rem","gutter":"1.5rem","gutter-mobile":"0.75rem","space-lg":"1.5rem"},fontFamily:{"price-card":["Space Grotesk"],"display-hero-mobile":["Bodoni Moda"],"label-lg":["Space Grotesk"],"headline-lg-mobile":["Bodoni Moda"],"headline-lg":["Bodoni Moda"],"headline-md":["Bodoni Moda"],"display-hero":["Bodoni Moda"],"label-badge":["Space Grotesk"],"body-sm":["Hanken Grotesk"],"body-md":["Hanken Grotesk"],"title-editorial":["Bodoni Moda"],"label-md":["Space Grotesk"],"headline-sm":["Bodoni Moda"],"price-hero":["Space Grotesk"],"body-lg":["Hanken Grotesk"]},fontSize:{"price-card":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"700"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-md":["28px",{"lineHeight":"36px","fontWeight":"600"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-badge":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"title-editorial":["18px",{"lineHeight":"24px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"600"}],"headline-sm":["22px",{"lineHeight":"30px","fontWeight":"500"}],"price-hero":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}]}}}}</script></head><body class="bg-background text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between py-space-md"><div class="flex flex-col gap-space-lg px-space-md"><div class="flex items-center gap-space-sm"><img alt="Blowmaggy Wordmark Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UADMaEayZO_xcBmngPCX5LyZIt1G7x-oeCDUy_llM1iaH6jRZm3BMMwm3VnKS1TkhaYmsBSQeZ_NUoOybgtE03a2lg4tfy5JRmbY4c4OhZrV0knNSP2thrgqySDOhhvzdAPufi4tRWt0iwK2Vv2M2kcHXPCcDbc2dP2jSYt6ZcbrXSOBv67_NLwf9JHS75rjCx7Y7Kl35I9M-QM_30yBAJw1EBw-UfBi1BmJZehBlJD85k5iDJ5WH7u6Ly"><span class="font-label-badge text-label-badge uppercase text-outline">Operations</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container-high text-primary font-bold"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="store-admin-console" href="#"><span class="material-symbols-outlined text-[18px]">storefront</span>Store Admin Console</a><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT transition-colors bg-surface-container-high text-primary font-bold" data-path="electronics-beauty-manager" href="#"><span class="material-symbols-outlined text-[18px]">inventory_2</span>Department Manager</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="unified-inventory" href="#"><span class="material-symbols-outlined text-[18px]">hub</span>Unified Inventory</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="order-management" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span>Order Dispatch</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="rbac-governance" href="#"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>RBAC &amp; Permissions</a></nav></div><div class="px-space-md"><a class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md py-2" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Return to Storefront</a></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl z-40 flex items-center justify-between px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.4)]" style="background: linear-gradient(135deg, rgb(30, 19, 54) 0%, rgb(15, 28, 58) 100%); border-bottom: 1px solid rgba(147, 197, 253, 0.15);"><div class="flex items-center gap-space-md"><span class="font-label-badge text-label-badge uppercase tracking-wider text-outline">Multi-Department Admin Suite</span></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded-full"><span class="w-2 h-2 rounded-full bg-secondary-container"></span><span class="font-label-badge text-label-badge uppercase text-on-surface">Active: Store Admin</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-background min-h-screen w-full px-space-lg py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- Scope & Role Ribbon -->
+<div class="relative overflow-hidden bg-surface-container-low p-space-lg rounded-xl shadow-md">
+<div class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md relative z-10">
+<div class="flex flex-col gap-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant bg-surface-container-highest px-space-sm py-1 rounded-DEFAULT">RBAC Security Policy #892-D</span>
+<span class="inline-flex items-center gap-1 font-label-badge text-label-badge uppercase px-space-sm py-1 rounded-DEFAULT bg-secondary-container text-on-secondary-container font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+            Department Manager • Level 2 Scoped
+          </span>
+<span class="font-label-badge text-label-badge uppercase text-outline px-space-sm py-1">Personnel: Marcus Chen</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-1" style="background: linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(147, 197, 253) 50%, rgb(96, 165, 250) 100%) text; -webkit-text-fill-color: transparent; display: inline-block;">Electronics &amp; Beauty Operations</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+          Access strictly scoped to assigned departments: <span class="text-tertiary-fixed font-semibold">Electronics (#DEP-03)</span> and <span class="text-secondary font-semibold">Beauty (#DEP-02)</span>. Cross-department financial metrics, customer PII, and unauthorized categories remain isolated under Blowmaggy Multi-Tenant Data Governance.
+        </p>
+</div>
+<!-- Scope Switcher Pill Selector -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-sm bg-surface-container p-space-xs rounded-xl shadow-sm self-start lg:self-center">
+<div class="flex items-center gap-2 px-space-sm py-2">
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">tune</span>
+<div class="flex flex-col">
+<span class="font-label-badge text-label-badge uppercase text-outline">Active View Filter</span>
+<span class="font-label-lg text-label-lg text-on-surface">Dual Scope (Active: 2)</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-lowest p-1 rounded-lg">
+<button class="px-3 py-1.5 rounded-DEFAULT font-label-md text-label-md bg-surface-container-high text-primary shadow-sm transition-all" id="filter-all">All Assigned (2)</button>
+<button class="px-3 py-1.5 rounded-DEFAULT font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1" id="filter-el">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed"></span>Electronics
+          </button>
+<button class="px-3 py-1.5 rounded-DEFAULT font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1" id="filter-bt">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>Beauty
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Operational Metrics Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Active SKUs -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between gap-space-md relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant">Active SKUs</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">category</span>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">1,482</span>
+<span class="font-label-badge text-label-badge text-tertiary-fixed font-bold">+18 this cycle</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">940 Electronics • 542 Beauty lines</p>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 78%;"></div>
+</div>
+</div>
+<!-- Threshold Reorder -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between gap-space-md relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-error">Reorder Alert</span>
+<span class="material-symbols-outlined text-error text-[20px]">notification_important</span>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-secondary tracking-tight font-bold">8</span>
+<span class="font-label-badge text-label-badge text-secondary font-bold uppercase">Critical &lt; Safe</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">3 Electronic accessories, 5 Serum SKUs</p>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-ping"></span>
+<span class="font-label-badge text-label-badge text-secondary uppercase tracking-widest font-bold">Immediate Purchase Req</span>
+</div>
+</div>
+<!-- Open Fulfillment Orders -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between gap-space-md relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant">Awaiting Dispatch</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">local_shipping</span>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">42</span>
+<span class="font-label-badge text-label-badge text-outline font-bold">Unified Cart Batches</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Cross-dock staging at Pier B-4</p>
+</div>
+<!-- Mini Sparkline inline visual -->
+<div class="w-full flex items-end gap-1 h-5 pt-1">
+<div class="flex-1 bg-surface-container-high hover:bg-tertiary-fixed rounded-DEFAULT h-[40%] transition-colors"></div>
+<div class="flex-1 bg-surface-container-high hover:bg-tertiary-fixed rounded-DEFAULT h-[65%] transition-colors"></div>
+<div class="flex-1 bg-surface-container-high hover:bg-tertiary-fixed rounded-DEFAULT h-[50%] transition-colors"></div>
+<div class="flex-1 bg-surface-container-high hover:bg-tertiary-fixed rounded-DEFAULT h-[85%] transition-colors"></div>
+<div class="flex-1 bg-surface-container-high hover:bg-tertiary-fixed rounded-DEFAULT h-[70%] transition-colors"></div>
+<div class="flex-1 bg-tertiary-fixed rounded-DEFAULT h-[95%]"></div>
+</div>
+</div>
+<!-- Returns Rate -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col justify-between gap-space-md relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-on-surface-variant">Dept Returns Rate</span>
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">verified</span>
+</div>
+<div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">1.4%</span>
+<span class="font-label-badge text-label-badge text-tertiary-fixed font-bold">-0.3% benchmark</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Threshold limit: &lt; 2.50% max</p>
+</div>
+<div class="flex items-center justify-between text-outline font-label-badge text-label-badge">
+<span class="">Target: 2.0%</span>
+<span class="text-on-surface">Compliance: 99.8%</span>
+</div>
+</div>
+</div>
+<!-- Main Workstation Layout: Table (8 cols) & Isolated Perimeter Sandbox (4 cols) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Unified Stock Management Table & Live Adjustments -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<div class="bg-surface-container-low p-space-md rounded-xl shadow-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">format_list_bulleted</span>
+<div>
+<h2 class="font-title-editorial text-title-editorial text-on-surface" style="background: linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(147, 197, 253) 50%, rgb(96, 165, 250) 100%) text; -webkit-text-fill-color: transparent; display: inline-block;">Departmental SKU Directory</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time inventory levels, reorder buffers &amp; stock sync triggers</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase text-outline">Auto-sync:</span>
+<span class="font-label-badge text-label-badge uppercase text-tertiary-fixed flex items-center gap-1 font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed animate-ping"></span> Live
+            </span>
+</div>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-highest text-on-surface-variant font-label-badge text-label-badge uppercase tracking-wider">
+<th class="py-3 px-space-sm rounded-l-DEFAULT">SKU Identifier</th>
+<th class="py-3 px-space-sm">Dept</th>
+<th class="py-3 px-space-sm">Article Title</th>
+<th class="py-3 px-space-sm text-right">Available</th>
+<th class="py-3 px-space-sm text-right">Safety Buffer</th>
+<th class="py-3 px-space-sm text-center">Status</th>
+<th class="py-3 px-space-sm text-right rounded-r-DEFAULT">Authorization</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 font-body-sm text-body-sm">
+<!-- Row 1: Aura Studio ANC -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-md px-space-sm font-label-md text-label-md text-on-surface font-semibold tracking-wider">SKU-EL-9021</td>
+<td class="py-space-md px-space-sm">
+<span class="font-label-badge text-label-badge uppercase px-2 py-0.5 rounded-DEFAULT bg-surface-container-high text-tertiary-fixed font-bold inline-flex items-center gap-1">
+<span class="w-1 h-1 rounded-full bg-tertiary-fixed"></span> Electronics
+                  </span>
+</td>
+<td class="py-space-md px-space-sm font-title-editorial text-title-editorial text-on-surface">
+                  Aura Studio ANC Headphones
+                  <span class="block font-body-sm text-body-sm text-on-surface-variant font-normal">Matte Obsidian • Serialized</span>
+</td>
+<td class="py-space-md px-space-sm text-right font-price-card text-price-card text-secondary">14</td>
+<td class="py-space-md px-space-sm text-right font-label-md text-label-md text-outline">25</td>
+<td class="py-space-md px-space-sm text-center">
+<span class="font-label-badge text-label-badge uppercase px-2 py-1 rounded-DEFAULT bg-secondary-container/30 text-secondary font-bold">
+                    Low Stock Warning
+                  </span>
+</td>
+<td class="py-space-md px-space-sm text-right">
+<button class="px-3 py-1.5 rounded-DEFAULT font-label-md text-label-md bg-primary text-on-primary font-semibold hover:bg-tertiary-fixed hover:text-on-tertiary-fixed transition-colors shadow-sm" onclick="openAdjustModal('SKU-EL-9021', 'Aura Studio ANC Headphones', 14, 25, 'Electronics')">
+                    Adjust Stock
+                  </button>
+</td>
+</tr>
+<!-- Row 2: Night Recovery Serum -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-md px-space-sm font-label-md text-label-md text-on-surface font-semibold tracking-wider">SKU-BT-4410</td>
+<td class="py-space-md px-space-sm">
+<span class="font-label-badge text-label-badge uppercase px-2 py-0.5 rounded-DEFAULT bg-surface-container-high text-secondary font-bold inline-flex items-center gap-1">
+<span class="w-1 h-1 rounded-full bg-secondary"></span> Beauty
+                  </span>
+</td>
+<td class="py-space-md px-space-sm font-title-editorial text-title-editorial text-on-surface">
+                  Luminescent Night Recovery Serum
+                  <span class="block font-body-sm text-body-sm text-on-surface-variant font-normal">50ml Dropper • Batch #988</span>
+</td>
+<td class="py-space-md px-space-sm text-right font-price-card text-price-card text-secondary font-bold">4</td>
+<td class="py-space-md px-space-sm text-right font-label-md text-label-md text-outline">20</td>
+<td class="py-space-md px-space-sm text-center">
+<span class="font-label-badge text-label-badge uppercase px-2 py-1 rounded-DEFAULT bg-secondary-container text-on-secondary-container font-bold animate-pulse">
+                    Critical Restock
+                  </span>
+</td>
+<td class="py-space-md px-space-sm text-right">
+<button class="px-3 py-1.5 rounded-DEFAULT font-label-md text-label-md bg-secondary-container text-on-secondary-container font-semibold hover:bg-secondary hover:text-on-secondary transition-colors shadow-sm" onclick="openAdjustModal('SKU-BT-4410', 'Luminescent Night Recovery Serum', 4, 20, 'Beauty')">
+                    Adjust Stock
+                  </button>
+</td>
+</tr>
+<!-- Row 3: MagCharge Desk Stand -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-md px-space-sm font-label-md text-label-md text-on-surface font-semibold tracking-wider">SKU-EL-3012</td>
+<td class="py-space-md px-space-sm">
+<span class="font-label-badge text-label-badge uppercase px-2 py-0.5 rounded-DEFAULT bg-surface-container-high text-tertiary-fixed font-bold inline-flex items-center gap-1">
+<span class="w-1 h-1 rounded-full bg-tertiary-fixed"></span> Electronics
+                  </span>
+</td>
+<td class="py-space-md px-space-sm font-title-editorial text-title-editorial text-on-surface">
+                  Magnetic MagCharge Desk Stand
+                  <span class="block font-body-sm text-body-sm text-on-surface-variant font-normal">Solid Anodized Aluminum</span>
+</td>
+<td class="py-space-md px-space-sm text-right font-price-card text-price-card text-on-surface">180</td>
+<td class="py-space-md px-space-sm text-right font-label-md text-label-md text-outline">30</td>
+<td class="py-space-md px-space-sm text-center">
+<span class="font-label-badge text-label-badge uppercase px-2 py-1 rounded-DEFAULT bg-surface-container-high text-on-surface-variant font-medium">
+                    Optimal
+                  </span>
+</td>
+<td class="py-space-md px-space-sm text-right">
+<button class="px-3 py-1.5 rounded-DEFAULT font-label-md text-label-md bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors shadow-sm" onclick="openAdjustModal('SKU-EL-3012', 'Magnetic MagCharge Desk Stand', 180, 30, 'Electronics')">
+                    Update
+                  </button>
+</td>
+</tr>
+<!-- Row 4: Velvet Rose Balm -->
+<tr class="hover:bg-surface-container/60 transition-colors group">
+<td class="py-space-md px-space-sm font-label-md text-label-md text-on-surface font-semibold tracking-wider">SKU-BT-1120</td>
+<td class="py-space-md px-space-sm">
+<span class="font-label-badge text-label-badge uppercase px-2 py-0.5 rounded-DEFAULT bg-surface-container-high text-secondary font-bold inline-flex items-center gap-1">
+<span class="w-1 h-1 rounded-full bg-secondary"></span> Beauty
+                  </span>
+</td>
+<td class="py-space-md px-space-sm font-title-editorial text-title-editorial text-on-surface">
+                  Velvet Rose Exfoliating Balm
+                  <span class="block font-body-sm text-body-sm text-on-surface-variant font-normal">120ml Glass Jar • Organic</span>
+</td>
+<td class="py-space-md px-space-sm text-right font-price-card text-price-card text-on-surface">62</td>
+<td class="py-space-md px-space-sm text-right font-label-md text-label-md text-outline">15</td>
+<td class="py-space-md px-space-sm text-center">
+<span class="font-label-badge text-label-badge uppercase px-2 py-1 rounded-DEFAULT bg-surface-container-high text-on-surface-variant font-medium">
+                    Optimal
+                  </span>
+</td>
+<td class="py-space-md px-space-sm text-right">
+<button class="px-3 py-1.5 rounded-DEFAULT font-label-md text-label-md bg-surface-container-high text-on-surface hover:bg-surface-bright transition-colors shadow-sm" onclick="openAdjustModal('SKU-BT-1120', 'Velvet Rose Exfoliating Balm', 62, 15, 'Beauty')">
+                    Update
+                  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Bulk Status Footer -->
+<div class="mt-space-md pt-space-sm flex flex-col sm:flex-row items-center justify-between gap-space-sm font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="font-label-badge text-label-badge uppercase text-outline">Displaying:</span>
+<span class="">4 of 1,482 Scoped Items</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-2.5 py-1 rounded-DEFAULT bg-surface-container text-on-surface-variant hover:text-on-surface disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-[16px] align-middle">chevron_left</span>
+</button>
+<span class="px-3 py-1 rounded-DEFAULT bg-surface-container-high text-on-surface font-label-md text-label-md">Page 1 / 371</span>
+<button class="px-2.5 py-1 rounded-DEFAULT bg-surface-container text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px] align-middle">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Department Isolation Audit Notice -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl flex items-start gap-space-md shadow-sm">
+<span class="material-symbols-outlined text-outline text-[22px] mt-0.5">policy</span>
+<div class="flex flex-col gap-1">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-outline">RBAC Scope Enforcer Active</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            All inventory adjustments made from Marcus Chen's credential require mandatory change-reasons and log an immutable record to the Blowmaggy distributed operations ledger. Attempting write queries outside of DEP-02 and DEP-03 will immediately revoke active token sessions.
+          </p>
+</div>
+</div>
+</div>
+<!-- Restricted Departments & Boundary Isolation Demonstration -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Locked Perimeter Card -->
+<div class="bg-surface-container-low p-space-md rounded-xl shadow-md flex flex-col gap-space-md relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">lock</span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary">Department Boundary Control</span>
+</div>
+<span class="font-label-badge text-label-badge uppercase px-2 py-0.5 rounded-DEFAULT bg-secondary-container/20 text-secondary font-bold">RBAC Enforced</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          You are restricted from viewing or adjusting catalogs in unauthorized store sectors. The Blowmaggy unified cart allows customers to merge items, but operational governance confines staff permissions.
+        </p>
+<!-- Department Locked Item 1: Fashion -->
+<div class="p-space-md rounded-lg bg-surface-container-lowest/80 flex flex-col gap-space-xs relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-title-editorial text-title-editorial text-on-surface/50">Fashion &amp; Apparel</span>
+<span class="font-label-badge text-label-badge uppercase px-1.5 py-0.5 rounded-DEFAULT bg-surface-container-high text-outline font-semibold">#DEP-01</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Haute Couture, Seasonal Footwear &amp; Designer Accessories</p>
+<div class="mt-2 pt-2 flex items-center justify-between bg-surface-container p-2 rounded-DEFAULT">
+<span class="font-label-badge text-label-badge text-secondary flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">gpp_maybe</span> Access Restricted
+            </span>
+<span class="font-label-badge text-label-badge uppercase text-outline">Mgr: Sarah Jenkins</span>
+</div>
+</div>
+<!-- Department Locked Item 2: Grocery & Fresh Provisions -->
+<div class="p-space-md rounded-lg bg-surface-container-lowest/80 flex flex-col gap-space-xs relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-title-editorial text-title-editorial text-on-surface/50">Grocery &amp; Pantry</span>
+<span class="font-label-badge text-label-badge uppercase px-1.5 py-0.5 rounded-DEFAULT bg-surface-container-high text-outline font-semibold">#DEP-05</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Perishables, Organic Pantry &amp; Imported Confections</p>
+<div class="mt-2 pt-2 flex items-center justify-between bg-surface-container p-2 rounded-DEFAULT">
+<span class="font-label-badge text-label-badge text-secondary flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">gpp_maybe</span> Access Restricted
+            </span>
+<span class="font-label-badge text-label-badge uppercase text-outline">Mgr: Devante Silva</span>
+</div>
+</div>
+<!-- Department Locked Item 3: Home & Living -->
+<div class="p-space-md rounded-lg bg-surface-container-lowest/80 flex flex-col gap-space-xs relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-title-editorial text-title-editorial text-on-surface/50">Home &amp; Furnishings</span>
+<span class="font-label-badge text-label-badge uppercase px-1.5 py-0.5 rounded-DEFAULT bg-surface-container-high text-outline font-semibold">#DEP-04</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Lighting, Italian Ceramic Sets, Curated Textiles</p>
+<div class="mt-2 pt-2 flex items-center justify-between bg-surface-container p-2 rounded-DEFAULT">
+<span class="font-label-badge text-label-badge text-secondary flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px]">gpp_maybe</span> Access Restricted
+            </span>
+<span class="font-label-badge text-label-badge uppercase text-outline">Mgr: Elena Rostova</span>
+</div>
+</div>
+<!-- Request Privilege Escalation CTA -->
+<div class="mt-space-xs bg-surface-container-high p-space-sm rounded-DEFAULT flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Cross-Department Coverage?</span>
+<span class="font-body-sm text-body-sm text-outline">Request temporary dual-key clearance</span>
+</div>
+<button class="px-3 py-1.5 rounded-DEFAULT bg-surface text-on-surface hover:bg-surface-bright font-label-md text-label-md transition-colors shadow-sm">
+            Request Escalation
+          </button>
+</div>
+</div>
+<!-- Quick Scan Dispatch Card -->
+<div class="bg-surface-container-low p-space-md rounded-xl shadow-md flex flex-col gap-space-sm">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-outline">Warehouse Staging Pier B-4</span>
+<h3 class="font-title-editorial text-title-editorial text-on-surface" style="background: linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(147, 197, 253) 50%, rgb(96, 165, 250) 100%) text; -webkit-text-fill-color: transparent; display: inline-block;">Unified Cart Co-Location</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Orders containing both Aura ANC Headphones (#DEP-03) and Luminescent Serums (#DEP-02) are bundled automatically at Bin Bay 12 for unified checkout dispatch.
+        </p>
+<div class="flex items-center gap-space-xs mt-space-xs text-tertiary-fixed font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">alt_route</span>
+<span class="">Automatic Single-Cart Aggregation Active</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Stock Adjustment Modal Overlay (Mock/Interactive Trigger) -->
+<div class="fixed inset-0 z-50 bg-surface-container-lowest/80 backdrop-blur-md hidden items-center justify-center p-space-md" id="stock-modal">
+<div class="bg-surface-container p-space-lg rounded-xl max-w-lg w-full shadow-2xl relative flex flex-col gap-space-md">
+<!-- Modal Header -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-label-badge text-label-badge uppercase px-2 py-0.5 rounded-DEFAULT bg-surface-container-highest text-tertiary-fixed font-bold" id="modal-dept-badge">Electronics</span>
+<span class="font-label-badge text-label-badge uppercase text-outline" id="modal-sku">SKU-EL-9021</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface" id="modal-title">Aura Studio ANC Headphones</h2>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1 rounded-DEFAULT" onclick="closeAdjustModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Inventory Comparison Preview -->
+<div class="grid grid-cols-2 gap-space-sm bg-surface-container-lowest p-space-md rounded-lg">
+<div>
+<span class="font-label-badge text-label-badge uppercase text-outline">Current Recorded Stock</span>
+<p class="font-headline-md text-headline-md text-on-surface font-bold" id="modal-current-stock">14</p>
+</div>
+<div>
+<span class="font-label-badge text-label-badge uppercase text-outline">Minimum Threshold</span>
+<p class="font-headline-md text-headline-md text-secondary font-bold" id="modal-threshold">25</p>
+</div>
+</div>
+<!-- Input: Stock Variance -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface uppercase">Adjustment Units (+/-)</label>
+<div class="flex items-center gap-space-xs">
+<button class="px-3 py-2 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded-DEFAULT font-price-card text-price-card" onclick="changeQty(-5)" type="button">-5</button>
+<button class="px-3 py-2 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded-DEFAULT font-price-card text-price-card" onclick="changeQty(-1)" type="button">-1</button>
+<input class="w-full bg-surface-container-lowest text-on-surface font-price-card text-price-card px-space-md py-2 rounded-DEFAULT text-center focus:outline-none focus:bg-surface-container-highest" id="qty-input" type="number" value="50">
+<button class="px-3 py-2 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded-DEFAULT font-price-card text-price-card" onclick="changeQty(1)" type="button">+1</button>
+<button class="px-3 py-2 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded-DEFAULT font-price-card text-price-card" onclick="changeQty(25)" type="button">+25</button>
+</div>
+</div>
+<!-- Input: Audit Reason (Mandatory RBAC requirement) -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface uppercase">Mandatory Audit Reason</label>
+<select class="bg-surface-container-lowest text-on-surface font-body-md text-body-md px-space-md py-2.5 rounded-DEFAULT focus:outline-none focus:bg-surface-container-highest">
+<option>Restock Batch Inward #992 (Supplier Dispatch)</option>
+<option>Damaged Inventory In-Transit Adjustment</option>
+<option>Floor Sample Relocation (Demonstration Bay)</option>
+<option>Unified Cart Return Inspection Reconciliation</option>
+</select>
+</div>
+<!-- Action Footer -->
+<div class="flex items-center justify-end gap-space-sm pt-space-xs mt-space-xs">
+<button class="px-4 py-2 rounded-DEFAULT font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" onclick="closeAdjustModal()">
+          Cancel
+        </button>
+<button class="px-5 py-2.5 rounded-DEFAULT font-label-md text-label-md bg-primary text-on-primary font-bold hover:bg-tertiary-fixed hover:text-on-tertiary-fixed transition-colors shadow-md" onclick="submitStockAdjustment()">
+          Authorize &amp; Sign Adjustment
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function openAdjustModal(sku, title, current, threshold, dept) {
+    document.getElementById('modal-sku').innerText = sku;
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal-current-stock').innerText = current;
+    document.getElementById('modal-threshold').innerText = threshold;
+    const deptBadge = document.getElementById('modal-dept-badge');
+    deptBadge.innerText = dept;
+    if (dept === 'Beauty') {
+      deptBadge.className = 'font-label-badge text-label-badge uppercase px-2 py-0.5 rounded-DEFAULT bg-surface-container-highest text-secondary font-bold';
+    } else {
+      deptBadge.className = 'font-label-badge text-label-badge uppercase px-2 py-0.5 rounded-DEFAULT bg-surface-container-highest text-tertiary-fixed font-bold';
+    }
+    const modal = document.getElementById('stock-modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function closeAdjustModal() {
+    const modal = document.getElementById('stock-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  function changeQty(delta) {
+    const input = document.getElementById('qty-input');
+    let val = parseInt(input.value) || 0;
+    input.value = Math.max(0, val + delta);
+  }
+
+  function submitStockAdjustment() {
+    closeAdjustModal();
+  }
+</script></main></div>
+
+</body></html>

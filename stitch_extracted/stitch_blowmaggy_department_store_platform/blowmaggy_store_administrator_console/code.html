@@ -1,0 +1,722 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-container":"#ba012d","on-primary-container":"#636466","on-surface-variant":"#c5c7c9","primary-container":"#e2e2e4","surface":"#121316","on-primary-fixed":"#1a1c1d","secondary":"#ffb3b3","on-secondary":"#680014","tertiary-fixed":"#7df4ff","surface-variant":"#343538","on-tertiary-fixed-variant":"#004f54","inverse-primary":"#5d5e60","inverse-surface":"#e3e2e6","on-tertiary-fixed":"#002022","tertiary-fixed-dim":"#00dbe9","surface-container-high":"#292a2d","on-secondary-fixed":"#400009","on-surface":"#e3e2e6","tertiary-container":"#7df4ff","on-error":"#690005","on-error-container":"#ffdad6","surface-bright":"#38393c","on-secondary-container":"#ffc7c6","outline-variant":"#44474a","surface-container-lowest":"#0d0e11","on-tertiary-container":"#006f77","error-container":"#93000a","primary-fixed-dim":"#c6c6c8","inverse-on-surface":"#303034","on-primary":"#2f3132","secondary-fixed":"#ffdad9","primary-fixed":"#e2e2e4","surface-container-low":"#1b1b1f","on-secondary-fixed-variant":"#920021","on-background":"#e3e2e6","on-primary-fixed-variant":"#454749","surface-tint":"#c6c6c8","surface-container":"#1f1f23","error":"#ffb4ab","on-tertiary":"#00363a","surface-container-highest":"#343538","secondary-fixed-dim":"#ffb3b3","tertiary":"#ffffff","background":"#121316","primary":"#ffffff","outline":"#8f9194","surface-dim":"#121316"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-mobile":"1rem","space-xl":"2.5rem","space-md":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","margin-tablet":"1.5rem","margin":"3rem","gutter":"1.5rem","gutter-mobile":"0.75rem","space-lg":"1.5rem"},fontFamily:{"price-card":["Space Grotesk"],"display-hero-mobile":["Bodoni Moda"],"label-lg":["Space Grotesk"],"headline-lg-mobile":["Bodoni Moda"],"headline-lg":["Bodoni Moda"],"headline-md":["Bodoni Moda"],"display-hero":["Bodoni Moda"],"label-badge":["Space Grotesk"],"body-sm":["Hanken Grotesk"],"body-md":["Hanken Grotesk"],"title-editorial":["Bodoni Moda"],"label-md":["Space Grotesk"],"headline-sm":["Bodoni Moda"],"price-hero":["Space Grotesk"],"body-lg":["Hanken Grotesk"]},fontSize:{"price-card":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"700"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"700"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-md":["28px",{"lineHeight":"36px","fontWeight":"600"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-badge":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","fontWeight":"400"}],"title-editorial":["18px",{"lineHeight":"24px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.06em","fontWeight":"600"}],"headline-sm":["22px",{"lineHeight":"30px","fontWeight":"500"}],"price-hero":["28px",{"lineHeight":"32px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}]}}}}</script></head><body class="bg-background text-on-surface font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between py-space-md"><div class="flex flex-col gap-space-lg px-space-md"><div class="flex items-center gap-space-sm"><img alt="Blowmaggy Wordmark Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UADMaEayZO_xcBmngPCX5LyZIt1G7x-oeCDUy_llM1iaH6jRZm3BMMwm3VnKS1TkhaYmsBSQeZ_NUoOybgtE03a2lg4tfy5JRmbY4c4OhZrV0knNSP2thrgqySDOhhvzdAPufi4tRWt0iwK2Vv2M2kcHXPCcDbc2dP2jSYt6ZcbrXSOBv67_NLwf9JHS75rjCx7Y7Kl35I9M-QM_30yBAJw1EBw-UfBi1BmJZehBlJD85k5iDJ5WH7u6Ly"><span class="font-label-badge text-label-badge uppercase text-outline">Operations</span></div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container-high text-primary font-bold"><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT transition-colors bg-surface-container-high text-primary font-bold" data-path="store-admin-console" href="#"><span class="material-symbols-outlined text-[18px]">storefront</span>Store Admin Console</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="electronics-beauty-manager" href="#"><span class="material-symbols-outlined text-[18px]">inventory_2</span>Department Manager</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="unified-inventory" href="#"><span class="material-symbols-outlined text-[18px]">hub</span>Unified Inventory</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="order-management" href="#"><span class="material-symbols-outlined text-[18px]">receipt_long</span>Order Dispatch</a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="rbac-governance" href="#"><span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>RBAC &amp; Permissions</a></nav></div><div class="px-space-md"><a class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface font-label-md text-label-md py-2" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Return to Storefront</a></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl z-40 flex items-center justify-between px-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.4)]" style="background: linear-gradient(135deg, rgba(31, 20, 53, 0.95) 0%, rgba(16, 28, 56, 0.95) 100%); border-bottom: 1px solid rgba(147, 197, 253, 0.2); box-shadow: rgba(99, 102, 241, 0.15) 0px 4px 20px -2px;"><div class="flex items-center gap-space-md"><span class="font-label-badge text-label-badge uppercase tracking-wider text-outline">Multi-Department Admin Suite</span></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded-full"><span class="w-2 h-2 rounded-full bg-secondary-container"></span><span class="font-label-badge text-label-badge uppercase text-on-surface">Active: Store Admin</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-background min-h-screen w-full px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- Top Command & Executive Profile Header -->
+<div class="relative w-full mb-space-lg">
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-outline">Blowmaggy Executive Authority</span>
+<span class="text-outline text-body-sm mx-1 font-body-sm">/</span>
+<span class="font-label-badge text-label-badge uppercase text-tertiary-fixed-dim">RBAC &amp; Matrix Governance</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight" style="background: linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(147, 197, 253) 50%, rgb(96, 165, 250) 100%) text; -webkit-text-fill-color: transparent;">Administrative Governance</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">
+          Storewide operational surveillance, scoped departmental authorization matrices, and real-time security enforcement under the unified checkout topology.
+        </p>
+</div>
+<!-- Administrator Dossier Badge -->
+<div class="flex items-center gap-space-md p-space-sm pl-space-md bg-surface-container rounded-lg shadow-sm">
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase text-secondary font-bold">Full Storewide Authority</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="font-title-editorial text-title-editorial text-on-surface">Sophia Sterling</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Chief Operations Officer</span>
+</div>
+<div class="relative w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Sophisticated portrait of executive female COO Sophia Sterling in a tailored architectural dark blazer against soft moody studio lighting with obsidian backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdXN1P2ZSBxNq2Ore6bJ5niOayEuaMRgbQT0V43MxNbODyv6JNbG8De1AcnStEZuwobzxeN5BUBvzNB8elm5_K-OqyrqLRrwEpIikRG-yi53KNzK0cKISY8po4V2Xbj_Ka4B3Ep3NtzRpcDs_YSoommzXCZ8-FIgKQLVl3uB6G62r6f2xfhZiR20l6AP44arCZG5Sw7MeWpVVsUgvtFsrinfD6p_HwABr5pC9Lwj5WmtNJsa4h6KmVeg">
+</div>
+</div>
+</div>
+</div>
+<!-- Global Executive Overview: Asymmetric Metric Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md mb-space-xl">
+<!-- GMV Metric -->
+<div class="relative p-space-md bg-surface-container rounded-lg overflow-hidden group hover:bg-surface-container-high transition-colors shadow-sm">
+<div class="flex justify-between items-start mb-space-sm">
+<span class="font-label-badge text-label-badge uppercase text-outline">Consolidated Gross Merchandising</span>
+<span class="material-symbols-outlined text-outline text-[18px]">query_stats</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-price-hero text-price-hero text-on-surface">$1,428,950</span>
+<span class="font-label-md text-label-md text-tertiary-fixed-dim font-medium">+14.2%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Aggregate flow across all 6 departments</p>
+<!-- Sparkline Inline SVG -->
+<div class="mt-space-sm pt-space-xs">
+<svg class="w-full h-8 text-tertiary-fixed-dim" fill="none" preserveAspectRatio="none" viewBox="0 0 200 32">
+<path d="M0 24 L25 21 L50 26 L75 14 L100 18 L125 10 L150 12 L175 4 L200 7" stroke="currentColor" stroke-linecap="round" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path d="M0 24 L25 21 L50 26 L75 14 L100 18 L125 10 L150 12 L175 4 L200 7 L200 32 L0 32 Z" fill="currentColor" fill-opacity="0.08"></path>
+</svg>
+</div>
+</div>
+<!-- Multi-Dept Cart Orders -->
+<div class="relative p-space-md bg-surface-container rounded-lg overflow-hidden group hover:bg-surface-container-high transition-colors shadow-sm">
+<div class="flex justify-between items-start mb-space-sm">
+<span class="font-label-badge text-label-badge uppercase text-outline">Multi-Department Orders</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">shopping_bag_speed</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-price-hero text-price-hero text-on-surface">3,892</span>
+<span class="font-label-badge text-label-badge px-space-xs py-0.5 rounded-DEFAULT bg-secondary-container text-on-secondary-container">84% CONVERGENCE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Single-cart multi-category customer sessions</p>
+<!-- Visual progress bar -->
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 84%;"></div>
+</div>
+</div>
+<!-- Catalog SKUs -->
+<div class="relative p-space-md bg-surface-container rounded-lg overflow-hidden group hover:bg-surface-container-high transition-colors shadow-sm">
+<div class="flex justify-between items-start mb-space-sm">
+<span class="font-label-badge text-label-badge uppercase text-outline">Unified Active SKUs</span>
+<span class="material-symbols-outlined text-outline text-[18px]">inventory</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-price-hero text-price-hero text-on-surface">14,240</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Live</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Balanced SKU inventory distribution across 6 nodes</p>
+<div class="flex items-center gap-1.5 mt-space-md">
+<span class="h-1.5 flex-1 bg-surface-variant rounded-full"></span>
+<span class="h-1.5 flex-1 bg-surface-variant rounded-full"></span>
+<span class="h-1.5 flex-1 bg-primary rounded-full"></span>
+<span class="h-1.5 flex-1 bg-surface-variant rounded-full"></span>
+<span class="h-1.5 flex-1 bg-surface-variant rounded-full"></span>
+<span class="h-1.5 flex-1 bg-surface-variant rounded-full"></span>
+</div>
+</div>
+<!-- Fulfillment Health -->
+<div class="relative p-space-md bg-surface-container rounded-lg overflow-hidden group hover:bg-surface-container-high transition-colors shadow-sm">
+<div class="flex justify-between items-start mb-space-sm">
+<span class="font-label-badge text-label-badge uppercase text-outline">Fulfillment Health</span>
+<span class="material-symbols-outlined text-outline text-[18px]">warehouse</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-price-hero text-price-hero text-on-surface">99.4%</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant uppercase">SLA MET</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Cross-dock consolidation hub dispatch time</p>
+<div class="flex items-center gap-space-sm mt-space-md">
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 99.4%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- RBAC Core Matrix & Scope Management Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mb-space-xl">
+<!-- Staff Scope Table Container -->
+<div class="lg:col-span-8 bg-surface-container rounded-lg p-space-lg flex flex-col justify-between shadow-sm">
+<div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-lg">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-[20px]">admin_panel_settings</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface" style="background: linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(147, 197, 253) 50%, rgb(96, 165, 250) 100%) text; -webkit-text-fill-color: transparent;">RBAC Staff &amp; Department Assignment Matrix</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Storewide hierarchical permission scope bindings per employee entity.</p>
+</div>
+<button class="inline-flex items-center gap-space-xs px-space-md py-2 bg-primary text-on-primary rounded-DEFAULT font-label-lg text-label-lg hover:bg-tertiary-fixed-dim hover:text-on-tertiary-fixed transition-colors whitespace-nowrap" id="open-assign-modal">
+<span class="material-symbols-outlined text-[16px]">person_add</span>
+            Assign Department Manager
+          </button>
+</div>
+<!-- Matrix Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-lowest">
+<th class="py-space-sm px-space-md font-label-badge text-label-badge uppercase text-outline">Personnel &amp; ID</th>
+<th class="py-space-sm px-space-md font-label-badge text-label-badge uppercase text-outline">System Role</th>
+<th class="py-space-sm px-space-md font-label-badge text-label-badge uppercase text-outline">Assigned Department Scopes</th>
+<th class="py-space-sm px-space-md font-label-badge text-label-badge uppercase text-outline">Status</th>
+<th class="py-space-sm px-space-md font-label-badge text-label-badge uppercase text-outline text-right">Scope Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40">
+<!-- Marcus Chen -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-DEFAULT bg-surface-container-highest overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Corporate headshot of Marcus Chen, an analytical Asian male department manager with glasses wearing a charcoal minimalist crewneck sweater." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAELtQIZOMFKDANa0xV-M4cjAsPNwlA1pyyajLhHeom82SIiQjTIbkPzw9xFh-F64qLcPjYTOw0-W2o8ZxSmA5esjJrfksw7mQGWXdJPmlR3s1lXr0Mg8w9RbP3Y0Zh1Oiin8DNv1hjxfvSwy2C7019fZt2A2LqEfgZ9l7i2vdlXO96jLh7tswjJtGV4o92oQEmONsTkCgcQ3UvG05NvuZTU22G7ZR8vcGpjrctfMOm9NMHJHmhFXdTPA">
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">Marcus Chen</div>
+<div class="font-label-badge text-label-badge text-outline">MGR-8802 • chen.m@blowmaggy.internal</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Department Manager</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-DEFAULT bg-surface-container-highest text-tertiary-fixed-dim font-label-badge text-label-badge uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+                      Electronics
+                    </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-DEFAULT bg-surface-container-highest text-secondary font-label-badge text-label-badge uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                      Beauty
+                    </span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 font-label-badge text-label-badge uppercase text-on-surface bg-surface-container-lowest px-2 py-1 rounded-DEFAULT">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Active
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-sm py-1 rounded-DEFAULT text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors">Modify Scope</button>
+<button class="px-space-sm py-1 rounded-DEFAULT text-secondary hover:bg-secondary-container hover:text-on-secondary-container transition-colors font-label-md text-label-md">Revoke</button>
+</div>
+</td>
+</tr>
+<!-- Sarah Jenkins -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-DEFAULT bg-surface-container-highest overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of Sarah Jenkins, fashion department manager with short blonde hair and chic black silk shirt against neutral grey editorial interior." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpz5kOlzWBYq6ks1-IwLgkvaIdQitS-nPjVWKIIP-5Xb12_1Vo-3KPVRDa7N_yxxj9tpY8R1SLALQo2jvCZqMbKSL2siWtKqRoapR4bG753DVZTzT0lYY8oNSCf-SB7nrEug_FEDXbpf90mZYMToe0I8m1z4_dIyM6SpgXR9OT8bUj_c3M0BTGabohQfkcEDQOF84f4ftRCCOmj0JfVW2HJAmAzOSK871hnsaHJJRWr623MG9VSlKV6w">
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">Sarah Jenkins</div>
+<div class="font-label-badge text-label-badge text-outline">MGR-9411 • jenkins.s@blowmaggy.internal</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Department Manager</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-DEFAULT bg-surface-container-highest text-secondary font-label-badge text-label-badge uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                    Fashion
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 font-label-badge text-label-badge uppercase text-on-surface bg-surface-container-lowest px-2 py-1 rounded-DEFAULT">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Active
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-sm py-1 rounded-DEFAULT text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors">Modify Scope</button>
+<button class="px-space-sm py-1 rounded-DEFAULT text-secondary hover:bg-secondary-container hover:text-on-secondary-container transition-colors font-label-md text-label-md">Revoke</button>
+</div>
+</td>
+</tr>
+<!-- David Rossi -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-DEFAULT bg-surface-container-highest overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of David Rossi, grocery division manager, thoughtful Mediterranean man in black collared shirt under warm low light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBNIKF82Q9hxXs2kjuEwTbO1j_Ov4wd6sRSlwYV1cYuCp6HDsltMkmbtomdpK_QcEAdi7ZiGzMmx6GgFKJ7XhVNU7blUaylRSPKALYdQZRiWYSKQxsRyIaDL--xanM27MyDv_Yl4A_TEJisOvQy3zK1E0CiPSqDvBXkPIk97Z0jSQIU87XBAaOY73SzEgDbVBZpgwYH0DlEw3kBwXddArTWKxnmaYMASTjZ8CpYbxalVpAx_uXpin_ZQ">
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">David Rossi</div>
+<div class="font-label-badge text-label-badge text-outline">MGR-7230 • rossi.d@blowmaggy.internal</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Department Manager</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-DEFAULT bg-surface-container-highest text-on-surface font-label-badge text-label-badge uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                    Grocery
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 font-label-badge text-label-badge uppercase text-on-surface bg-surface-container-lowest px-2 py-1 rounded-DEFAULT">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Active
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-space-xs">
+<button class="px-space-sm py-1 rounded-DEFAULT text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors">Modify Scope</button>
+<button class="px-space-sm py-1 rounded-DEFAULT text-secondary hover:bg-secondary-container hover:text-on-secondary-container transition-colors font-label-md text-label-md">Revoke</button>
+</div>
+</td>
+</tr>
+<!-- Elena Vance -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-DEFAULT bg-surface-container-highest overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of Elena Vance, customer persona candidate with warm direct gaze and casual dark styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANeYmHAFh0Q0sIYy0jGxJi6duifY9CloS5__INF8gZ9vrgc4X9al_iYiZ2CHFPgSYYo0_RpHbJpO0QutJkUUnyGc2WK6FbKeHybICMnzuOWAymI_VNzAKzJkaVfp4sULyCTXe5w7G4C6xpALvNIxyPE1BwnB2jwUwR1iMIWbZ_KQwjLE5-z1F-J3l3bbvlcz69QqrWXweWLiY8uSroE3JbSnUDYuHRqT3fPav-ffG6wODQXytsLiOe9w">
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">Elena Vance</div>
+<div class="font-label-badge text-label-badge text-outline">USR-1092 • vance.e@blowmaggy.member</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-normal">Shopper</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-label-badge text-label-badge text-outline uppercase">No Administrative Access</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 font-label-badge text-label-badge uppercase text-on-surface-variant bg-surface-container-lowest px-2 py-1 rounded-DEFAULT">
+                    Customer Account
+                  </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="px-space-sm py-1 bg-surface-container-highest text-on-surface rounded-DEFAULT font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">upgrade</span>
+                    Role Upgrade
+                  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Scope Policy Guidance Pill -->
+<div class="mt-space-lg p-space-sm bg-surface-container-lowest rounded-DEFAULT flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[18px]">verified_user</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+            Cross-department route restrictions are strictly isolated via Zero-Trust middleware policy token validation.
+          </span>
+</div>
+<a class="font-label-md text-label-md text-tertiary-fixed-dim hover:underline whitespace-nowrap" href="#">View Access Policies</a>
+</div>
+</div>
+<!-- Right Column: Security Policy & Scope Summary Card -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Scoped Access Model Explainer -->
+<div class="p-space-lg bg-surface-container rounded-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-badge text-label-badge uppercase text-outline">Scope Architecture</span>
+<span class="font-label-badge text-label-badge uppercase px-space-xs py-0.5 rounded-DEFAULT bg-surface-container-highest text-on-surface">Store Admin Mode</span>
+</div>
+<h3 class="font-title-editorial text-title-editorial text-on-surface mb-space-xs" style="background: linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(147, 197, 253) 50%, rgb(96, 165, 250) 100%) text; -webkit-text-fill-color: transparent;">Universal Cart Isolated Authority</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+          While shoppers enjoy a single unified cart across all categories, department managers operate strictly inside verified perimeter silos to protect inventory and order dispatch confidentiality.
+        </p>
+<!-- Access Rights Breakdown -->
+<div class="space-y-space-sm">
+<div class="p-space-sm bg-surface-container-lowest rounded-DEFAULT flex items-center justify-between">
+<div>
+<div class="font-label-md text-label-md text-on-surface">Inventory Adjustments</div>
+<div class="font-body-sm text-body-sm text-outline">Stock level updates &amp; batch ingest</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<div class="p-space-sm bg-surface-container-lowest rounded-DEFAULT flex items-center justify-between">
+<div>
+<div class="font-label-md text-label-md text-on-surface">Product Catalog Edit</div>
+<div class="font-body-sm text-body-sm text-outline">Scoped to authorized department tags</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<div class="p-space-sm bg-surface-container-lowest rounded-DEFAULT flex items-center justify-between">
+<div>
+<div class="font-label-md text-label-md text-on-surface">Order Dispatch &amp; Pick</div>
+<div class="font-body-sm text-body-sm text-outline">Unified cross-dock bin assignments</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<div class="p-space-sm bg-surface-container-lowest rounded-DEFAULT flex items-center justify-between">
+<div>
+<div class="font-label-md text-label-md text-outline">Storewide Financial Policy</div>
+<div class="font-body-sm text-body-sm text-outline">Requires COO / Store Admin credential</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">lock</span>
+</div>
+</div>
+<button class="w-full mt-space-md py-2 bg-surface-container-highest text-on-surface rounded-DEFAULT font-label-md text-label-md hover:bg-surface-bright transition-colors">
+          Configure Role Policies
+        </button>
+</div>
+<!-- Quick Status Mini-Insight -->
+<div class="p-space-md bg-surface-container rounded-lg shadow-sm flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-DEFAULT bg-secondary-container/30 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary text-[24px]">shield_person</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">4 Scoped Managers Active</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">0 credential expirations pending this sprint</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Department Performance & Health Overview: All 6 Departments -->
+<div class="mb-space-xl">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-[20px]">domain</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface" style="background: linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(147, 197, 253) 50%, rgb(96, 165, 250) 100%) text; -webkit-text-fill-color: transparent;">Departmental Revenue &amp; Fulfillment Matrix</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live telemetry across all 6 physical and digital department categories.</p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase text-outline">Consolidation Hub Status:</span>
+<span class="inline-flex items-center gap-1 font-label-badge text-label-badge uppercase text-tertiary-fixed-dim bg-surface-container px-space-xs py-1 rounded-DEFAULT">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span> Optimal
+        </span>
+</div>
+</div>
+<!-- 6 Department Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-space-md">
+<!-- 1. Fashion -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col justify-between shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary-container"></div>
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge uppercase text-secondary">Dept 01</span>
+<span class="material-symbols-outlined text-outline text-[16px]">apparel</span>
+</div>
+<h4 class="font-title-editorial text-title-editorial text-on-surface">Fashion</h4>
+<div class="mt-space-sm">
+<div class="font-price-card text-price-card text-on-surface">$412,000</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">28.8% Total GMV</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs">
+<div class="flex justify-between font-label-badge text-label-badge text-outline mb-1">
+<span class="">STOCK HEALTH</span>
+<span class="text-on-surface">98.2%</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 98.2%;"></div>
+</div>
+</div>
+</div>
+<!-- 2. Electronics -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col justify-between shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-tertiary-fixed-dim"></div>
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge uppercase text-tertiary-fixed-dim">Dept 02</span>
+<span class="material-symbols-outlined text-outline text-[16px]">devices_other</span>
+</div>
+<h4 class="font-title-editorial text-title-editorial text-on-surface">Electronics</h4>
+<div class="mt-space-sm">
+<div class="font-price-card text-price-card text-on-surface">$385,000</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">26.9% Total GMV</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs">
+<div class="flex justify-between font-label-badge text-label-badge text-outline mb-1">
+<span class="">STOCK HEALTH</span>
+<span class="text-tertiary-fixed-dim">99.7%</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1 rounded-full overflow-hidden">
+<div class="bg-tertiary-fixed-dim h-full rounded-full" style="width: 99.7%;"></div>
+</div>
+</div>
+</div>
+<!-- 3. Beauty -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col justify-between shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge uppercase text-secondary">Dept 03</span>
+<span class="material-symbols-outlined text-outline text-[16px]">spa</span>
+</div>
+<h4 class="font-title-editorial text-title-editorial text-on-surface">Beauty</h4>
+<div class="mt-space-sm">
+<div class="font-price-card text-price-card text-on-surface">$290,000</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">20.3% Total GMV</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs">
+<div class="flex justify-between font-label-badge text-label-badge text-outline mb-1">
+<span class="">STOCK HEALTH</span>
+<span class="text-on-surface">96.5%</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 96.5%;"></div>
+</div>
+</div>
+</div>
+<!-- 4. Home & Living -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col justify-between shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge uppercase text-outline">Dept 04</span>
+<span class="material-symbols-outlined text-outline text-[16px]">chair</span>
+</div>
+<h4 class="font-title-editorial text-title-editorial text-on-surface">Home &amp; Living</h4>
+<div class="mt-space-sm">
+<div class="font-price-card text-price-card text-on-surface">$184,000</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">12.9% Total GMV</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs">
+<div class="flex justify-between font-label-badge text-label-badge text-outline mb-1">
+<span class="">STOCK HEALTH</span>
+<span class="text-on-surface">94.1%</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 94.1%;"></div>
+</div>
+</div>
+</div>
+<!-- 5. Grocery -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col justify-between shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-outline"></div>
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge uppercase text-outline">Dept 05</span>
+<span class="material-symbols-outlined text-outline text-[16px]">local_cafe</span>
+</div>
+<h4 class="font-title-editorial text-title-editorial text-on-surface">Grocery</h4>
+<div class="mt-space-sm">
+<div class="font-price-card text-price-card text-on-surface">$96,000</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">6.7% Total GMV</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs">
+<div class="flex justify-between font-label-badge text-label-badge text-outline mb-1">
+<span class="">STOCK HEALTH</span>
+<span class="text-on-surface">91.0%</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1 rounded-full overflow-hidden">
+<div class="bg-outline h-full rounded-full" style="width: 91.0%;"></div>
+</div>
+</div>
+</div>
+<!-- 6. Kids & Toys -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col justify-between shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-surface-variant"></div>
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-badge text-label-badge uppercase text-outline">Dept 06</span>
+<span class="material-symbols-outlined text-outline text-[16px]">toys</span>
+</div>
+<h4 class="font-title-editorial text-title-editorial text-on-surface">Kids &amp; Toys</h4>
+<div class="mt-space-sm">
+<div class="font-price-card text-price-card text-on-surface">$61,950</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">4.4% Total GMV</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs">
+<div class="flex justify-between font-label-badge text-label-badge text-outline mb-1">
+<span class="">STOCK HEALTH</span>
+<span class="text-on-surface">97.8%</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1 rounded-full overflow-hidden">
+<div class="bg-surface-bright h-full rounded-full" style="width: 97.8%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Administrative Security & Audit Log -->
+<div class="bg-surface-container rounded-lg p-space-lg shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md mb-space-lg">
+<div class="flex items-start gap-space-sm">
+<div class="p-2 rounded-DEFAULT bg-surface-container-lowest text-primary">
+<span class="material-symbols-outlined text-[20px]">shield</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface" style="background: linear-gradient(135deg, rgb(196, 181, 253) 0%, rgb(147, 197, 253) 50%, rgb(96, 165, 250) 100%) text; -webkit-text-fill-color: transparent;">Administrative Security &amp; Audit Trail</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time immutable ledger of managerial modifications and access violations.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2 bg-surface-container-highest text-on-surface rounded-DEFAULT font-label-md text-label-md hover:bg-surface-bright transition-colors inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+          Export Audit Log
+        </button>
+<button class="px-space-md py-2 bg-surface-container-highest text-on-surface rounded-DEFAULT font-label-md text-label-md hover:bg-surface-bright transition-colors inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+          Filter Event Log
+        </button>
+</div>
+</div>
+<!-- Audit Log Feed -->
+<div class="space-y-space-xs">
+<!-- Item 1: Stock approval -->
+<div class="p-space-md bg-surface-container-lowest rounded-DEFAULT flex flex-col md:flex-row md:items-center justify-between gap-space-sm hover:bg-surface-container-high/60 transition-colors">
+<div class="flex items-start gap-space-md">
+<div class="mt-0.5 w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">
+              Admin Sophia S. approved stock batch <span class="text-tertiary-fixed-dim">#8812</span> for Electronics
+            </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+              Scope authorized under COO executive credentials • Consolidated 420 OLED displays into Main Warehouse Bay 3
+            </div>
+</div>
+</div>
+<div class="flex items-center gap-space-md md:flex-shrink-0">
+<span class="font-label-badge text-label-badge uppercase text-outline">Just now</span>
+<span class="px-2 py-0.5 rounded-DEFAULT bg-surface-container-highest text-on-surface font-label-badge text-label-badge">BATCH-8812</span>
+</div>
+</div>
+<!-- Item 2: Security Alert Blocked HTTP 403 -->
+<div class="p-space-md bg-surface-container-lowest rounded-DEFAULT flex flex-col md:flex-row md:items-center justify-between gap-space-sm hover:bg-surface-container-high/60 transition-colors">
+<div class="flex items-start gap-space-md">
+<div class="mt-0.5 w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">gpp_bad</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-secondary flex items-center gap-space-xs">
+<span class="">Security Alert: Manager Marcus C. attempted unassigned route</span>
+<span class="px-1.5 py-0.5 bg-secondary-container text-on-secondary-container rounded-DEFAULT font-label-badge text-label-badge">[BLOCKED - HTTP 403 Forbidden]</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+              Target URI: <code class="text-outline font-label-badge">/admin/departments/fashion</code> • Violation logged to SOC Incident Matrix #9921
+            </div>
+</div>
+</div>
+<div class="flex items-center gap-space-md md:flex-shrink-0">
+<span class="font-label-badge text-label-badge uppercase text-secondary font-bold">14m ago</span>
+<button class="px-2 py-1 bg-surface-container text-secondary hover:bg-secondary-container hover:text-on-secondary-container transition-colors rounded-DEFAULT font-label-badge text-label-badge uppercase">Inspect IP</button>
+</div>
+</div>
+<!-- Item 3: Coupon update -->
+<div class="p-space-md bg-surface-container-lowest rounded-DEFAULT flex flex-col md:flex-row md:items-center justify-between gap-space-sm hover:bg-surface-container-high/60 transition-colors">
+<div class="flex items-start gap-space-md">
+<div class="mt-0.5 w-7 h-7 rounded-full bg-tertiary-fixed-dim/10 text-tertiary-fixed-dim flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">loyalty</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">
+              Promotional Coupon <span class="font-label-lg text-primary font-bold">ONECART</span> updated: 10% off multi-department orders over $75
+            </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+              Applies across unified multi-category carts • Target lift on single-checkout cart density
+            </div>
+</div>
+</div>
+<div class="flex items-center gap-space-md md:flex-shrink-0">
+<span class="font-label-badge text-label-badge uppercase text-outline">1h 22m ago</span>
+<span class="px-2 py-0.5 rounded-DEFAULT bg-surface-container-highest text-tertiary-fixed-dim font-label-badge text-label-badge">GLOBAL PROMO</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Department Manager Assignment Modal Form Preview (Hidden by default, interactive) -->
+<div class="fixed inset-0 z-50 bg-surface-container-lowest/80 backdrop-blur-md hidden flex items-center justify-center p-space-md" id="assign-modal">
+<div class="relative w-full max-w-xl bg-surface-container rounded-lg p-space-lg shadow-xl">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">person_add</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Assign Department Manager</h3>
+</div>
+<button class="text-outline hover:text-on-surface p-1" id="close-assign-modal">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-lg">
+        Authorize staff personnel with scoped management rights over specific category domains within the single-checkout pipeline.
+      </p>
+<form class="space-y-space-md" id="assign-manager-form" onsubmit="event.preventDefault(); document.getElementById('assign-modal').classList.add('hidden');">
+<!-- Select User -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">Select Candidate Personnel</label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md px-space-md py-2.5 rounded-DEFAULT focus:outline-none focus:ring-1 focus:ring-primary appearance-none cursor-pointer">
+<option value="elena">Elena Vance (USR-1092 • vance.e@blowmaggy.member)</option>
+<option value="nathan">Nathaniel Cross (STF-3011 • cross.n@blowmaggy.internal)</option>
+<option value="chloe">Chloe Bennett (STF-4188 • bennett.c@blowmaggy.internal)</option>
+</select>
+<span class="material-symbols-outlined text-outline pointer-events-none absolute right-3 top-3 text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Select Authorized Departments -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-space-xs">Select Authorized Departments (Multi-Select)</label>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+<label class="flex items-center gap-2 p-2 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-container-high transition-colors">
+<input checked="" class="w-4 h-4 rounded-DEFAULT bg-surface-container-high border-0 accent-primary text-primary" type="checkbox">
+<span class="font-label-md text-label-md text-on-surface">Fashion</span>
+</label>
+<label class="flex items-center gap-2 p-2 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-container-high transition-colors">
+<input checked="" class="w-4 h-4 rounded-DEFAULT bg-surface-container-high border-0 accent-primary text-primary" type="checkbox">
+<span class="font-label-md text-label-md text-on-surface">Beauty</span>
+</label>
+<label class="flex items-center gap-2 p-2 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="w-4 h-4 rounded-DEFAULT bg-surface-container-high border-0 accent-primary text-primary" type="checkbox">
+<span class="font-label-md text-label-md text-on-surface">Electronics</span>
+</label>
+<label class="flex items-center gap-2 p-2 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="w-4 h-4 rounded-DEFAULT bg-surface-container-high border-0 accent-primary text-primary" type="checkbox">
+<span class="font-label-md text-label-md text-on-surface">Home &amp; Living</span>
+</label>
+<label class="flex items-center gap-2 p-2 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="w-4 h-4 rounded-DEFAULT bg-surface-container-high border-0 accent-primary text-primary" type="checkbox">
+<span class="font-label-md text-label-md text-on-surface">Grocery</span>
+</label>
+<label class="flex items-center gap-2 p-2 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="w-4 h-4 rounded-DEFAULT bg-surface-container-high border-0 accent-primary text-primary" type="checkbox">
+<span class="font-label-md text-label-md text-on-surface">Kids &amp; Toys</span>
+</label>
+</div>
+</div>
+<!-- Scope Permissions Checklist -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-space-xs">Authorized Scoped Capabilities</label>
+<div class="space-y-1.5">
+<label class="flex items-center justify-between p-2.5 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2">
+<input checked="" class="w-4 h-4 rounded-DEFAULT bg-surface-container-high border-0 accent-primary text-primary" type="checkbox">
+<span class="font-label-md text-label-md text-on-surface">Inventory Adjust</span>
+</div>
+<span class="font-label-badge text-label-badge text-outline uppercase">Stock Level Mutate</span>
+</label>
+<label class="flex items-center justify-between p-2.5 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2">
+<input checked="" class="w-4 h-4 rounded-DEFAULT bg-surface-container-high border-0 accent-primary text-primary" type="checkbox">
+<span class="font-label-md text-label-md text-on-surface">Product Catalog Edit</span>
+</div>
+<span class="font-label-badge text-label-badge text-outline uppercase">Specs &amp; Pricing</span>
+</label>
+<label class="flex items-center justify-between p-2.5 bg-surface-container-lowest rounded-DEFAULT cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2">
+<input class="w-4 h-4 rounded-DEFAULT bg-surface-container-high border-0 accent-primary text-primary" type="checkbox">
+<span class="font-label-md text-label-md text-on-surface">Order Fulfillment &amp; Packing</span>
+</div>
+<span class="font-label-badge text-label-badge text-outline uppercase">Dispatch Release</span>
+</label>
+</div>
+</div>
+<!-- Modal Actions -->
+<div class="flex items-center justify-end gap-space-sm pt-space-md">
+<button class="px-space-md py-2 rounded-DEFAULT text-on-surface font-label-md text-label-md hover:bg-surface-container-highest transition-colors" id="cancel-assign-modal" type="button">
+            Cancel
+          </button>
+<button class="px-space-lg py-2 bg-primary text-on-primary rounded-DEFAULT font-label-lg text-label-lg hover:bg-tertiary-fixed-dim hover:text-on-tertiary-fixed transition-colors" type="submit">
+            Confirm Scope Binding
+          </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<script>
+  // Simple modal open/close toggle micro-interactions
+  const openBtn = document.getElementById('open-assign-modal');
+  const closeBtn = document.getElementById('close-assign-modal');
+  const cancelBtn = document.getElementById('cancel-assign-modal');
+  const modal = document.getElementById('assign-modal');
+
+  if (openBtn && modal) {
+    openBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+  }
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+  }
+  if (cancelBtn && modal) {
+    cancelBtn.addEventListener('click', () => modal.classList.add('hidden'));
+  }
+</script></main></div>
+
+</body></html>
