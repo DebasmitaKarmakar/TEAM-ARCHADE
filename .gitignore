@@ -29,3 +29,8 @@ desktop.ini
 # Logs
 *.log
 npm-debug.log*
+
+# Excluded by project rules
+brain.md
+.agent/
+.agents/
