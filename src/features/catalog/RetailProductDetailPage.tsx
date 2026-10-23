@@ -269,9 +269,42 @@ export const RetailProductDetailPage: React.FC = () => {
           </section>
         </div>
 
-        <section className="mt-12 grid gap-6 lg:grid-cols-[1.25fr_.75fr]" aria-labelledby="product-information-title">
-          <article className="rounded-2xl border border-[#ded6c7] bg-white p-6 shadow-sm sm:p-8"><p className="text-xs font-bold uppercase tracking-[.16em] text-[#6d5bd0]">Product details</p><h2 id="product-information-title" className="mt-2 font-['Bodoni_Moda'] text-3xl font-semibold text-[#1d2345]">About this item</h2><p className="mt-4 max-w-3xl leading-7 text-[#514d48]">{product.extendedDescription || product.description}</p>{product.pharmacyInfo && <div className="mt-6 rounded-xl border border-[#9edfd6] bg-[#edfffb] p-4"><p className="font-semibold text-[#116d63]">Pharmacy information</p><dl className="mt-3 grid gap-3 text-sm sm:grid-cols-2"><div><dt className="text-[#5a716d]">Manufactured</dt><dd className="font-medium text-[#173a36]">{product.pharmacyInfo.manufactured}</dd></div><div><dt className="text-[#5a716d]">Expiry / best before</dt><dd className="font-medium text-[#173a36]">{product.pharmacyInfo.expiry}</dd></div><div className="sm:col-span-2"><dt className="text-[#5a716d]">Use</dt><dd className="font-medium text-[#173a36]">{product.pharmacyInfo.use}</dd></div></dl><p className="mt-3 border-t border-[#9edfd6] pt-3 text-xs leading-relaxed text-[#47706a]">{product.pharmacyInfo.note}</p></div>}</article>
-          {product.specs && product.specs.length > 0 && <aside className="rounded-2xl border border-[#ded6c7] bg-white p-6 shadow-sm"><h2 className="font-['Bodoni_Moda'] text-2xl font-semibold text-[#1d2345]">Key specifications</h2><dl className="mt-5 divide-y divide-[#ece5da]">{product.specs.slice(0, 5).map((spec) => <div key={spec.label} className="flex items-start justify-between gap-4 py-3"><dt><span className="block font-medium text-[#1d2345]">{spec.label}</span><span className="mt-1 block text-xs text-[#6b6560]">{spec.desc}</span></dt><dd className="text-right text-sm font-semibold text-[#514d48]">{spec.value}</dd></div>)}</dl></aside>}
+        <section className={`mt-12 grid gap-6 ${product.specs && product.specs.length > 0 ? 'lg:grid-cols-[1.25fr_.75fr]' : ''}`} aria-labelledby="product-information-title">
+          <article className="rounded-2xl border border-[#ded6c7] bg-white p-6 shadow-sm sm:p-8">
+            <p className="text-xs font-bold uppercase tracking-[.16em] text-[#6d5bd0]">Product details</p>
+            <h2 id="product-information-title" className="mt-2 font-['Bodoni_Moda'] text-3xl font-semibold text-[#1d2345]">About this item</h2>
+            <p className="mt-4 max-w-3xl leading-7 text-[#514d48]">{product.extendedDescription || product.description}</p>
+
+            <section className="mt-7 rounded-xl border border-[#9edfd6] bg-[#edfffb] p-5" aria-labelledby="catalogue-information-title">
+              <div className="flex items-center gap-2 text-[#116d63]">
+                <span className="material-symbols-outlined text-[22px]">{productInformation.icon}</span>
+                <h3 id="catalogue-information-title" className="text-sm font-bold uppercase tracking-[.08em]">{productInformation.heading}</h3>
+              </div>
+              <dl className="mt-5 grid gap-x-6 gap-y-4 text-sm sm:grid-cols-2">
+                {productInformation.details.map((detail) => (
+                  <div key={detail.label} className={detail.label === 'Use' ? 'sm:col-span-2' : ''}>
+                    <dt className="text-xs font-semibold uppercase tracking-wide text-[#5a716d]">{detail.label}</dt>
+                    <dd className="mt-1 font-medium leading-6 text-[#173a36]">{detail.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-5 border-t border-[#9edfd6] pt-4 text-xs leading-relaxed text-[#47706a]">{productInformation.note}</p>
+            </section>
+          </article>
+
+          {product.specs && product.specs.length > 0 && (
+            <aside className="rounded-2xl border border-[#ded6c7] bg-white p-6 shadow-sm">
+              <h2 className="font-['Bodoni_Moda'] text-2xl font-semibold text-[#1d2345]">Key specifications</h2>
+              <dl className="mt-5 divide-y divide-[#ece5da]">
+                {product.specs.slice(0, 5).map((spec) => (
+                  <div key={spec.label} className="flex items-start justify-between gap-4 py-3">
+                    <dt><span className="block font-medium text-[#1d2345]">{spec.label}</span><span className="mt-1 block text-xs text-[#6b6560]">{spec.desc}</span></dt>
+                    <dd className="text-right text-sm font-semibold text-[#514d48]">{spec.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </aside>
+          )}
         </section>
 
         {relatedProducts.length > 0 && <section className="mt-12" aria-labelledby="more-like-this-title"><div className="mb-5 flex items-end justify-between gap-4"><div><p className="text-xs font-bold uppercase tracking-[.16em] text-[#6d5bd0]">More to explore</p><h2 id="more-like-this-title" className="mt-1 font-['Bodoni_Moda'] text-3xl font-semibold text-[#1d2345]">You may also like</h2></div><button onClick={() => navigateToDept(product.department)} className="text-sm font-semibold text-[#1d2345] underline underline-offset-4 hover:text-[#d5215d]">View department</button></div><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{relatedProducts.map((item) => <article key={item.id} className="group overflow-hidden rounded-2xl border border-[#ded6c7] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"><button type="button" onClick={() => navigateToPDP(item.id)} className="block w-full text-left"><img src={item.images.front} alt={item.name} className="aspect-square w-full object-cover transition duration-500 group-hover:scale-105" onError={(event) => { event.currentTarget.src = FALLBACK_IMAGE; }} /><div className="p-4"><p className="truncate font-semibold text-[#1d2345]">{item.name}</p><p className="mt-2 text-sm font-bold text-[#1d2345]">{formatInr(item.price)}</p></div></button></article>)}</div></section>}

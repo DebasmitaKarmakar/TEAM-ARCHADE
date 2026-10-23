@@ -198,8 +198,9 @@ main > * { animation: bm-rise-in 360ms ease-out both; }
 
 /* Intro, campaign strip and footer get explicit contrast rules: global light
    token remapping must never turn copy unreadable on their coloured surfaces. */
-.bm-intro__content { width: min(99vw, 1200px); }
-.bm-intro__word { white-space: nowrap; font-size: clamp(2.2rem, 9.5vw, 8rem); letter-spacing: -.075em; }
+.bm-intro__content { box-sizing: border-box; width: min(100%, 1280px); }
+.bm-intro__word { display: flex; width: 100%; margin-inline: auto; align-items: baseline; justify-content: center; flex-wrap: nowrap; white-space: nowrap; font-size: clamp(2.1rem, 8.1vw, 7.25rem); letter-spacing: -.055em; }
+.bm-intro__word span { flex: 0 0 auto; will-change: opacity, transform; }
 .bm-promo-banner { min-height: 30px; color: #fffdf6 !important; background-size: 180% 100% !important; animation: bm-gradient-shift 9s ease-in-out infinite; }
 .bm-promo-banner.bm-promo-banner, .bm-promo-banner.bm-promo-banner strong, .bm-promo-banner.bm-promo-banner [class] { color: #fffdf6 !important; }
 .bm-promo-banner__track { animation: bm-promo-drift 22s linear infinite; }
@@ -213,7 +214,7 @@ main > * { animation: bm-rise-in 360ms ease-out both; }
 .bm-footer.bm-footer [class*='text-emerald'], .bm-footer.bm-footer [class*='text-[#7df4ff]'] { color: #a7fff0 !important; }
 @keyframes bm-gradient-shift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 @keyframes bm-promo-drift { 0%, 8% { transform: translateX(0); } 48%, 58% { transform: translateX(-8%); } 92%, 100% { transform: translateX(0); } }
-@media (max-width: 640px) { .bm-intro__word { font-size: clamp(2rem, 12.5vw, 4.5rem); letter-spacing: -.09em; } .bm-intro__content { padding: 18px 8px; } .bm-promo-banner__track { animation-duration: 28s; } }
+@media (max-width: 640px) { .bm-intro__word { font-size: clamp(2rem, 10vw, 4rem); letter-spacing: -.065em; } .bm-intro__content { padding: 18px 8px; } .bm-promo-banner__track { animation-duration: 28s; } }
 
 /* Light storefront, stronger brand hierarchy. The blue-violet ink is reserved
    for navigation and brand emphasis rather than turning the whole canvas dark. */
