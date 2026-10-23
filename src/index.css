@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #121316;
+    --surface-main: #1f1f23;
+    --surface-container-low: #1b1b1f;
+    --surface-container-high: #292a2d;
+    --surface-container-highest: #343538;
+    --surface-container-lowest: #0d0e11;
+    --primary-color: #ffffff;
+    --secondary-container: #ba012d;
+    --tertiary-fixed: #7df4ff;
+    --tertiary-fixed-dim: #00dbe9;
+    --text-primary: #e3e2e6;
+    --text-muted: #8f9194;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d0e11;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #292a2d;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #343538;
+  }
+}
+
+/* Custom typography classes */
+.font-display-hero {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 56px;
+  line-height: 64px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.font-headline-lg {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+.font-headline-md {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+}
+
+.font-headline-sm {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 500;
+}
+
+.font-title-editorial {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.font-price-hero {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.font-price-card {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+.font-label-lg {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+.font-label-md {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.font-label-badge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.font-body-lg {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.font-body-md {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.font-body-sm {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+/* 360 Turntable Chamber */
+.turntable-chamber {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.turntable-stage {
+  transform-style: preserve-3d;
+  transition: transform 0.08s ease-out;
+}
+
+.wireframe-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+}
+
+.hotspot-pulse {
+  animation: radar-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes radar-pulse {
+  0%, 100% { opacity: 0.9; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.4); }
+}
+
+/* Custom range input styling */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 2px;
+  background: #7df4ff;
+  cursor: ew-resize;
+  box-shadow: 0 0 8px #00e5ff;
+}
+
+/* Department Scopes */
+[data-dept="fashion"] {
+  --dept-accent: #FF4F8B;
+  --dept-accent-2: #FFC2D6;
+  --dept-glow: rgba(255, 79, 139, 0.28);
+}
+[data-dept="beauty"] {
+  --dept-accent: #FF8A65;
+  --dept-accent-2: #F5C26B;
+  --dept-glow: rgba(255, 138, 101, 0.28);
+}
+[data-dept="electronics"] {
+  --dept-accent: #22D3EE;
+  --dept-accent-2: #6366F1;
+  --dept-glow: rgba(34, 211, 238, 0.28);
+}
+[data-dept="home"] {
+  --dept-accent: #D97757;
+  --dept-accent-2: #84A98C;
+  --dept-glow: rgba(217, 119, 87, 0.28);
+}
+[data-dept="grocery"] {
+  --dept-accent: #84CC16;
+  --dept-accent-2: #22C55E;
+  --dept-glow: rgba(132, 204, 22, 0.28);
+}
+[data-dept="kids"] {
+  --dept-accent: #FACC15;
+  --dept-accent-2: #A78BFA;
+  --dept-glow: rgba(250, 204, 21, 0.28);
+}

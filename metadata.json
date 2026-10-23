@@ -1,0 +1,6 @@
+{
+  "name": "BLOWMAGGY — The Universal Department Store",
+  "description": "Multi-departmental luxury store with unified single-cart and consolidated checkout, department manager scopes, administrative governance, and interactive 360° acoustic chamber.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

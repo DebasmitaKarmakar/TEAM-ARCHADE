@@ -1,36 +1,8 @@
-# Dependencies
 node_modules/
-.pnp.*
-.yarn/
-
-# Build outputs
-dist/
 build/
-.next/
-.vercel/
-.netlify/
-
-# Environment
-.env
-.env.local
-.env.production
-
-# OS files
+dist/
+coverage/
 .DS_Store
-Thumbs.db
-desktop.ini
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Logs
 *.log
-npm-debug.log*
-
-# Excluded by project rules
-brain.md
-.agent/
-.agents/
+.env*
+!.env.example
