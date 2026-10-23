@@ -38,7 +38,8 @@ const MainContent: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-[#0E0E10] text-[#E8E8E8]">
       <Header />
-      <main className="flex-1 pt-[104px] sm:pt-[110px]">
+      {/* Header contains campaign, primary controls and horizontal department nav. */}
+      <main className="flex-1 pt-[146px] sm:pt-[150px]">
         <Suspense fallback={<div className="min-h-[45vh] grid place-items-center text-xs uppercase tracking-[0.2em] text-[#999]">Loading BLOWMAGGY</div>}>
         {activeView === 'home' && <StorefrontHome />}
         {activeView === 'pdp' && <ProductDetailPage />}

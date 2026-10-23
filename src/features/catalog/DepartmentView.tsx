@@ -36,48 +36,50 @@ export const DepartmentView: React.FC = () => {
   return (
     <div className="flex flex-col w-full text-[#e3e2e6] pb-16">
       {/* Department Hero Banner */}
-      <section className="relative w-full px-4 sm:px-8 lg:px-12 py-12 bg-[#121316] border-b border-[#343538] overflow-hidden">
+      <section
+        className="bm-department-hero relative w-full overflow-hidden border-b px-4 py-10 sm:px-8 sm:py-12 lg:px-12"
+        style={{
+          background: `linear-gradient(108deg, #fffdf8 0%, #f7f1e7 52%, ${dept.colorAccent2}66 100%)`,
+          borderBottomColor: `${dept.colorAccent}35`,
+        }}
+      >
         <div
-          className="absolute -right-20 -top-20 w-80 h-80 rounded-full blur-3xl pointer-events-none opacity-20"
+          className="absolute -right-20 -top-20 h-80 w-80 rounded-full blur-3xl pointer-events-none opacity-30"
           style={{ backgroundColor: dept.colorAccent }}
         ></div>
 
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6 relative z-10">
-          <div className="space-y-3">
+          <div className="min-w-0 space-y-3">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: dept.colorAccent }}></span>
-              <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#8f9194] font-bold">
+              <span className="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#5e5a55] font-bold">
                 {dept.deptNumber} • Flagship Sector
               </span>
             </div>
             <h1
-              className="font-['Bodoni_Moda'] text-4xl sm:text-5xl text-white font-normal tracking-tight"
-              style={{
-                background: `linear-gradient(135deg, #ffffff 0%, ${dept.colorAccent} 100%)`,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
+              className="bm-department-title select-none font-['Bodoni_Moda'] text-4xl font-semibold tracking-tight sm:text-5xl"
+              style={{ color: '#1d2345', borderColor: dept.colorAccent }}
             >
               {dept.title}
             </h1>
-            <p className="font-['Hanken_Grotesk'] text-[16px] text-[#c5c7c9] max-w-xl leading-relaxed">
+            <p className="font-['Hanken_Grotesk'] text-[16px] text-[#4f4c49] max-w-xl leading-relaxed">
               {dept.subtitle}
             </p>
           </div>
 
           {/* Department Metadata Pod */}
-          <div className="flex items-center gap-4 bg-[#1b1b1f] p-3 rounded border border-[#343538] font-['Space_Grotesk'] text-[11px]">
+          <div className="bm-department-metadata flex max-w-full items-center gap-4 rounded-xl border bg-white/80 p-3 font-['Space_Grotesk'] text-[11px] shadow-sm backdrop-blur-sm">
             <img src={dept.managerPhoto} alt={dept.manager} className="w-10 h-10 rounded object-cover border border-[#44474a]" />
             <div>
-              <span className="text-[#8f9194] uppercase tracking-wider block">Assigned Lead</span>
-              <span className="text-white font-bold block">{dept.manager}</span>
-              <span className="text-[10px] text-[#7df4ff] font-mono">{dept.managerEmail}</span>
+              <span className="block uppercase tracking-wider text-[#6b6560]">Assigned Lead</span>
+              <span className="block font-bold text-[#1d2345]">{dept.manager}</span>
+              <span className="font-mono text-[10px] text-[#007a85]">{dept.managerEmail}</span>
             </div>
-            <div className="h-8 w-px bg-[#343538] mx-1"></div>
+            <div className="mx-1 h-8 w-px bg-[#d8d1c4]"></div>
             <div>
-              <span className="text-[#8f9194] uppercase tracking-wider block">Stock Health</span>
+              <span className="block uppercase tracking-wider text-[#6b6560]">Stock Health</span>
               <span className="text-emerald-400 font-bold block">{dept.stockHealth}%</span>
-              <span className="text-[10px] text-[#8f9194]">{dept.skuCount}</span>
+              <span className="text-[10px] text-[#6b6560]">{dept.skuCount}</span>
             </div>
           </div>
         </div>

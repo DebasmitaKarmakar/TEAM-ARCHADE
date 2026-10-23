@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @layer base {
-  /* Creamy daylight is the storefront default; dark remains an optional toggle. */
+  /* Creamy daylight is the storefront default. */
   :root {
     --bg-main: #f7f1e5;
     --surface-main: #fffdf8;
@@ -214,6 +214,30 @@ main > * { animation: bm-rise-in 360ms ease-out both; }
 @keyframes bm-gradient-shift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 @keyframes bm-promo-drift { 0%, 8% { transform: translateX(0); } 48%, 58% { transform: translateX(-8%); } 92%, 100% { transform: translateX(0); } }
 @media (max-width: 640px) { .bm-intro__word { font-size: clamp(2rem, 12.5vw, 4.5rem); letter-spacing: -.09em; } .bm-intro__content { padding: 18px 8px; } .bm-promo-banner__track { animation-duration: 28s; } }
+
+/* Light storefront, stronger brand hierarchy. The blue-violet ink is reserved
+   for navigation and brand emphasis rather than turning the whole canvas dark. */
+html.theme-light header.bm-site-header { background: linear-gradient(105deg, #fffdf7 0%, #f6f0e3 55%, #eee7d8 100%) !important; border-bottom: 1px solid #c9c0af !important; box-shadow: 0 3px 18px rgba(29,35,69,.12) !important; }
+.bm-brand-lockup { display: inline-flex; align-items: baseline; color: #20275a; font: 800 clamp(1rem, 2vw, 1.38rem)/1 'Bodoni Moda', serif; letter-spacing: -.075em; white-space: nowrap; text-shadow: 0 1px 0 #fff; transition: transform .25s ease, filter .25s ease; }
+.bm-brand-lockup strong { color: #d5215d; font-weight: 800; }
+.group:hover .bm-brand-lockup { transform: translateY(-1px) scale(1.035); filter: saturate(1.12); }
+.bm-department-hero { isolation: isolate; }
+.bm-department-title { display: inline-block; max-width: 100%; overflow-wrap: anywhere; border-bottom: 5px solid; padding-bottom: .22rem; text-shadow: 0 1px 0 rgba(255,255,255,.85); }
+.bm-department-metadata { border-color: rgba(67, 59, 51, .18); }
+@media (max-width: 767px) {
+  .bm-site-header > div:nth-child(2) { height: 4.3rem; padding-inline: 1rem; gap: .75rem; }
+  .bm-brand-lockup { font-size: 1.12rem; }
+  .bm-department-hero { padding-block: 2rem; }
+  .bm-department-title { font-size: clamp(2rem, 10vw, 3.15rem); line-height: 1.05; }
+  .bm-department-metadata { width: 100%; gap: .65rem; }
+  .bm-department-metadata img { width: 2.15rem; height: 2.15rem; }
+}
+@media (max-width: 440px) {
+  .bm-department-metadata { align-items: flex-start; }
+  .bm-department-metadata > div:last-child { margin-left: auto; }
+  .bm-department-metadata > div:nth-child(3) { display: none; }
+  .bm-promo-banner { font-size: 9px; letter-spacing: .08em; }
+}
 
 /* Custom typography classes */
 .font-display-hero {

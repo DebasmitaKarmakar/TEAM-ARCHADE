@@ -37,7 +37,7 @@ export const Header: React.FC = () => {
 
   return (
     <header
-      className="fixed top-0 w-full z-50 bg-[#121316]/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"
+      className="bm-site-header fixed top-0 w-full z-50 bg-[#121316]/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"
       style={{
         background: 'linear-gradient(110deg, #273c92 0%, #6547b8 52%, #e0b83f 130%)',
         borderBottom: '1px solid rgba(147, 197, 253, 0.15)',
@@ -65,12 +65,10 @@ export const Header: React.FC = () => {
           onClick={() => setActiveView('home')}
           className="flex items-center gap-3 shrink-0 cursor-pointer group"
         >
-          <img
-            alt="Blowmaggy Wordmark Logo"
-            className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
-            src="https://lh3.googleusercontent.com/aida/AEtjO1UADMaEayZO_xcBmngPCX5LyZIt1G7x-oeCDUy_llM1iaH6jRZm3BMMwm3VnKS1TkhaYmsBSQeZ_NUoOybgtE03a2lg4tfy5JRmbY4c4OhZrV0knNSP2thrgqySDOhhvzdAPufi4tRWt0iwK2Vv2M2kcHXPCcDbc2dP2jSYt6ZcbrXSOBv67_NLwf9JHS75rjCx7Y7Kl35I9M-QM_30yBAJw1EBw-UfBi1BmJZehBlJD85k5iDJ5WH7u6Ly"
-          />
-          <div className="hidden xl:flex flex-col">
+          <div className="bm-brand-lockup" aria-label="Blowmaggy home">
+            <span>BLOW</span><strong>MAGGY</strong>
+          </div>
+          <div className="hidden 2xl:flex flex-col">
             <span className="font-['Space_Grotesk'] text-[10px] uppercase tracking-wider text-[#8f9194]">
               Unified Department Store
             </span>
