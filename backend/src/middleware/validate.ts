@@ -1,39 +1,22 @@
-import { Request, Response, NextFunction } from 'express';
-import { ZodSchema, ZodError } from 'zod';
+import type { NextFunction, Request, Response } from 'express';
+import type { ZodTypeAny, z } from 'zod';
 import { AppError } from '../utils/AppError';
 
-interface ValidationSchemas {
-  body?: ZodSchema;
-  query?: ZodSchema;
-  params?: ZodSchema;
+/** Validate & coerce req.body / req.query / req.params with zod. Parsed values land in res.locals. */
+export function validate(schemas: { body?: ZodTypeAny; query?: ZodTypeAny; params?: ZodTypeAny }) {
+  return (req: Request, res: Response, next: NextFunction) => {
+    for (const key of ['body', 'query', 'params'] as const) {
+      const schema = schemas[key];
+      if (!schema) continue;
+      const result = schema.safeParse(req[key] ?? {});
+      if (!result.success) {
+        return next(new AppError(400, 'Invalid request', 'VALIDATION_ERROR', result.error.flatten()));
+      }
+      res.locals[key] = result.data;
+    }
+    next();
+  };
 }
 
-/**
- * Validates req.body, req.query, and/or req.params against Zod schemas.
- * Replaces the request properties with the parsed (typed, coerced) values.
- */
-export const validate = (schemas: ValidationSchemas) => {
-  return (req: Request, _res: Response, next: NextFunction): void => {
-    try {
-      if (schemas.body) {
-        req.body = schemas.body.parse(req.body);
-      }
-      if (schemas.query) {
-        req.query = schemas.query.parse(req.query) as any;
-      }
-      if (schemas.params) {
-        req.params = schemas.params.parse(req.params) as any;
-      }
-      next();
-    } catch (err) {
-      if (err instanceof ZodError) {
-        const details = err.errors.map((e) => ({
-          path: e.path.join('.'),
-          message: e.message,
-        }));
-        return next(new AppError(422, 'Validation failed', 'VALIDATION_ERROR', details));
-      }
-      next(err);
-    }
-  };
-};
+export const body = <S extends ZodTypeAny>(res: Response, _s?: S) => res.locals.body as z.infer<S>;
+export const query = <S extends ZodTypeAny>(res: Response, _s?: S) => res.locals.query as z.infer<S>;

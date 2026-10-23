@@ -1,38 +1,31 @@
-import { Request, Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
-import { env } from '../config/env';
+import type { NextFunction, Request, Response } from 'express';
+import { prisma } from '../lib/prisma';
+import { verifyAccessToken } from '../lib/tokens';
 import { AppError } from '../utils/AppError';
-import { AccessPayload } from '../lib/tokens';
 
-/**
- * Extracts and verifies the access JWT from Authorization header.
- * Sets req.user if valid. Does NOT throw if no token is present.
- */
-export function optionalAuth(req: Request, _res: Response, next: NextFunction): void {
+/** Reads `Authorization: Bearer <access token>` if present and loads a fresh user row. Never throws for guests. */
+export async function optionalAuth(req: Request, _res: Response, next: NextFunction) {
   const header = req.headers.authorization;
   if (!header?.startsWith('Bearer ')) return next();
-
-  const token = header.slice(7);
   try {
-    const payload = jwt.verify(token, env.JWT_ACCESS_SECRET) as AccessPayload;
-    req.user = {
-      id: payload.sub,
-      role: payload.role as any,
-      deptId: payload.deptId,
-      isMember: false, // Will be set by service layer when needed
-    };
+    const claims = verifyAccessToken(header.slice(7));
+    const u = await prisma.user.findUnique({
+      where: { id: claims.sub },
+      select: { id: true, email: true, name: true, role: true, departmentId: true, memberUntil: true },
+    });
+    if (u) {
+      req.user = {
+        id: u.id, email: u.email, name: u.name, role: u.role, deptId: u.departmentId,
+        isMember: !!u.memberUntil && u.memberUntil > new Date(),
+      };
+    }
+    next();
   } catch {
-    // Invalid/expired token — treat as unauthenticated
+    next(new AppError(401, 'Session expired — please refresh', 'TOKEN_INVALID'));
   }
-  next();
 }
 
-/**
- * Requires a valid access token. Returns 401 if not present.
- */
-export function requireAuth(req: Request, _res: Response, next: NextFunction): void {
-  if (!req.user) {
-    return next(new AppError(401, 'Authentication required'));
-  }
+export function requireAuth(req: Request, _res: Response, next: NextFunction) {
+  if (!req.user) return next(new AppError(401, 'Please log in'));
   next();
 }

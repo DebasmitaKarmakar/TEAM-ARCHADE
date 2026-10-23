@@ -1,21 +1,20 @@
-import { Role } from '@prisma/client';
+import type { Role } from '../generated/prisma/enums';
+
+export interface AuthUser {
+  id: string;
+  email: string;
+  name: string;
+  role: Role;
+  deptId: string | null;
+  isMember: boolean;
+}
 
 declare global {
   namespace Express {
     interface Request {
-      /** Set by auth middleware when a valid access token is present */
-      user?: {
-        id: string;
-        role: Role;
-        deptId?: string;
-        isMember: boolean;
-      };
-      /** Request ID for tracing */
-      requestId: string;
-      /** Start time for timing middleware */
-      startTime: number;
-      /** Guest cart cookie value */
+      user?: AuthUser;
       guestId?: string;
+      id?: string;
     }
   }
 }

@@ -1,40 +1,23 @@
-/** Shipment grouping rules — change grouping by editing this config */
+/**
+ * Shipment grouping rules — edit this to change how one cart splits into deliveries.
+ * Adding a 7th department = add its slug to one of the groups.
+ */
 export interface ShipmentRule {
   group: string;
+  label: string;
   departments: string[];
   etaDays: number;
   needsSlot?: boolean;
 }
 
 export const SHIPMENT_RULES: ShipmentRule[] = [
-  { group: 'grocery',     departments: ['grocery'],                          etaDays: 0, needsSlot: true },
-  { group: 'electronics', departments: ['electronics'],                      etaDays: 2 },
-  { group: 'general',     departments: ['fashion', 'beauty', 'home', 'kids'], etaDays: 3 },
+  { group: 'general', label: 'Fashion, Beauty, Home & Kids', departments: ['fashion', 'beauty', 'home', 'kids'], etaDays: 3 },
+  { group: 'electronics', label: 'Electronics', departments: ['electronics'], etaDays: 2 },
+  { group: 'grocery', label: 'Grocery (slot delivery)', departments: ['grocery'], etaDays: 1, needsSlot: true },
 ];
 
-/**
- * Group cart lines by shipment rule.
- * Returns non-empty groups with their ETAs.
- */
-export function groupShipments<T extends { departmentSlug: string }>(
-  lines: T[]
-): { group: string; etaDays: number; needsSlot: boolean; items: T[] }[] {
-  const grouped: Record<string, { group: string; etaDays: number; needsSlot: boolean; items: T[] }> = {};
+export const FALLBACK_RULE: ShipmentRule = SHIPMENT_RULES[0];
 
-  for (const line of lines) {
-    const rule = SHIPMENT_RULES.find(r => r.departments.includes(line.departmentSlug));
-    if (!rule) continue;
-
-    if (!grouped[rule.group]) {
-      grouped[rule.group] = {
-        group: rule.group,
-        etaDays: rule.etaDays,
-        needsSlot: rule.needsSlot ?? false,
-        items: [],
-      };
-    }
-    grouped[rule.group].items.push(line);
-  }
-
-  return Object.values(grouped).filter(g => g.items.length > 0);
+export function ruleForDepartment(slug: string): ShipmentRule {
+  return SHIPMENT_RULES.find((r) => r.departments.includes(slug)) ?? FALLBACK_RULE;
 }

@@ -1,16 +1,11 @@
-/** GST rates per department (included in price, extracted for invoice) */
-export const TAX_RATES: Record<string, number> = {
-  fashion:     5,   // 5% GST on apparel
-  beauty:      18,  // 18% GST on cosmetics
-  electronics: 18,  // 18% GST on electronics
-  home:        12,  // 12% GST on home goods
-  grocery:     0,   // 0% GST on essentials (simplified)
-  kids:        5,   // 5% GST on kids items
+/** GST rate (%) per department. Prices are GST-inclusive; tax is only computed for the invoice. */
+export const GST_RATE: Record<string, number> = {
+  fashion: 12,
+  beauty: 18,
+  electronics: 18,
+  home: 12,
+  grocery: 5,
+  kids: 12,
 };
 
-/** Extract tax from an inclusive price: round(price * rate / (100 + rate)) */
-export function extractTax(inclusiveAmount: number, departmentSlug: string): number {
-  const rate = TAX_RATES[departmentSlug] ?? 0;
-  if (rate === 0) return 0;
-  return Math.round((inclusiveAmount * rate) / (100 + rate));
-}
+export const gstFor = (deptSlug: string) => GST_RATE[deptSlug] ?? 18;

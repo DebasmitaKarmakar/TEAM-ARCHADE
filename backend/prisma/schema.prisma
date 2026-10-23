@@ -1,12 +1,14 @@
+// BLOWMAGGY — The Everything Issue
+// All money columns are INTEGER PAISE (₹1,499 = 149900).
+
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["fullTextSearchPostgres"]
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "esm"
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "postgresql"
 }
 
 enum Role {
@@ -63,28 +65,29 @@ enum MemberPlan {
 }
 
 // ───────────── Users & auth ─────────────
-model User {
-  id           String      @id @default(cuid())
-  email        String      @unique
-  passwordHash String
-  name         String
-  phone        String?
-  role         Role        @default(SHOPPER)
-  departmentId String?
-  department   Department? @relation(fields: [departmentId], references: [id])
-  memberUntil  DateTime?
-  memberPlan   MemberPlan?
-  createdAt    DateTime    @default(now())
 
-  addresses     Address[]
-  cart          Cart?
-  orders        Order[]
-  wishlist      WishlistItem[]
-  reviews       Review[]
-  reviewVotes   ReviewVote[]
-  refreshTokens RefreshToken[]
-  views         ProductView[]
-  notifications Notification[]
+model User {
+  id                  String               @id @default(cuid())
+  email               String               @unique
+  passwordHash        String
+  name                String
+  phone               String?
+  role                Role                 @default(SHOPPER)
+  departmentId        String?
+  department          Department?          @relation(fields: [departmentId], references: [id])
+  memberUntil         DateTime?
+  memberPlan          MemberPlan?
+  createdAt           DateTime             @default(now())
+  addresses           Address[]
+  cart                Cart?
+  orders              Order[]
+  wishlist            WishlistItem[]
+  reviews             Review[]
+  reviewVotes         ReviewVote[]
+  refreshTokens       RefreshToken[]
+  views               ProductView[]
+  notifications       Notification[]
+  membershipPurchases MembershipPurchase[]
 }
 
 model RefreshToken {
@@ -120,16 +123,16 @@ model Address {
 }
 
 // ───────────── Catalog ─────────────
+
 model Department {
-  id         String   @id @default(cuid())
-  slug       String   @unique
+  id         String     @id @default(cuid())
+  slug       String     @unique
   name       String
   tagline    String
   accentHex  String
   accent2Hex String?
   sortOrder  Int
-  isActive   Boolean  @default(true)
-
+  isActive   Boolean    @default(true)
   categories Category[]
   products   Product[]
   managers   User[]
@@ -146,75 +149,80 @@ model Category {
   parent       Category?  @relation("CategoryTree", fields: [parentId], references: [id])
   children     Category[] @relation("CategoryTree")
   sortOrder    Int        @default(0)
-
-  products Product[]
+  products     Product[]
 
   @@index([departmentId])
 }
 
 model Product {
-  id           String     @id @default(cuid())
-  slug         String     @unique
+  id           String                   @id @default(cuid())
+  slug         String                   @unique
+  code         String                   @unique
   name         String
   brand        String
   description  String
   departmentId String
-  department   Department @relation(fields: [departmentId], references: [id])
+  department   Department               @relation(fields: [departmentId], references: [id])
   categoryId   String
-  category     Category   @relation(fields: [categoryId], references: [id])
+  category     Category                 @relation(fields: [categoryId], references: [id])
   images       String[]
-  attributes   Json       @default("{}")
+  attributes   Json                     @default("{}")
   tags         String[]
   basePrice    Int
   mrp          Int
-  ratingSum    Int        @default(0)
-  ratingCount  Int        @default(0)
-  ratingAvg    Float      @default(0)
-  bayesScore   Float      @default(0)
-  soldCount    Int        @default(0)
-  isActive     Boolean    @default(true)
+  ratingSum    Int                      @default(0)
+  ratingCount  Int                      @default(0)
+  ratingAvg    Float                    @default(0)
+  bayesScore   Float                    @default(0)
+  soldCount    Int                      @default(0)
+  isActive     Boolean                  @default(true)
   publicAt     DateTime?
-  createdAt    DateTime   @default(now())
-  updatedAt    DateTime   @updatedAt
-
+  createdAt    DateTime                 @default(now())
+  updatedAt    DateTime                 @updatedAt
+  /// Generated column (see migration 0002). Never written by Prisma.
+  searchVector Unsupported("tsvector")?
   variants     Variant[]
   reviews      Review[]
   bundleItems  BundleItem[]
   wishlistedBy WishlistItem[]
   views        ProductView[]
+  orderItems   OrderItem[]
 
   @@index([departmentId, isActive])
   @@index([categoryId])
   @@index([basePrice])
   @@index([bayesScore])
   @@index([createdAt])
+  @@index([tags], type: Gin)
+  @@index([searchVector], type: Gin)
+  @@index([name(ops: raw("gin_trgm_ops"))], type: Gin, map: "Product_name_trgm_idx")
 }
 
 model Variant {
-  id         String  @id @default(cuid())
+  id         String          @id @default(cuid())
   productId  String
-  product    Product @relation(fields: [productId], references: [id], onDelete: Cascade)
-  sku        String  @unique
+  product    Product         @relation(fields: [productId], references: [id], onDelete: Cascade)
+  sku        String          @unique
   options    Json
   price      Int
   mrp        Int
   stock      Int
-  reserved   Int     @default(0)
-  lowStockAt Int     @default(5)
+  reserved   Int             @default(0)
+  lowStockAt Int             @default(5)
   image      String?
-  isActive   Boolean @default(true)
-
+  isActive   Boolean         @default(true)
   cartItems  CartItem[]
   orderItems OrderItem[]
   movements  StockMovement[]
 
   @@index([productId])
+  @@index([options(ops: JsonbPathOps)], type: Gin)
 }
 
 model StockMovement {
   id        String      @id @default(cuid())
   variantId String
-  variant   Variant     @relation(fields: [variantId], references: [id])
+  variant   Variant     @relation(fields: [variantId], references: [id], onDelete: Cascade)
   delta     Int
   reason    StockReason
   refId     String?
@@ -225,6 +233,7 @@ model StockMovement {
 }
 
 // ───────────── Cart ─────────────
+
 model Cart {
   id          String     @id @default(cuid())
   userId      String?    @unique
@@ -241,7 +250,7 @@ model CartItem {
   cartId     String
   cart       Cart     @relation(fields: [cartId], references: [id], onDelete: Cascade)
   variantId  String
-  variant    Variant  @relation(fields: [variantId], references: [id])
+  variant    Variant  @relation(fields: [variantId], references: [id], onDelete: Cascade)
   qty        Int
   priceAtAdd Int
   addedAt    DateTime @default(now())
@@ -250,35 +259,35 @@ model CartItem {
 }
 
 // ───────────── Promotions ─────────────
+
 model Coupon {
-  id             String      @id @default(cuid())
-  code           String      @unique
+  id             String             @id @default(cuid())
+  code           String             @unique
   description    String
   type           CouponType
   value          Int
   maxDiscount    Int?
-  minCart        Int         @default(0)
+  minCart        Int                @default(0)
   departmentId   String?
-  department     Department? @relation(fields: [departmentId], references: [id])
-  firstOrderOnly Boolean     @default(false)
-  membersOnly    Boolean     @default(false)
+  department     Department?        @relation(fields: [departmentId], references: [id])
+  firstOrderOnly Boolean            @default(false)
+  membersOnly    Boolean            @default(false)
   usageLimit     Int?
-  perUserLimit   Int         @default(1)
-  usedCount      Int         @default(0)
+  perUserLimit   Int                @default(1)
+  usedCount      Int                @default(0)
   startsAt       DateTime
   endsAt         DateTime
-  isActive       Boolean     @default(true)
-
-  redemptions CouponRedemption[]
+  isActive       Boolean            @default(true)
+  redemptions    CouponRedemption[]
 }
 
 model CouponRedemption {
   id        String   @id @default(cuid())
   couponId  String
-  coupon    Coupon   @relation(fields: [couponId], references: [id])
+  coupon    Coupon   @relation(fields: [couponId], references: [id], onDelete: Cascade)
   userId    String
   orderId   String   @unique
-  order     Order    @relation(fields: [orderId], references: [id])
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
   amount    Int
   createdAt DateTime @default(now())
 
@@ -300,38 +309,38 @@ model BundleItem {
   bundleId  String
   bundle    Bundle  @relation(fields: [bundleId], references: [id], onDelete: Cascade)
   productId String
-  product   Product @relation(fields: [productId], references: [id])
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 
   @@id([bundleId, productId])
 }
 
 // ───────────── Orders ─────────────
+
 model Order {
-  id                   String        @id @default(cuid())
-  orderNumber          String        @unique
+  id                   String            @id @default(cuid())
+  orderNumber          String            @unique
   userId               String
-  user                 User          @relation(fields: [userId], references: [id])
-  status               OrderStatus   @default(PENDING_PAYMENT)
+  user                 User              @relation(fields: [userId], references: [id])
+  status               OrderStatus       @default(PENDING_PAYMENT)
   addressSnapshot      Json
   subtotal             Int
   discountTotal        Int
   couponCode           String?
-  couponDiscount       Int           @default(0)
-  memberSavings        Int           @default(0)
+  couponDiscount       Int               @default(0)
+  memberSavings        Int               @default(0)
   deliveryFee          Int
   tax                  Int
   total                Int
   paymentMethod        PaymentMethod
-  idempotencyKey       String        @unique
+  idempotencyKey       String            @unique
   reservationExpiresAt DateTime?
-  createdAt            DateTime      @default(now())
-  updatedAt            DateTime      @updatedAt
-
-  items      OrderItem[]
-  shipments  Shipment[]
-  events     OrderEvent[]
-  payment    Payment?
-  redemption CouponRedemption?
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+  items                OrderItem[]
+  shipments            Shipment[]
+  events               OrderEvent[]
+  payment              Payment?
+  redemption           CouponRedemption?
 
   @@index([userId, createdAt])
   @@index([status, createdAt])
@@ -363,6 +372,7 @@ model OrderItem {
   variantId       String
   variant         Variant     @relation(fields: [variantId], references: [id])
   productId       String
+  product         Product     @relation(fields: [productId], references: [id])
   departmentId    String
   nameSnapshot    String
   brandSnapshot   String
@@ -372,7 +382,7 @@ model OrderItem {
   qty             Int
   lineDiscount    Int         @default(0)
   lineTotal       Int
-  status          OrderStatus @default(PLACED)
+  status          OrderStatus @default(PENDING_PAYMENT)
 
   @@index([orderId])
   @@index([departmentId])
@@ -396,7 +406,7 @@ model OrderEvent {
 model Payment {
   id                String        @id @default(cuid())
   orderId           String        @unique
-  order             Order         @relation(fields: [orderId], references: [id])
+  order             Order         @relation(fields: [orderId], references: [id], onDelete: Cascade)
   provider          String
   providerOrderId   String        @unique
   providerPaymentId String?       @unique
@@ -408,25 +418,34 @@ model Payment {
   updatedAt         DateTime      @updatedAt
 }
 
+model MembershipPurchase {
+  id                String        @id @default(cuid())
+  userId            String
+  user              User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan              MemberPlan
+  amount            Int
+  provider          String
+  providerOrderId   String        @unique
+  providerPaymentId String?       @unique
+  status            PaymentStatus @default(CREATED)
+  createdAt         DateTime      @default(now())
+
+  @@index([userId])
+}
+
 model WebhookEvent {
   id         String   @id
   type       String
   receivedAt DateTime @default(now())
 }
 
-model IdempotencyKey {
-  key       String   @id
-  userId    String
-  response  Json
-  createdAt DateTime @default(now())
-}
-
 // ───────────── Engagement ─────────────
+
 model WishlistItem {
   userId         String
-  user           User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   productId      String
-  product        Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  product        Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
   variantId      String?
   priceWhenAdded Int
   createdAt      DateTime @default(now())
@@ -439,7 +458,7 @@ model Review {
   productId String
   product   Product      @relation(fields: [productId], references: [id], onDelete: Cascade)
   userId    String
-  user      User         @relation(fields: [userId], references: [id])
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   rating    Int
   title     String
   body      String

@@ -1,36 +1,28 @@
-import { LRUCache } from 'lru-cache';
+/** Tiny in-memory TTL cache (swap for Redis/Upstash when you run more than one instance). */
+interface Entry { value: unknown; expires: number }
+const store = new Map<string, Entry>();
+const MAX_ENTRIES = 2_000;
 
-// In-memory LRU cache (Redis upgrade later if needed)
-const cache = new LRUCache<string, string>({
-  max: 1000,
-  ttl: 1000 * 60 * 5, // 5 min default
-});
-
-export async function cacheGet<T>(key: string): Promise<T | null> {
-  const val = cache.get(key);
-  if (!val) return null;
-  try {
-    return JSON.parse(val) as T;
-  } catch {
-    return null;
-  }
-}
-
-export async function cacheSet(key: string, value: unknown, ttlMs?: number): Promise<void> {
-  cache.set(key, JSON.stringify(value), { ttl: ttlMs });
-}
-
-export async function cacheDel(key: string): Promise<void> {
-  cache.delete(key);
-}
-
-export async function cacheFlush(pattern?: string): Promise<void> {
-  if (!pattern) {
-    cache.clear();
-    return;
-  }
-  // Simple pattern matching for key prefix
-  for (const key of cache.keys()) {
-    if (key.startsWith(pattern)) cache.delete(key);
-  }
-}
+export const cache = {
+  get<T>(key: string): T | undefined {
+    const e = store.get(key);
+    if (!e) return undefined;
+    if (e.expires < Date.now()) { store.delete(key); return undefined; }
+    return e.value as T;
+  },
+  set(key: string, value: unknown, ttlSeconds: number) {
+    if (store.size >= MAX_ENTRIES) store.delete(store.keys().next().value as string);
+    store.set(key, { value, expires: Date.now() + ttlSeconds * 1000 });
+  },
+  async wrap<T>(key: string, ttlSeconds: number, fn: () => Promise<T>): Promise<T> {
+    const hit = cache.get<T>(key);
+    if (hit !== undefined) return hit;
+    const value = await fn();
+    cache.set(key, value, ttlSeconds);
+    return value;
+  },
+  /** Delete every key starting with prefix (call after admin edits). */
+  invalidate(prefix = '') {
+    for (const k of store.keys()) if (k.startsWith(prefix)) store.delete(k);
+  },
+};

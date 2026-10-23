@@ -1,0 +1,105 @@
+### BLOWMAGGY demo path — open in VS Code with the "REST Client" extension (or copy into Postman/Bruno).
+@api = http://localhost:4000/api/v1
+@xrw = X-Requested-With: XMLHttpRequest
+
+### Health
+GET {{api}}/health
+
+### Home (departments + picks + deals)
+GET {{api}}/home
+
+### Department page
+GET {{api}}/departments/fashion
+
+### Search "black" across departments with filters
+GET {{api}}/search?q=black&dept=fashion&size=M&priceMax=2000&sort=relevance
+
+### Autocomplete
+GET {{api}}/search/suggest?q=bl
+
+### Product detail (variants, look, reviews summary)
+GET {{api}}/products/ivory-chikankari-cotton-kurta
+
+### Login as shopper (copy accessToken below)
+# @name login
+POST {{api}}/auth/login
+Content-Type: application/json
+{{xrw}}
+
+{ "email": "shopper@blowmaggy.demo", "password": "Demo@123" }
+
+###
+@token = {{login.response.body.data.accessToken}}
+
+### Add to cart (take a variantId from the product detail response)
+POST {{api}}/cart/items
+Content-Type: application/json
+Authorization: Bearer {{token}}
+{{xrw}}
+
+{ "variantId": "PASTE_VARIANT_ID", "qty": 1 }
+
+### View unified cart (grouped by department, server-priced)
+GET {{api}}/cart
+Authorization: Bearer {{token}}
+
+### Apply coupon
+POST {{api}}/cart/coupon
+Content-Type: application/json
+Authorization: Bearer {{token}}
+{{xrw}}
+
+{ "code": "MAGGY10" }
+
+### Checkout (UPI) — uses the default saved address
+# @name checkout
+POST {{api}}/checkout
+Content-Type: application/json
+Authorization: Bearer {{token}}
+Idempotency-Key: demo-{{$guid}}
+{{xrw}}
+
+{ "paymentMethod": "UPI" }
+
+### Verify payment (mock mode accepts signature "mock"; "mock-fail" simulates a decline)
+POST {{api}}/payments/verify
+Content-Type: application/json
+Authorization: Bearer {{token}}
+{{xrw}}
+
+{ "razorpay_order_id": "{{checkout.response.body.data.razorpayOrderId}}", "razorpay_payment_id": "pay_demo_1", "razorpay_signature": "mock" }
+
+### Track the order
+GET {{api}}/orders/{{checkout.response.body.data.orderNumber}}
+Authorization: Bearer {{token}}
+
+### ── Admin ──
+# @name admin
+POST {{api}}/auth/login
+Content-Type: application/json
+{{xrw}}
+
+{ "email": "admin@blowmaggy.demo", "password": "Demo@123" }
+
+###
+@adminToken = {{admin.response.body.data.accessToken}}
+
+### Dashboard KPIs
+GET {{api}}/admin/stats?days=30
+Authorization: Bearer {{adminToken}}
+
+### Orders list
+GET {{api}}/admin/orders?limit=10
+Authorization: Bearer {{adminToken}}
+
+### Advance a shipment one step (Placed → Packed → Shipped → Out for delivery → Delivered)
+PATCH {{api}}/admin/shipments/PASTE_SHIPMENT_ID/status
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+{{xrw}}
+
+{}
+
+### Low-stock inventory
+GET {{api}}/admin/inventory?lowStock=true
+Authorization: Bearer {{adminToken}}
