@@ -4,7 +4,8 @@ export type DepartmentId =
   | 'electronics'
   | 'home'
   | 'grocery'
-  | 'kids';
+  | 'kids'
+  | 'pharmacy';
 
 export type UserRole = 'shopper' | 'dept_manager' | 'store_admin';
 
@@ -51,6 +52,12 @@ export interface Product {
     sizes?: string[];
   };
   specs?: { label: string; value: string; desc: string; icon: string }[];
+  pharmacyInfo?: {
+    manufactured: string;
+    expiry: string;
+    use: string;
+    note: string;
+  };
   pairings?: {
     id: string;
     name: string;

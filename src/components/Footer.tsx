@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer
-      className="w-full bg-[#0d0e11] text-[#c5c7c9] mt-16 pt-16 pb-12 border-t border-[#343538]"
+      className="bm-footer w-full bg-[#0d0e11] text-[#c5c7c9] mt-16 pt-16 pb-12 border-t border-[#343538]"
       style={{
         background: 'linear-gradient(115deg, #263c91 0%, #6e4ebd 55%, #d9ae36 125%)',
         borderTop: '1px solid rgba(196, 181, 253, 0.15)',
@@ -134,6 +134,11 @@ export const Footer: React.FC = () => {
                   Kids & Toys
                 </button>
               </li>
+              <li>
+                <button onClick={() => navigateToDept('pharmacy')} className="hover:text-white transition-colors">
+                  Health & Pharmacy
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -149,8 +154,8 @@ export const Footer: React.FC = () => {
                 </button>
               </li>
               <li>
-                <button onClick={() => setActiveView('theme-lab')} className="hover:text-white transition-colors">
-                  Token Lab & WCAG Panel
+                <button onClick={() => setActiveView('store_admin')} className="hover:text-white transition-colors">
+                  Store Standards & Safety
                 </button>
               </li>
               <li>

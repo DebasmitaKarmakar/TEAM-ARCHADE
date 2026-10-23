@@ -296,6 +296,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       home: 0,
       grocery: 0,
       kids: 0,
+      pharmacy: 0,
     };
 
     cart.forEach((item) => {
@@ -664,28 +665,19 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   const toggleTheme = () => {
-    const next = theme === 'dark' ? 'light' : 'dark';
-    setThemeState(next);
+    // The public storefront is intentionally light-only. Keep the legacy API
+    // stable for the internal token lab without letting it change the shopper UI.
+    setThemeState('light');
     const root = document.documentElement;
-    if (next === 'light') {
-      root.classList.remove('dark');
-      root.classList.add('theme-light');
-    } else {
-      root.classList.remove('theme-light');
-      root.classList.add('dark');
-    }
+    root.classList.remove('dark');
+    root.classList.add('theme-light');
   };
 
-  const setTheme = (t: 'dark' | 'light') => {
-    setThemeState(t);
+  const setTheme = (_t: 'dark' | 'light') => {
+    setThemeState('light');
     const root = document.documentElement;
-    if (t === 'light') {
-      root.classList.remove('dark');
-      root.classList.add('theme-light');
-    } else {
-      root.classList.remove('theme-light');
-      root.classList.add('dark');
-    }
+    root.classList.remove('dark');
+    root.classList.add('theme-light');
   };
 
   const navigateToPDP = (productId: string) => {

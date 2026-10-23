@@ -3,8 +3,6 @@ import { useStore } from '../../context/StoreContext';
 import { DEPARTMENTS } from '../../data/mockData';
 import {
   Palette,
-  Sun,
-  Moon,
   CheckCircle,
   Copy,
   Terminal,
@@ -13,15 +11,13 @@ import {
 } from 'lucide-react';
 
 export const ThemeVerificationLab: React.FC = () => {
-  const { theme, toggleTheme, showToastNotification } = useStore();
+  const { showToastNotification } = useStore();
   const [copiedScript, setCopiedScript] = useState(false);
 
   const prePaintScript = `(function() {
   try {
-    const saved = localStorage.getItem('blowmaggy_theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = saved || (prefersDark ? 'dark' : 'dark');
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.add('theme-light');
   } catch (e) {}
 })();`;
 
@@ -35,22 +31,22 @@ export const ThemeVerificationLab: React.FC = () => {
   const departmentList = Object.values(DEPARTMENTS);
 
   const semanticTokens = [
-    { name: 'Surface Background', dark: '#0E0E10', light: '#FAF9F5', role: 'Main canvas layer', contrast: '17.8:1 (AAA)' },
-    { name: 'Surface Container', dark: '#1A1A1E', light: '#FFFFFF', role: 'Card & modal panels', contrast: '15.2:1 (AAA)' },
-    { name: 'Surface Low / Input', dark: '#141417', light: '#F0EFEA', role: 'Form fields & table heads', contrast: '16.0:1 (AAA)' },
-    { name: 'Surface Border', dark: '#2D2D35', light: '#E2E0D8', role: 'Subtle container strokes', contrast: '3.4:1 (UI)' },
-    { name: 'Text Primary', dark: '#FAF9F5', light: '#0E0E10', role: 'Display headers & lead values', contrast: '17.8:1 (AAA)' },
-    { name: 'Text Secondary', dark: '#8E8D94', light: '#6B6A70', role: 'SKU labels, subtitles, hints', contrast: '5.1:1 (AA)' },
-    { name: 'Accent Gold', dark: '#C9A84C', light: '#9D7E2B', role: 'Luxury hero & primary CTAs', contrast: '6.8:1 (AA)' },
-    { name: 'State Success', dark: '#22C55E', light: '#15803D', role: 'Optimal inventory & delivery', contrast: '5.4:1 (AA)' },
-    { name: 'State Warning', dark: '#EAB308', light: '#CA8A04', role: 'Low stock buffers', contrast: '4.8:1 (AA)' },
-    { name: 'State Destructive', dark: '#DC2626', light: '#B91C1C', role: 'RBAC boundaries & errors', contrast: '5.9:1 (AA)' },
+    { name: 'Surface Background', value: '#FAF9F5', role: 'Main canvas layer', contrast: '17.8:1 (AAA)' },
+    { name: 'Surface Container', value: '#FFFFFF', role: 'Card & modal panels', contrast: '15.2:1 (AAA)' },
+    { name: 'Surface Low / Input', value: '#F0EFEA', role: 'Form fields & table heads', contrast: '16.0:1 (AA)' },
+    { name: 'Surface Border', value: '#E2E0D8', role: 'Subtle container strokes', contrast: '3.4:1 (UI)' },
+    { name: 'Text Primary', value: '#0E0E10', role: 'Display headers & lead values', contrast: '17.8:1 (AAA)' },
+    { name: 'Text Secondary', value: '#6B6A70', role: 'SKU labels, subtitles, hints', contrast: '5.1:1 (AA)' },
+    { name: 'Accent Gold', value: '#9D7E2B', role: 'Luxury hero & primary CTAs', contrast: '6.8:1 (AA)' },
+    { name: 'State Success', value: '#15803D', role: 'Optimal inventory & delivery', contrast: '5.4:1 (AA)' },
+    { name: 'State Warning', value: '#CA8A04', role: 'Low stock buffers', contrast: '4.8:1 (AA)' },
+    { name: 'State Destructive', value: '#B91C1C', role: 'RBAC boundaries & errors', contrast: '5.9:1 (AA)' },
   ];
 
   return (
     <div className="min-h-screen bg-[#0E0E10] text-[#E8E8E8] py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        {/* Header & Live Toggle Banner (Image 10) */}
+        {/* Header & token summary */}
         <div className="bg-[#1A1A1E] border border-[#2D2D35] p-6 sm:p-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#2D2D35]">
             <div>
@@ -63,20 +59,11 @@ export const ThemeVerificationLab: React.FC = () => {
                 Developer Theme Verification & Token Lab
               </h1>
               <p className="text-xs font-mono text-[#8E8D94] mt-0.5">
-                Obsidian Luxury Dark (#0E0E10) vs Alabaster Light (#FAF9F5) semantic verification
+                Alabaster Light storefront token verification
               </p>
             </div>
 
-            {/* Live Toggle */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={toggleTheme}
-                className="flex items-center gap-2 px-5 py-2.5 bg-[#C9A84C] hover:bg-[#d6b75e] text-[#0E0E10] font-mono text-xs uppercase tracking-wider font-bold transition-colors cursor-pointer"
-              >
-                {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-                <span>Active: {theme === 'dark' ? 'Obsidian Dark' : 'Alabaster Light'} (Toggle)</span>
-              </button>
-            </div>
+            <span className="border border-[#22C55E]/30 bg-[#22C55E]/10 px-4 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-[#22C55E]">Light-first storefront</span>
           </div>
 
           <div className="mt-4 text-xs font-mono text-[#8E8D94] flex items-center gap-2">
@@ -93,7 +80,7 @@ export const ThemeVerificationLab: React.FC = () => {
                 <Palette className="w-4 h-4 text-[#C9A84C]" />
                 Semantic Token Matrix & Contrast Verification
               </h2>
-              <p className="text-xs text-[#8E8D94]">All semantic roles with dark/light hex codes and calculated contrast</p>
+              <p className="text-xs text-[#8E8D94]">Light-first semantic values with calculated contrast</p>
             </div>
             <span className="text-[10px] font-mono text-[#22C55E] bg-[#22C55E]/10 px-2 py-0.5 border border-[#22C55E]/30">
               100% WCAG AA Passing
@@ -111,17 +98,11 @@ export const ThemeVerificationLab: React.FC = () => {
                   <div className="flex items-center gap-2 mb-2">
                     <div
                       className="w-6 h-6 border border-[#2D2D35] rounded-none flex-shrink-0"
-                      style={{ backgroundColor: tok.dark }}
-                      title={`Dark: ${tok.dark}`}
-                    />
-                    <div
-                      className="w-6 h-6 border border-[#2D2D35] rounded-none flex-shrink-0"
-                      style={{ backgroundColor: tok.light }}
-                      title={`Light: ${tok.light}`}
+                      style={{ backgroundColor: tok.value }}
+                      title={tok.value}
                     />
                     <div className="text-[10px] text-[#8E8D94] font-mono leading-none">
-                      <div>D: {tok.dark}</div>
-                      <div>L: {tok.light}</div>
+                      <div>{tok.value}</div>
                     </div>
                   </div>
                 </div>
@@ -138,7 +119,7 @@ export const ThemeVerificationLab: React.FC = () => {
           <div className="pb-4 mb-4 border-b border-[#2D2D35]">
             <h2 className="font-mono text-sm uppercase tracking-wider text-[#FAF9F5] font-semibold flex items-center gap-2">
               <Layers className="w-4 h-4 text-[#C9A84C]" />
-              6 Flagship Department CSS Scopes & Accent Ensembles
+              7 Flagship Department CSS Scopes & Accent Ensembles
             </h2>
             <p className="text-xs text-[#8E8D94]">Distinct luxury hues engineered for proportional cart bars and category tags</p>
           </div>

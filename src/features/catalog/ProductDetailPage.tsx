@@ -632,7 +632,7 @@ export const ProductDetailPage: React.FC = () => {
                   <span className="px-2.5 py-0.5 bg-[#292a2d] text-[#00dbe9] rounded font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-wider border border-[#44474a]">
                     {product.deptLabel} • {product.deptNumber}
                   </span>
-                  <span className="text-[#8f9194] font-['Space_Grotesk'] text-[10px] uppercase">• Hi-Fi Series</span>
+                  <span className="text-[#8f9194] font-['Space_Grotesk'] text-[10px] uppercase">• {product.category}</span>
                 </div>
 
                 <h1
@@ -649,6 +649,21 @@ export const ProductDetailPage: React.FC = () => {
                 <p className="font-['Hanken_Grotesk'] text-[15px] text-[#c5c7c9] leading-relaxed">
                   {product.description}
                 </p>
+
+                {product.pharmacyInfo && (
+                  <aside className="mt-4 rounded-lg border border-[#0EA5A4]/30 bg-[#0EA5A4]/10 p-4" aria-label="Pharmacy product information">
+                    <div className="mb-3 flex items-center gap-2 text-[#0EA5A4]">
+                      <span className="material-symbols-outlined text-[18px]">medical_information</span>
+                      <span className="font-['Space_Grotesk'] text-[11px] font-bold uppercase tracking-wider">Pharmacy information</span>
+                    </div>
+                    <dl className="grid grid-cols-1 gap-3 text-sm sm:grid-cols-2">
+                      <div><dt className="font-['Space_Grotesk'] text-[10px] uppercase tracking-wider text-[#8f9194]">Manufactured</dt><dd className="mt-1 font-medium text-white">{product.pharmacyInfo.manufactured}</dd></div>
+                      <div><dt className="font-['Space_Grotesk'] text-[10px] uppercase tracking-wider text-[#8f9194]">Expiry / best before</dt><dd className="mt-1 font-medium text-white">{product.pharmacyInfo.expiry}</dd></div>
+                      <div className="sm:col-span-2"><dt className="font-['Space_Grotesk'] text-[10px] uppercase tracking-wider text-[#8f9194]">Use</dt><dd className="mt-1 text-[#c5c7c9]">{product.pharmacyInfo.use}</dd></div>
+                    </dl>
+                    <p className="mt-3 border-t border-[#0EA5A4]/20 pt-3 text-xs leading-relaxed text-[#8f9194]">{product.pharmacyInfo.note}</p>
+                  </aside>
+                )}
               </div>
 
               {/* Price & Rating Box */}
@@ -658,7 +673,7 @@ export const ProductDetailPage: React.FC = () => {
                     <span className="font-['Space_Grotesk'] text-3xl font-bold text-white">
                       {formatInr(unitPrice)}
                     </span>
-                    <span className="font-['Space_Grotesk'] text-[10px] uppercase text-[#8f9194]">USD</span>
+                    <span className="font-['Space_Grotesk'] text-[10px] uppercase text-[#8f9194]">incl. taxes</span>
                     <span className="px-2 py-0.5 bg-[#ba012d]/20 text-[#ffb3b3] font-['Space_Grotesk'] text-[10px] font-bold rounded uppercase">
                       {product.badge || 'Lab Edition'}
                     </span>

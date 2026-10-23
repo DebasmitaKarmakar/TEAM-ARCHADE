@@ -49,7 +49,7 @@ export const DEMO_ACCOUNTS: readonly DemoAccount[] = [
     roleLabel: 'Store Admin',
     departmentScope: 'All departments, catalog, stock & orders',
     initials: 'SS',
-    assignedDeptIds: ['fashion', 'beauty', 'electronics', 'home', 'grocery', 'kids'],
+    assignedDeptIds: ['fashion', 'beauty', 'electronics', 'home', 'grocery', 'kids', 'pharmacy'],
   },
 ];
 

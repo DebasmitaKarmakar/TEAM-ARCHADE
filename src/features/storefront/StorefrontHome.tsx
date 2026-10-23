@@ -17,7 +17,7 @@ export const StorefrontHome: React.FC = () => {
     products,
   } = useStore();
 
-  const [activeFilter, setActiveFilter] = useState<'all' | 'fashion' | 'electronics' | 'beauty' | 'grocery'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'fashion' | 'electronics' | 'beauty' | 'grocery' | 'pharmacy'>('all');
 
   const liveProducts = products.filter((p) => catalogStatus[p.id] === 'live');
   const filteredProducts = liveProducts.filter((p) => {
@@ -98,7 +98,7 @@ export const StorefrontHome: React.FC = () => {
             {/* Metric Ticker Strip */}
             <div className="pt-6 mt-4 w-full grid grid-cols-3 gap-3 border-t border-[#292a2d]/60">
               <div className="bg-[#1b1b1f] p-3 rounded flex flex-col border border-[#343538]/50">
-                <span className="font-['Space_Grotesk'] text-[20px] font-bold text-white">6 Flagships</span>
+                <span className="font-['Space_Grotesk'] text-[20px] font-bold text-white">7 Flagships</span>
                 <span className="font-['Space_Grotesk'] text-[10px] uppercase text-[#8f9194]">Unified In One Cart</span>
               </div>
               <div className="bg-[#1b1b1f] p-3 rounded flex flex-col border border-[#343538]/50">
@@ -187,7 +187,7 @@ export const StorefrontHome: React.FC = () => {
         </span>
       </div>
 
-      {/* Six Core Department Discovery Grid */}
+      {/* Department Discovery Grid */}
       <section className="w-full px-4 sm:px-8 lg:px-12 py-16 max-w-7xl mx-auto" id="departments-grid">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
@@ -206,7 +206,7 @@ export const StorefrontHome: React.FC = () => {
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              Six Flagship Departments
+              Seven Flagship Departments
             </h2>
           </div>
           <p className="font-['Hanken_Grotesk'] text-[14px] text-[#c5c7c9] max-w-md">
@@ -259,6 +259,42 @@ export const StorefrontHome: React.FC = () => {
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Personalised discovery shelves — live catalogue data, not static decoration. */}
+      <section className="w-full px-4 sm:px-8 lg:px-12 py-4 max-w-7xl mx-auto" aria-labelledby="discovery-shelves-title">
+        <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="font-['Space_Grotesk'] text-[11px] font-bold uppercase tracking-[0.18em] text-[#00a6b2]">Made for your next cart</p>
+            <h2 id="discovery-shelves-title" className="font-['Bodoni_Moda'] text-3xl font-semibold text-white sm:text-4xl">Fresh suggestions, one storefront.</h2>
+          </div>
+          <button onClick={() => setActiveView('wishlist')} className="inline-flex items-center gap-2 self-start text-sm font-semibold text-[#00a6b2] transition-transform hover:translate-x-1 sm:self-auto">
+            See your wishlist <span className="material-symbols-outlined text-base">arrow_forward</span>
+          </button>
+        </div>
+        <div className="grid gap-5 lg:grid-cols-3">
+          {[
+            { title: 'Suggested for you', note: 'A cross-department edit selected from today’s most explored categories.', accent: '#6D5BD0', items: liveProducts.filter((product) => ['fashion', 'beauty', 'home'].includes(product.department)).slice(0, 3) },
+            { title: 'Best rated right now', note: 'Top shopper-rated essentials, ready to add to one delivery.', accent: '#D58C25', items: [...liveProducts].sort((a, b) => b.rating - a.rating).slice(0, 3) },
+            { title: 'From your wishlist', note: 'Saved products appear here; until then, explore a few likely favourites.', accent: '#E84B7A', items: liveProducts.filter((product) => isInWishlist(product.id)).slice(0, 3).concat(liveProducts.filter((product) => !isInWishlist(product.id)).slice(0, 3)).slice(0, 3) },
+          ].map((shelf) => (
+            <article key={shelf.title} className="rounded-2xl border border-[#343538] bg-[#1b1b1f] p-4 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
+              <div className="mb-4 border-l-4 pl-3" style={{ borderColor: shelf.accent }}>
+                <h3 className="font-['Space_Grotesk'] text-base font-bold text-white">{shelf.title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-[#8f9194]">{shelf.note}</p>
+              </div>
+              <div className="space-y-2">
+                {shelf.items.map((product) => (
+                  <button key={product.id} onClick={() => navigateToPDP(product.id)} className="group flex w-full items-center gap-3 rounded-xl p-2 text-left transition-colors hover:bg-[#292a2d]">
+                    <img src={product.images.front} alt="" className="h-14 w-14 rounded-lg object-cover" loading="lazy" />
+                    <span className="min-w-0 flex-1"><span className="block truncate font-medium text-white group-hover:text-[#00a6b2]">{product.name}</span><span className="mt-1 flex items-center gap-2 text-xs text-[#8f9194]"><span className="text-[#d58c25]">★ {product.rating}</span>{formatInr(product.price)}</span></span>
+                    <span className="material-symbols-outlined text-[#8f9194] transition-transform group-hover:translate-x-1">chevron_right</span>
+                  </button>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </section>
@@ -469,6 +505,14 @@ export const StorefrontHome: React.FC = () => {
               }`}
             >
               Pantry
+            </button>
+            <button
+              onClick={() => setActiveFilter('pharmacy')}
+              className={`px-3 py-1.5 font-['Space_Grotesk'] text-[12px] font-bold uppercase rounded transition-colors ${
+                activeFilter === 'pharmacy' ? 'bg-[#292a2d] text-[#0EA5A4] border border-[#0EA5A4]' : 'bg-[#1f1f23] text-[#8f9194] hover:text-[#0EA5A4]'
+              }`}
+            >
+              Health
             </button>
           </div>
         </div>

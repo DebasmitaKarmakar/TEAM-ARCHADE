@@ -46,13 +46,13 @@ export const Header: React.FC = () => {
     >
       {/* Top Banner */}
       <div
-        className="w-full bg-[#0d0e11] text-[#c5c7c9] font-['Space_Grotesk'] text-[10px] tracking-widest uppercase py-1 px-4 sm:px-8 lg:px-12 flex items-center justify-between"
+        className="bm-promo-banner w-full bg-[#0d0e11] text-[#c5c7c9] font-['Space_Grotesk'] text-[10px] tracking-widest uppercase py-1 px-4 sm:px-8 lg:px-12 flex items-center overflow-hidden"
         style={{ background: 'linear-gradient(90deg, #22357f, #6d4bc2, #d9aa31)', borderBottom: '1px solid rgba(255,255,255,0.3)' }}
       >
-        <div className="flex items-center gap-2 mx-auto text-center truncate">
+        <div className="bm-promo-banner__track flex items-center gap-2 mx-auto text-center whitespace-nowrap">
           <span className="w-1.5 h-1.5 rounded-full bg-[#ba012d] animate-pulse shrink-0"></span>
           <span className="truncate">
-            PREVIEW SALE: Enjoy free delivery on multi-department orders over {formatInr(75)} with code <strong className="text-white">ONECART</strong> • 24/7 Concierge Support
+            Preview sale · free delivery on multi-department orders over {formatInr(75)} with code <strong>ONECART</strong> · 24/7 concierge support · one cart, one checkout
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-[#ba012d] shrink-0"></span>
         </div>
@@ -93,13 +93,14 @@ export const Header: React.FC = () => {
                 }}
                 value={activeView === 'department' ? selectedDeptId : 'all'}
               >
-                <option value="all">All Departments</option>
+                <option value="all">Home</option>
                 <option value="fashion">Fashion Atelier</option>
                 <option value="beauty">Beauty & Apothecary</option>
                 <option value="electronics">Electronics Lab</option>
                 <option value="home">Home & Living</option>
                 <option value="grocery">Pantry & Grocery</option>
                 <option value="kids">Kids & Toys</option>
+                <option value="pharmacy">Health & Pharmacy</option>
               </select>
               <span className="material-symbols-outlined text-[16px] text-[#8f9194] absolute right-1.5 top-1.5 pointer-events-none">
                 expand_more
@@ -113,7 +114,7 @@ export const Header: React.FC = () => {
               <input
                 id="header-product-search"
                 className="w-full bg-transparent text-[#e3e2e6] font-['Hanken_Grotesk'] text-[13px] placeholder:text-[#8f9194] focus:outline-none"
-                placeholder="Search apparel, gadgets, pantry items, home curation..."
+                placeholder="Search products, brands, pharmacy & more..."
                 type="text"
                 value={globalSearchQuery}
                 onClick={(event) => event.stopPropagation()}
@@ -280,7 +281,7 @@ export const Header: React.FC = () => {
                 : 'text-[#c5c7c9] hover:text-white'
             }`}
           >
-            All Departments
+            Home
           </button>
 
           <button
@@ -353,6 +354,18 @@ export const Header: React.FC = () => {
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#FACC15]"></span>
             Kids & Toys
+          </button>
+
+          <button
+            onClick={() => navigateToDept('pharmacy')}
+            className={`shrink-0 py-1 font-['Space_Grotesk'] text-[12px] tracking-wider uppercase transition-colors flex items-center gap-1.5 ${
+              activeView === 'department' && selectedDeptId === 'pharmacy'
+                ? 'text-[#0EA5A4] font-bold border-b-2 border-[#0EA5A4]'
+                : 'text-[#c5c7c9] hover:text-[#0EA5A4]'
+            }`}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0EA5A4]"></span>
+            Health & Pharmacy
           </button>
 
 
@@ -446,12 +459,12 @@ export const Header: React.FC = () => {
             </button>
             <button
               onClick={() => {
-                setActiveView('theme-lab');
+                setActiveView('store_admin');
                 setMobileMenuOpen(false);
               }}
               className="text-left py-2 px-3 bg-[#1f1f23] rounded text-sm text-[#e3e2e6]"
             >
-              Token Lab
+              Store standards
             </button>
             <button
               onClick={() => {

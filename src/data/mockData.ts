@@ -81,6 +81,22 @@ export const DEPARTMENTS: Record<string, DepartmentInfo> = {
     stockHealth: 91.0,
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCjCO2BlbOIIByBI4pr0ZLi0RDSyU9RnReQuyofMV8CY6DvO2zTHlVVA6WDaC6dPG8t1e8yHkYrUaw9-E7Ey0Ckub0Iuram0MH0pWkGmzhzIgZBjbAiAy8D98IuY8U0kywmRu52KY4O5mPKwRRgEPNHaSYoMpn7Les67WCpTFYaIUZSGwDUH94QKynET-8Qr66U-JxREnqVDqvb6YVcv_sZDWiDzJfh94PVHQDQgppWUfZRxyqKKIDZow',
   },
+  pharmacy: {
+    id: 'pharmacy',
+    deptNumber: '#DEP-07',
+    title: 'Health & Pharmacy',
+    subtitle: 'Everyday wellness, first-aid and pharmacist-guided essentials',
+    skuCount: '760 SKUs',
+    manager: 'Dr. Anaya Rao',
+    managerEmail: 'rao.a@blowmaggy.internal',
+    managerPhoto: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=180&q=80',
+    colorAccent: '#0EA5A4',
+    colorAccent2: '#A7F3D0',
+    revenue: 128000,
+    revenueShare: '8.9% Total GMV',
+    stockHealth: 98.9,
+    image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1200&q=85',
+  },
   kids: {
     id: 'kids',
     deptNumber: '#DEP-06',
@@ -381,6 +397,8 @@ const CATALOG_EXTENSION: Array<{
   category: string;
   price: number;
   badge: string;
+  description?: string;
+  pharmacyInfo?: Product['pharmacyInfo'];
 }> = [
   { name: 'Emerald Silk Saree', department: 'fashion', category: 'Shirting', price: 145, badge: 'Handwoven Silk' },
   { name: 'Cobalt Evening Dress', department: 'fashion', category: 'Accessories', price: 320, badge: 'Satin Atelier' },
@@ -397,6 +415,10 @@ const CATALOG_EXTENSION: Array<{
   { name: 'Aura ANC Headphones', department: 'electronics', category: 'Headphones', price: 189, badge: '40hr Battery' },
   { name: 'Pulse True Wireless Earphones', department: 'electronics', category: 'Earphones', price: 78, badge: 'Spatial Audio' },
   { name: 'Pocket Cinema Projector', department: 'electronics', category: 'Home Entertainment', price: 330, badge: '4K Ready' },
+  { name: 'Orbit Fold Smartphone', department: 'electronics', category: 'Smartphones', price: 699, badge: 'Foldable OLED', description: 'Pocket-ready foldable smartphone with a large OLED display, dual SIM support and a full-day battery for work, travel and streaming.' },
+  { name: 'Zenith Air Laptop', department: 'electronics', category: 'Laptops', price: 749, badge: '14-inch • 512GB SSD', description: 'Slim everyday laptop with a 14-inch display, fast SSD storage and a comfortable keyboard for study, work and creative projects.' },
+  { name: 'Pixel Mini Smartphone', department: 'electronics', category: 'Smartphones', price: 359, badge: 'Night Camera', description: 'Compact 5G smartphone with a bright display, reliable all-day power and a night-friendly camera system.' },
+  { name: 'StudioBook Creator Laptop', department: 'electronics', category: 'Laptops', price: 1099, badge: '32GB • Creator GPU', description: 'High-performance creator laptop with dedicated graphics, a colour-accurate display and ample memory for editing and design.' },
   { name: 'Linen Duvet Cover Set', department: 'home', category: 'Bedroom', price: 182, badge: 'European Flax' },
   { name: 'Hand-Poured Stoneware Mug', department: 'home', category: 'Tableware', price: 36, badge: 'Studio Glaze' },
   { name: 'Oak Modular Shelf', department: 'home', category: 'Furniture', price: 275, badge: 'FSC Certified' },
@@ -410,10 +432,18 @@ const CATALOG_EXTENSION: Array<{
   { name: 'Organic Cotton Play Tent', department: 'kids', category: 'Playroom', price: 130, badge: 'Natural Dyes' },
   { name: 'Constellation Puzzle 500pc', department: 'kids', category: 'STEM & Heirloom', price: 29, badge: 'Museum Quality' },
   { name: 'Wooden Balance Blocks', department: 'kids', category: 'Montessori', price: 48, badge: 'Heirloom Beechwood' },
+  { name: 'Daily Care Paracetamol 500', department: 'pharmacy', category: 'Everyday Care', price: 3, badge: '20 tablets', description: 'Demo OTC listing. Manufactured: Apr 2026 · Expiry: Mar 2029. For occasional pain or fever relief only when used as directed on the label.', pharmacyInfo: { manufactured: 'Apr 2026', expiry: 'Mar 2029', use: 'For occasional pain or fever relief when used as directed.', note: 'Demo catalogue item — read the label and ask a pharmacist if unsure.' } },
+  { name: 'ORS Hydration Sachets', department: 'pharmacy', category: 'Hydration', price: 9, badge: '10 sachets', description: 'Demo wellness listing. Manufactured: May 2026 · Expiry: Apr 2028. Oral rehydration salts for hydration support; prepare exactly as directed.', pharmacyInfo: { manufactured: 'May 2026', expiry: 'Apr 2028', use: 'Hydration support; mix only as directed on the pack.', note: 'Demo catalogue item — seek medical advice for persistent symptoms.' } },
+  { name: 'AllerEase Cetirizine 10mg', department: 'pharmacy', category: 'Allergy Care', price: 14, badge: '10 tablets', description: 'Demo OTC listing. Manufactured: Mar 2026 · Expiry: Feb 2029. Antihistamine product for allergy symptom relief; may cause drowsiness.', pharmacyInfo: { manufactured: 'Mar 2026', expiry: 'Feb 2029', use: 'For allergy symptom relief when used according to the label.', note: 'Demo catalogue item — check suitability and warnings with a pharmacist.' } },
+  { name: 'Antiseptic First-Aid Solution', department: 'pharmacy', category: 'First Aid', price: 11, badge: '100 ml', description: 'Demo first-aid listing. Manufactured: Jun 2026 · Expiry: May 2028. External antiseptic solution for minor first-aid use as labelled.', pharmacyInfo: { manufactured: 'Jun 2026', expiry: 'May 2028', use: 'External first-aid cleansing only, following pack directions.', note: 'Demo catalogue item — do not use on serious wounds; seek care when needed.' } },
+  { name: 'Digital Thermometer', department: 'pharmacy', category: 'Health Devices', price: 18, badge: 'Fast read', description: 'Digital temperature monitor with a clear display and protective case. Manufactured: Jul 2026 · Battery-backed device; no medicine expiry.', pharmacyInfo: { manufactured: 'Jul 2026', expiry: 'Not applicable', use: 'For home temperature checks using the supplied instructions.', note: 'Demo catalogue item — clean between uses and follow device guidance.' } },
+  { name: 'Vitamin D3 Wellness Softgels', department: 'pharmacy', category: 'Vitamins', price: 16, badge: '60 softgels', description: 'Demo supplement listing. Manufactured: Feb 2026 · Expiry: Jan 2028. Vitamin D3 supplement for adults; use only as advised on the pack.', pharmacyInfo: { manufactured: 'Feb 2026', expiry: 'Jan 2028', use: 'Adult vitamin supplement; follow the stated serving size.', note: 'Demo catalogue item — ask a clinician about interactions or dosage questions.' } },
+  { name: 'Cooling Relief Gel', department: 'pharmacy', category: 'Topical Care', price: 8, badge: '50 g', description: 'Demo topical-care listing. Manufactured: Aug 2026 · Expiry: Jul 2028. Cooling gel for minor everyday muscle comfort when used externally as directed.', pharmacyInfo: { manufactured: 'Aug 2026', expiry: 'Jul 2028', use: 'External topical use only, following the label.', note: 'Demo catalogue item — avoid broken skin and check the ingredient list.' } },
+  { name: 'N95 Protective Masks', department: 'pharmacy', category: 'Wellness Essentials', price: 12, badge: 'Pack of 5', description: 'Five protective masks with adjustable nose bridge. Manufactured: Sep 2026 · Best before: Sep 2031. Store in a clean, dry place.', pharmacyInfo: { manufactured: 'Sep 2026', expiry: 'Sep 2031', use: 'Single-use protection according to the pack instructions.', note: 'Demo catalogue item — replace if damaged or soiled.' } },
 ];
 
 const DEPARTMENT_PREFIX: Record<DepartmentId, string> = {
-  fashion: 'FA', beauty: 'BT', electronics: 'EL', home: 'HL', grocery: 'GR', kids: 'KT',
+  fashion: 'FA', beauty: 'BT', electronics: 'EL', home: 'HL', grocery: 'GR', kids: 'KT', pharmacy: 'PH',
 };
 
 const FASHION_PRODUCT_IMAGES = [
@@ -426,16 +456,17 @@ const FASHION_PRODUCT_IMAGES = [
 const DEPARTMENT_PRODUCT_IMAGES: Record<DepartmentId, string[]> = {
   fashion: FASHION_PRODUCT_IMAGES,
   beauty: ['https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1631214540553-3040e5c8e89d?auto=format&fit=crop&w=900&q=85'],
-  electronics: ['https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=85'],
+  electronics: ['https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=900&q=85'],
   home: ['https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1583845112203-454c8d5e3b4b?auto=format&fit=crop&w=900&q=85'],
   grocery: ['https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=85'],
   kids: ['https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1560961911-ba7ef651a56c?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1599443015574-be5fe8a05783?auto=format&fit=crop&w=900&q=85'],
+  pharmacy: ['https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1550572017-4fcdbb59cc32?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=85'],
 };
 
 PRODUCTS.push(
   ...CATALOG_EXTENSION.map((entry, index) => {
     const department = DEPARTMENTS[entry.department];
-    const imageSource = PRODUCTS.find((product) => product.department === entry.department)!;
+    const imageSource = PRODUCTS.find((product) => product.department === entry.department) ?? PRODUCTS[0];
     const departmentItemIndex = CATALOG_EXTENSION.slice(0, index).filter((item) => item.department === entry.department).length;
     const sku = `SKU-${DEPARTMENT_PREFIX[entry.department]}-${2000 + index}`;
     return {
@@ -453,14 +484,15 @@ PRODUCTS.push(
       stockCount: 18 + (index * 7) % 75,
       safetyBuffer: 12,
       stockStatus: index % 9 === 0 ? 'low_warning' as const : 'optimal' as const,
-      description: entry.department === 'electronics'
+      description: entry.description ?? (entry.department === 'electronics'
         ? `${entry.name}: a carefully selected ${entry.category.toLowerCase()} essential with everyday performance, clear controls and dependable warranty support.`
-        : `${entry.name} is selected for the BLOWMAGGY ${department.title.toLowerCase()} edit, with considered materials, practical details and lasting utility.`,
+        : `${entry.name} is selected for the BLOWMAGGY ${department.title.toLowerCase()} edit, with considered materials, practical details and lasting utility.`),
       extendedDescription: `A limited-run article from the ${department.title} team, available for one consolidated delivery.`,
       badge: entry.badge,
       tagline: `${department.title} • ${sku}`,
       images: { front: DEPARTMENT_PRODUCT_IMAGES[entry.department][departmentItemIndex] ?? imageSource.images.front },
       variants: entry.department === 'fashion' ? { sizes: ['S', 'M', 'L', 'XL'] } : undefined,
+      pharmacyInfo: entry.pharmacyInfo,
     };
   })
 );
