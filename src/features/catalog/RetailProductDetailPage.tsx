@@ -9,6 +9,117 @@ const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1523275335684-37898b6b
 const productImages = (product: Product) =>
   Array.from(new Set([product.images.front, product.images.oblique, product.images.chamber, product.images.case, product.images.model].filter(Boolean) as string[]));
 
+type ProductInformation = {
+  heading: string;
+  icon: string;
+  details: Array<{ label: string; value: string }>;
+  note: string;
+};
+
+const getProductInformation = (product: Product): ProductInformation => {
+  if (product.pharmacyInfo) {
+    return {
+      heading: 'Pharmacy information',
+      icon: 'medical_information',
+      details: [
+        { label: 'Manufactured', value: product.pharmacyInfo.manufactured },
+        { label: 'Expiry / best before', value: product.pharmacyInfo.expiry },
+        { label: 'Use', value: product.pharmacyInfo.use },
+      ],
+      note: product.pharmacyInfo.note,
+    };
+  }
+
+  const availability = product.inStock ? `${product.stockCount} ready to dispatch` : 'Currently unavailable';
+  const itemReference = { label: 'Item reference', value: product.sku };
+
+  switch (product.department) {
+    case 'fashion':
+      return {
+        heading: 'Style & fit information',
+        icon: 'checkroom',
+        details: [
+          { label: 'Collection', value: product.category },
+          { label: 'Available sizes', value: product.variants?.sizes?.join(' · ') || 'See options above' },
+          itemReference,
+          { label: 'Availability', value: availability },
+        ],
+        note: 'Choose your preferred size before adding to bag. Final variant and fulfilment details are confirmed in your cart.',
+      };
+    case 'beauty':
+      return {
+        heading: 'Beauty product information',
+        icon: 'spa',
+        details: [
+          { label: 'Product type', value: product.category },
+          { label: 'Edit highlight', value: product.badge || 'Curated selection' },
+          itemReference,
+          { label: 'Availability', value: availability },
+        ],
+        note: 'Review the product description and pack guidance before use. For the best experience, store products according to their label.',
+      };
+    case 'electronics':
+      return {
+        heading: 'Device & support information',
+        icon: 'devices',
+        details: [
+          { label: 'Device category', value: product.category },
+          { label: 'Key highlight', value: product.badge || 'Selected specification' },
+          itemReference,
+          { label: 'Availability', value: availability },
+        ],
+        note: 'Check the specifications and compatibility notes before ordering. Demo warranty and order support are available at checkout.',
+      };
+    case 'home':
+      return {
+        heading: 'Home product information',
+        icon: 'chair',
+        details: [
+          { label: 'Room / category', value: product.category },
+          { label: 'Edit highlight', value: product.badge || 'Curated selection' },
+          itemReference,
+          { label: 'Availability', value: availability },
+        ],
+        note: 'Use the product description and specifications to confirm the finish and dimensions that suit your space.',
+      };
+    case 'grocery':
+      return {
+        heading: 'Pantry information',
+        icon: 'grocery',
+        details: [
+          { label: 'Pantry category', value: product.category },
+          { label: 'Selection', value: product.badge || 'Curated selection' },
+          itemReference,
+          { label: 'Availability', value: availability },
+        ],
+        note: 'Store food items according to their pack guidance. Review the item label for ingredient and best-before information.',
+      };
+    case 'kids':
+      return {
+        heading: 'Play & care information',
+        icon: 'toys',
+        details: [
+          { label: 'Category', value: product.category },
+          { label: 'Collection note', value: product.badge || 'Curated selection' },
+          itemReference,
+          { label: 'Availability', value: availability },
+        ],
+        note: 'Please review the product description and any age or care guidance before choosing an item.',
+      };
+    default:
+      return {
+        heading: 'Product information',
+        icon: 'inventory_2',
+        details: [
+          { label: 'Category', value: product.category },
+          itemReference,
+          { label: 'Availability', value: availability },
+        ],
+        note: 'Product details, selected variants and fulfilment are confirmed in your cart before checkout.',
+      };
+  }
+};
+
 export const RetailProductDetailPage: React.FC = () => {
   const { selectedProduct: product, addToCart, toggleWishlist, isInWishlist, navigateToDept, navigateToPDP, products } = useStore();
   const images = useMemo(() => productImages(product), [product]);
@@ -31,6 +142,7 @@ export const RetailProductDetailPage: React.FC = () => {
   const selectedCushionData = product.variants?.cushions?.find((item) => item.name === selectedCushion);
   const unitPrice = product.price + (selectedCushionData?.priceAdd || 0);
   const wishlisted = isInWishlist(product.id);
+  const productInformation = getProductInformation(product);
   const relatedProducts = products.filter((item) => item.id !== product.id && (item.department === product.department || product.pairings?.some((pair) => pair.id === item.id))).slice(0, 4);
 
   const handleAddToCart = () => {
