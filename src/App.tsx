@@ -14,7 +14,7 @@ import { RoleGate } from './components/auth/RoleGate';
 import { BlowmaggyIntro } from './components/intro/BlowmaggyIntro';
 
 const StorefrontHome = lazy(() => import('./features/storefront/StorefrontHome').then((module) => ({ default: module.StorefrontHome })));
-const ProductDetailPage = lazy(() => import('./features/catalog/ProductDetailPage').then((module) => ({ default: module.ProductDetailPage })));
+const ProductDetailPage = lazy(() => import('./features/catalog/RetailProductDetailPage').then((module) => ({ default: module.RetailProductDetailPage })));
 const DepartmentView = lazy(() => import('./features/catalog/DepartmentView').then((module) => ({ default: module.DepartmentView })));
 const CartView = lazy(() => import('./features/cart/CartView').then((module) => ({ default: module.CartView })));
 const CheckoutView = lazy(() => import('./features/checkout/CheckoutView').then((module) => ({ default: module.CheckoutView })));
