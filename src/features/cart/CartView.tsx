@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useStore } from '../context/StoreContext';
-import { DEPARTMENTS } from '../data/mockData';
+import { useStore } from '../../context/StoreContext';
+import { formatInr } from '../../lib/currency';
+import { DEPARTMENTS } from '../../data/mockData';
 import { Trash2, Plus, Minus, ShieldCheck, ArrowRight, Package, Tag, ArrowLeft, CheckCircle2, AlertCircle } from 'lucide-react';
-import { DepartmentId } from '../types/store';
+import { DepartmentId } from '../../types/store';
 
 export const CartView: React.FC = () => {
   const {
@@ -265,10 +266,10 @@ export const CartView: React.FC = () => {
                         {/* Price */}
                         <div className="text-right min-w-[90px]">
                           <div className="font-mono text-base font-semibold text-[#FAF9F5]">
-                            ${(item.unitPrice * item.quantity).toFixed(2)}
+                            {formatInr(item.unitPrice * item.quantity)}
                           </div>
                           <div className="text-[10px] font-mono text-[#8E8D94]">
-                            ${item.unitPrice.toFixed(2)} / unit
+                            {formatInr(item.unitPrice)} / unit
                           </div>
                         </div>
 
@@ -314,13 +315,13 @@ export const CartView: React.FC = () => {
                 <div className="space-y-3 text-sm font-sans">
                   <div className="flex justify-between items-center">
                     <span className="text-[#8E8D94]">Subtotal ({cartTotalQuantity} items)</span>
-                    <span className="font-mono text-[#FAF9F5]">${cartSubtotal.toFixed(2)}</span>
+                    <span className="font-mono text-[#FAF9F5]">{formatInr(cartSubtotal)}</span>
                   </div>
 
                   <div className="flex justify-between items-center">
                     <span className="text-[#8E8D94]">Consolidated Shipping</span>
                     <span className="font-mono text-[#22C55E]">
-                      {cartShipping === 0 ? 'FREE (Over $75)' : `$${cartShipping.toFixed(2)}`}
+                      {cartShipping === 0 ? `FREE (Over ${formatInr(75)})` : formatInr(cartShipping)}
                     </span>
                   </div>
 
@@ -336,7 +337,7 @@ export const CartView: React.FC = () => {
                           [Remove]
                         </button>
                       </div>
-                      <span className="font-mono">-${couponDiscountAmount.toFixed(2)}</span>
+                      <span className="font-mono">−{formatInr(couponDiscountAmount)}</span>
                     </div>
                   )}
 
@@ -345,7 +346,7 @@ export const CartView: React.FC = () => {
                       <span>Estimated Tax</span>
                       <span className="text-[10px] font-mono text-[#8E8D94]">(8.0% standard)</span>
                     </div>
-                    <span className="font-mono text-[#FAF9F5]">${cartTax.toFixed(2)}</span>
+                    <span className="font-mono text-[#FAF9F5]">{formatInr(cartTax)}</span>
                   </div>
 
                   <div className="pt-4 border-t border-[#2D2D35] flex justify-between items-baseline">
@@ -356,9 +357,14 @@ export const CartView: React.FC = () => {
                       <span className="text-[10px] text-[#8E8D94]">Includes all department taxes</span>
                     </div>
                     <span className="font-mono text-2xl font-bold text-[#C9A84C]">
-                      ${cartTotal.toFixed(2)}
+                      {formatInr(cartTotal)}
                     </span>
                   </div>
+                </div>
+
+                <div className="mt-5 rounded-xl border border-violet-200 bg-gradient-to-r from-blue-50 via-violet-50 to-amber-50 p-4 text-[#25243a]">
+                  <div className="flex items-center justify-between gap-3"><div><p className="font-semibold text-sm">Easy EMI available</p><p className="text-xs text-[#676274]">Split this order across 3, 6, 9 or 12 months at checkout.</p></div><span className="font-mono text-sm font-bold">From {formatInr(cartTotal / 12)}/mo</span></div>
+                  <p className="mt-2 text-[11px] text-[#676274]">UPI, cards and eligible bank EMI options are shown securely before payment.</p>
                 </div>
 
                 {/* Promo Code Form */}

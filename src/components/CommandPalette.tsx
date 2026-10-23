@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useStore } from '../context/StoreContext';
-import { PRODUCTS, DEPARTMENTS } from '../data/mockData';
+import { DEPARTMENTS } from '../data/mockData';
 import { DepartmentId } from '../types/store';
+import { formatInr } from '../lib/currency';
 
 export const CommandPalette: React.FC = () => {
   const {
@@ -10,8 +11,11 @@ export const CommandPalette: React.FC = () => {
     navigateToPDP,
     navigateToDept,
     setActiveView,
-    setCurrentRole,
+    setLoginModalOpen,
     addToCart,
+    catalogStatus,
+    products,
+    setSearchQuery,
   } = useStore();
 
   const [query, setQuery] = useState('');
@@ -27,8 +31,9 @@ export const CommandPalette: React.FC = () => {
 
   if (!isCommandPaletteOpen) return null;
 
-  const filteredProducts = PRODUCTS.filter(
+  const filteredProducts = products.filter(
     (p) =>
+      catalogStatus[p.id] === 'live' &&
       p.name.toLowerCase().includes(query.toLowerCase()) ||
       p.sku.toLowerCase().includes(query.toLowerCase()) ||
       p.category.toLowerCase().includes(query.toLowerCase()) ||
@@ -100,8 +105,7 @@ export const CommandPalette: React.FC = () => {
 
                 <button
                   onClick={() => {
-                    setCurrentRole('dept_manager');
-                    setActiveView('dept_manager');
+                    setLoginModalOpen(true);
                     setCommandPaletteOpen(false);
                   }}
                   className="flex items-center gap-2 p-2 rounded hover:bg-[#292a2d] text-left transition-colors text-sm text-[#7df4ff]"
@@ -112,8 +116,7 @@ export const CommandPalette: React.FC = () => {
 
                 <button
                   onClick={() => {
-                    setCurrentRole('store_admin');
-                    setActiveView('store_admin');
+                    setLoginModalOpen(true);
                     setCommandPaletteOpen(false);
                   }}
                   className="flex items-center gap-2 p-2 rounded hover:bg-[#292a2d] text-left transition-colors text-sm text-[#ffb3b3]"
@@ -181,6 +184,21 @@ export const CommandPalette: React.FC = () => {
             </div>
           )}
 
+          {query && (
+            <button
+              id="command-palette-search-all"
+              type="button"
+              onClick={() => {
+                setSearchQuery(query);
+                setActiveView('search');
+                setCommandPaletteOpen(false);
+              }}
+              className="w-full border border-[#3E3E47] bg-[#141417] p-2.5 text-left font-mono text-xs uppercase tracking-wider text-[#C9A84C] transition-colors hover:border-[#C9A84C]"
+            >
+              View all results for “{query}” with filters →
+            </button>
+          )}
+
           {/* Product Results */}
           <div>
             <div className="px-2 py-1 text-[10px] font-['Space_Grotesk'] uppercase text-[#8f9194] tracking-wider font-bold">
@@ -216,7 +234,7 @@ export const CommandPalette: React.FC = () => {
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="font-['Space_Grotesk'] text-[14px] font-bold text-white">${p.price.toFixed(2)}</span>
+                      <span className="font-['Space_Grotesk'] text-[14px] font-bold text-white">{formatInr(p.price)}</span>
                       <button
                         onClick={(e) => {
                           e.stopPropagation();

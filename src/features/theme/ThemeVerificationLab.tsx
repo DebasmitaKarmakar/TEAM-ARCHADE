@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useStore } from '../context/StoreContext';
-import { DEPARTMENTS } from '../data/mockData';
+import { useStore } from '../../context/StoreContext';
+import { DEPARTMENTS } from '../../data/mockData';
 import {
   Palette,
   Sun,

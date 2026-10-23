@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { MAGAZINE_CHAPTERS } from '../data/magazineContent';
-import { useStore } from '../context/StoreContext';
+import { MAGAZINE_CHAPTERS } from '../../data/magazineContent';
+import { useStore } from '../../context/StoreContext';
 import {
   BookOpen,
   ArrowLeft,

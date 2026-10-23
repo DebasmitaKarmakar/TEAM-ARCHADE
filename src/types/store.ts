@@ -62,6 +62,26 @@ export interface Product {
   }[];
 }
 
+export interface Coupon {
+  code: string;
+  label: string;
+  description: string;
+  discountPercent: number;
+  minimumSubtotal: number;
+  isActive: boolean;
+}
+
+export interface Review {
+  id: string;
+  productId: string;
+  author: string;
+  rating: number;
+  title: string;
+  body: string;
+  createdAt: string;
+  verifiedPurchase: boolean;
+}
+
 export interface CartItem {
   cartItemId: string;
   product: Product;

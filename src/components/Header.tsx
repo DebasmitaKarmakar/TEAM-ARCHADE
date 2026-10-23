@@ -1,35 +1,32 @@
 import React, { useState } from 'react';
 import { useStore, ActiveView } from '../context/StoreContext';
 import { DepartmentId, UserRole } from '../types/store';
+import { formatInr } from '../lib/currency';
 
 export const Header: React.FC = () => {
   const {
     activeView,
     setActiveView,
     currentRole,
-    setCurrentRole,
+    currentUser,
+    setLoginModalOpen,
+    logout,
     selectedDeptId,
     navigateToDept,
     cartTotalQuantity,
     cartSubtotal,
     wishlist,
     setCommandPaletteOpen,
+    searchQuery: globalSearchQuery,
+    setSearchQuery,
   } = useStore();
 
   const [roleDropdownOpen, setRoleDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
 
-  const handleRoleSelect = (role: UserRole) => {
-    setCurrentRole(role);
+  const handleRoleSelect = (_role: UserRole) => {
+    setLoginModalOpen(true);
     setRoleDropdownOpen(false);
-    if (role === 'dept_manager') {
-      setActiveView('dept_manager');
-    } else if (role === 'store_admin') {
-      setActiveView('store_admin');
-    } else {
-      setActiveView('home');
-    }
   };
 
   const roleLabels: Record<UserRole, { label: string; desc: string; color: string }> = {
@@ -42,7 +39,7 @@ export const Header: React.FC = () => {
     <header
       className="fixed top-0 w-full z-50 bg-[#121316]/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"
       style={{
-        background: 'linear-gradient(135deg, rgba(30, 20, 52, 0.95), rgba(16, 25, 50, 0.95))',
+        background: 'linear-gradient(110deg, #273c92 0%, #6547b8 52%, #e0b83f 130%)',
         borderBottom: '1px solid rgba(147, 197, 253, 0.15)',
         boxShadow: 'rgba(99, 102, 241, 0.12) 0px 4px 20px -2px',
       }}
@@ -50,12 +47,12 @@ export const Header: React.FC = () => {
       {/* Top Banner */}
       <div
         className="w-full bg-[#0d0e11] text-[#c5c7c9] font-['Space_Grotesk'] text-[10px] tracking-widest uppercase py-1 px-4 sm:px-8 lg:px-12 flex items-center justify-between"
-        style={{ background: 'rgba(15, 12, 28, 0.85)', borderBottom: '1px solid rgba(168, 85, 247, 0.15)' }}
+        style={{ background: 'linear-gradient(90deg, #22357f, #6d4bc2, #d9aa31)', borderBottom: '1px solid rgba(255,255,255,0.3)' }}
       >
         <div className="flex items-center gap-2 mx-auto text-center truncate">
           <span className="w-1.5 h-1.5 rounded-full bg-[#ba012d] animate-pulse shrink-0"></span>
           <span className="truncate">
-            PREVIEW SALE: Enjoy free delivery on multi-department orders over $75 with code <strong className="text-white">ONECART</strong> • 24/7 Concierge Support
+            PREVIEW SALE: Enjoy free delivery on multi-department orders over {formatInr(75)} with code <strong className="text-white">ONECART</strong> • 24/7 Concierge Support
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-[#ba012d] shrink-0"></span>
         </div>
@@ -114,16 +111,22 @@ export const Header: React.FC = () => {
                 search
               </span>
               <input
-                className="w-full bg-transparent text-[#e3e2e6] font-['Hanken_Grotesk'] text-[13px] placeholder:text-[#8f9194] focus:outline-none pointer-events-none"
-                placeholder="Search apparel, gadgets, pantry items, home curation... (Press ⌘K)"
-                readOnly
+                id="header-product-search"
+                className="w-full bg-transparent text-[#e3e2e6] font-['Hanken_Grotesk'] text-[13px] placeholder:text-[#8f9194] focus:outline-none"
+                placeholder="Search apparel, gadgets, pantry items, home curation..."
                 type="text"
-                value={searchQuery}
+                value={globalSearchQuery}
+                onClick={(event) => event.stopPropagation()}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter') {
+                    event.preventDefault();
+                    setActiveView('search');
+                  }
+                }}
               />
             </div>
-            <span className="font-['Space_Grotesk'] text-[10px] text-[#8f9194] uppercase px-2 py-0.5 rounded bg-[#292a2d] border border-[#44474a] hidden lg:inline">
-              ⌘K
-            </span>
+            <button id="header-search-submit" type="button" onClick={(event) => { event.stopPropagation(); setActiveView('search'); }} className="font-['Space_Grotesk'] text-[10px] text-[#8f9194] uppercase px-2 py-0.5 rounded bg-[#292a2d] border border-[#44474a] hidden lg:inline hover:text-white">Search</button>
           </div>
         </div>
 
@@ -134,11 +137,11 @@ export const Header: React.FC = () => {
             <button
               onClick={() => setRoleDropdownOpen(!roleDropdownOpen)}
               className="flex items-center gap-1.5 bg-[#292a2d] px-3 py-1.5 rounded-full font-['Space_Grotesk'] text-[12px] text-[#c5c7c9] hover:text-white hover:bg-[#343538] transition-colors border border-[#44474a]"
-              title="Switch user perspective"
+              title="Choose a demo account"
             >
               <span className={`w-2 h-2 rounded-full ${roleLabels[currentRole].color}`}></span>
               <span className="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-wider">
-                {roleLabels[currentRole].label}
+                {currentUser ? roleLabels[currentRole].label : 'Demo sign in'}
               </span>
               <span className="material-symbols-outlined text-[14px]">arrow_drop_down</span>
             </button>
@@ -189,6 +192,18 @@ export const Header: React.FC = () => {
                     <div className="font-['Hanken_Grotesk'] text-[11px] text-[#8f9194]">Executive Governance, RBAC & Audit</div>
                   </div>
                 </button>
+                {currentUser && (
+                  <button
+                    id="header-demo-logout"
+                    onClick={() => {
+                      logout();
+                      setRoleDropdownOpen(false);
+                    }}
+                    className="mt-1 w-full border-t border-[#343538] px-3 py-2.5 text-left font-['Space_Grotesk'] text-[11px] uppercase tracking-wider text-[#8f9194] transition-colors hover:text-white"
+                  >
+                    Sign out of {currentUser.name}'s demo session
+                  </button>
+                )}
               </div>
             )}
           </div>
@@ -218,7 +233,7 @@ export const Header: React.FC = () => {
           >
             <span className="material-symbols-outlined text-[18px]">shopping_bag</span>
             <span className="hidden sm:inline font-['Space_Grotesk'] text-[13px] font-bold">
-              {cartTotalQuantity} {cartTotalQuantity === 1 ? 'item' : 'items'} • ${cartSubtotal.toFixed(2)}
+              {cartTotalQuantity} {cartTotalQuantity === 1 ? 'item' : 'items'} • {formatInr(cartSubtotal)}
             </span>
             <span className="sm:hidden font-['Space_Grotesk'] text-[12px] font-bold">
               {cartTotalQuantity}
@@ -228,7 +243,8 @@ export const Header: React.FC = () => {
           {/* Quick Avatar / Cockpit Jump */}
           <div
             onClick={() => {
-              if (currentRole === 'shopper') setActiveView('order-tracking');
+              if (!currentUser) setLoginModalOpen(true);
+              else if (currentRole === 'shopper') setActiveView('order-history');
               else if (currentRole === 'dept_manager') setActiveView('dept_manager');
               else setActiveView('store_admin');
             }}
@@ -339,31 +355,6 @@ export const Header: React.FC = () => {
             Kids & Toys
           </button>
 
-          {/* Quick jump to The Everything Issue magazine */}
-          <button
-            onClick={() => setActiveView('magazine')}
-            className={`shrink-0 py-1 font-['Space_Grotesk'] text-[12px] tracking-wider uppercase transition-colors flex items-center gap-1.5 ${
-              activeView === 'magazine'
-                ? 'text-white font-bold border-b-2 border-white'
-                : 'text-[#c5c7c9] hover:text-white'
-            }`}
-          >
-            <span className="material-symbols-outlined text-[14px]">menu_book</span>
-            The Everything Issue
-          </button>
-
-          {/* Theme & Token Lab */}
-          <button
-            onClick={() => setActiveView('theme-lab')}
-            className={`shrink-0 py-1 font-['Space_Grotesk'] text-[12px] tracking-wider uppercase transition-colors flex items-center gap-1.5 ${
-              activeView === 'theme-lab'
-                ? 'text-[#7df4ff] font-bold border-b-2 border-[#7df4ff]'
-                : 'text-[#c5c7c9] hover:text-[#7df4ff]'
-            }`}
-          >
-            <span className="material-symbols-outlined text-[14px]">science</span>
-            Token Lab
-          </button>
 
           {/* Consignment Tracking */}
           <button
@@ -376,6 +367,19 @@ export const Header: React.FC = () => {
           >
             <span className="material-symbols-outlined text-[14px]">local_shipping</span>
             Track Order
+          </button>
+
+          <button
+            id="header-order-history"
+            onClick={() => setActiveView('order-history')}
+            className={`shrink-0 py-1 font-['Space_Grotesk'] text-[12px] tracking-wider uppercase transition-colors flex items-center gap-1.5 ${
+              activeView === 'order-history'
+                ? 'text-white font-bold border-b-2 border-white'
+                : 'text-[#c5c7c9] hover:text-white'
+            }`}
+          >
+            <span className="material-symbols-outlined text-[14px]">receipt_long</span>
+            Orders
           </button>
 
           {/* Direct admin jump if role selected */}

@@ -1,12 +1,13 @@
 import React from 'react';
-import { useStore } from '../context/StoreContext';
-import { PRODUCTS, DEPARTMENTS } from '../data/mockData';
+import { useStore } from '../../context/StoreContext';
+import { DEPARTMENTS } from '../../data/mockData';
 import { Heart, ShoppingBag, ArrowLeft, Trash2 } from 'lucide-react';
+import { formatInr } from '../../lib/currency';
 
 export const WishlistView: React.FC = () => {
-  const { wishlist, toggleWishlist, addToCart, navigateToPDP, setActiveView } = useStore();
+  const { wishlist, toggleWishlist, addToCart, navigateToPDP, setActiveView, products } = useStore();
 
-  const wishlistProducts = PRODUCTS.filter((p) => wishlist.includes(p.id));
+  const wishlistProducts = products.filter((p) => wishlist.includes(p.id));
 
   return (
     <div className="min-h-screen bg-[#0E0E10] text-[#E8E8E8] py-8 sm:py-12">
@@ -105,7 +106,7 @@ export const WishlistView: React.FC = () => {
 
                     <div className="mt-4 pt-4 border-t border-[#2D2D35] flex items-center justify-between">
                       <div className="font-mono text-lg font-bold text-[#FAF9F5]">
-                        ${product.price.toFixed(2)}
+                        {formatInr(product.price)}
                       </div>
                       <button
                         onClick={() => addToCart(product, 1)}

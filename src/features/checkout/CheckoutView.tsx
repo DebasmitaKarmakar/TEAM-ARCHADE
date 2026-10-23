@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useStore } from '../context/StoreContext';
+import { useStore } from '../../context/StoreContext';
 import { ArrowLeft, Check, CreditCard, QrCode, ShieldCheck, Truck, Lock, AlertCircle, Sparkles } from 'lucide-react';
+import { formatInr } from '../../lib/currency';
+import { Order } from '../../types/store';
 
 export const CheckoutView: React.FC = () => {
   const {
@@ -36,6 +38,7 @@ export const CheckoutView: React.FC = () => {
 
   const [isProcessing, setIsProcessing] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const [receiptOrder, setReceiptOrder] = useState<Order | null>(null);
 
   const handlePlaceOrder = (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,9 +57,8 @@ export const CheckoutView: React.FC = () => {
 
     setTimeout(() => {
       const newOrder = placeOrder(shippingAddress, paymentMethod);
-      setSelectedOrderId(newOrder.id);
       setIsProcessing(false);
-      setActiveView('order-tracking');
+      setReceiptOrder(newOrder);
     }, 1200);
   };
 
@@ -236,7 +238,7 @@ export const CheckoutView: React.FC = () => {
                   >
                     <div className="flex items-center justify-between mb-1">
                       <Sparkles className="w-4 h-4 text-[#F43F5E]" />
-                      <span className="text-[10px] uppercase font-semibold text-[#F43F5E]">4x $98</span>
+                      <span className="text-[10px] uppercase font-semibold text-[#F43F5E]">4x instalments</span>
                     </div>
                     <div className="text-xs font-bold">Klarna Pay in 4</div>
                     <div className="text-[10px] text-[#8E8D94]">Interest-free split</div>
@@ -299,7 +301,7 @@ export const CheckoutView: React.FC = () => {
                           </div>
                         </div>
                         <div className="text-[10px] font-mono text-black font-semibold mt-2 uppercase">
-                          Pay Total: ${cartTotal.toFixed(2)}
+                          Pay Total: {formatInr(cartTotal)}
                         </div>
                         <div className="text-[9px] font-mono text-black/60">UPI Ref: BM-PAY-2026-OK</div>
                       </div>
@@ -366,24 +368,24 @@ export const CheckoutView: React.FC = () => {
                       Split into 4 interest-free payments
                     </h4>
                     <p className="text-xs text-[#8E8D94] mb-4 font-sans">
-                      Pay ${(cartTotal / 4).toFixed(2)} today, and the rest every 2 weeks. No credit check or interest fees.
+                      Pay {formatInr(cartTotal / 4)} today, and the rest every 2 weeks. No credit check or interest fees.
                     </p>
                     <div className="grid grid-cols-4 gap-2 text-center font-mono text-xs">
                       <div className="p-2 border border-[#C9A84C] bg-[#C9A84C]/10">
                         <div className="text-[10px] text-[#C9A84C]">Today</div>
-                        <div className="font-bold text-[#FAF9F5]">${(cartTotal / 4).toFixed(2)}</div>
+                        <div className="font-bold text-[#FAF9F5]">{formatInr(cartTotal / 4)}</div>
                       </div>
                       <div className="p-2 border border-[#2D2D35] bg-[#0E0E10]">
                         <div className="text-[10px] text-[#8E8D94]">In 2 wks</div>
-                        <div className="text-[#FAF9F5]">${(cartTotal / 4).toFixed(2)}</div>
+                        <div className="text-[#FAF9F5]">{formatInr(cartTotal / 4)}</div>
                       </div>
                       <div className="p-2 border border-[#2D2D35] bg-[#0E0E10]">
                         <div className="text-[10px] text-[#8E8D94]">In 4 wks</div>
-                        <div className="text-[#FAF9F5]">${(cartTotal / 4).toFixed(2)}</div>
+                        <div className="text-[#FAF9F5]">{formatInr(cartTotal / 4)}</div>
                       </div>
                       <div className="p-2 border border-[#2D2D35] bg-[#0E0E10]">
                         <div className="text-[10px] text-[#8E8D94]">In 6 wks</div>
-                        <div className="text-[#FAF9F5]">${(cartTotal / 4).toFixed(2)}</div>
+                        <div className="text-[#FAF9F5]">{formatInr(cartTotal / 4)}</div>
                       </div>
                     </div>
                   </div>
@@ -421,7 +423,7 @@ export const CheckoutView: React.FC = () => {
                     </div>
                   ) : (
                     <>
-                      <span>CONFIRM & PLACE MULTI-DEPARTMENT ORDER — ${cartTotal.toFixed(2)}</span>
+                      <span>CONFIRM & PLACE MULTI-DEPARTMENT ORDER — {formatInr(cartTotal)}</span>
                     </>
                   )}
                 </button>
@@ -458,27 +460,27 @@ export const CheckoutView: React.FC = () => {
               <div className="mt-4 pt-4 border-t border-[#2D2D35] space-y-2 text-xs font-mono">
                 <div className="flex justify-between text-[#8E8D94]">
                   <span>Subtotal</span>
-                  <span className="text-[#FAF9F5]">${cartSubtotal.toFixed(2)}</span>
+                  <span className="text-[#FAF9F5]">{formatInr(cartSubtotal)}</span>
                 </div>
                 <div className="flex justify-between text-[#8E8D94]">
                   <span>Consolidated Shipping</span>
                   <span className="text-[#22C55E]">
-                    {cartShipping === 0 ? 'FREE' : `$${cartShipping.toFixed(2)}`}
+                    {cartShipping === 0 ? 'FREE' : formatInr(cartShipping)}
                   </span>
                 </div>
                 {couponCode && (
                   <div className="flex justify-between text-[#22C55E]">
                     <span>Discount ({couponCode})</span>
-                    <span>-${couponDiscountAmount.toFixed(2)}</span>
+                    <span>−{formatInr(couponDiscountAmount)}</span>
                   </div>
                 )}
                 <div className="flex justify-between text-[#8E8D94]">
                   <span>Estimated Tax</span>
-                  <span className="text-[#FAF9F5]">${cartTax.toFixed(2)}</span>
+                  <span className="text-[#FAF9F5]">{formatInr(cartTax)}</span>
                 </div>
                 <div className="pt-3 border-t border-[#2D2D35] flex justify-between text-sm">
                   <span className="font-semibold text-[#FAF9F5]">Total Payable</span>
-                  <span className="font-bold text-[#C9A84C]">${cartTotal.toFixed(2)}</span>
+                  <span className="font-bold text-[#C9A84C]">{formatInr(cartTotal)}</span>
                 </div>
               </div>
 
@@ -492,6 +494,19 @@ export const CheckoutView: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {receiptOrder && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-[#0E0E10]/90 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="receipt-modal-title">
+          <div className="w-full max-w-lg border border-[#C9A84C]/50 bg-[#1A1A1E] p-6 text-center shadow-2xl sm:p-8">
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-[#22C55E]/40 bg-[#22C55E]/10 text-[#22C55E]"><Check className="h-6 w-6" /></div>
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#C9A84C]">Demo email receipt sent</p>
+            <h2 id="receipt-modal-title" className="mt-2 font-display-hero text-3xl text-[#FAF9F5]">Your edit is confirmed.</h2>
+            <p className="mt-3 text-sm leading-relaxed text-[#8E8D94]">A simulated consolidated receipt was sent to <strong className="text-[#FAF9F5]">{shippingAddress.email}</strong> for order <strong className="text-[#FAF9F5]">{receiptOrder.id}</strong>. No real email is transmitted in this frontend demo.</p>
+            <div className="my-5 border-y border-[#2D2D35] py-4 font-mono text-sm text-[#FAF9F5]">Paid {formatInr(receiptOrder.total)} · {receiptOrder.departmentCount} departments · one parcel</div>
+            <button id="receipt-view-tracking" type="button" onClick={() => { setSelectedOrderId(receiptOrder.id); setReceiptOrder(null); setActiveView('order-tracking'); }} className="min-h-11 w-full bg-[#C9A84C] px-5 font-mono text-xs font-bold uppercase tracking-wider text-[#0E0E10] hover:bg-[#d6b75e]">View order tracking</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

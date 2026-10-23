@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useStore } from '../context/StoreContext';
-import { PRODUCTS, DEPARTMENTS } from '../data/mockData';
-import { DepartmentId } from '../types/store';
+import { useStore } from '../../context/StoreContext';
+import { DEPARTMENTS } from '../../data/mockData';
+import { DepartmentId } from '../../types/store';
 import {
   Lock,
   Layers,
@@ -15,10 +15,12 @@ import {
 } from 'lucide-react';
 
 export const DepartmentManagerView: React.FC = () => {
-  const { inventory, adjustStock, showToastNotification } = useStore();
+  const { inventory, adjustStock, showToastNotification, currentUser, products } = useStore();
 
-  // Marcus Chen is scoped to Electronics & Beauty
-  const assignedDepts: DepartmentId[] = ['electronics', 'beauty'];
+  const assignedDepts: DepartmentId[] = currentUser?.assignedDeptIds || [];
+  const managerName = currentUser?.name || 'Department Manager';
+  const managerInitials = currentUser?.initials || 'DM';
+  const scopeLabel = assignedDepts.map((id) => DEPARTMENTS[id]?.title || id).join(' & ');
   const [selectedFilterDept, setSelectedFilterDept] = useState<'all' | DepartmentId>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -39,7 +41,7 @@ export const DepartmentManagerView: React.FC = () => {
   const [escalateSuccess, setEscalateSuccess] = useState(false);
 
   // Scoped Products
-  const scopedProducts = PRODUCTS.filter((p) => assignedDepts.includes(p.department));
+  const scopedProducts = products.filter((p) => assignedDepts.includes(p.department));
 
   const displayedProducts = scopedProducts.filter((p) => {
     if (selectedFilterDept !== 'all' && p.department !== selectedFilterDept) return false;
@@ -101,7 +103,7 @@ export const DepartmentManagerView: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#2D2D35]">
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 rounded-none bg-[#3B82F6]/10 border-2 border-[#3B82F6] flex items-center justify-center font-display-hero text-2xl text-[#3B82F6]">
-                MC
+                {managerInitials}
               </div>
               <div>
                 <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-[#3B82F6] mb-1">
@@ -110,10 +112,10 @@ export const DepartmentManagerView: React.FC = () => {
                   <span className="text-[#22C55E]">LEVEL 2 RBAC TOKEN VALID</span>
                 </div>
                 <h1 className="font-display-hero text-2xl sm:text-3xl text-[#FAF9F5]">
-                  Marcus Chen — Department Manager
+                  {managerName} — Department Manager
                 </h1>
                 <p className="text-xs font-mono text-[#8E8D94] mt-0.5">
-                  Scoped Authority: <strong className="text-[#FAF9F5]">Electronics & Beauty</strong> · Write Permissions Confined
+                  Scoped Authority: <strong className="text-[#FAF9F5]">{scopeLabel || 'No departments assigned'}</strong> · Write Permissions Confined
                 </p>
               </div>
             </div>
@@ -168,9 +170,10 @@ export const DepartmentManagerView: React.FC = () => {
                   onChange={(e) => setSelectedFilterDept(e.target.value as any)}
                   className="bg-transparent text-[#FAF9F5] focus:outline-none cursor-pointer"
                 >
-                  <option value="all">Electronics & Beauty</option>
-                  <option value="electronics">Electronics Only</option>
-                  <option value="beauty">Beauty Only</option>
+                  <option value="all">All Assigned Departments</option>
+                  {assignedDepts.map((departmentId) => (
+                    <option key={departmentId} value={departmentId}>{DEPARTMENTS[departmentId]?.title || departmentId}</option>
+                  ))}
                 </select>
               </div>
 
@@ -283,7 +286,7 @@ export const DepartmentManagerView: React.FC = () => {
                   Fashion, Grocery, Home & Living, Kids & Toys
                 </h3>
                 <p className="text-xs text-[#8E8D94] mt-2 max-w-2xl leading-relaxed font-sans">
-                  Marcus Chen’s Level 2 token is scoped exclusively to Electronics & Beauty. Any attempt to mutate
+                  {managerName}’s Level 2 token is scoped exclusively to {scopeLabel || 'assigned departments'}. Any attempt to mutate
                   SKUs or stock levels in outside departments is blocked both in this client UI and rejected with
                   HTTP 403 Forbidden by the server RBAC middleware.
                 </p>

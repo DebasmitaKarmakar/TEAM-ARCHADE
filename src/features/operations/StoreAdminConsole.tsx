@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { useStore } from '../context/StoreContext';
-import { DEPARTMENTS } from '../data/mockData';
-import { DepartmentId } from '../types/store';
+import { useStore } from '../../context/StoreContext';
+import { DEPARTMENTS } from '../../data/mockData';
+import { DepartmentId, Order } from '../../types/store';
+import { AdminCatalogManager } from './AdminCatalogManager';
+import { CouponManager } from './CouponManager';
+import { formatInr, formatInrCompact } from '../../lib/currency';
 import {
   ShieldCheck,
   TrendingUp,
@@ -18,7 +21,20 @@ import {
 } from 'lucide-react';
 
 export const StoreAdminConsole: React.FC = () => {
-  const { staffList, assignManager, revokeStaff, auditLogs } = useStore();
+  const {
+    staffList,
+    assignManager,
+    revokeStaff,
+    auditLogs,
+    inventory,
+    adjustStock,
+    orders,
+    updateOrderStatus,
+    catalogStatus,
+    updateCatalogStatus,
+    products,
+    setActiveView,
+  } = useStore();
 
   const [isAssignModalOpen, setIsAssignModalOpen] = useState(false);
   const [newStaffName, setNewStaffName] = useState('');
@@ -95,7 +111,7 @@ export const StoreAdminConsole: React.FC = () => {
                 <span>Gross Merchandise Value (GMV)</span>
                 <TrendingUp className="w-4 h-4 text-[#22C55E]" />
               </div>
-              <div className="font-mono text-2xl font-bold text-[#FAF9F5]">$1,428,500</div>
+              <div className="font-mono text-2xl font-bold text-[#FAF9F5]">{formatInrCompact(1428500)}</div>
               <div className="text-[10px] font-mono text-[#22C55E] mt-1">+18.4% MoM across 6 depts</div>
             </div>
 
@@ -126,6 +142,105 @@ export const StoreAdminConsole: React.FC = () => {
               <div className="text-[10px] font-mono text-[#8E8D94] mt-1">On-time Bay 4 consolidation</div>
             </div>
           </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-8 2xl:grid-cols-2">
+          <AdminCatalogManager />
+          <CouponManager />
+        </div>
+
+        <section className="rounded-2xl border border-violet-200 bg-gradient-to-r from-blue-50 via-violet-50 to-amber-50 p-6 shadow-sm">
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-violet-700">Admin workspace</p>
+          <h2 className="mt-1 text-2xl font-semibold text-slate-900">Editorial & design tools</h2>
+          <p className="mt-1 text-sm text-slate-600">Store-only controls moved out of the shopper navigation.</p>
+          <div className="mt-4 flex flex-wrap gap-3"><button type="button" onClick={() => setActiveView('magazine')} className="rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-blue-800">Open Everything Issue</button><button type="button" onClick={() => setActiveView('theme-lab')} className="rounded-lg bg-violet-700 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-violet-800">Open Token Lab</button></div>
+        </section>
+
+        {/* Live catalog, stock and fulfillment controls */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+          <section className="bg-[#1A1A1E] border border-[#2D2D35] p-6" aria-labelledby="catalog-operations-title">
+            <div className="mb-4 flex items-start justify-between gap-4 border-b border-[#2D2D35] pb-4">
+              <div>
+                <h2 id="catalog-operations-title" className="flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-wider text-[#FAF9F5]">
+                  <Package className="h-4 w-4 text-[#C9A84C]" /> Catalog & stock controls
+                </h2>
+                <p className="mt-1 text-xs text-[#8E8D94]">Pause a shopper listing or apply a quick stock correction. Every mutation appears in the audit ledger.</p>
+              </div>
+              <span className="border border-[#C9A84C]/30 bg-[#C9A84C]/10 px-2 py-1 font-mono text-[10px] text-[#C9A84C]">ADMIN ONLY</span>
+            </div>
+            <div className="max-h-[31rem] overflow-auto">
+              <table className="w-full text-left font-mono text-xs">
+                <thead className="sticky top-0 bg-[#141417] text-[10px] uppercase tracking-wider text-[#8E8D94]">
+                  <tr><th className="px-3 py-3">Product</th><th className="px-3 py-3">Stock</th><th className="px-3 py-3 text-right">Catalog</th></tr>
+                </thead>
+                <tbody className="divide-y divide-[#2D2D35]">
+                  {products.map((product) => {
+                    const stock = inventory[product.sku]?.stock ?? product.stockCount;
+                    const status = catalogStatus[product.id];
+                    return (
+                      <tr key={product.id} className="hover:bg-[#141417]/50">
+                        <td className="px-3 py-3">
+                          <span className="block font-sans font-medium text-[#FAF9F5]">{product.name}</span>
+                          <span className="text-[10px] text-[#8E8D94]">{product.sku} · {DEPARTMENTS[product.department].title}</span>
+                        </td>
+                        <td className="px-3 py-3">
+                          <div className="flex items-center gap-2">
+                            <button id={`admin-stock-minus-${product.id}`} type="button" onClick={() => adjustStock(product.sku, product.name, -5, 'Admin stock correction', product.department)} className="h-7 w-7 border border-[#3E3E47] text-[#FAF9F5] transition-colors hover:border-[#C9A84C]" aria-label={`Reduce ${product.name} stock by 5`}>−</button>
+                            <span className="min-w-7 text-center text-[#FAF9F5]">{stock}</span>
+                            <button id={`admin-stock-plus-${product.id}`} type="button" onClick={() => adjustStock(product.sku, product.name, 5, 'Admin stock correction', product.department)} className="h-7 w-7 border border-[#3E3E47] text-[#FAF9F5] transition-colors hover:border-[#C9A84C]" aria-label={`Increase ${product.name} stock by 5`}>+</button>
+                          </div>
+                        </td>
+                        <td className="px-3 py-3 text-right">
+                          <button id={`admin-catalog-toggle-${product.id}`} type="button" onClick={() => updateCatalogStatus(product.id, status === 'live' ? 'paused' : 'live')} className={`border px-2 py-1 text-[10px] font-bold uppercase transition-colors ${status === 'live' ? 'border-[#22C55E]/40 bg-[#22C55E]/10 text-[#22C55E] hover:border-[#F59E0B] hover:text-[#F59E0B]' : 'border-[#F59E0B]/40 bg-[#F59E0B]/10 text-[#F59E0B] hover:border-[#22C55E] hover:text-[#22C55E]'}`}>
+                            {status === 'live' ? 'Live · pause' : 'Paused · restore'}
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section className="bg-[#1A1A1E] border border-[#2D2D35] p-6" aria-labelledby="order-operations-title">
+            <div className="mb-4 flex items-start justify-between gap-4 border-b border-[#2D2D35] pb-4">
+              <div>
+                <h2 id="order-operations-title" className="flex items-center gap-2 font-mono text-sm font-semibold uppercase tracking-wider text-[#FAF9F5]">
+                  <Clock className="h-4 w-4 text-[#C9A84C]" /> Order fulfillment controls
+                </h2>
+                <p className="mt-1 text-xs text-[#8E8D94]">Changing an order stage immediately updates the shopper tracking timeline in this demo.</p>
+              </div>
+              <span className="border border-[#C9A84C]/30 bg-[#C9A84C]/10 px-2 py-1 font-mono text-[10px] text-[#C9A84C]">LIVE DEMO</span>
+            </div>
+            <div className="max-h-[31rem] overflow-auto">
+              <table className="w-full text-left font-mono text-xs">
+                <thead className="sticky top-0 bg-[#141417] text-[10px] uppercase tracking-wider text-[#8E8D94]">
+                  <tr><th className="px-3 py-3">Order</th><th className="px-3 py-3">Total</th><th className="px-3 py-3 text-right">Fulfillment stage</th></tr>
+                </thead>
+                <tbody className="divide-y divide-[#2D2D35]">
+                  {orders.map((order) => (
+                    <tr key={order.id} className="hover:bg-[#141417]/50">
+                      <td className="px-3 py-3">
+                        <span className="block font-semibold text-[#FAF9F5]">{order.id}</span>
+                        <span className="text-[10px] text-[#8E8D94]">{order.departmentCount} depts · {order.items.length} line items</span>
+                      </td>
+                      <td className="px-3 py-3 font-semibold text-[#C9A84C]">{formatInr(order.total)}</td>
+                      <td className="px-3 py-3 text-right">
+                        <select id={`admin-order-status-${order.id}`} value={order.status} onChange={(event) => updateOrderStatus(order.id, event.target.value as Order['status'])} className="border border-[#3E3E47] bg-[#141417] px-2 py-1.5 text-[10px] uppercase text-[#FAF9F5] outline-none focus:border-[#C9A84C]">
+                          <option value="placed">Placed</option>
+                          <option value="packed">Packed</option>
+                          <option value="shipped">Shipped</option>
+                          <option value="out_for_delivery">Out for delivery</option>
+                          <option value="delivered">Delivered</option>
+                        </select>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
         </div>
 
         {/* 6-Department Real-Time Fulfillment & Stock Health Matrix */}

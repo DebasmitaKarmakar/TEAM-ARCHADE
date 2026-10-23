@@ -1,8 +1,9 @@
 import React from 'react';
-import { useStore } from '../context/StoreContext';
-import { DEPARTMENTS } from '../data/mockData';
+import { useStore } from '../../context/StoreContext';
+import { DEPARTMENTS } from '../../data/mockData';
 import { Truck, CheckCircle, ArrowLeft, Printer, Box } from 'lucide-react';
-import { DepartmentId } from '../types/store';
+import { DepartmentId } from '../../types/store';
+import { formatInr } from '../../lib/currency';
 
 export const OrderTrackingView: React.FC = () => {
   const { orders, selectedOrderId, setSelectedOrderId, setActiveView, navigateToPDP } = useStore();
@@ -49,7 +50,7 @@ export const OrderTrackingView: React.FC = () => {
               >
                 {orders.map((o) => (
                   <option key={o.id} value={o.id}>
-                    {o.id} (${o.total.toFixed(2)})
+                    {o.id} ({formatInr(o.total)})
                   </option>
                 ))}
               </select>
@@ -159,7 +160,7 @@ export const OrderTrackingView: React.FC = () => {
                       </div>
 
                       <div className="font-mono text-sm font-semibold text-[#FAF9F5] text-right">
-                        ${(item.unitPrice * item.quantity).toFixed(2)}
+                        {formatInr(item.unitPrice * item.quantity)}
                       </div>
                     </div>
                   );
@@ -214,7 +215,7 @@ export const OrderTrackingView: React.FC = () => {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-[#8E8D94]">Total Paid:</span>
-                    <span className="text-[#C9A84C] font-bold">${activeOrder?.total.toFixed(2)}</span>
+                    <span className="text-[#C9A84C] font-bold">{activeOrder ? formatInr(activeOrder.total) : '—'}</span>
                   </div>
                 </div>
               </div>

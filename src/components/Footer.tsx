@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
     <footer
       className="w-full bg-[#0d0e11] text-[#c5c7c9] mt-16 pt-16 pb-12 border-t border-[#343538]"
       style={{
-        background: 'linear-gradient(rgb(19, 16, 36) 0%, rgb(10, 14, 28) 100%)',
+        background: 'linear-gradient(115deg, #263c91 0%, #6e4ebd 55%, #d9ae36 125%)',
         borderTop: '1px solid rgba(196, 181, 253, 0.15)',
       }}
     >
@@ -203,6 +203,7 @@ export const Footer: React.FC = () => {
         {/* Bottom copyright */}
         <div className="text-center font-['Space_Grotesk'] text-[10px] uppercase tracking-wider text-[#8f9194] pt-8">
           © 2026 BLOWMAGGY INC. ALL RIGHTS RESERVED. EVERY DEPARTMENT. ONE CART. ONE CHECKOUT.
+          <p className="mt-2 normal-case tracking-normal text-xs font-semibold text-white">Developed by Himanshu Yadav and Debasmita Karmakar</p>
         </div>
       </div>
     </footer>

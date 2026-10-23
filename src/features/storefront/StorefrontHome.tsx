@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useStore } from '../context/StoreContext';
-import { PRODUCTS, DEPARTMENTS } from '../data/mockData';
-import { DepartmentId, Product } from '../types/store';
+import { useStore } from '../../context/StoreContext';
+import { DEPARTMENTS } from '../../data/mockData';
+import { DepartmentId, Product } from '../../types/store';
+import { formatInr } from '../../lib/currency';
 
 export const StorefrontHome: React.FC = () => {
   const {
@@ -12,19 +13,22 @@ export const StorefrontHome: React.FC = () => {
     isInWishlist,
     setActiveView,
     showToastNotification,
+    catalogStatus,
+    products,
   } = useStore();
 
   const [activeFilter, setActiveFilter] = useState<'all' | 'fashion' | 'electronics' | 'beauty' | 'grocery'>('all');
 
-  const filteredProducts = PRODUCTS.filter((p) => {
+  const liveProducts = products.filter((p) => catalogStatus[p.id] === 'live');
+  const filteredProducts = liveProducts.filter((p) => {
     if (activeFilter === 'all') return true;
     return p.department === activeFilter;
   });
 
   const handleAddBundle = () => {
-    const tech = PRODUCTS.find((p) => p.id === 'prod-aura-anc') || PRODUCTS[0];
-    const beauty = PRODUCTS.find((p) => p.id === 'prod-night-serum') || PRODUCTS[1];
-    const grocery = PRODUCTS.find((p) => p.id === 'prod-olive-oil') || PRODUCTS[2];
+    const tech = products.find((p) => p.id === 'prod-aura-anc') || products[0];
+    const beauty = products.find((p) => p.id === 'prod-night-serum') || products[1];
+    const grocery = products.find((p) => p.id === 'prod-olive-oil') || products[2];
 
     addToCart(tech, 1);
     addToCart(beauty, 1);
@@ -33,7 +37,7 @@ export const StorefrontHome: React.FC = () => {
     showToastNotification(
       'Curated Cross-Department Bundle Added',
       '3 items from Tech, Beauty, and Pantry merged into single box',
-      '+$281.00'
+      `+${formatInr(281)}`
     );
   };
 
@@ -137,7 +141,7 @@ export const StorefrontHome: React.FC = () => {
                       </p>
                     </div>
                   </div>
-                  <span className="font-['Space_Grotesk'] text-[18px] font-bold text-[#ffb3b3]">$395</span>
+                  <span className="font-['Space_Grotesk'] text-[18px] font-bold text-[#ffb3b3]">{formatInr(395)}</span>
                 </div>
               </div>
 
@@ -159,7 +163,7 @@ export const StorefrontHome: React.FC = () => {
                     Cross-Category Sync
                   </span>
                   <p className="font-['Space_Grotesk'] text-[12px] font-bold text-white">Studio Reference ANC</p>
-                  <span className="font-['Space_Grotesk'] text-[12px] text-[#c5c7c9]">$249.00</span>
+                  <span className="font-['Space_Grotesk'] text-[12px] text-[#c5c7c9]">{formatInr(249)}</span>
                 </div>
               </div>
             </div>
@@ -294,8 +298,8 @@ export const StorefrontHome: React.FC = () => {
                     Bundle Total (3 Items)
                   </span>
                   <div className="font-['Space_Grotesk'] text-2xl font-bold text-white flex items-baseline gap-2">
-                    <span>$281.00</span>
-                    <span className="font-['Hanken_Grotesk'] text-sm line-through text-[#8f9194]">$315.00</span>
+                    <span>{formatInr(281)}</span>
+                    <span className="font-['Hanken_Grotesk'] text-sm line-through text-[#8f9194]">{formatInr(315)}</span>
                   </div>
                 </div>
                 <div className="h-8 w-px bg-[#343538]"></div>
@@ -315,7 +319,7 @@ export const StorefrontHome: React.FC = () => {
                   <span className="material-symbols-outlined text-[18px]">add_shopping_cart</span>
                   <span>Add Curated Bundle to One Cart</span>
                   <span className="font-['Space_Grotesk'] text-[10px] bg-[#121316] text-white px-1.5 py-0.5 rounded ml-1 group-hover:bg-white group-hover:text-[#ba012d] transition-colors">
-                    SAVE $34
+                    SAVE {formatInr(34)}
                   </span>
                 </button>
               </div>
@@ -343,7 +347,7 @@ export const StorefrontHome: React.FC = () => {
                   <p className="font-['Hanken_Grotesk'] text-[11px] text-[#8f9194]">Electronics Lab</p>
                 </div>
                 <div className="mt-2 flex items-center justify-between pt-1 border-t border-[#343538]/50">
-                  <span className="font-['Space_Grotesk'] text-[14px] font-bold text-white">$189.00</span>
+                  <span className="font-['Space_Grotesk'] text-[14px] font-bold text-white">{formatInr(189)}</span>
                   <span className="font-['Space_Grotesk'] text-[10px] text-[#00dbe9] uppercase font-bold">In Stock</span>
                 </div>
               </div>
@@ -368,7 +372,7 @@ export const StorefrontHome: React.FC = () => {
                   <p className="font-['Hanken_Grotesk'] text-[11px] text-[#8f9194]">Cosmetics & Beauty</p>
                 </div>
                 <div className="mt-2 flex items-center justify-between pt-1 border-t border-[#343538]/50">
-                  <span className="font-['Space_Grotesk'] text-[14px] font-bold text-white">$64.00</span>
+                  <span className="font-['Space_Grotesk'] text-[14px] font-bold text-white">{formatInr(64)}</span>
                   <span className="font-['Space_Grotesk'] text-[10px] text-[#ffb3b3] uppercase font-bold">30ml Cold Poured</span>
                 </div>
               </div>
@@ -393,7 +397,7 @@ export const StorefrontHome: React.FC = () => {
                   <p className="font-['Hanken_Grotesk'] text-[11px] text-[#8f9194]">Pantry & Grocery</p>
                 </div>
                 <div className="mt-2 flex items-center justify-between pt-1 border-t border-[#343538]/50">
-                  <span className="font-['Space_Grotesk'] text-[14px] font-bold text-white">$28.00</span>
+                  <span className="font-['Space_Grotesk'] text-[14px] font-bold text-white">{formatInr(28)}</span>
                   <span className="font-['Space_Grotesk'] text-[10px] text-[#84CC16] uppercase font-bold">Piedmont, Italy</span>
                 </div>
               </div>
@@ -432,7 +436,7 @@ export const StorefrontHome: React.FC = () => {
                 activeFilter === 'all' ? 'bg-[#292a2d] text-white border border-[#44474a]' : 'bg-[#1f1f23] text-[#8f9194] hover:text-white'
               }`}
             >
-              All ({PRODUCTS.length})
+              All ({liveProducts.length})
             </button>
             <button
               onClick={() => setActiveFilter('fashion')}
@@ -543,7 +547,7 @@ export const StorefrontHome: React.FC = () => {
 
                 <div className="mt-4 pt-3 flex items-center justify-between border-t border-[#343538]/50">
                   <span className="font-['Space_Grotesk'] text-[20px] font-bold text-white">
-                    ${p.price.toFixed(2)}
+                    {formatInr(p.price)}
                   </span>
                   <span className="font-['Space_Grotesk'] text-[10px] text-[#8f9194] uppercase tracking-wider">
                     {p.tagline || 'Unified Delivery: 2-Day'}

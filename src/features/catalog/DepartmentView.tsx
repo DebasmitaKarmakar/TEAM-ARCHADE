@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useStore } from '../context/StoreContext';
-import { DEPARTMENTS, PRODUCTS } from '../data/mockData';
-import { DepartmentId } from '../types/store';
+import { useStore } from '../../context/StoreContext';
+import { DEPARTMENTS } from '../../data/mockData';
+import { DepartmentId } from '../../types/store';
+import { formatInr } from '../../lib/currency';
 
 export const DepartmentView: React.FC = () => {
   const {
@@ -11,10 +12,12 @@ export const DepartmentView: React.FC = () => {
     addToCart,
     toggleWishlist,
     isInWishlist,
+    catalogStatus,
+    products,
   } = useStore();
 
   const dept = DEPARTMENTS[selectedDeptId] || DEPARTMENTS.electronics;
-  const deptProducts = PRODUCTS.filter((p) => p.department === selectedDeptId);
+  const deptProducts = products.filter((p) => p.department === selectedDeptId && catalogStatus[p.id] === 'live');
 
   const [sortBy, setSortBy] = useState<'featured' | 'price_asc' | 'price_desc' | 'rating'>('featured');
   const [filterCategory, setFilterCategory] = useState<string>('all');
@@ -192,7 +195,7 @@ export const DepartmentView: React.FC = () => {
 
                 <div className="mt-4 pt-3 flex items-center justify-between border-t border-[#343538]/50">
                   <span className="font-['Space_Grotesk'] text-[20px] font-bold text-white">
-                    ${p.price.toFixed(2)}
+                    {formatInr(p.price)}
                   </span>
                   <span className="font-['Space_Grotesk'] text-[10px] text-[#8f9194] uppercase tracking-wider">
                     {p.inStock ? `${p.stockCount} Available` : 'Backorder'}

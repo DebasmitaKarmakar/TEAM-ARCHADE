@@ -44,7 +44,7 @@ export const MAGAZINE_CHAPTERS: Chapter[] = [
 ### SHOULD HAVE
 - Wishlist across all departments with 1-click cart migration.
 - Product ratings and verified audiophile/cross-order reviews.
-- Promotional coupons (e.g. \`ONECART\` for 10% off multi-department orders over $75).
+- Promotional coupons (e.g. \`ONECART\` for 10% off multi-department orders over ₹6,225).
 - Department-manager scoped permissions with boundary isolation enforcement.
 - Printable order receipts and shipment manifests.
 
@@ -222,7 +222,7 @@ Variant
 # 7. Bugs — What Broke and the Fix
 
 ### Bug 1: Multi-Department Cart Decimal Inaccuracy
-- **What failed:** Floating point addition produced fractional cents (\`$393.6599999999\`) during multi-item tax calculation.
+- **What failed:** Floating point addition produced fractional paise during multi-item tax calculation.
 - **Cause:** Standard JavaScript floating-point arithmetic across percentage discount and tax multiplications.
 - **Fix:** Switched calculation pipeline to integer cents arithmetic (\`Math.round(cents)\`) before formatting with \`.toFixed(2)\`.
 - **Validation:** Tested with 10+ multi-item combinations with coupon \`ONECART\` (-10%) and 8% tax.
@@ -271,8 +271,8 @@ Variant
     title: 'Business Model — How BLOWMAGGY Makes Money',
     subtitle: 'The unit economics of multi-department unified retail',
     keyPoints: [
-      'Basket Size Expansion: Cross-department recommendations increase AOV from $85 to $280+',
-      'Consolidated Shipping Savings: 1 box instead of 3 separate carrier labels saves $18 per order',
+      'Basket Size Expansion: Cross-department recommendations increase AOV from ₹7,055 to ₹23,240+',
+      'Consolidated Shipping Savings: 1 box instead of 3 separate carrier labels saves ₹1,494 per order',
       'MAGGY+ Membership: High-margin recurring subscription for zero-waste concierge delivery',
       'Curated Cross-Department Bundles: Premium margins on pre-staged luxury edits',
     ],
@@ -280,13 +280,13 @@ Variant
 # 9. Business Model — How BLOWMAGGY Makes Money
 
 ### 1. Unified Basket Size Expansion (Higher Average Order Value)
-Traditional single-category stores suffer from low order ceilings ($60–$90). By allowing customers to bundle luxury audio headphones ($249) with clean night serums ($88) and single-estate olive oil ($34), BLOWMAGGY achieves an Average Order Value (AOV) of **$348+**.
+Traditional single-category stores suffer from low order ceilings (₹4,980–₹7,470). By allowing customers to bundle luxury audio headphones (₹20,667) with clean night serums (₹7,304) and single-estate olive oil (₹2,822), BLOWMAGGY achieves an Average Order Value (AOV) of **₹28,884+**.
 
 ### 2. Consolidated Freight Logistics Arbitrage
-Shipping 3 separate parcels across 3 courier networks costs approximately **$27.50** in aggregate postage and packaging. Cross-docking into 1 consolidated master box reduces courier expense to **$9.20**, capturing **$18.30** in direct freight margin while reducing carbon footprint by 1.4kg CO₂.
+Shipping 3 separate parcels across 3 courier networks costs approximately **₹2,283** in aggregate postage and packaging. Cross-docking into 1 consolidated master box reduces courier expense to **₹764**, capturing **₹1,519** in direct freight margin while reducing carbon footprint by 1.4kg CO₂.
 
 ### 3. Curated Cross-Department Bundles
-Offering pre-curated sets (e.g., Tech + Beauty + Pantry) provides customers with perceived value ($34 discount) while lifting overall gross margin dollars.
+Offering pre-curated sets (e.g., Tech + Beauty + Pantry) provides customers with perceived value (₹2,822 discount) while lifting overall gross margin rupees.
 
 ### 4. MAGGY+ Annual Membership
 Optional luxury tier offering unlimited priority air consolidation, dedicated 24/7 concierge support, and early access to limited edition atelier drops.

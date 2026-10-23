@@ -7,8 +7,14 @@ import {
   Order,
   StaffMember,
   AuditLogItem,
+  Coupon,
+  Review,
 } from '../types/store';
 import { PRODUCTS, DEPARTMENTS, STAFF_MEMBERS, INITIAL_AUDIT_LOGS } from '../data/mockData';
+import { DemoAccount, getDemoAccount } from '../config/demoAccounts';
+import { INITIAL_COUPONS } from '../data/coupons';
+import { INITIAL_REVIEWS } from '../data/reviews';
+import { formatInr } from '../lib/currency';
 
 export type ActiveView =
   | 'home'
@@ -18,6 +24,8 @@ export type ActiveView =
   | 'checkout'
   | 'order-tracking'
   | 'wishlist'
+  | 'search'
+  | 'order-history'
   | 'store-admin'
   | 'store_admin'
   | 'dept-manager'
@@ -38,6 +46,11 @@ interface StoreContextType {
   setActiveView: (view: ActiveView) => void;
   currentRole: UserRole;
   setCurrentRole: (role: UserRole) => void;
+  currentUser: DemoAccount | null;
+  isLoginModalOpen: boolean;
+  setLoginModalOpen: (open: boolean) => void;
+  loginWithDemo: (email: string, password: string) => { success: boolean; message: string };
+  logout: () => void;
   selectedDeptId: DepartmentId;
   setSelectedDeptId: (dept: DepartmentId) => void;
   selectedProductId: string;
@@ -50,10 +63,19 @@ interface StoreContextType {
   updateCartQuantity: (cartItemId: string, delta: number) => void;
   removeFromCart: (cartItemId: string) => void;
   clearCart: () => void;
+  products: Product[];
+  addProduct: (product: Product) => void;
+  updateProduct: (product: Product) => void;
+  deleteProduct: (productId: string) => void;
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
   couponCode: string;
   applyCoupon: (code: string) => boolean;
   removeCoupon: () => void;
   couponDiscountAmount: number;
+  coupons: Coupon[];
+  addCoupon: (coupon: Coupon) => void;
+  toggleCoupon: (code: string) => void;
   cartSubtotal: number;
   cartTax: number;
   cartShipping: number;
@@ -65,6 +87,11 @@ interface StoreContextType {
   isInWishlist: (productId: string) => boolean;
   orders: Order[];
   placeOrder: (shippingAddress: Order['shippingAddress'], paymentMethod: Order['paymentMethod']) => Order;
+  updateOrderStatus: (orderId: string, status: Order['status']) => void;
+  catalogStatus: Record<string, 'live' | 'paused'>;
+  updateCatalogStatus: (productId: string, status: 'live' | 'paused') => void;
+  reviews: Review[];
+  addReview: (review: Omit<Review, 'id' | 'createdAt' | 'verifiedPurchase'>) => void;
   staffList: StaffMember[];
   assignManager: (name: string, email: string, assignedDeptIds: DepartmentId[]) => void;
   revokeStaff: (id: string) => void;
@@ -88,11 +115,17 @@ const StoreContext = createContext<StoreContextType | undefined>(undefined);
 export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [activeView, setActiveView] = useState<ActiveView>('home');
   const [currentRole, setCurrentRole] = useState<UserRole>('shopper');
+  const [currentUser, setCurrentUser] = useState<DemoAccount | null>(null);
+  const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const [selectedDeptId, setSelectedDeptId] = useState<DepartmentId>('electronics');
   const [selectedProductId, setSelectedProductId] = useState<string>('prod-aura-anc');
   const [selectedOrderId, setSelectedOrderId] = useState<string>('BM-99214-FASH-ELEC-HOME');
   const [isCommandPaletteOpen, setCommandPaletteOpen] = useState(false);
-  const [theme, setThemeState] = useState<'dark' | 'light'>('dark');
+  const [theme, setThemeState] = useState<'dark' | 'light'>('light');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [products, setProducts] = useState<Product[]>(PRODUCTS);
+  const [coupons, setCoupons] = useState<Coupon[]>(INITIAL_COUPONS);
+  const [reviews, setReviews] = useState<Review[]>(INITIAL_REVIEWS);
 
   // Initial products inventory state
   const [inventory, setInventory] = useState<Record<string, { stock: number; buffer: number; status: 'optimal' | 'low_warning' | 'critical' }>>(() => {
@@ -107,6 +140,10 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return map;
   });
 
+  const [catalogStatus, setCatalogStatus] = useState<Record<string, 'live' | 'paused'>>(() =>
+    Object.fromEntries(PRODUCTS.map((product) => [product.id, 'live']))
+  );
+
   // Initial staff
   const [staffList, setStaffList] = useState<StaffMember[]>(STAFF_MEMBERS);
 
@@ -116,7 +153,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   // Initial Wishlist
   const [wishlist, setWishlist] = useState<string[]>(['prod-aura-anc', 'prod-night-serum', 'prod-wool-coat', 'prod-dutch-oven']);
 
-  // Initial Cart seeded to match Image 4 ($405 subtotal, $393.66 total with ONECART)
+  // Initial multi-department demo cart.
   const [cart, setCart] = useState<CartItem[]>(() => {
     const p1 = PRODUCTS.find((p) => p.id === 'prod-aura-anc')!;
     const p2 = PRODUCTS.find((p) => p.id === 'prod-night-serum')!;
@@ -169,6 +206,27 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setTimeout(() => {
       setToast((prev) => ({ ...prev, show: false }));
     }, 3200);
+  };
+
+  const loginWithDemo = (email: string, password: string) => {
+    const account = getDemoAccount(email, password);
+    if (!account) {
+      return { success: false, message: 'That demo login ID and password do not match.' };
+    }
+
+    setCurrentUser(account);
+    setCurrentRole(account.role);
+    setLoginModalOpen(false);
+    setActiveView(account.role === 'shopper' ? 'home' : account.role === 'dept_manager' ? 'dept_manager' : 'store_admin');
+    showToastNotification('Demo Access Granted', `${account.name} signed in as ${account.roleLabel}.`);
+    return { success: true, message: 'Signed in.' };
+  };
+
+  const logout = () => {
+    setCurrentUser(null);
+    setCurrentRole('shopper');
+    setActiveView('home');
+    showToastNotification('Signed Out', 'You are browsing the BLOWMAGGY storefront as a guest.');
   };
 
   // Pre-seed an order matching the timeline in Image 10
@@ -224,8 +282,8 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   // Selected product object
   const selectedProduct = useMemo(() => {
-    return PRODUCTS.find((p) => p.id === selectedProductId) || PRODUCTS[0];
-  }, [selectedProductId]);
+    return products.find((p) => p.id === selectedProductId) || products[0];
+  }, [selectedProductId, products]);
 
   // Calculations
   const { cartSubtotal, cartTotalQuantity, departmentMix } = useMemo(() => {
@@ -257,11 +315,11 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, [cart]);
 
   const couponDiscountAmount = useMemo(() => {
-    if (couponCode.toUpperCase() === 'ONECART' && cartSubtotal >= 75) {
-      return cartSubtotal * 0.1;
-    }
-    return 0;
-  }, [couponCode, cartSubtotal]);
+    const coupon = coupons.find((item) => item.code === couponCode && item.isActive);
+    return coupon && cartSubtotal >= coupon.minimumSubtotal
+      ? Math.round(cartSubtotal * (coupon.discountPercent / 100) * 100) / 100
+      : 0;
+  }, [couponCode, cartSubtotal, coupons]);
 
   const cartShipping = useMemo(() => {
     if (cartSubtotal >= 75 || cart.length === 0) return 0;
@@ -296,6 +354,10 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     quantity = 1,
     variants?: { color?: string; cushion?: string; archFit?: string; size?: string; priceAdd?: number }
   ) => {
+    if (catalogStatus[product.id] === 'paused') {
+      showToastNotification('Product Paused', `${product.name} is temporarily unavailable while the catalog is updated.`);
+      return;
+    }
     const price = product.price + (variants?.priceAdd || 0);
     const cartItemId = `item-${product.id}-${Date.now()}`;
 
@@ -334,7 +396,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     showToastNotification(
       'Added to Universal Cart',
       `${quantity}x ${product.name} pooled into single box`,
-      `+$${(price * quantity).toFixed(2)}`
+      `+${formatInr(price * quantity)}`
     );
   };
 
@@ -362,18 +424,70 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     showToastNotification('Cart Emptied', 'All items cleared from universal box');
   };
 
+  const addProduct = (product: Product) => {
+    if (products.some((item) => item.sku === product.sku)) {
+      showToastNotification('Duplicate SKU', 'Choose a unique SKU before adding this product.');
+      return;
+    }
+    setProducts((previous) => [product, ...previous]);
+    setCatalogStatus((previous) => ({ ...previous, [product.id]: 'live' }));
+    setInventory((previous) => ({ ...previous, [product.sku]: { stock: product.stockCount, buffer: product.safetyBuffer, status: product.stockStatus } }));
+    addAuditLog({ type: 'config_update', title: `${product.name} added to the catalog`, description: `New ${product.department} SKU ${product.sku} is now live in the demo catalog.`, badgeText: product.sku, badgeType: 'success', actor: currentUser?.name || 'Store Admin' });
+    showToastNotification('Product Added', `${product.name} is live in the catalogue.`);
+  };
+
+  const updateProduct = (product: Product) => {
+    setProducts((previous) => previous.map((item) => (item.id === product.id ? product : item)));
+    setCart((previous) => previous.map((item) => (item.product.id === product.id ? { ...item, product } : item)));
+    addAuditLog({ type: 'config_update', title: `${product.name} catalog details updated`, description: `Store Admin changed the shopper-facing product information for ${product.sku}.`, badgeText: product.sku, badgeType: 'success', actor: currentUser?.name || 'Store Admin' });
+    showToastNotification('Product Updated', `${product.name} changes are now visible.`);
+  };
+
+  const deleteProduct = (productId: string) => {
+    const product = products.find((item) => item.id === productId);
+    if (!product) return;
+    setProducts((previous) => previous.filter((item) => item.id !== productId));
+    setCart((previous) => previous.filter((item) => item.product.id !== productId));
+    setWishlist((previous) => previous.filter((id) => id !== productId));
+    setCatalogStatus((previous) => {
+      const { [productId]: _removed, ...remaining } = previous;
+      return remaining;
+    });
+    addAuditLog({ type: 'config_update', title: `${product.name} removed from catalog`, description: `SKU ${product.sku} was removed from active catalogue and shopper cart lines.`, badgeText: product.sku, badgeType: 'danger', actor: currentUser?.name || 'Store Admin' });
+    showToastNotification('Product Deleted', `${product.name} was removed from the catalogue.`);
+  };
+
   const applyCoupon = (code: string) => {
-    if (code.trim().toUpperCase() === 'ONECART') {
-      setCouponCode('ONECART');
-      showToastNotification('Coupon Applied', 'ONECART activated: 10% off entire multi-department cart');
+    const coupon = coupons.find((item) => item.code === code.trim().toUpperCase() && item.isActive);
+    if (coupon && cartSubtotal >= coupon.minimumSubtotal) {
+      setCouponCode(coupon.code);
+      showToastNotification('Coupon Applied', `${coupon.code} activated: ${coupon.discountPercent}% off this edit.`);
       return true;
     }
-    showToastNotification('Invalid Coupon', 'Code not recognized');
+    const existingCoupon = coupons.find((item) => item.code === code.trim().toUpperCase());
+    showToastNotification(existingCoupon ? 'Cart Minimum Not Met' : 'Invalid Coupon', existingCoupon ? `Add at least ${formatInr(existingCoupon.minimumSubtotal)} to use ${existingCoupon.code}.` : 'Code not recognized or currently inactive.');
     return false;
   };
 
   const removeCoupon = () => {
     setCouponCode('');
+  };
+
+  const addCoupon = (coupon: Coupon) => {
+    const normalized = { ...coupon, code: coupon.code.trim().toUpperCase() };
+    if (!normalized.code || coupons.some((item) => item.code === normalized.code)) {
+      showToastNotification('Coupon Not Added', 'Coupon codes must be unique.');
+      return;
+    }
+    setCoupons((previous) => [normalized, ...previous]);
+    addAuditLog({ type: 'config_update', title: `Coupon ${normalized.code} created`, description: `${normalized.discountPercent}% promotion created with ${formatInr(normalized.minimumSubtotal)} cart minimum.`, badgeText: normalized.code, badgeType: 'success', actor: currentUser?.name || 'Store Admin' });
+    showToastNotification('Coupon Created', `${normalized.code} is ready for shoppers.`);
+  };
+
+  const toggleCoupon = (code: string) => {
+    setCoupons((previous) => previous.map((item) => item.code === code ? { ...item, isActive: !item.isActive } : item));
+    const coupon = coupons.find((item) => item.code === code);
+    if (coupon) showToastNotification('Coupon Updated', `${coupon.code} is now ${coupon.isActive ? 'inactive' : 'active'}.`);
   };
 
   const toggleWishlist = (productId: string) => {
@@ -389,6 +503,11 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   const isInWishlist = (productId: string) => wishlist.includes(productId);
+
+  const addReview = (review: Omit<Review, 'id' | 'createdAt' | 'verifiedPurchase'>) => {
+    setReviews((previous) => [{ ...review, id: `review-${Date.now()}`, createdAt: new Date().toISOString(), verifiedPurchase: false }, ...previous]);
+    showToastNotification('Review Submitted', 'Thank you — your review is visible in this demo.');
+  };
 
   const placeOrder = (
     shippingAddress: Order['shippingAddress'],
@@ -417,7 +536,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     setOrders((prev) => [newOrder, ...prev]);
     setSelectedOrderId(newOrder.consignmentId);
     setCart([]);
-    showToastNotification('Order Confirmed!', `Manifest ${newOrder.consignmentId} cross-dock dispatched`, `$${newOrder.total.toFixed(2)}`);
+    showToastNotification('Order Confirmed!', `Manifest ${newOrder.consignmentId} cross-dock dispatched`, formatInr(newOrder.total));
 
     // Add to audit trail
     addAuditLog({
@@ -430,6 +549,38 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     });
 
     return newOrder;
+  };
+
+  const updateOrderStatus = (orderId: string, status: Order['status']) => {
+    const order = orders.find((item) => item.id === orderId);
+    if (!order || order.status === status) return;
+
+    setOrders((previous) => previous.map((item) => (item.id === orderId ? { ...item, status } : item)));
+    addAuditLog({
+      type: 'approval',
+      title: `Order ${order.id} moved to ${status.replaceAll('_', ' ')}`,
+      description: `Store-level fulfillment state was updated in the demo order workflow.`,
+      badgeText: order.id,
+      badgeType: 'success',
+      actor: currentUser?.name || 'Store Admin',
+    });
+    showToastNotification('Order Status Updated', `${order.id} is now ${status.replaceAll('_', ' ')}.`);
+  };
+
+  const updateCatalogStatus = (productId: string, status: 'live' | 'paused') => {
+    const product = products.find((item) => item.id === productId);
+    if (!product || catalogStatus[productId] === status) return;
+
+    setCatalogStatus((previous) => ({ ...previous, [productId]: status }));
+    addAuditLog({
+      type: 'config_update',
+      title: `${product.name} catalog listing ${status}`,
+      description: `Product visibility was ${status === 'live' ? 'restored to shopper browse and search' : 'paused from shopper browse and search'}.`,
+      badgeText: product.sku,
+      badgeType: status === 'live' ? 'success' : 'warning',
+      actor: currentUser?.name || 'Store Admin',
+    });
+    showToastNotification('Catalog Updated', `${product.name} is now ${status}.`);
   };
 
   const assignManager = (name: string, email: string, assignedDeptIds: DepartmentId[]) => {
@@ -492,11 +643,11 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
     addAuditLog({
       type: 'inventory_adjustment',
-      title: `Marcus Chen signed stock variance (${delta > 0 ? `+${delta}` : delta}) for ${title} [${sku}]`,
-      description: `Audit Reason: ${reason} • Scoped authority verified under DEP-02/03 credential`,
+      title: `${currentUser?.name || 'Department Manager'} signed stock variance (${delta > 0 ? `+${delta}` : delta}) for ${title} [${sku}]`,
+      description: `Audit reason: ${reason} • Demo permission boundary checked before mutation.`,
       badgeText: sku,
       badgeType: 'neutral',
-      actor: 'Marcus Chen',
+      actor: currentUser?.name || 'Department Manager',
     });
 
     showToastNotification('Stock Mutation Signed', `${delta > 0 ? `+${delta}` : delta} units logged to distributed operations ledger`);
@@ -556,6 +707,11 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         setActiveView,
         currentRole,
         setCurrentRole,
+        currentUser,
+        isLoginModalOpen,
+        setLoginModalOpen,
+        loginWithDemo,
+        logout,
         selectedDeptId,
         setSelectedDeptId,
         selectedProductId,
@@ -568,10 +724,19 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         updateCartQuantity,
         removeFromCart,
         clearCart,
+        products,
+        addProduct,
+        updateProduct,
+        deleteProduct,
+        searchQuery,
+        setSearchQuery,
         couponCode,
         applyCoupon,
         removeCoupon,
         couponDiscountAmount,
+        coupons,
+        addCoupon,
+        toggleCoupon,
         cartSubtotal,
         cartTax,
         cartShipping,
@@ -583,6 +748,11 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         isInWishlist,
         orders,
         placeOrder,
+        updateOrderStatus,
+        catalogStatus,
+        updateCatalogStatus,
+        reviews,
+        addReview,
         staffList,
         assignManager,
         revokeStaff,

@@ -1,4 +1,4 @@
-import { DepartmentInfo, Product, StaffMember, AuditLogItem } from '../types/store';
+import { DepartmentId, DepartmentInfo, Product, StaffMember, AuditLogItem } from '../types/store';
 
 export const DEPARTMENTS: Record<string, DepartmentInfo> = {
   fashion: {
@@ -373,6 +373,98 @@ export const PRODUCTS: Product[] = [
   },
 ];
 
+// A full 33-SKU showcase catalogue gives every department enough depth for
+// browsing, filtering and the admin demonstration without requiring a network.
+const CATALOG_EXTENSION: Array<{
+  name: string;
+  department: DepartmentId;
+  category: string;
+  price: number;
+  badge: string;
+}> = [
+  { name: 'Emerald Silk Saree', department: 'fashion', category: 'Shirting', price: 145, badge: 'Handwoven Silk' },
+  { name: 'Cobalt Evening Dress', department: 'fashion', category: 'Accessories', price: 320, badge: 'Satin Atelier' },
+  { name: 'Linen Market Apron', department: 'fashion', category: 'Accessories', price: 115, badge: 'Washed Linen' },
+  { name: 'Hand-Finished Loafer', department: 'fashion', category: 'Footwear', price: 220, badge: 'Made in Florence' },
+  { name: 'Technical Travel Trouser', department: 'fashion', category: 'Tailoring & Coats', price: 168, badge: 'Four-Way Stretch' },
+  { name: 'Vitamin C Radiance Concentrate', department: 'beauty', category: 'Skincare', price: 74, badge: 'Clinical Grade' },
+  { name: 'Ceramide Barrier Cream', department: 'beauty', category: 'Skincare', price: 58, badge: 'Sensitive Skin' },
+  { name: 'Rose Quartz Facial Tool', department: 'beauty', category: 'Ritual Tools', price: 42, badge: 'Hand Carved' },
+  { name: 'Neroli Discovery Set', department: 'beauty', category: 'Fragrance', price: 95, badge: 'Small Batch' },
+  { name: 'Overnight Lip Mask', department: 'beauty', category: 'Skincare', price: 26, badge: 'Vegan Formula' },
+  { name: 'Nova 5G Smartphone', department: 'electronics', category: 'Smartphones', price: 489, badge: '108MP Camera' },
+  { name: 'AeroBook Pro Laptop', department: 'electronics', category: 'Laptops', price: 899, badge: '16GB • 1TB SSD' },
+  { name: 'Aura ANC Headphones', department: 'electronics', category: 'Headphones', price: 189, badge: '40hr Battery' },
+  { name: 'Pulse True Wireless Earphones', department: 'electronics', category: 'Earphones', price: 78, badge: 'Spatial Audio' },
+  { name: 'Pocket Cinema Projector', department: 'electronics', category: 'Home Entertainment', price: 330, badge: '4K Ready' },
+  { name: 'Linen Duvet Cover Set', department: 'home', category: 'Bedroom', price: 182, badge: 'European Flax' },
+  { name: 'Hand-Poured Stoneware Mug', department: 'home', category: 'Tableware', price: 36, badge: 'Studio Glaze' },
+  { name: 'Oak Modular Shelf', department: 'home', category: 'Furniture', price: 275, badge: 'FSC Certified' },
+  { name: 'Scented Candle Trio', department: 'home', category: 'Home Fragrance', price: 69, badge: 'Slow Burn' },
+  { name: 'Wool Reading Throw', department: 'home', category: 'Living', price: 120, badge: 'Merino Blend' },
+  { name: 'Himalayan Pink Salt Flakes', department: 'grocery', category: 'Gourmet Pantry', price: 18, badge: 'Mineral Rich' },
+  { name: 'Single-Origin Coffee Set', department: 'grocery', category: 'Artisanal Reserve', price: 54, badge: 'Roaster Selection' },
+  { name: 'Aged Balsamic Reserve', department: 'grocery', category: 'Gourmet Pantry', price: 46, badge: 'Modena IGP' },
+  { name: 'Pantry Pasta Collection', department: 'grocery', category: 'Artisanal Reserve', price: 38, badge: 'Bronze Cut' },
+  { name: 'Build-Your-Own Robot Kit', department: 'kids', category: 'STEM & Heirloom', price: 82, badge: 'Screen-Free' },
+  { name: 'Organic Cotton Play Tent', department: 'kids', category: 'Playroom', price: 130, badge: 'Natural Dyes' },
+  { name: 'Constellation Puzzle 500pc', department: 'kids', category: 'STEM & Heirloom', price: 29, badge: 'Museum Quality' },
+  { name: 'Wooden Balance Blocks', department: 'kids', category: 'Montessori', price: 48, badge: 'Heirloom Beechwood' },
+];
+
+const DEPARTMENT_PREFIX: Record<DepartmentId, string> = {
+  fashion: 'FA', beauty: 'BT', electronics: 'EL', home: 'HL', grocery: 'GR', kids: 'KT',
+};
+
+const FASHION_PRODUCT_IMAGES = [
+  '/assets/products/emerald-saree.png',
+  '/assets/products/cobalt-evening-dress.png',
+  'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=900&q=85',
+  'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85',
+  'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85',
+];
+const DEPARTMENT_PRODUCT_IMAGES: Record<DepartmentId, string[]> = {
+  fashion: FASHION_PRODUCT_IMAGES,
+  beauty: ['https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1631214540553-3040e5c8e89d?auto=format&fit=crop&w=900&q=85'],
+  electronics: ['https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=900&q=85'],
+  home: ['https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1583845112203-454c8d5e3b4b?auto=format&fit=crop&w=900&q=85'],
+  grocery: ['https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=85'],
+  kids: ['https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1560961911-ba7ef651a56c?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1599443015574-be5fe8a05783?auto=format&fit=crop&w=900&q=85'],
+};
+
+PRODUCTS.push(
+  ...CATALOG_EXTENSION.map((entry, index) => {
+    const department = DEPARTMENTS[entry.department];
+    const imageSource = PRODUCTS.find((product) => product.department === entry.department)!;
+    const departmentItemIndex = CATALOG_EXTENSION.slice(0, index).filter((item) => item.department === entry.department).length;
+    const sku = `SKU-${DEPARTMENT_PREFIX[entry.department]}-${2000 + index}`;
+    return {
+      id: `prod-extension-${index + 1}`,
+      sku,
+      name: entry.name,
+      department: entry.department,
+      deptLabel: department.title,
+      deptNumber: department.deptNumber,
+      category: entry.category,
+      price: entry.price,
+      rating: Number((4.5 + (index % 5) / 10).toFixed(1)),
+      reviewsCount: 28 + index * 11,
+      inStock: true,
+      stockCount: 18 + (index * 7) % 75,
+      safetyBuffer: 12,
+      stockStatus: index % 9 === 0 ? 'low_warning' as const : 'optimal' as const,
+      description: entry.department === 'electronics'
+        ? `${entry.name}: a carefully selected ${entry.category.toLowerCase()} essential with everyday performance, clear controls and dependable warranty support.`
+        : `${entry.name} is selected for the BLOWMAGGY ${department.title.toLowerCase()} edit, with considered materials, practical details and lasting utility.`,
+      extendedDescription: `A limited-run article from the ${department.title} team, available for one consolidated delivery.`,
+      badge: entry.badge,
+      tagline: `${department.title} • ${sku}`,
+      images: { front: DEPARTMENT_PRODUCT_IMAGES[entry.department][departmentItemIndex] ?? imageSource.images.front },
+      variants: entry.department === 'fashion' ? { sizes: ['S', 'M', 'L', 'XL'] } : undefined,
+    };
+  })
+);
+
 export const STAFF_MEMBERS: StaffMember[] = [
   {
     id: 'staff-marcus',
@@ -446,7 +538,7 @@ export const INITIAL_AUDIT_LOGS: AuditLogItem[] = [
     timestamp: '2026-10-23T07:23:00Z',
     timeAgo: '1h 22m ago',
     type: 'config_update',
-    title: 'Promotional Coupon ONECART updated: 10% off multi-department orders over $75',
+    title: 'Promotional Coupon ONECART updated: 10% off multi-department orders over ₹6,225',
     description: 'Applies across unified multi-category carts • Target lift on single-checkout cart density',
     badgeText: 'GLOBAL PROMO',
     badgeType: 'warning',

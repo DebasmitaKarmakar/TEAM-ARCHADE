@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useStore } from '../context/StoreContext';
-import { Product } from '../types/store';
-import { PRODUCTS } from '../data/mockData';
+import { useStore } from '../../context/StoreContext';
+import { Product } from '../../types/store';
+import { ReviewSection } from '../../components/catalog/ReviewSection';
+import { formatInr } from '../../lib/currency';
 
 
 export const ProductDetailPage: React.FC = () => {
@@ -12,6 +13,7 @@ export const ProductDetailPage: React.FC = () => {
     isInWishlist,
     setActiveView,
     navigateToDept,
+    products,
   } = useStore();
 
   const product = selectedProduct;
@@ -174,6 +176,10 @@ export const ProductDetailPage: React.FC = () => {
                 </span>
                 <span>Acoustic Lab Calibrated</span>
               </div>
+            </div>
+
+            <div className="mt-8">
+              <ReviewSection productId={product.id} />
             </div>
           </div>
         </div>
@@ -650,7 +656,7 @@ export const ProductDetailPage: React.FC = () => {
                 <div className="flex items-baseline justify-between">
                   <div className="flex items-baseline gap-2">
                     <span className="font-['Space_Grotesk'] text-3xl font-bold text-white">
-                      ${unitPrice.toFixed(2)}
+                      {formatInr(unitPrice)}
                     </span>
                     <span className="font-['Space_Grotesk'] text-[10px] uppercase text-[#8f9194]">USD</span>
                     <span className="px-2 py-0.5 bg-[#ba012d]/20 text-[#ffb3b3] font-['Space_Grotesk'] text-[10px] font-bold rounded uppercase">
@@ -673,7 +679,7 @@ export const ProductDetailPage: React.FC = () => {
 
                 <div className="flex items-center gap-2 pt-1 font-['Hanken_Grotesk'] text-[12px] text-[#c5c7c9]">
                   <span className="material-symbols-outlined text-[16px] text-[#00dbe9]">credit_score</span>
-                  <span>Or 4 interest-free payments of <strong className="text-white">${(unitPrice / 4).toFixed(2)}</strong> with Klarna</span>
+                  <span>Or 4 interest-free payments of <strong className="text-white">{formatInr(unitPrice / 4)}</strong> with Klarna</span>
                 </div>
               </div>
 
@@ -758,7 +764,7 @@ export const ProductDetailPage: React.FC = () => {
                             </div>
                           </div>
                           <span className="font-['Space_Grotesk'] text-[12px] font-bold font-mono text-white shrink-0">
-                            {cush.priceAdd === 0 ? 'Included' : `+$${cush.priceAdd}.00`}
+                            {cush.priceAdd === 0 ? 'Included' : `+${formatInr(cush.priceAdd)}`}
                           </span>
                         </label>
                       ))}
@@ -843,7 +849,7 @@ export const ProductDetailPage: React.FC = () => {
                     className="flex-1 flex items-center justify-center gap-2 bg-white text-[#121316] py-3.5 px-4 rounded font-['Space_Grotesk'] text-[14px] font-bold uppercase tracking-wider hover:bg-[#ba012d] hover:text-white transition-all shadow-md active:scale-[0.99] cursor-pointer"
                   >
                     <span className="material-symbols-outlined text-[18px]">shopping_bag</span>
-                    <span>Add to Unified Cart — ${totalPrice.toFixed(2)}</span>
+                    <span>Add to Unified Cart — {formatInr(totalPrice)}</span>
                   </button>
 
                   {/* Wishlist */}
@@ -967,7 +973,7 @@ export const ProductDetailPage: React.FC = () => {
                       <div className="p-4 space-y-1">
                         <div className="flex items-baseline justify-between">
                           <h3 className="font-['Bodoni_Moda'] text-[17px] font-semibold text-white">{pair.name}</h3>
-                          <span className="font-['Space_Grotesk'] text-[16px] font-bold text-white">${pair.price.toFixed(2)}</span>
+                          <span className="font-['Space_Grotesk'] text-[16px] font-bold text-white">{formatInr(pair.price)}</span>
                         </div>
                         <p className="font-['Hanken_Grotesk'] text-[12px] text-[#8f9194] leading-relaxed">
                           {pair.desc}
@@ -978,13 +984,13 @@ export const ProductDetailPage: React.FC = () => {
                     <div className="p-4 pt-0">
                       <button
                         onClick={() => {
-                          const matched = PRODUCTS.find((p) => p.id === pair.id);
+                          const matched = products.find((p) => p.id === pair.id);
                           if (matched) addToCart(matched, 1);
                         }}
                         className="w-full flex items-center justify-center gap-2 bg-[#292a2d] hover:bg-white hover:text-[#121316] py-2.5 px-3 rounded text-white font-['Space_Grotesk'] text-[12px] uppercase font-bold tracking-wider transition-all cursor-pointer border border-[#44474a]"
                       >
                         <span className="material-symbols-outlined text-[16px]">add_shopping_cart</span>
-                        <span>+ Bundle into Box (${pair.price.toFixed(0)})</span>
+                        <span>+ Bundle into Box ({formatInr(pair.price)})</span>
                       </button>
                     </div>
                   </div>
