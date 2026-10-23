@@ -250,7 +250,15 @@ export const RetailProductDetailPage: React.FC = () => {
                   <span className="grid h-full min-w-9 place-items-center font-bold text-[#1d2345]">{quantity}</span>
                   <button type="button" onClick={() => setQuantity((value) => value + 1)} className="grid h-full w-11 place-items-center text-lg text-[#1d2345] hover:bg-[#eee8df]" aria-label="Increase quantity">+</button>
                 </div>
-                <button type="button" disabled={!product.inStock} onClick={handleAddToCart} className="min-h-12 flex-1 rounded-lg bg-[#1d2345] px-5 font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#343a72] disabled:cursor-not-allowed disabled:opacity-50"><span className="material-symbols-outlined mr-2 align-middle text-[18px]">shopping_bag</span>Add to cart · {formatInr(unitPrice * quantity)}</button>
+                <button
+                  type="button"
+                  disabled={!product.inStock}
+                  onClick={handleAddToCart}
+                  className="min-h-12 flex-1 rounded-lg bg-gradient-to-r from-[#4f46e5] via-[#6d5bd0] to-[#7c3aed] px-5 font-bold text-[#fffdf8] shadow-[0_10px_22px_rgba(79,70,229,.24)] transition hover:-translate-y-0.5 hover:from-[#4338ca] hover:via-[#5b4cc4] hover:to-[#6d28d9] focus-visible:outline-[#4f46e5] disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  <span className="material-symbols-outlined mr-2 align-middle text-[18px]">shopping_bag</span>
+                  Add to bag · {formatInr(unitPrice * quantity)}
+                </button>
               </div>
             </div>
 
