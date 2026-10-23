@@ -4,14 +4,13 @@
 
 ## 🚀 About
 
-TEAM-ARCHADE is a competition coding team from NFSU Guwahati, focused on building visually stunning, technically elegant web experiences under time pressure.
+TEAM-ARCHADE is a competition coding team from NFSU Guwahati for the Prompt War / Vibe Coding at Techfest Spectrona, focused on building visually stunning, technically elegant web experiences under time pressure.
 
 ## 🛠️ Tech Stack
 
-- **Core**: HTML5, CSS3, JavaScript (ES6+)
-- **Design**: Glassmorphism, Gradient aesthetics, Micro-animations
-- **Fonts**: Outfit, Inter, JetBrains Mono
-- **Deployment**: Vercel / Netlify / GitHub Pages
+- **Backend**: Node.js, Express, TypeScript, Prisma ORM, PostgreSQL (Neon)
+- **Frontend**: Modern Web UI, Glassmorphism, Micro-animations
+- **Architecture**: Modular Monolith
 
 ## 👥 Team
 
@@ -20,11 +19,8 @@ TEAM-ARCHADE is a competition coding team from NFSU Guwahati, focused on buildin
 ## 📂 Structure
 
 ```
-├── .agents/           # AI-powered development customizations
-│   ├── skills/        # Competition workflow skills
-│   └── rules/         # Code & design standards
-├── brain.md           # Project memory & session logs
-└── README.md          # This file
+├── backend/           # Node.js + Express + Prisma API service
+└── README.md          # Project overview
 ```
 
 ## 🎯 Philosophy
